@@ -236,8 +236,9 @@
             this.buttonAddProduct.Name = "buttonAddProduct";
             this.buttonAddProduct.Size = new System.Drawing.Size(75, 23);
             this.buttonAddProduct.TabIndex = 23;
-            this.buttonAddProduct.Text = "New";
+            this.buttonAddProduct.Text = "Thêm";
             this.buttonAddProduct.UseVisualStyleBackColor = true;
+            this.buttonAddProduct.Click += new System.EventHandler(this.SelectOrder);
             // 
             // dataGridView
             // 

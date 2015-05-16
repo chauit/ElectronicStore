@@ -97,5 +97,11 @@ namespace ElectronicStore.Main
             drlVehicle.DisplayMember = "Name";
             drlVehicle.ValueMember = "Id";
         }
+
+        private void SelectOrder(object sender, EventArgs e)
+        {
+            var dialog = new SearchOrder();
+            dialog.ShowDialog();
+        }
     }
 }
