@@ -264,7 +264,7 @@
             // 
             // Customer
             // 
-            this.Customer.DataPropertyName = "Customer";
+            this.Customer.DataPropertyName = "CustomerName";
             this.Customer.HeaderText = "Khách hàng";
             this.Customer.Name = "Customer";
             this.Customer.ReadOnly = true;
