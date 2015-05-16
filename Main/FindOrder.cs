@@ -14,7 +14,7 @@ namespace ElectronicStore.Main
 {
     public partial class FindOrder : Form
     {
-        public FindOrder SelectedOrder;
+        public SearchOrder SelectedOrder;
 
         public FindOrder()
         {

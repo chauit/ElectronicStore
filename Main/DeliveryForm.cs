@@ -15,6 +15,8 @@ namespace ElectronicStore.Main
 
         private void InitForm()
         {
+            dataGridView.AutoGenerateColumns = false;
+
             buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 
@@ -103,7 +105,7 @@ namespace ElectronicStore.Main
 
         private void SelectOrder(object sender, EventArgs e)
         {
-            var dialog = new SearchOrder();
+            var dialog = new FindOrder();
             var result = dialog.ShowDialog();
 
             if (result == System.Windows.Forms.DialogResult.OK)
@@ -117,8 +119,10 @@ namespace ElectronicStore.Main
                     }
 
                     listOrder.Add(order);
-
+                                        
+                    dataGridView.DataSource = null;
                     dataGridView.DataSource = listOrder;
+                    dataGridView.Refresh();
                 }
             }
         }
