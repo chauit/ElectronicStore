@@ -2,6 +2,7 @@
 using ElectronicStore.Common;
 using Model;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ElectronicStore.Main
@@ -9,6 +10,8 @@ namespace ElectronicStore.Main
     public partial class DeliveryForm : Form
     {
         private int itemId;
+
+        private List<SearchOrder> listOrder;
 
         private void InitForm()
         {
@@ -101,7 +104,23 @@ namespace ElectronicStore.Main
         private void SelectOrder(object sender, EventArgs e)
         {
             var dialog = new SearchOrder();
-            dialog.ShowDialog();
+            var result = dialog.ShowDialog();
+
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                var order = dialog.SelectedOrder;
+                if (order != null)
+                {
+                    if (listOrder == null)
+                    {
+                        listOrder = new List<SearchOrder>();
+                    }
+
+                    listOrder.Add(order);
+
+                    dataGridView.DataSource = listOrder;
+                }
+            }
         }
     }
 }
