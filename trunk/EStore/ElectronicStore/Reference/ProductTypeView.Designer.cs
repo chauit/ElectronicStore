@@ -101,14 +101,16 @@
             // 
             // cbo
             // 
+            this.cbo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20.30457F;
+            this.cbo.FillWeight = 20F;
             this.cbo.HeaderText = "";
             this.cbo.IndeterminateValue = "";
             this.cbo.MinimumWidth = 20;
             this.cbo.Name = "cbo";
             this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.cbo.TrueValue = "1";
+            this.cbo.Width = 30;
             // 
             // ProductTypeName
             // 
