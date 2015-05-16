@@ -153,6 +153,12 @@
     </Compile>
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Utilities.cs" />
+    <Compile Include="Main\SearchOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\SearchOrder.Designer.cs">
+      <DependentUpon>SearchOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\OrderDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\RoleView.resx">
       <DependentUpon>RoleView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\SearchOrder.resx">
+      <DependentUpon>SearchOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\OrderDetailForm.resx">
       <DependentUpon>OrderDetailForm.cs</DependentUpon>
