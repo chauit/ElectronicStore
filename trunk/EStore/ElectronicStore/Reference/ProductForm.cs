@@ -32,7 +32,7 @@ namespace ElectronicStore.Reference
             drlType.Items.Clear();
             drlType.DataSource = types;
             drlType.DisplayMember = "Name";
-            drlType.ValueMember = "Id";
+            drlType.ValueMember = "Id";            
         }
 
         public ProductForm()
