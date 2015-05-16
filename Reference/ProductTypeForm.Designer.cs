@@ -56,13 +56,13 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(15, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(464, 106);
+            this.groupBox1.Size = new System.Drawing.Size(629, 106);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(360, 62);
+            this.button2.Location = new System.Drawing.Point(548, 62);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -72,7 +72,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(265, 62);
+            this.buttonSave.Location = new System.Drawing.Point(467, 62);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 2;
@@ -84,7 +84,7 @@
             // 
             this.textName.Location = new System.Drawing.Point(135, 22);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(300, 20);
+            this.textName.Size = new System.Drawing.Size(488, 20);
             this.textName.TabIndex = 1;
             // 
             // errorProvider
@@ -96,7 +96,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(496, 140);
+            this.ClientSize = new System.Drawing.Size(668, 140);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ProductTypeForm";
