@@ -36,10 +36,6 @@
             this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductTypeCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductTypeCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductTypeModified = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductTypeModifiedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,23 +53,20 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cbo,
             this.ProductTypeName,
-            this.RoleId,
-            this.ProductTypeCreated,
-            this.ProductTypeCreatedBy,
-            this.ProductTypeModified,
-            this.ProductTypeModifiedBy});
+            this.RoleId});
             this.dataGridView.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView.Location = new System.Drawing.Point(15, 50);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(778, 250);
+            this.dataGridView.Size = new System.Drawing.Size(778, 425);
             this.dataGridView.TabIndex = 1;
             // 
             // buttonUpdate
@@ -116,7 +109,6 @@
             this.cbo.Name = "cbo";
             this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.cbo.TrueValue = "1";
-            this.cbo.Width = 36;
             // 
             // ProductTypeName
             // 
@@ -124,7 +116,6 @@
             this.ProductTypeName.FillWeight = 179.6954F;
             this.ProductTypeName.HeaderText = "Tên loại sản phẩm";
             this.ProductTypeName.Name = "ProductTypeName";
-            this.ProductTypeName.Width = 200;
             // 
             // RoleId
             // 
@@ -133,42 +124,12 @@
             this.RoleId.Name = "RoleId";
             this.RoleId.Visible = false;
             // 
-            // ProductTypeCreated
-            // 
-            this.ProductTypeCreated.DataPropertyName = "Created";
-            this.ProductTypeCreated.HeaderText = "Ngày tạo";
-            this.ProductTypeCreated.Name = "ProductTypeCreated";
-            this.ProductTypeCreated.ReadOnly = true;
-            // 
-            // ProductTypeCreatedBy
-            // 
-            this.ProductTypeCreatedBy.DataPropertyName = "CreatedBy";
-            this.ProductTypeCreatedBy.HeaderText = "Người tạo";
-            this.ProductTypeCreatedBy.Name = "ProductTypeCreatedBy";
-            this.ProductTypeCreatedBy.ReadOnly = true;
-            this.ProductTypeCreatedBy.Width = 150;
-            // 
-            // ProductTypeModified
-            // 
-            this.ProductTypeModified.DataPropertyName = "Modified";
-            this.ProductTypeModified.HeaderText = "Ngày sửa";
-            this.ProductTypeModified.Name = "ProductTypeModified";
-            this.ProductTypeModified.ReadOnly = true;
-            // 
-            // ProductTypeModifiedBy
-            // 
-            this.ProductTypeModifiedBy.DataPropertyName = "ModifiedBy";
-            this.ProductTypeModifiedBy.HeaderText = "Người sửa";
-            this.ProductTypeModifiedBy.Name = "ProductTypeModifiedBy";
-            this.ProductTypeModifiedBy.ReadOnly = true;
-            this.ProductTypeModifiedBy.Width = 150;
-            // 
             // ProductTypeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(810, 395);
+            this.ClientSize = new System.Drawing.Size(810, 509);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonUpdate);
@@ -191,9 +152,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn cbo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeCreated;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeCreatedBy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeModified;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeModifiedBy;
     }
 }
