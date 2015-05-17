@@ -33,9 +33,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textValue = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.textKey = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.textKey = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -80,6 +80,13 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Giá trị:";
             // 
+            // textKey
+            // 
+            this.textKey.Location = new System.Drawing.Point(102, 22);
+            this.textKey.Name = "textKey";
+            this.textKey.Size = new System.Drawing.Size(219, 20);
+            this.textKey.TabIndex = 1;
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(327, 132);
@@ -99,13 +106,6 @@
             this.buttonSave.Text = "Cập nhật";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.SaveItem);
-            // 
-            // textKey
-            // 
-            this.textKey.Location = new System.Drawing.Point(102, 22);
-            this.textKey.Name = "textKey";
-            this.textKey.Size = new System.Drawing.Size(300, 20);
-            this.textKey.TabIndex = 1;
             // 
             // errorProvider
             // 
