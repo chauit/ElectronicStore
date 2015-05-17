@@ -42,15 +42,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonNew
             // 
-            this.buttonNew.Location = new System.Drawing.Point(11, 13);
+            this.buttonNew.Location = new System.Drawing.Point(6, 15);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(70, 23);
             this.buttonNew.TabIndex = 0;
@@ -134,7 +136,7 @@
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(87, 13);
+            this.buttonUpdate.Location = new System.Drawing.Point(82, 15);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(70, 23);
             this.buttonUpdate.TabIndex = 2;
@@ -144,7 +146,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(163, 13);
+            this.buttonDelete.Location = new System.Drawing.Point(158, 15);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(70, 23);
             this.buttonDelete.TabIndex = 3;
@@ -154,7 +156,7 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(239, 13);
+            this.buttonRefresh.Location = new System.Drawing.Point(234, 15);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(70, 23);
             this.buttonRefresh.TabIndex = 4;
@@ -164,10 +166,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.buttonUpdate);
-            this.panel1.Controls.Add(this.buttonRefresh);
-            this.panel1.Controls.Add(this.buttonNew);
-            this.panel1.Controls.Add(this.buttonDelete);
+            this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -194,6 +193,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách khách hàng";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.buttonNew);
+            this.groupBox2.Controls.Add(this.buttonUpdate);
+            this.groupBox2.Controls.Add(this.buttonDelete);
+            this.groupBox2.Controls.Add(this.buttonRefresh);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(810, 44);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            // 
             // CustomerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +220,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -228,5 +241,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
