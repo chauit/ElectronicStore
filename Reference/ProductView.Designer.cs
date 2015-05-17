@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.buttonUpdate = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +57,7 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -62,14 +65,15 @@
             this.ProductType,
             this.RoleId,
             this.ProductName,
+            this.Code,
             this.ProductPrice});
             this.dataGridView.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView.Location = new System.Drawing.Point(15, 50);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(730, 250);
+            this.dataGridView.Size = new System.Drawing.Size(930, 436);
             this.dataGridView.TabIndex = 1;
             // 
             // buttonUpdate
@@ -104,6 +108,7 @@
             // 
             // cbo
             // 
+            this.cbo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.cbo.FalseValue = "0";
             this.cbo.FillWeight = 20.30457F;
             this.cbo.HeaderText = "";
@@ -112,7 +117,7 @@
             this.cbo.Name = "cbo";
             this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.cbo.TrueValue = "1";
-            this.cbo.Width = 36;
+            this.cbo.Width = 30;
             // 
             // ProductType
             // 
@@ -120,7 +125,6 @@
             this.ProductType.FillWeight = 179.6954F;
             this.ProductType.HeaderText = "Loại sản phẩm";
             this.ProductType.Name = "ProductType";
-            this.ProductType.Width = 250;
             // 
             // RoleId
             // 
@@ -135,22 +139,31 @@
             this.ProductName.HeaderText = "Tên sản phẩm";
             this.ProductName.Name = "ProductName";
             this.ProductName.ReadOnly = true;
-            this.ProductName.Width = 250;
+            // 
+            // Code
+            // 
+            this.Code.DataPropertyName = "Code";
+            this.Code.HeaderText = "Ký hiệu";
+            this.Code.Name = "Code";
+            this.Code.ReadOnly = true;
             // 
             // ProductPrice
             // 
             this.ProductPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle4.Format = "0,000";
+            dataGridViewCellStyle4.NullValue = null;
+            this.ProductPrice.DefaultCellStyle = dataGridViewCellStyle4;
             this.ProductPrice.HeaderText = "Giá";
             this.ProductPrice.Name = "ProductPrice";
             this.ProductPrice.ReadOnly = true;
-            this.ProductPrice.Width = 150;
             // 
             // ProductView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(810, 395);
+            this.ClientSize = new System.Drawing.Size(964, 498);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonUpdate);
@@ -174,6 +187,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductType;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductPrice;
     }
 }
