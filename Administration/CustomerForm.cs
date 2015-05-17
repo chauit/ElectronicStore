@@ -194,5 +194,10 @@ namespace ElectronicStore.Administration
             
             return hasError;
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
