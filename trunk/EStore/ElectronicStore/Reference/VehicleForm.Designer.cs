@@ -58,15 +58,15 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textLicensePlate);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.buttonSave);
             this.groupBox1.Controls.Add(this.textName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 15);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(489, 175);
+            this.groupBox1.Size = new System.Drawing.Size(428, 127);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông tin chung";
             // 
             // drlType
             // 
@@ -75,7 +75,7 @@
             this.drlType.Items.AddRange(new object[] {
             "Ô tô",
             "Xe Máy"});
-            this.drlType.Location = new System.Drawing.Point(152, 57);
+            this.drlType.Location = new System.Drawing.Point(117, 57);
             this.drlType.Name = "drlType";
             this.drlType.Size = new System.Drawing.Size(300, 21);
             this.drlType.TabIndex = 2;
@@ -91,7 +91,7 @@
             // 
             // textLicensePlate
             // 
-            this.textLicensePlate.Location = new System.Drawing.Point(152, 92);
+            this.textLicensePlate.Location = new System.Drawing.Point(117, 92);
             this.textLicensePlate.Name = "textLicensePlate";
             this.textLicensePlate.Size = new System.Drawing.Size(300, 20);
             this.textLicensePlate.TabIndex = 3;
@@ -107,7 +107,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(377, 131);
+            this.button2.Location = new System.Drawing.Point(342, 133);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
@@ -117,7 +117,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(280, 131);
+            this.buttonSave.Location = new System.Drawing.Point(261, 133);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 4;
@@ -127,9 +127,9 @@
             // 
             // textName
             // 
-            this.textName.Location = new System.Drawing.Point(152, 22);
+            this.textName.Location = new System.Drawing.Point(116, 22);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(300, 20);
+            this.textName.Size = new System.Drawing.Size(209, 20);
             this.textName.TabIndex = 1;
             // 
             // errorProvider
@@ -141,9 +141,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(520, 213);
+            this.ClientSize = new System.Drawing.Size(428, 163);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "VehicleForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
