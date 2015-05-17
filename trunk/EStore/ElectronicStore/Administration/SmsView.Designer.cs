@@ -30,13 +30,6 @@
         {
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.RoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +37,13 @@
             this.FieldCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FieldModified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FieldModifiedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -84,78 +84,6 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(804, 324);
             this.dataGridView.TabIndex = 1;
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Location = new System.Drawing.Point(88, 19);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(70, 23);
-            this.buttonUpdate.TabIndex = 2;
-            this.buttonUpdate.Text = "Sửa";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.UpdateItem);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Location = new System.Drawing.Point(164, 19);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(70, 23);
-            this.buttonDelete.TabIndex = 3;
-            this.buttonDelete.Text = "Xóa";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.DeleteItem);
-            // 
-            // buttonRefresh
-            // 
-            this.buttonRefresh.Location = new System.Drawing.Point(240, 19);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(70, 23);
-            this.buttonRefresh.TabIndex = 4;
-            this.buttonRefresh.Text = "Cập nhật";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
-            this.buttonRefresh.Click += new System.EventHandler(this.RefreshItems);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dataGridView);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(810, 343);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh sách email template";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.buttonUpdate);
-            this.groupBox2.Controls.Add(this.buttonNew);
-            this.groupBox2.Controls.Add(this.buttonRefresh);
-            this.groupBox2.Controls.Add(this.buttonDelete);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(810, 52);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(810, 52);
-            this.panel1.TabIndex = 7;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 52);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(810, 343);
-            this.panel2.TabIndex = 8;
             // 
             // cbo
             // 
@@ -213,6 +141,78 @@
             this.FieldModifiedBy.Name = "FieldModifiedBy";
             this.FieldModifiedBy.ReadOnly = true;
             this.FieldModifiedBy.Width = 150;
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Location = new System.Drawing.Point(88, 19);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(70, 23);
+            this.buttonUpdate.TabIndex = 2;
+            this.buttonUpdate.Text = "Sửa";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.UpdateItem);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(164, 19);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(70, 23);
+            this.buttonDelete.TabIndex = 3;
+            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.DeleteItem);
+            // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Location = new System.Drawing.Point(240, 19);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(70, 23);
+            this.buttonRefresh.TabIndex = 4;
+            this.buttonRefresh.Text = "Cập nhật";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.RefreshItems);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dataGridView);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(810, 343);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Danh sách SMS template";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.buttonUpdate);
+            this.groupBox2.Controls.Add(this.buttonNew);
+            this.groupBox2.Controls.Add(this.buttonRefresh);
+            this.groupBox2.Controls.Add(this.buttonDelete);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(810, 52);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(810, 52);
+            this.panel1.TabIndex = 7;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 52);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(810, 343);
+            this.panel2.TabIndex = 8;
             // 
             // SmsView
             // 
