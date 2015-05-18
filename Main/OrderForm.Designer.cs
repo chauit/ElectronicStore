@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateOrderDate = new System.Windows.Forms.DateTimePicker();
@@ -51,7 +51,8 @@
             this.buttonDeleteProduct = new System.Windows.Forms.Button();
             this.buttonAddProduct = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.columnTenHang = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ColumnTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -255,7 +256,8 @@
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.columnTenHang,
+            this.ColumnTen,
+            this.ColumnCode,
             this.Quantity,
             this.Price,
             this.Total,
@@ -266,14 +268,22 @@
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.Size = new System.Drawing.Size(704, 203);
             this.dataGridView.TabIndex = 0;
+            this.dataGridView.DataSourceChanged += new System.EventHandler(this.ChangeSource);
             this.dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.UpdateQuantity);
-            this.dataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.DirtyStateChanged);
             // 
-            // columnTenHang
+            // ColumnTen
             // 
-            this.columnTenHang.DataPropertyName = "Product";
-            this.columnTenHang.HeaderText = "Tên hàng";
-            this.columnTenHang.Name = "columnTenHang";
+            this.ColumnTen.DataPropertyName = "Name";
+            this.ColumnTen.HeaderText = "Tên mặt hàng";
+            this.ColumnTen.Name = "ColumnTen";
+            this.ColumnTen.ReadOnly = true;
+            // 
+            // ColumnCode
+            // 
+            this.ColumnCode.DataPropertyName = "Code";
+            this.ColumnCode.HeaderText = "Mã mặt hàng";
+            this.ColumnCode.Name = "ColumnCode";
+            this.ColumnCode.ReadOnly = true;
             // 
             // Quantity
             // 
@@ -284,17 +294,18 @@
             // Price
             // 
             this.Price.DataPropertyName = "Price";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.Price.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle1.Format = "0,000";
+            this.Price.DefaultCellStyle = dataGridViewCellStyle1;
             this.Price.HeaderText = "Đơn giá";
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
             // 
             // Total
             // 
-            this.Total.DataPropertyName = "Total";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.Total.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Total.DataPropertyName = "TotalValue";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle2;
             this.Total.HeaderText = "Tổng";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
@@ -355,7 +366,8 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button buttonDeleteProduct;
         private System.Windows.Forms.DateTimePicker dateOrderDate;
-        private System.Windows.Forms.DataGridViewComboBoxColumn columnTenHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
