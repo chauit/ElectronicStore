@@ -31,7 +31,7 @@ namespace ElectronicStore.Main
             LoadCustomer();
             LoadProduct();
 
-            removedItems = new List<int>();
+            removedItems = new List<int>();            
         }
 
         private void LoadProduct()
@@ -40,7 +40,7 @@ namespace ElectronicStore.Main
             var biz = new ProductBiz();
             this.columnTenHang.DataPropertyName = "Product";
             this.columnTenHang.ValueMember = "Id";
-            this.columnTenHang.DisplayMember = "Name";
+            this.columnTenHang.DisplayMember = "Code";
             this.columnTenHang.DataSource = biz.LoadItems();            
         }
 
@@ -201,7 +201,16 @@ namespace ElectronicStore.Main
 
         private void AddNewProduct(object sender, EventArgs e)
         {
-            dataGridView.Rows.Add();
+            int count = dataGridView.Rows.Count;
+            if (count == 0)
+            {
+                dataGridView.Rows.Add();
+                dataGridView.Rows.Add();
+            }
+            else
+            {
+                dataGridView.Rows.Insert(count - 1, 1);
+            }
         }
 
         private void UpdateQuantity(object sender, DataGridViewCellEventArgs e)
@@ -312,6 +321,6 @@ namespace ElectronicStore.Main
                     biz.SaveItem(detail);                    
                 }                
             }
-        }        
+        }
     }
 }

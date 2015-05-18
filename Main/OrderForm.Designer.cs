@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateOrderDate = new System.Windows.Forms.DateTimePicker();
@@ -250,6 +252,7 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnTenHang,
@@ -260,7 +263,8 @@
             this.dataGridView.Location = new System.Drawing.Point(28, 48);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(704, 162);
+            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView.Size = new System.Drawing.Size(704, 203);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.UpdateQuantity);
             this.dataGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.DirtyStateChanged);
@@ -270,30 +274,30 @@
             this.columnTenHang.DataPropertyName = "Product";
             this.columnTenHang.HeaderText = "Tên hàng";
             this.columnTenHang.Name = "columnTenHang";
-            this.columnTenHang.Width = 250;
             // 
             // Quantity
             // 
             this.Quantity.DataPropertyName = "Quantity";
             this.Quantity.HeaderText = "Số lượng (m)";
             this.Quantity.Name = "Quantity";
-            this.Quantity.Width = 110;
             // 
             // Price
             // 
             this.Price.DataPropertyName = "Price";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.Price.DefaultCellStyle = dataGridViewCellStyle5;
             this.Price.HeaderText = "Đơn giá";
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
-            this.Price.Width = 150;
             // 
             // Total
             // 
             this.Total.DataPropertyName = "Total";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle6;
             this.Total.HeaderText = "Tổng";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
-            this.Total.Width = 150;
             // 
             // Id
             // 
