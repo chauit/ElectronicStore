@@ -30,18 +30,16 @@
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.textCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateOrderDate = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.drlMonth = new System.Windows.Forms.ComboBox();
-            this.drlCustomer = new System.Windows.Forms.ComboBox();
-            this.cboOrderDate = new System.Windows.Forms.CheckBox();
+            this.textName = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.DeliveryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drlProductType = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ColumnProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -51,161 +49,123 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DeliveryId,
-            this.StartDate,
-            this.EndDate,
-            this.Status,
+            this.ColumnProductType,
+            this.ColumnName,
+            this.ColumnCode,
             this.RoleId});
             this.dataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView.Location = new System.Drawing.Point(12, 133);
+            this.dataGridView.Location = new System.Drawing.Point(12, 170);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(769, 291);
+            this.dataGridView.Size = new System.Drawing.Size(769, 316);
             this.dataGridView.TabIndex = 1;
-            this.dataGridView.DoubleClick += new System.EventHandler(this.SelectOrder);
+            this.dataGridView.DoubleClick += new System.EventHandler(this.SelectProduct);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.buttonSearch);
-            this.groupBox1.Controls.Add(this.cboOrderDate);
-            this.groupBox1.Controls.Add(this.drlCustomer);
-            this.groupBox1.Controls.Add(this.drlMonth);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.dateOrderDate);
+            this.groupBox1.Controls.Add(this.textCode);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.textName);
+            this.groupBox1.Controls.Add(this.buttonSearch);
+            this.groupBox1.Controls.Add(this.drlProductType);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(769, 99);
+            this.groupBox1.Size = new System.Drawing.Size(769, 152);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Điều kiện tìm kiếm";
             // 
-            // label1
+            // textCode
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Ngày tạo hợp đồng";
+            this.textCode.Location = new System.Drawing.Point(122, 92);
+            this.textCode.Name = "textCode";
+            this.textCode.Size = new System.Drawing.Size(215, 20);
+            this.textCode.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(268, 25);
+            this.label2.Location = new System.Drawing.Point(20, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Tên khách hàng";
+            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Mã sản phẩm";
             // 
-            // dateOrderDate
+            // textName
             // 
-            this.dateOrderDate.Enabled = false;
-            this.dateOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateOrderDate.Location = new System.Drawing.Point(156, 22);
-            this.dateOrderDate.Name = "dateOrderDate";
-            this.dateOrderDate.Size = new System.Drawing.Size(82, 20);
-            this.dateOrderDate.TabIndex = 2;
-            this.dateOrderDate.TabStop = false;
+            this.textName.Location = new System.Drawing.Point(122, 57);
+            this.textName.Name = "textName";
+            this.textName.Size = new System.Drawing.Size(215, 20);
+            this.textName.TabIndex = 2;
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(655, 22);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.TabIndex = 4;
+            this.buttonSearch.Text = "Tìm kiếm";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.Search);
+            // 
+            // drlProductType
+            // 
+            this.drlProductType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.drlProductType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.drlProductType.FormattingEnabled = true;
+            this.drlProductType.Location = new System.Drawing.Point(122, 22);
+            this.drlProductType.Name = "drlProductType";
+            this.drlProductType.Size = new System.Drawing.Size(494, 21);
+            this.drlProductType.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(20, 60);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Tháng";
+            this.label3.Text = "Tên sản phẩm";
             // 
-            // drlMonth
+            // label1
             // 
-            this.drlMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.drlMonth.FormattingEnabled = true;
-            this.drlMonth.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.drlMonth.Location = new System.Drawing.Point(140, 57);
-            this.drlMonth.Name = "drlMonth";
-            this.drlMonth.Size = new System.Drawing.Size(98, 21);
-            this.drlMonth.TabIndex = 4;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Loại sản phẩm";
             // 
-            // drlCustomer
+            // ColumnProductType
             // 
-            this.drlCustomer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.drlCustomer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.drlCustomer.FormattingEnabled = true;
-            this.drlCustomer.Location = new System.Drawing.Point(360, 22);
-            this.drlCustomer.Name = "drlCustomer";
-            this.drlCustomer.Size = new System.Drawing.Size(301, 21);
-            this.drlCustomer.TabIndex = 3;
+            this.ColumnProductType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColumnProductType.DataPropertyName = "TypeValue";
+            this.ColumnProductType.HeaderText = "Loại sản phẩm";
+            this.ColumnProductType.Name = "ColumnProductType";
+            this.ColumnProductType.ReadOnly = true;
+            this.ColumnProductType.Width = 370;
             // 
-            // cboOrderDate
+            // ColumnName
             // 
-            this.cboOrderDate.AutoSize = true;
-            this.cboOrderDate.Location = new System.Drawing.Point(140, 24);
-            this.cboOrderDate.Name = "cboOrderDate";
-            this.cboOrderDate.Size = new System.Drawing.Size(15, 14);
-            this.cboOrderDate.TabIndex = 1;
-            this.cboOrderDate.UseVisualStyleBackColor = true;
-            this.cboOrderDate.CheckedChanged += new System.EventHandler(this.SelectOrderDate);
+            this.ColumnName.DataPropertyName = "Name";
+            this.ColumnName.HeaderText = "Tên sản phẩm";
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.ReadOnly = true;
             // 
-            // buttonSearch
+            // ColumnCode
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(586, 55);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
-            this.buttonSearch.TabIndex = 5;
-            this.buttonSearch.Text = "Tìm kiếm";
-            this.buttonSearch.UseVisualStyleBackColor = true;
-            this.buttonSearch.Click += new System.EventHandler(this.Search);
-            // 
-            // DeliveryId
-            // 
-            this.DeliveryId.DataPropertyName = "OrderId";
-            this.DeliveryId.HeaderText = "Mã đơn hàng";
-            this.DeliveryId.Name = "DeliveryId";
-            this.DeliveryId.ReadOnly = true;
-            this.DeliveryId.Width = 150;
-            // 
-            // StartDate
-            // 
-            this.StartDate.DataPropertyName = "OrderDate";
-            this.StartDate.HeaderText = "Ngày tạo đơn hàng";
-            this.StartDate.Name = "StartDate";
-            this.StartDate.ReadOnly = true;
-            this.StartDate.Width = 150;
-            // 
-            // EndDate
-            // 
-            this.EndDate.DataPropertyName = "DeliveryDate";
-            this.EndDate.HeaderText = "Ngày chuyển hàng";
-            this.EndDate.Name = "EndDate";
-            this.EndDate.ReadOnly = true;
-            this.EndDate.Width = 150;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "CustomerName";
-            this.Status.HeaderText = "Khách hàng";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 250;
+            this.ColumnCode.DataPropertyName = "Code";
+            this.ColumnCode.HeaderText = "Mã sản phẩm";
+            this.ColumnCode.Name = "ColumnCode";
+            this.ColumnCode.ReadOnly = true;
             // 
             // RoleId
             // 
@@ -214,16 +174,16 @@
             this.RoleId.Name = "RoleId";
             this.RoleId.Visible = false;
             // 
-            // SearchOrder
+            // FindProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(810, 436);
+            this.ClientSize = new System.Drawing.Size(810, 498);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "SearchOrder";
+            this.Name = "FindProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tìm kiếm đơn hàng";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -238,17 +198,15 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateOrderDate;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox drlMonth;
-        private System.Windows.Forms.ComboBox drlCustomer;
-        private System.Windows.Forms.CheckBox cboOrderDate;
+        private System.Windows.Forms.ComboBox drlProductType;
         private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DeliveryId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.TextBox textCode;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProductType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
     }
 }

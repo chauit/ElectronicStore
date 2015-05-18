@@ -14,7 +14,7 @@ namespace ElectronicStore.Main
 {
     public partial class FindProduct : Form
     {
-        public SearchOrder SelectedOrder;
+        public SearchProduct SelectedProduct;
 
         public FindProduct()
         {
@@ -22,63 +22,39 @@ namespace ElectronicStore.Main
 
             dataGridView.AutoGenerateColumns = false;
 
-            LoadCustomer();
+            LoadProductType();
         }
 
-        private void LoadCustomer()
+        private void LoadProductType()
         {
-            var biz = new CustomerBiz();
+            var biz = new ProductTypeBiz();
             var items = biz.LoadItems();
-            items.Insert(0, new Customer());
+            items.Insert(0, new ProductType());
 
-            drlCustomer.Items.Clear();
-            drlCustomer.DataSource = items;
-            drlCustomer.DisplayMember = "FullName";
-            drlCustomer.ValueMember = "Id";
+            drlProductType.Items.Clear();
+            drlProductType.DataSource = items;
+            drlProductType.DisplayMember = "Name";
+            drlProductType.ValueMember = "Id";
         }
 
         private void Search(object sender, EventArgs e)
         {
-            DateTime? date = null;
-            int? month = null;
-            int? customerId = null;
-
-            string value = Convert.ToString(drlMonth.SelectedItem);
-            if (!string.IsNullOrEmpty(value))
+            int? typeId = null;
+                        
+            if (drlProductType.SelectedItem != null && Convert.ToInt32(drlProductType.SelectedValue) > 0)
             {
-                month = int.Parse(value);
-            }
+                typeId = Convert.ToInt32(Convert.ToString(drlProductType.SelectedValue));
+            }           
 
-            if (drlCustomer.SelectedItem != null && Convert.ToInt32(drlCustomer.SelectedValue) > 0)
-            {
-                customerId = Convert.ToInt32(Convert.ToString(drlCustomer.SelectedValue));
-            }
-
-            if (cboOrderDate.Checked)
-            {
-                date = dateOrderDate.Value;
-            }
-
-            var biz = new OrderBiz();
-            dataGridView.DataSource = biz.SearchOrder(date, month, customerId);
+            var biz = new ProductBiz();
+            dataGridView.DataSource = biz.SearchProduct(typeId, textName.Text, textCode.Text);
         }
-
-        private void SelectOrderDate(object sender, EventArgs e)
-        {
-            dateOrderDate.Enabled = cboOrderDate.Checked;
-            dateOrderDate.TabStop = cboOrderDate.Checked;
-
-            if (cboOrderDate.Checked)
-            {
-                dateOrderDate.Focus();    
-            }
-        }
-
-        private void SelectOrder(object sender, EventArgs e)
+        
+        private void SelectProduct(object sender, EventArgs e)
         {
             if (dataGridView.SelectedRows.Count > 0)
             {
-                SelectedOrder = dataGridView.SelectedRows[0].DataBoundItem as SearchOrder;
+                SelectedProduct = dataGridView.SelectedRows[0].DataBoundItem as SearchProduct;
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
                 this.Close();
             }

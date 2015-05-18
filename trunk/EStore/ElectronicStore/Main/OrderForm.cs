@@ -19,6 +19,8 @@ namespace ElectronicStore.Main
         private int currentUser;
 
         public List<int> removedItems;
+        private List<SearchProduct> listProduct;
+        private bool HasFooter;
 
         private void InitForm()
         {
@@ -29,20 +31,10 @@ namespace ElectronicStore.Main
             currentUser = 6;
 
             LoadCustomer();
-            LoadProduct();
+            removedItems = new List<int>();
 
-            removedItems = new List<int>();            
-        }
-
-        private void LoadProduct()
-        {
             dataGridView.AutoGenerateColumns = false;
-            var biz = new ProductBiz();
-            this.columnTenHang.DataPropertyName = "Product";
-            this.columnTenHang.ValueMember = "Id";
-            this.columnTenHang.DisplayMember = "Code";
-            this.columnTenHang.DataSource = biz.LoadItems();            
-        }
+        }        
 
         public OrderForm()
         {
@@ -201,15 +193,34 @@ namespace ElectronicStore.Main
 
         private void AddNewProduct(object sender, EventArgs e)
         {
-            int count = dataGridView.Rows.Count;
-            if (count == 0)
+            var dialog = new FindProduct();
+            var result = dialog.ShowDialog();
+
+            if (result == System.Windows.Forms.DialogResult.OK)
             {
-                dataGridView.Rows.Add();
-                dataGridView.Rows.Add();
-            }
-            else
-            {
-                dataGridView.Rows.Insert(count - 1, 1);
+                var product = dialog.SelectedProduct;
+                if (product != null)
+                {
+                    if (listProduct == null)
+                    {
+                        listProduct = new List<SearchProduct>();
+                    }
+
+                    if (!HasFooter)
+                    {
+                        listProduct.Add(product);                        
+                        listProduct.Add(new SearchProduct());
+                        HasFooter = true;
+                    }
+                    else
+                    {
+                        listProduct.Insert(listProduct.Count - 1, product);
+                    }
+
+                    dataGridView.DataSource = null;
+                    dataGridView.DataSource = listProduct;
+                    dataGridView.Refresh();
+                }
             }
         }
 
@@ -217,48 +228,26 @@ namespace ElectronicStore.Main
         {
             if (e.RowIndex == -1) return;
 
-            var row = dataGridView.Rows[e.RowIndex];
+            var row = dataGridView.Rows[e.RowIndex];            
 
-            if (e.ColumnIndex == 0)
+            if (e.ColumnIndex == 2)
             {
-                DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)row.Cells[0];
-                int id = 0;
-                if (cb.Value != null && int.TryParse(Convert.ToString(cb.Value), out id))
-                {
-                    var product = LoadProductItem(id);
-                    if (product != null)
-                    {
-                        row.Cells[2].Value = product.Price.ToString("0,000");
-                    }
-                    dataGridView.Invalidate();
-                }
-            }
-
-            if (e.ColumnIndex == 1)
-            {
-                var obj = row.Cells[2].Value;
+                var obj = row.Cells[3].Value;
                 if (obj != null)
                 {
                     decimal price = Convert.ToDecimal(obj);
                     if (price > 0)
                     {
                         int number = 0;
-                        if (int.TryParse(Convert.ToString(row.Cells[1].Value), out number))
+                        if (int.TryParse(Convert.ToString(row.Cells[2].Value), out number))
                         {
                             decimal total = price * number;
-                            row.Cells[3].Value = total.ToString("0,000");
+                            row.Cells[4].Value = total.ToString("0,000");
+
+                            UpdateTotal();
                         }
                     }
                 }
-            }
-        }
-
-        private void DirtyStateChanged(object sender, EventArgs e)
-        {
-            if (dataGridView.IsCurrentCellDirty)
-            {
-                // This fires the cell value changed handler below
-                dataGridView.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
 
@@ -284,17 +273,29 @@ namespace ElectronicStore.Main
         }
 
         private void DeleteProduct(object sender, EventArgs e)
-        {            
+        {   
             if (dataGridView.SelectedRows.Count > 0)
             {
                 int index = dataGridView.SelectedRows[0].Index;
-                var content = Convert.ToString(dataGridView.SelectedRows[0].Cells[4].Value);
+
+                if (index == dataGridView.RowCount - 1) return;
+
+                var content = Convert.ToString(dataGridView.SelectedRows[0].Cells[5].Value);
                 if (!string.IsNullOrEmpty(content))
                 {
                     removedItems.Add(int.Parse(content));
                 }
 
-                dataGridView.Rows.RemoveAt(index);
+                listProduct.RemoveAt(index);
+                if (listProduct.Count == 1)
+                {
+                    listProduct.Clear();
+                    HasFooter = false;
+                }
+
+                dataGridView.DataSource = null;
+                dataGridView.DataSource = listProduct;
+                dataGridView.Refresh();                
             }
         }
 
@@ -320,6 +321,31 @@ namespace ElectronicStore.Main
                     detail.Total = Convert.ToDecimal(total);
                     biz.SaveItem(detail);                    
                 }                
+            }
+        }
+
+        private void ChangeSource(object sender, EventArgs e)
+        {
+            UpdateTotal();
+        }
+
+        private void UpdateTotal()
+        {
+            if (dataGridView.RowCount > 1)
+            {
+                decimal total = 0;
+                for (int i = 0; i <= dataGridView.RowCount - 2; i++)
+                {
+                    var item = dataGridView.Rows[i].DataBoundItem as SearchProduct;
+                    if (item != null && !string.IsNullOrEmpty(item.TotalValue))
+                    {
+                        decimal itemTotal = Convert.ToDecimal(item.TotalValue);
+                        total += itemTotal;
+                    }
+                }
+
+                var footer = dataGridView.Rows[dataGridView.RowCount - 1];
+                footer.Cells[4].Value = "Tổng: " + total.ToString("0,000");
             }
         }
     }
