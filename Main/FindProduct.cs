@@ -1,14 +1,7 @@
-﻿using Business;
-using Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using Business;
+using Model;
 
 namespace ElectronicStore.Main
 {
@@ -55,7 +48,7 @@ namespace ElectronicStore.Main
             if (dataGridView.SelectedRows.Count > 0)
             {
                 SelectedProduct = dataGridView.SelectedRows[0].DataBoundItem as SearchProduct;
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
