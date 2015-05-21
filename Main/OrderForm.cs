@@ -243,6 +243,7 @@ namespace ElectronicStore.Main
                         {
                             decimal total = price * number;
                             row.Cells[4].Value = total.ToString("0,000");
+                            row.Cells[6].Value = total;
 
                             UpdateTotal();
                         }
@@ -304,21 +305,17 @@ namespace ElectronicStore.Main
             var biz = new OrderDetailBiz();
             biz.RemoveItemsByOrderId(order.Id);
 
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            for(int i=0;i<dataGridView.RowCount -2;i++)
             {
-                DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)row.Cells[0];
-                string total = Convert.ToString(row.Cells[3].Value);
-                string quantity = Convert.ToString(row.Cells[1].Value);
-                string price = Convert.ToString(row.Cells[2].Value);
-                int id = 0;
-                if (cb.Value != null && int.TryParse(Convert.ToString(cb.Value), out id)  && !string.IsNullOrEmpty(total))
-                {
+                var entity = dataGridView.Rows[i].DataBoundItem as SearchProduct;
+                if (entity != null && entity.Total > 0)
+                { 
                     var detail = new OrderDetail();
                     detail.OrderId = order.Id;
-                    detail.ProductId = id;
-                    detail.Quantity = Convert.ToInt32(quantity);
-                    detail.ProductPrice = Convert.ToDecimal(price);
-                    detail.Total = Convert.ToDecimal(total);
+                    detail.ProductId = entity.Id;
+                    detail.Quantity = entity.Quantity.Value;
+                    detail.ProductPrice = entity.Price.Value;
+                    detail.Total = entity.Total.Value;
                     biz.SaveItem(detail);                    
                 }                
             }
