@@ -57,6 +57,7 @@
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -261,7 +262,8 @@
             this.Quantity,
             this.Price,
             this.Total,
-            this.Id});
+            this.Id,
+            this.ColumnTotal});
             this.dataGridView.Location = new System.Drawing.Point(28, 48);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
@@ -318,6 +320,14 @@
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
             // 
+            // ColumnTotal
+            // 
+            this.ColumnTotal.DataPropertyName = "Total";
+            this.ColumnTotal.HeaderText = "Total";
+            this.ColumnTotal.Name = "ColumnTotal";
+            this.ColumnTotal.ReadOnly = true;
+            this.ColumnTotal.Visible = false;
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -372,5 +382,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotal;
     }
 }
