@@ -1,16 +1,9 @@
-﻿using ElectronicStore.Administration;
+﻿using System;
+using System.Windows.Forms;
+using ElectronicStore.Administration;
 using ElectronicStore.Common;
 using ElectronicStore.Main;
 using ElectronicStore.Reference;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ElectronicStore
 {
@@ -21,7 +14,13 @@ namespace ElectronicStore
         public MDI()
         {
             InitializeComponent();
-            treeView.ExpandAll();            
+            treeView.ExpandAll();  
+            LicenseUtil utilities = new LicenseUtil();
+            var license = utilities.Read("License");
+            if (!StringComparer.OrdinalIgnoreCase.Equals(license, "ElectronicStore"))
+            {
+                Application.Exit();
+            }
         }
 
         RoleForm roleForm;
@@ -75,19 +74,19 @@ namespace ElectronicStore
             }
         }
 
-        private void ExitForm(object sender, System.EventArgs e)
+        private void ExitForm(object sender, EventArgs e)
         {            
             Application.Exit();
         }
 
-        private void ChangePassword(object sender, System.EventArgs e)
+        private void ChangePassword(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        private void Login(object sender, System.EventArgs e)
+        private void Login(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }        
 
         private void SelectNode(object sender, TreeViewEventArgs e)

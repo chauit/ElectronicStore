@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ElectronicStore.Common
 {
@@ -42,7 +40,7 @@ namespace ElectronicStore.Common
                 }
                 message.BodyEncoding = Encoding.UTF8;
                 message.IsBodyHtml = true;
-                EmailHelper.SendMail(smtpServer, smtpPort, smtpUsername, smtpPassword, message);
+                SendMail(smtpServer, smtpPort, smtpUsername, smtpPassword, message);
             }
         }
 
