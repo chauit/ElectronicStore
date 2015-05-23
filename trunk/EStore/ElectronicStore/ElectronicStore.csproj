@@ -156,7 +156,6 @@
       <DependentUpon>RoleView.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\Constants.cs" />
-    <Compile Include="Common\EmailHelper.cs" />
     <Compile Include="Common\LicenseUtil.cs" />
     <Compile Include="Common\Utilities.cs" />
     <Compile Include="Main\FindProduct.cs">
