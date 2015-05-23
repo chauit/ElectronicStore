@@ -289,8 +289,9 @@ namespace ElectronicStore.Main
                 searchOrder.DeliveryTime = detail.Time;
                 searchOrder.Status = detail.Order.Status;
                 searchOrder.CustomerName = detail.Order.CustomerName;
-                searchOrder.OrderId = detail.Order.OrderId;
+                searchOrder.OrderNo = detail.Order.OrderNo;
                 searchOrder.Id = detail.Order.Id;
+                searchOrder.DeliveryInternal = detail.Order.DeliveryInternal;
 
                 listOrder.Add(searchOrder);
             }

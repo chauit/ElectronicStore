@@ -30,6 +30,12 @@
         {
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,12 +43,6 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeliveryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -84,63 +84,6 @@
             this.dataGridView.Size = new System.Drawing.Size(804, 321);
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CellClicked);
-            // 
-            // cbo
-            // 
-            this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20.30457F;
-            this.cbo.HeaderText = "";
-            this.cbo.IndeterminateValue = "";
-            this.cbo.MinimumWidth = 20;
-            this.cbo.Name = "cbo";
-            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cbo.TrueValue = "1";
-            this.cbo.Width = 36;
-            // 
-            // OrderId
-            // 
-            this.OrderId.DataPropertyName = "OrderId";
-            this.OrderId.HeaderText = "Mã đơn hàng";
-            this.OrderId.Name = "OrderId";
-            this.OrderId.ReadOnly = true;
-            // 
-            // Customer
-            // 
-            this.Customer.DataPropertyName = "CustomerName";
-            this.Customer.HeaderText = "Khách hàng";
-            this.Customer.Name = "Customer";
-            this.Customer.ReadOnly = true;
-            this.Customer.Width = 200;
-            // 
-            // OrderDate
-            // 
-            this.OrderDate.DataPropertyName = "OrderDate";
-            this.OrderDate.HeaderText = "Ngày tạo đơn hàng";
-            this.OrderDate.Name = "OrderDate";
-            this.OrderDate.ReadOnly = true;
-            this.OrderDate.Width = 150;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Tình trạng";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // DeliveryDate
-            // 
-            this.DeliveryDate.DataPropertyName = "DeliveryDate";
-            this.DeliveryDate.HeaderText = "Ngày chuyển hàng";
-            this.DeliveryDate.Name = "DeliveryDate";
-            this.DeliveryDate.ReadOnly = true;
-            this.DeliveryDate.Width = 150;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
             // 
             // buttonDelete
             // 
@@ -203,6 +146,63 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách hóa đơn";
             // 
+            // cbo
+            // 
+            this.cbo.FalseValue = "0";
+            this.cbo.FillWeight = 20.30457F;
+            this.cbo.HeaderText = "";
+            this.cbo.IndeterminateValue = "";
+            this.cbo.MinimumWidth = 20;
+            this.cbo.Name = "cbo";
+            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cbo.TrueValue = "1";
+            this.cbo.Width = 36;
+            // 
+            // OrderId
+            // 
+            this.OrderId.DataPropertyName = "OrderNo";
+            this.OrderId.HeaderText = "Mã đơn hàng";
+            this.OrderId.Name = "OrderId";
+            this.OrderId.ReadOnly = true;
+            // 
+            // Customer
+            // 
+            this.Customer.DataPropertyName = "CustomerName";
+            this.Customer.HeaderText = "Khách hàng";
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
+            this.Customer.Width = 200;
+            // 
+            // OrderDate
+            // 
+            this.OrderDate.DataPropertyName = "OrderDate";
+            this.OrderDate.HeaderText = "Ngày tạo đơn hàng";
+            this.OrderDate.Name = "OrderDate";
+            this.OrderDate.ReadOnly = true;
+            this.OrderDate.Width = 150;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Tình trạng";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // DeliveryDate
+            // 
+            this.DeliveryDate.DataPropertyName = "DeliveryDate";
+            this.DeliveryDate.HeaderText = "Ngày chuyển hàng";
+            this.DeliveryDate.Name = "DeliveryDate";
+            this.DeliveryDate.ReadOnly = true;
+            this.DeliveryDate.Width = 150;
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
+            // 
             // OrderView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,6 +228,10 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cbo;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
@@ -235,9 +239,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn DeliveryDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

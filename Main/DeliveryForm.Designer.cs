@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimeStartTime = new System.Windows.Forms.DateTimePicker();
@@ -52,12 +52,12 @@
             this.buttonDeleteProduct = new System.Windows.Forms.Button();
             this.buttonAddProduct = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.buttonSendSms = new System.Windows.Forms.Button();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonSendSms = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -287,6 +287,16 @@
             this.dataGridView.Size = new System.Drawing.Size(604, 196);
             this.dataGridView.TabIndex = 0;
             // 
+            // buttonSendSms
+            // 
+            this.buttonSendSms.Location = new System.Drawing.Point(683, 105);
+            this.buttonSendSms.Name = "buttonSendSms";
+            this.buttonSendSms.Size = new System.Drawing.Size(75, 23);
+            this.buttonSendSms.TabIndex = 6;
+            this.buttonSendSms.Text = "Send SMS";
+            this.buttonSendSms.UseVisualStyleBackColor = true;
+            this.buttonSendSms.Click += new System.EventHandler(this.SaveAndSendMessages);
+            // 
             // Customer
             // 
             this.Customer.DataPropertyName = "CustomerName";
@@ -296,7 +306,7 @@
             // 
             // OrderId
             // 
-            this.OrderId.DataPropertyName = "OrderID";
+            this.OrderId.DataPropertyName = "OrderNo";
             this.OrderId.HeaderText = "Mã đơn hàng";
             this.OrderId.Name = "OrderId";
             this.OrderId.ReadOnly = true;
@@ -311,9 +321,9 @@
             // ColumnTime
             // 
             this.ColumnTime.DataPropertyName = "DeliveryTime";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColumnTime.HeaderText = "Thời gian";
             this.ColumnTime.Name = "ColumnTime";
             // 
@@ -324,16 +334,6 @@
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
-            // 
-            // buttonSendSms
-            // 
-            this.buttonSendSms.Location = new System.Drawing.Point(683, 105);
-            this.buttonSendSms.Name = "buttonSendSms";
-            this.buttonSendSms.Size = new System.Drawing.Size(75, 23);
-            this.buttonSendSms.TabIndex = 6;
-            this.buttonSendSms.Text = "Send SMS";
-            this.buttonSendSms.UseVisualStyleBackColor = true;
-            this.buttonSendSms.Click += new System.EventHandler(this.SaveAndSendMessages);
             // 
             // DeliveryForm
             // 
@@ -385,11 +385,11 @@
         private System.Windows.Forms.DateTimePicker dateTimeStartTime;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSendSms;
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.Button buttonSendSms;
     }
 }
