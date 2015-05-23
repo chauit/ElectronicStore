@@ -19,6 +19,10 @@ namespace ElectronicStore.Main
             InitializeComponent();
 
             dataGridView.AutoGenerateColumns = false;
+
+            var biz = new DeliveryBiz();
+            dataGridView.DataSource = biz.LoadItems();
+            dataGridView.Refresh();
         }
 
         private void NewItem(object sender, EventArgs e)
@@ -36,29 +40,31 @@ namespace ElectronicStore.Main
 
         private void UpdateItem(object sender, EventArgs e)
         {
-            var role = dataGridView.SelectedRows[0].DataBoundItem as Role;
+            var item = dataGridView.SelectedRows[0].DataBoundItem as Delivery;
 
-            var newRole = new OrderForm(role.Id);
-            var result = newRole.ShowDialog();
-            if (result == System.Windows.Forms.DialogResult.OK)
-            {
-                RefreshItems(sender, e);
-            }
+            var parent = this.Parent as SplitterPanel;
+            parent.Controls.Clear();
+
+            var newDelivery = new DeliveryForm(item.Id) { Dock = DockStyle.Fill, TopLevel = false };
+            parent.Controls.Add(newDelivery);
+            newDelivery.Show();
+
+            this.Close();
         }
 
         private void DeleteItem(object sender, EventArgs e)
         {
-            var items = new List<Role>();
+            var items = new List<Delivery>();
 
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
                 if (row.Cells[0].Value != null && row.Cells[0].Value == "1")
                 {
-                    items.Add(row.DataBoundItem as Role);
+                    items.Add(row.DataBoundItem as Delivery);
                 }
             }
 
-            var biz = new RoleBiz();
+            var biz = new DeliveryBiz();
             biz.RemoveItem(items);
 
             RefreshItems(sender, e);            
@@ -66,7 +72,7 @@ namespace ElectronicStore.Main
 
         private void RefreshItems(object sender, EventArgs e)
         {
-            var biz = new RoleBiz();
+            var biz = new DeliveryBiz();
             dataGridView.DataSource = biz.LoadItems();
             dataGridView.Refresh();
         }       
