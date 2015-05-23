@@ -95,38 +95,7 @@ namespace ElectronicStore.Main
         {
             if (CustomValidation())
             {
-                var item = new Delivery();
-                item.DeliveryDate = dateStartDate.Value;
-                item.StartTime = TimeSpan.Parse(dateTimeStartTime.Value.ToString(@"hh\:mm"));
-                item.OtherInformation = textOtherInformation.Text;
-                item.VehicleId = Convert.ToInt32(drlVehicle.SelectedValue);
-
-                if (itemId > 0)
-                {
-                    item.Id = itemId;
-                    item.Created = created;
-                    item.CreatedByUserId = createdBy;
-
-                    item.Modified = DateTime.Now;
-                    item.ModifiedByUserId = currentUser;
-
-                    var biz = new DeliveryBiz();
-                    biz.UpdateItem(item);
-                }
-                else
-                {
-                    item.Status = Constants.DeliveryStatusDraft;
-                    item.Created = DateTime.Now;
-                    item.CreatedByUserId = currentUser;
-
-                    item.Modified = DateTime.Now;
-                    item.ModifiedByUserId = currentUser;
-
-                    var biz = new DeliveryBiz();
-                    biz.SaveItem(item);
-                }
-
-                SaveOrders(item);
+                SaveDelivery();
 
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
@@ -141,6 +110,44 @@ namespace ElectronicStore.Main
             {
                 this.DialogResult = System.Windows.Forms.DialogResult.None;
             }
+        }
+
+        private Delivery SaveDelivery()
+        {
+            var item = new Delivery();
+            item.DeliveryDate = dateStartDate.Value;
+            item.StartTime = TimeSpan.Parse(dateTimeStartTime.Value.ToString(@"hh\:mm"));
+            item.OtherInformation = textOtherInformation.Text;
+            item.VehicleId = Convert.ToInt32(drlVehicle.SelectedValue);
+
+            if (itemId > 0)
+            {
+                item.Id = itemId;
+                item.Created = created;
+                item.CreatedByUserId = createdBy;
+
+                item.Modified = DateTime.Now;
+                item.ModifiedByUserId = currentUser;
+
+                var biz = new DeliveryBiz();
+                biz.UpdateItem(item);
+            }
+            else
+            {
+                item.Status = Constants.DeliveryStatusDraft;
+                item.Created = DateTime.Now;
+                item.CreatedByUserId = currentUser;
+
+                item.Modified = DateTime.Now;
+                item.ModifiedByUserId = currentUser;
+
+                var biz = new DeliveryBiz();
+                biz.SaveItem(item);
+            }
+
+            SaveOrders(item);
+
+            return item;
         }
 
         private void CancelItem(object sender, EventArgs e)
@@ -291,6 +298,43 @@ namespace ElectronicStore.Main
             dataGridView.DataSource = null;
             dataGridView.DataSource = listOrder;
             dataGridView.Refresh();
+        }
+
+        private void DeleteOrder(object sender, EventArgs e)
+        {
+            if (dataGridView.SelectedRows.Count > 0)
+            {
+                int index = dataGridView.SelectedRows[0].Index;
+                listOrder.RemoveAt(index);
+                
+                dataGridView.DataSource = null;
+                dataGridView.DataSource = listOrder;
+                dataGridView.Refresh();
+            }
+        }
+
+        private void SaveAndSendMessages(object sender, EventArgs e)
+        {
+            if (CustomValidation())
+            {
+                var item = SaveDelivery();
+
+                var biz = new DeliveryBiz();
+                biz.SendMessage(item.Id);
+
+                var parent = this.Parent as SplitterPanel;
+                parent.Controls.Clear();
+
+                var deliveryView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
+                parent.Controls.Add(deliveryView);
+                deliveryView.Show();
+
+                this.Close();
+            }
+            else
+            {
+                this.DialogResult = System.Windows.Forms.DialogResult.None;
+            }
         }
     }
 }
