@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimeStartTime = new System.Windows.Forms.DateTimePicker();
@@ -57,6 +57,7 @@
             this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonSendSms = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -255,6 +256,7 @@
             this.buttonDeleteProduct.TabIndex = 25;
             this.buttonDeleteProduct.Text = "Delete";
             this.buttonDeleteProduct.UseVisualStyleBackColor = true;
+            this.buttonDeleteProduct.Click += new System.EventHandler(this.DeleteOrder);
             // 
             // buttonAddProduct
             // 
@@ -309,9 +311,9 @@
             // ColumnTime
             // 
             this.ColumnTime.DataPropertyName = "DeliveryTime";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColumnTime.HeaderText = "Thời gian";
             this.ColumnTime.Name = "ColumnTime";
             // 
@@ -323,12 +325,23 @@
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
             // 
+            // buttonSendSms
+            // 
+            this.buttonSendSms.Location = new System.Drawing.Point(683, 105);
+            this.buttonSendSms.Name = "buttonSendSms";
+            this.buttonSendSms.Size = new System.Drawing.Size(75, 23);
+            this.buttonSendSms.TabIndex = 6;
+            this.buttonSendSms.Text = "Send SMS";
+            this.buttonSendSms.UseVisualStyleBackColor = true;
+            this.buttonSendSms.Click += new System.EventHandler(this.SaveAndSendMessages);
+            // 
             // DeliveryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(769, 588);
+            this.Controls.Add(this.buttonSendSms);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.groupBox1);
@@ -377,5 +390,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.Button buttonSendSms;
     }
 }
