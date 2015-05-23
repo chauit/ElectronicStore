@@ -48,16 +48,47 @@ namespace ElectronicStore.Main
             dateTimeStartTime.Value = DateTime.Now.AddHours(1);
 
             InitForm();
+
+            this.Text = "Thêm thông tin giao hàng";
         }
 
         public DeliveryForm(int id)
         {
             InitializeComponent();
 
+            InitForm();
+
             drlVehicle.Focus();
             itemId = id;
 
-            InitForm();
+            var biz = new DeliveryBiz();
+            var item = biz.LoadItem(id);
+
+            created = item.Created;
+            createdBy = item.CreatedByUserId;
+            modified = item.Modified;
+            modifiedBy = item.ModifiedByUserId;
+
+            labelDeliveryNo.Text = item.DeliveryNo;
+            labelStatus.Text = item.Status;
+            if (item.DeliveryDate.HasValue)
+            {
+                dateStartDate.Value = item.DeliveryDate.Value;
+            }
+            if (item.StartTime.HasValue)
+            {
+                dateTimeStartTime.Value = DateTime.Now + item.StartTime.Value;
+            }
+
+            textOtherInformation.Text = item.OtherInformation;
+            if (item.VehicleId.HasValue)
+            {
+                drlVehicle.SelectedValue = item.VehicleId.Value;
+            }
+
+            LoadOrders(item);
+
+            this.Text = "Cập nhật thông tin giao hàng";            
         }
 
         private void SaveItem(object sender, EventArgs e)
@@ -66,7 +97,7 @@ namespace ElectronicStore.Main
             {
                 var item = new Delivery();
                 item.DeliveryDate = dateStartDate.Value;
-                item.StartTime = dateTimeStartTime.Value;
+                item.StartTime = TimeSpan.Parse(dateTimeStartTime.Value.ToString(@"hh\:mm"));
                 item.OtherInformation = textOtherInformation.Text;
                 item.VehicleId = Convert.ToInt32(drlVehicle.SelectedValue);
 
@@ -94,6 +125,8 @@ namespace ElectronicStore.Main
                     var biz = new DeliveryBiz();
                     biz.SaveItem(item);
                 }
+
+                SaveOrders(item);
 
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
@@ -217,7 +250,47 @@ namespace ElectronicStore.Main
 
         private void SaveOrders(Delivery delivery)
         {
+            var biz = new DeliveryDetailBiz();
+            biz.RemoveItemsByDeliveryId(delivery.Id);            
 
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                var item = row.DataBoundItem as SearchOrder;
+
+                var detail = new DeliveryDetail();
+                detail.DeliveryId = delivery.Id;
+                detail.OrderId = item.Id;
+                if (item.DeliveryTime.HasValue)
+                {
+                    detail.Time = item.DeliveryTime.Value;
+                }
+                detail.Index = row.Index;
+
+                biz.SaveItem(detail);
+            }
+        }
+
+        private void LoadOrders(Delivery delivery)
+        {
+            if (delivery.Details.Count == 0) return;
+
+            listOrder = new List<SearchOrder>();
+
+            foreach (var detail in delivery.Details)
+            {
+                var searchOrder = new SearchOrder();
+                searchOrder.DeliveryTime = detail.Time;
+                searchOrder.Status = detail.Order.Status;
+                searchOrder.CustomerName = detail.Order.CustomerName;
+                searchOrder.OrderId = detail.Order.OrderId;
+                searchOrder.Id = detail.Order.Id;
+
+                listOrder.Add(searchOrder);
+            }
+
+            dataGridView.DataSource = null;
+            dataGridView.DataSource = listOrder;
+            dataGridView.Refresh();
         }
     }
 }
