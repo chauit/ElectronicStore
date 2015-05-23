@@ -189,7 +189,9 @@
     <Compile Include="Main\DeliveryForm.Designer.cs">
       <DependentUpon>DeliveryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\OrderForm.cs" />
+    <Compile Include="Main\OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main\OrderForm.Designer.cs">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>

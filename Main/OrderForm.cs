@@ -104,8 +104,7 @@ namespace ElectronicStore.Main
                 item.OrderDate = dateOrderDate.Value;
                 item.DeliveryDate = dateDeliveryDate.Value;
                 item.DeliveryAddress = textDeliverrAddress.Text;
-                item.CustomerId = Convert.ToInt32(Convert.ToString(drlCustomer.SelectedValue));
-                item.Status = Constants.OrderStatusDraft;
+                item.CustomerId = Convert.ToInt32(Convert.ToString(drlCustomer.SelectedValue));                
 
                 if (itemId > 0)
                 {
@@ -121,6 +120,7 @@ namespace ElectronicStore.Main
                 }
                 else
                 {
+                    item.Status = Constants.OrderStatusDraft;
                     item.Created = DateTime.Now;
                     item.CreatedByUserId = currentUser;
 
@@ -260,17 +260,30 @@ namespace ElectronicStore.Main
 
         private void LoadProducts(Order order)
         {
+            if (order.Details.Count == 0) return;
+
+            listProduct = new List<SearchProduct>();
+
             foreach (var detail in order.Details)
             {
-                dataGridView.Rows.Add();
-                var row = dataGridView.Rows[dataGridView.Rows.Count - 1];
-                row.Cells[1].Value = detail.Quantity;
-                row.Cells[2].Value = detail.ProductPrice.ToString("0,000");
-                row.Cells[3].Value = detail.Total.ToString("0,000");
-                row.Cells[4].Value = detail.Id;
-                DataGridViewComboBoxCell cb = (DataGridViewComboBoxCell)row.Cells[0];
-                cb.Value = detail.ProductId.Value;
+                var searchProduct = new SearchProduct();
+                searchProduct.Price = detail.ProductPrice;
+                searchProduct.Quantity = detail.Quantity;
+                searchProduct.Total = detail.Total;
+                searchProduct.TotalValue = detail.Total.ToString("0,000");
+                searchProduct.Id = detail.Id;
+                searchProduct.Name = detail.Product.Name;
+                searchProduct.Code = detail.Product.Code;
+
+                listProduct.Add(searchProduct);
             }
+
+            listProduct.Add(new SearchProduct());
+            HasFooter = true;
+
+            dataGridView.DataSource = null;
+            dataGridView.DataSource = listProduct;
+            dataGridView.Refresh();
         }
 
         private void DeleteProduct(object sender, EventArgs e)
@@ -305,19 +318,19 @@ namespace ElectronicStore.Main
             var biz = new OrderDetailBiz();
             biz.RemoveItemsByOrderId(order.Id);
 
-            for(int i=0;i<dataGridView.RowCount -2;i++)
+            for (int i = 0; i < dataGridView.RowCount - 1; i++)
             {
                 var entity = dataGridView.Rows[i].DataBoundItem as SearchProduct;
                 if (entity != null && entity.Total > 0)
-                { 
+                {
                     var detail = new OrderDetail();
                     detail.OrderId = order.Id;
                     detail.ProductId = entity.Id;
                     detail.Quantity = entity.Quantity.Value;
                     detail.ProductPrice = entity.Price.Value;
                     detail.Total = entity.Total.Value;
-                    biz.SaveItem(detail);                    
-                }                
+                    biz.SaveItem(detail);
+                }
             }
         }
 

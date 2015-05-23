@@ -65,6 +65,7 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -95,7 +96,6 @@
             this.cbo.Name = "cbo";
             this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.cbo.TrueValue = "1";
-            this.cbo.Width = 36;
             // 
             // DeliveryId
             // 
@@ -103,7 +103,6 @@
             this.DeliveryId.HeaderText = "Delivery ID";
             this.DeliveryId.Name = "DeliveryId";
             this.DeliveryId.ReadOnly = true;
-            this.DeliveryId.Width = 150;
             // 
             // StartDate
             // 
@@ -118,7 +117,6 @@
             this.EndDate.HeaderText = "End Date";
             this.EndDate.Name = "EndDate";
             this.EndDate.ReadOnly = true;
-            this.EndDate.Width = 150;
             // 
             // Status
             // 
@@ -133,7 +131,6 @@
             this.Vehicle.HeaderText = "Vehicle";
             this.Vehicle.Name = "Vehicle";
             this.Vehicle.ReadOnly = true;
-            this.Vehicle.Width = 200;
             // 
             // RoleId
             // 
