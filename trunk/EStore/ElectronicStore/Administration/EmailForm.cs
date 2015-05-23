@@ -50,6 +50,7 @@ namespace ElectronicStore.Administration
 
             textName.Text = item.Name;
             textContent.Text = item.Content;
+            textSubject.Text = item.Subject;
             created = item.Created;
             createdBy = item.CreatedByUserId;
             modified = item.Modified;
@@ -67,6 +68,7 @@ namespace ElectronicStore.Administration
                 var item = new Email();
                 item.Name = textName.Text;
                 item.Content = textContent.Text;
+                item.Subject = textSubject.Text;
 
                 if (itemId > 0)
                 {
@@ -119,12 +121,26 @@ namespace ElectronicStore.Administration
                 textName.Focus();
             }
 
+            if (string.IsNullOrEmpty(textSubject.Text))
+            {
+                errorProvider.SetError(textSubject, Constants.Messages.RequireMessage);
+
+                if (hasError)
+                {
+                    textName.Focus();
+                    hasError = false;
+                }
+            }
+
             if (string.IsNullOrEmpty(textContent.Text))
             {
-                errorProvider.SetError(textContent, Constants.Messages.RequireMessage);
-                hasError = false;
+                errorProvider.SetError(textContent, Constants.Messages.RequireMessage);                
 
-                textContent.Focus();
+                if (hasError)
+                {
+                    textContent.Focus();
+                    hasError = false;
+                }
             }
 
             return hasError;

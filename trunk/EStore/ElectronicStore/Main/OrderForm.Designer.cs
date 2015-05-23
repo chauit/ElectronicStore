@@ -58,6 +58,8 @@
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboDeliveryInternal = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -75,6 +77,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cboDeliveryInternal);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.dateOrderDate);
             this.groupBox1.Controls.Add(this.labelStatus);
             this.groupBox1.Controls.Add(this.label6);
@@ -328,6 +332,24 @@
             this.ColumnTotal.ReadOnly = true;
             this.ColumnTotal.Visible = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(407, 130);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(117, 13);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Chuyển trong nội thành";
+            // 
+            // cboDeliveryInternal
+            // 
+            this.cboDeliveryInternal.AutoSize = true;
+            this.cboDeliveryInternal.Location = new System.Drawing.Point(530, 129);
+            this.cboDeliveryInternal.Name = "cboDeliveryInternal";
+            this.cboDeliveryInternal.Size = new System.Drawing.Size(15, 14);
+            this.cboDeliveryInternal.TabIndex = 25;
+            this.cboDeliveryInternal.UseVisualStyleBackColor = true;
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,5 +405,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotal;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox cboDeliveryInternal;
     }
 }

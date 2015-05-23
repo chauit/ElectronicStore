@@ -69,11 +69,12 @@ namespace ElectronicStore.Main
             modified = item.Modified;
             modifiedBy = item.ModifiedByUserId;
 
-            labelOrderNo.Text = item.OrderId;
+            labelOrderNo.Text = item.OrderNo;
             labelStatus.Text = item.Status;
             dateOrderDate.Value = item.OrderDate;
             dateDeliveryDate.Value = item.DeliveryDate;
             textDeliverrAddress.Text = item.DeliveryAddress;
+            cboDeliveryInternal.Checked = item.DeliveryInternal;
             if (item.CustomerId.HasValue)
             {
                 drlCustomer.SelectedValue = item.CustomerId.Value;
@@ -104,7 +105,8 @@ namespace ElectronicStore.Main
                 item.OrderDate = dateOrderDate.Value;
                 item.DeliveryDate = dateDeliveryDate.Value;
                 item.DeliveryAddress = textDeliverrAddress.Text;
-                item.CustomerId = Convert.ToInt32(Convert.ToString(drlCustomer.SelectedValue));                
+                item.CustomerId = Convert.ToInt32(Convert.ToString(drlCustomer.SelectedValue));
+                item.DeliveryInternal = cboDeliveryInternal.Checked;
 
                 if (itemId > 0)
                 {
@@ -187,6 +189,15 @@ namespace ElectronicStore.Main
                 if (customer.Id > 0)
                 {
                     textDeliverrAddress.Text = customer.Address1;
+
+                    if(string.Equals(customer.City, Constants.CityInternal, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        cboDeliveryInternal.Checked = true;
+                    }
+                    else
+                    {
+                        cboDeliveryInternal.Checked = false;
+                    }
                 }
             }
         }
