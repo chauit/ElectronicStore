@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmailForm));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -62,7 +63,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(523, 298);
+            this.groupBox1.Size = new System.Drawing.Size(523, 282);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -95,14 +96,14 @@
             // 
             this.textSubject.Location = new System.Drawing.Point(81, 55);
             this.textSubject.Name = "textSubject";
-            this.textSubject.Size = new System.Drawing.Size(243, 20);
+            this.textSubject.Size = new System.Drawing.Size(303, 20);
             this.textSubject.TabIndex = 2;
             // 
             // textName
             // 
             this.textName.Location = new System.Drawing.Point(81, 19);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(243, 20);
+            this.textName.Size = new System.Drawing.Size(200, 20);
             this.textName.TabIndex = 1;
             // 
             // textContent
@@ -124,9 +125,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(430, 248);
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(420, 248);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(91, 25);
             this.button2.TabIndex = 5;
             this.button2.Text = "Thoát";
             this.button2.UseVisualStyleBackColor = true;
@@ -134,9 +137,11 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(349, 248);
+            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
+            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSave.Location = new System.Drawing.Point(323, 248);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(91, 25);
             this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Cập nhật";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -151,9 +156,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(523, 298);
+            this.ClientSize = new System.Drawing.Size(523, 282);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "EmailForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
