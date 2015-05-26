@@ -28,8 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmailView));
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.RoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
@@ -37,11 +43,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.RoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -51,9 +52,11 @@
             // 
             // buttonNew
             // 
+            this.buttonNew.Image = ((System.Drawing.Image)(resources.GetObject("buttonNew.Image")));
+            this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNew.Location = new System.Drawing.Point(6, 19);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(70, 23);
+            this.buttonNew.Size = new System.Drawing.Size(70, 25);
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "Thêm";
             this.buttonNew.UseVisualStyleBackColor = true;
@@ -82,11 +85,58 @@
             this.dataGridView.Size = new System.Drawing.Size(804, 322);
             this.dataGridView.TabIndex = 1;
             // 
+            // cbo
+            // 
+            this.cbo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cbo.FalseValue = "0";
+            this.cbo.FillWeight = 20.30457F;
+            this.cbo.HeaderText = "";
+            this.cbo.IndeterminateValue = "";
+            this.cbo.MinimumWidth = 20;
+            this.cbo.Name = "cbo";
+            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cbo.TrueValue = "1";
+            this.cbo.Width = 30;
+            // 
+            // RoleName
+            // 
+            this.RoleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.RoleName.DataPropertyName = "Name";
+            this.RoleName.FillWeight = 179.6954F;
+            this.RoleName.HeaderText = "Tên";
+            this.RoleName.Name = "RoleName";
+            this.RoleName.Width = 170;
+            // 
+            // ColumnSubject
+            // 
+            this.ColumnSubject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnSubject.DataPropertyName = "Subject";
+            this.ColumnSubject.HeaderText = "Tiêu đề";
+            this.ColumnSubject.Name = "ColumnSubject";
+            this.ColumnSubject.ReadOnly = true;
+            // 
+            // ColumnContent
+            // 
+            this.ColumnContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnContent.DataPropertyName = "Content";
+            this.ColumnContent.HeaderText = "Nội dung";
+            this.ColumnContent.Name = "ColumnContent";
+            this.ColumnContent.ReadOnly = true;
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
+            // 
             // buttonUpdate
             // 
+            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
+            this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonUpdate.Location = new System.Drawing.Point(82, 19);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(70, 23);
+            this.buttonUpdate.Size = new System.Drawing.Size(70, 25);
             this.buttonUpdate.TabIndex = 2;
             this.buttonUpdate.Text = "Sửa";
             this.buttonUpdate.UseVisualStyleBackColor = true;
@@ -94,9 +144,11 @@
             // 
             // buttonDelete
             // 
+            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
+            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDelete.Location = new System.Drawing.Point(158, 19);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(70, 23);
+            this.buttonDelete.Size = new System.Drawing.Size(70, 25);
             this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Text = "Xóa";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -153,51 +205,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách Email template";
-            // 
-            // cbo
-            // 
-            this.cbo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20.30457F;
-            this.cbo.HeaderText = "";
-            this.cbo.IndeterminateValue = "";
-            this.cbo.MinimumWidth = 20;
-            this.cbo.Name = "cbo";
-            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cbo.TrueValue = "1";
-            this.cbo.Width = 30;
-            // 
-            // RoleName
-            // 
-            this.RoleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.RoleName.DataPropertyName = "Name";
-            this.RoleName.FillWeight = 179.6954F;
-            this.RoleName.HeaderText = "Tên";
-            this.RoleName.Name = "RoleName";
-            this.RoleName.Width = 170;
-            // 
-            // ColumnSubject
-            // 
-            this.ColumnSubject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnSubject.DataPropertyName = "Subject";
-            this.ColumnSubject.HeaderText = "Tiêu đề";
-            this.ColumnSubject.Name = "ColumnSubject";
-            this.ColumnSubject.ReadOnly = true;
-            // 
-            // ColumnContent
-            // 
-            this.ColumnContent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnContent.DataPropertyName = "Content";
-            this.ColumnContent.HeaderText = "Nội dung";
-            this.ColumnContent.Name = "ColumnContent";
-            this.ColumnContent.ReadOnly = true;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
             // 
             // EmailView
             // 
