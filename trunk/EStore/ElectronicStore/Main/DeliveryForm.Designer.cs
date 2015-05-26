@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimeStartTime = new System.Windows.Forms.DateTimePicker();
@@ -46,21 +46,27 @@
             this.button2 = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonDeleteProduct = new System.Windows.Forms.Button();
             this.buttonAddProduct = new System.Windows.Forms.Button();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.buttonSendSms = new System.Windows.Forms.Button();
-            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,9 +93,10 @@
             this.groupBox1.Controls.Add(this.drlVehicle);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(15, 15);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(662, 297);
+            this.groupBox1.Size = new System.Drawing.Size(677, 222);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin giao hàng";
@@ -97,7 +104,7 @@
             // dateTimeStartTime
             // 
             this.dateTimeStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimeStartTime.Location = new System.Drawing.Point(135, 127);
+            this.dateTimeStartTime.Location = new System.Drawing.Point(567, 92);
             this.dateTimeStartTime.Name = "dateTimeStartTime";
             this.dateTimeStartTime.Size = new System.Drawing.Size(101, 20);
             this.dateTimeStartTime.TabIndex = 3;
@@ -105,7 +112,7 @@
             // labelStatus
             // 
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(550, 25);
+            this.labelStatus.Location = new System.Drawing.Point(564, 25);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(82, 13);
             this.labelStatus.TabIndex = 22;
@@ -114,24 +121,24 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(489, 25);
+            this.label6.Location = new System.Drawing.Point(457, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 21;
-            this.label6.Text = "Tình trạng";
+            this.label6.Text = "Tình trạng:";
             // 
             // textOtherInformation
             // 
-            this.textOtherInformation.Location = new System.Drawing.Point(135, 167);
+            this.textOtherInformation.Location = new System.Drawing.Point(135, 126);
             this.textOtherInformation.Multiline = true;
             this.textOtherInformation.Name = "textOtherInformation";
-            this.textOtherInformation.Size = new System.Drawing.Size(497, 113);
+            this.textOtherInformation.Size = new System.Drawing.Size(533, 88);
             this.textOtherInformation.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 167);
+            this.label3.Location = new System.Drawing.Point(25, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 19;
@@ -165,11 +172,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 130);
+            this.label5.Location = new System.Drawing.Point(457, 95);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 13);
+            this.label5.Size = new System.Drawing.Size(104, 13);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Thời gian giao hàng";
+            this.label5.Text = "Thời gian giao hàng:";
             // 
             // drlVehicle
             // 
@@ -192,7 +199,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(683, 70);
+            this.button2.Location = new System.Drawing.Point(682, 47);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
@@ -202,7 +209,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(682, 35);
+            this.buttonSave.Location = new System.Drawing.Point(681, 12);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 4;
@@ -214,23 +221,9 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.buttonDeleteProduct);
-            this.groupBox2.Controls.Add(this.buttonAddProduct);
-            this.groupBox2.Controls.Add(this.dataGridView);
-            this.groupBox2.Location = new System.Drawing.Point(15, 318);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(662, 258);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Thông tin hóa đơn";
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(271, 19);
+            this.button3.Location = new System.Drawing.Point(252, 19);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 27;
@@ -240,7 +233,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(190, 19);
+            this.button1.Location = new System.Drawing.Point(171, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 26;
@@ -250,7 +243,7 @@
             // 
             // buttonDeleteProduct
             // 
-            this.buttonDeleteProduct.Location = new System.Drawing.Point(109, 19);
+            this.buttonDeleteProduct.Location = new System.Drawing.Point(90, 19);
             this.buttonDeleteProduct.Name = "buttonDeleteProduct";
             this.buttonDeleteProduct.Size = new System.Drawing.Size(75, 23);
             this.buttonDeleteProduct.TabIndex = 25;
@@ -260,13 +253,69 @@
             // 
             // buttonAddProduct
             // 
-            this.buttonAddProduct.Location = new System.Drawing.Point(28, 19);
+            this.buttonAddProduct.Location = new System.Drawing.Point(9, 19);
             this.buttonAddProduct.Name = "buttonAddProduct";
             this.buttonAddProduct.Size = new System.Drawing.Size(75, 23);
             this.buttonAddProduct.TabIndex = 23;
             this.buttonAddProduct.Text = "Thêm";
             this.buttonAddProduct.UseVisualStyleBackColor = true;
             this.buttonAddProduct.Click += new System.EventHandler(this.SelectOrder);
+            // 
+            // buttonSendSms
+            // 
+            this.buttonSendSms.Location = new System.Drawing.Point(682, 82);
+            this.buttonSendSms.Name = "buttonSendSms";
+            this.buttonSendSms.Size = new System.Drawing.Size(75, 23);
+            this.buttonSendSms.TabIndex = 6;
+            this.buttonSendSms.Text = "Send SMS";
+            this.buttonSendSms.UseVisualStyleBackColor = true;
+            this.buttonSendSms.Click += new System.EventHandler(this.SaveAndSendMessages);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.buttonSendSms);
+            this.panel1.Controls.Add(this.buttonSave);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(769, 222);
+            this.panel1.TabIndex = 7;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.groupBox4);
+            this.panel2.Controls.Add(this.groupBox3);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 222);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(769, 366);
+            this.panel2.TabIndex = 8;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.buttonDeleteProduct);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.buttonAddProduct);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(769, 49);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dataGridView);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(0, 49);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(769, 317);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Thông tin hóa đơn";
             // 
             // dataGridView
             // 
@@ -280,52 +329,13 @@
             this.ColumnStatus,
             this.ColumnTime,
             this.Id});
-            this.dataGridView.Location = new System.Drawing.Point(28, 48);
+            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView.Location = new System.Drawing.Point(3, 16);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.Size = new System.Drawing.Size(604, 196);
+            this.dataGridView.Size = new System.Drawing.Size(763, 298);
             this.dataGridView.TabIndex = 0;
-            // 
-            // buttonSendSms
-            // 
-            this.buttonSendSms.Location = new System.Drawing.Point(683, 105);
-            this.buttonSendSms.Name = "buttonSendSms";
-            this.buttonSendSms.Size = new System.Drawing.Size(75, 23);
-            this.buttonSendSms.TabIndex = 6;
-            this.buttonSendSms.Text = "Send SMS";
-            this.buttonSendSms.UseVisualStyleBackColor = true;
-            this.buttonSendSms.Click += new System.EventHandler(this.SaveAndSendMessages);
-            // 
-            // Customer
-            // 
-            this.Customer.DataPropertyName = "CustomerName";
-            this.Customer.HeaderText = "Khách hàng";
-            this.Customer.Name = "Customer";
-            this.Customer.ReadOnly = true;
-            // 
-            // OrderId
-            // 
-            this.OrderId.DataPropertyName = "OrderNo";
-            this.OrderId.HeaderText = "Mã đơn hàng";
-            this.OrderId.Name = "OrderId";
-            this.OrderId.ReadOnly = true;
-            // 
-            // ColumnStatus
-            // 
-            this.ColumnStatus.DataPropertyName = "Status";
-            this.ColumnStatus.HeaderText = "Tình trạng";
-            this.ColumnStatus.Name = "ColumnStatus";
-            this.ColumnStatus.ReadOnly = true;
-            // 
-            // ColumnTime
-            // 
-            this.ColumnTime.DataPropertyName = "DeliveryTime";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnTime.HeaderText = "Thời gian";
-            this.ColumnTime.Name = "ColumnTime";
             // 
             // Id
             // 
@@ -335,17 +345,44 @@
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
             // 
+            // ColumnTime
+            // 
+            this.ColumnTime.DataPropertyName = "DeliveryTime";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ColumnTime.HeaderText = "Thời gian";
+            this.ColumnTime.Name = "ColumnTime";
+            // 
+            // ColumnStatus
+            // 
+            this.ColumnStatus.DataPropertyName = "Status";
+            this.ColumnStatus.HeaderText = "Tình trạng";
+            this.ColumnStatus.Name = "ColumnStatus";
+            this.ColumnStatus.ReadOnly = true;
+            // 
+            // OrderId
+            // 
+            this.OrderId.DataPropertyName = "OrderNo";
+            this.OrderId.HeaderText = "Mã đơn hàng";
+            this.OrderId.Name = "OrderId";
+            this.OrderId.ReadOnly = true;
+            // 
+            // Customer
+            // 
+            this.Customer.DataPropertyName = "CustomerName";
+            this.Customer.HeaderText = "Khách hàng";
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
+            // 
             // DeliveryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(769, 588);
-            this.Controls.Add(this.buttonSendSms);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DeliveryForm";
             this.ShowIcon = false;
@@ -355,7 +392,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            this.groupBox2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -378,18 +418,21 @@
         private System.Windows.Forms.TextBox textOtherInformation;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelStatus;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonAddProduct;
-        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button buttonDeleteProduct;
         private System.Windows.Forms.DateTimePicker dateTimeStartTime;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonSendSms;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
