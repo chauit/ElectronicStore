@@ -99,44 +99,9 @@ namespace ElectronicStore.Main
 
         private void SaveItem(object sender, EventArgs e)
         {
-            if (CustomValidation())
+            if (CheckSecurity(itemId))
             {
-                var item = new Order();
-                item.OrderDate = dateOrderDate.Value;
-                item.DeliveryDate = dateDeliveryDate.Value;
-                item.DeliveryAddress = textDeliverrAddress.Text;
-                item.CustomerId = Convert.ToInt32(Convert.ToString(drlCustomer.SelectedValue));
-                item.DeliveryInternal = cboDeliveryInternal.Checked;
-
-                if (itemId > 0)
-                {
-                    item.Id = itemId;
-                    item.Created = created;
-                    item.CreatedByUserId = createdBy;
-
-                    item.Modified = DateTime.Now;
-                    item.ModifiedByUserId = currentUser;
-
-                    var biz = new OrderBiz();
-                    biz.UpdateItem(item);
-                }
-                else
-                {
-                    item.Status = Constants.OrderStatusDraft;
-                    item.Created = DateTime.Now;
-                    item.CreatedByUserId = currentUser;
-
-                    item.Modified = DateTime.Now;
-                    item.ModifiedByUserId = currentUser;
-
-                    var biz = new OrderBiz();
-                    biz.SaveItem(item);
-                }
-
-                UpdateProductList(item);
-
-                
-                var parent = this.Parent as SplitterPanel;                
+                var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
                 var orderView = new OrderView { Dock = DockStyle.Fill, TopLevel = false };
@@ -147,7 +112,56 @@ namespace ElectronicStore.Main
             }
             else
             {
-                this.DialogResult = System.Windows.Forms.DialogResult.None;
+                if (CustomValidation())
+                {
+                    var item = new Order();
+                    item.OrderDate = dateOrderDate.Value;
+                    item.DeliveryDate = dateDeliveryDate.Value;
+                    item.DeliveryAddress = textDeliverrAddress.Text;
+                    item.CustomerId = Convert.ToInt32(Convert.ToString(drlCustomer.SelectedValue));
+                    item.DeliveryInternal = cboDeliveryInternal.Checked;
+
+                    if (itemId > 0)
+                    {
+                        item.Id = itemId;
+                        item.Created = created;
+                        item.CreatedByUserId = createdBy;
+
+                        item.Modified = DateTime.Now;
+                        item.ModifiedByUserId = currentUser;
+
+                        var biz = new OrderBiz();
+                        biz.UpdateItem(item);
+                    }
+                    else
+                    {
+                        item.Status = Constants.OrderStatusDraft;
+                        item.Created = DateTime.Now;
+                        item.CreatedByUserId = currentUser;
+
+                        item.Modified = DateTime.Now;
+                        item.ModifiedByUserId = currentUser;
+
+                        var biz = new OrderBiz();
+                        biz.SaveItem(item);
+                    }
+
+                    UpdateProductList(item);
+
+
+                    var parent = this.Parent as SplitterPanel;
+                    parent.Controls.Clear();
+
+                    var orderView = new OrderView { Dock = DockStyle.Fill, TopLevel = false };
+                    parent.Controls.Add(orderView);
+                    orderView.Show();
+
+                    this.Close();
+                }
+                else
+                {
+                    this.DialogResult = System.Windows.Forms.DialogResult.None;
+                }
             }
         }
 
@@ -369,5 +383,22 @@ namespace ElectronicStore.Main
                 footer.Cells[4].Value = "Tổng: " + total.ToString("0,000");
             }
         }
+
+        private bool CheckSecurity(int id)
+        {
+            var biz = new OrderBiz();
+            var current = biz.LoadItem(id);
+            if(current != null)
+            {
+                if(current.Modified.Value != modified.Value)
+                {
+                    MessageBox.Show(Constants.Messages.ConflictOrderMessage);
+                    return true;
+                }            
+            }
+
+            return false;
+        }
+
     }
 }

@@ -6,7 +6,7 @@ namespace ElectronicStore.Common
 {
     public class LicenseUtil
     {
-        private string subKey = "SOFTWARE\\ElectronicStore\\ElectronicStore";
+        private string subKey = "SOFTWARE\\MinhHuyJSC\\ElectronicStore";
         public string Read(string KeyName)
         {
             // Opening the registry key

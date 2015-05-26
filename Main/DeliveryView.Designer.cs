@@ -163,7 +163,7 @@
             // cbo
             // 
             this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20.30457F;
+            this.cbo.FillWeight = 7.342756F;
             this.cbo.HeaderText = "";
             this.cbo.IndeterminateValue = "";
             this.cbo.MinimumWidth = 20;
@@ -174,26 +174,31 @@
             // Vehicle
             // 
             this.Vehicle.DataPropertyName = "VehicleName";
+            this.Vehicle.FillWeight = 36.16307F;
             this.Vehicle.HeaderText = "Xe";
             this.Vehicle.Name = "Vehicle";
             this.Vehicle.ReadOnly = true;
             // 
             // DeliveryId
             // 
-            this.DeliveryId.DataPropertyName = "DeliveryId";
+            this.DeliveryId.DataPropertyName = "DeliveryNo";
+            this.DeliveryId.FillWeight = 36.16307F;
             this.DeliveryId.HeaderText = "Số giao hàng";
             this.DeliveryId.Name = "DeliveryId";
             this.DeliveryId.ReadOnly = true;
             // 
             // StartDate
             // 
+            this.StartDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.StartDate.DataPropertyName = "DeliveryDate";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle1.Format = "dd/MM/yyyy";
             this.StartDate.DefaultCellStyle = dataGridViewCellStyle1;
+            this.StartDate.FillWeight = 304.4726F;
             this.StartDate.HeaderText = "Ngày giao hàng";
             this.StartDate.Name = "StartDate";
             this.StartDate.ReadOnly = true;
+            this.StartDate.Width = 130;
             // 
             // EndDate
             // 
@@ -202,13 +207,15 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle2.Format = "hh\\:mm";
             this.EndDate.DefaultCellStyle = dataGridViewCellStyle2;
-            this.EndDate.HeaderText = "Thời gian";
+            this.EndDate.HeaderText = "Thời gian giao hàng";
             this.EndDate.Name = "EndDate";
             this.EndDate.ReadOnly = true;
+            this.EndDate.Width = 130;
             // 
             // Status
             // 
             this.Status.DataPropertyName = "Status";
+            this.Status.FillWeight = 36.16307F;
             this.Status.HeaderText = "Tình trạng";
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;

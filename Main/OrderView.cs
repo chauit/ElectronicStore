@@ -24,9 +24,9 @@ namespace ElectronicStore.Main
         {
             ContextMenuStrip mnu = new ContextMenuStrip();
             
-            ToolStripMenuItem mnuUpdate = new ToolStripMenuItem("Sửa");
-            ToolStripMenuItem mnuDelete = new ToolStripMenuItem("Xóa");
-            ToolStripMenuItem mnuDeliver = new ToolStripMenuItem("Đã giao");
+            ToolStripMenuItem mnuUpdate = new ToolStripMenuItem("Sửa đơn hàng");
+            ToolStripMenuItem mnuDelete = new ToolStripMenuItem("Xóa đơn hàng");            
+            ToolStripMenuItem mnuDeliver = new ToolStripMenuItem("Đã giao đơn hàng");
             
             //Assign event handlers
             mnuUpdate.Click += new EventHandler(UpdateSingleItem);
@@ -57,24 +57,6 @@ namespace ElectronicStore.Main
 
             this.Close();
         }        
-
-        private void DeleteItem(object sender, EventArgs e)
-        {
-            var items = new List<Order>();
-
-            foreach (DataGridViewRow row in dataGridView.Rows)
-            {
-                if (row.Cells[0].Value != null && row.Cells[0].Value == "1")
-                {
-                    items.Add(row.DataBoundItem as Order);
-                }
-            }
-
-            var biz = new OrderBiz();
-            biz.RemoveItem(items);
-
-            RefreshItems(sender, e);            
-        }
 
         private void RefreshItems(object sender, EventArgs e)
         {
@@ -124,7 +106,7 @@ namespace ElectronicStore.Main
 
         private void CellClicked(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right && e.ColumnIndex == 1 && e.RowIndex != -1)
+            if (e.Button == MouseButtons.Right && e.ColumnIndex == 0 && e.RowIndex != -1)
             {
                 bool isDelivered = false;
                 var order = dataGridView.Rows[e.RowIndex].DataBoundItem as Order;
