@@ -28,15 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoleView));
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.RoleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +38,13 @@
             this.FieldCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FieldModified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FieldModifiedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -53,9 +54,11 @@
             // 
             // buttonNew
             // 
-            this.buttonNew.Location = new System.Drawing.Point(6, 19);
+            this.buttonNew.Image = ((System.Drawing.Image)(resources.GetObject("buttonNew.Image")));
+            this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNew.Location = new System.Drawing.Point(9, 17);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(70, 23);
+            this.buttonNew.Size = new System.Drawing.Size(91, 25);
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "Thêm";
             this.buttonNew.UseVisualStyleBackColor = true;
@@ -84,78 +87,6 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(804, 323);
             this.dataGridView.TabIndex = 1;
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Location = new System.Drawing.Point(82, 19);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(70, 23);
-            this.buttonUpdate.TabIndex = 2;
-            this.buttonUpdate.Text = "Sửa";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.UpdateItem);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Location = new System.Drawing.Point(158, 19);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(70, 23);
-            this.buttonDelete.TabIndex = 3;
-            this.buttonDelete.Text = "Xóa";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.DeleteItem);
-            // 
-            // buttonRefresh
-            // 
-            this.buttonRefresh.Location = new System.Drawing.Point(234, 19);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(70, 23);
-            this.buttonRefresh.TabIndex = 4;
-            this.buttonRefresh.Text = "Cập nhật";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
-            this.buttonRefresh.Click += new System.EventHandler(this.RefreshItems);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(810, 53);
-            this.panel1.TabIndex = 5;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.buttonNew);
-            this.groupBox1.Controls.Add(this.buttonRefresh);
-            this.groupBox1.Controls.Add(this.buttonUpdate);
-            this.groupBox1.Controls.Add(this.buttonDelete);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(810, 53);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 53);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(810, 342);
-            this.panel2.TabIndex = 6;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(810, 342);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Danh sách quyền";
             // 
             // cbo
             // 
@@ -213,6 +144,84 @@
             this.FieldModifiedBy.Name = "FieldModifiedBy";
             this.FieldModifiedBy.ReadOnly = true;
             this.FieldModifiedBy.Width = 150;
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
+            this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUpdate.Location = new System.Drawing.Point(106, 17);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(91, 25);
+            this.buttonUpdate.TabIndex = 2;
+            this.buttonUpdate.Text = "Sửa";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.UpdateItem);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
+            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelete.Location = new System.Drawing.Point(203, 17);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(91, 25);
+            this.buttonDelete.TabIndex = 3;
+            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.DeleteItem);
+            // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.Image")));
+            this.buttonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRefresh.Location = new System.Drawing.Point(300, 17);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(91, 25);
+            this.buttonRefresh.TabIndex = 4;
+            this.buttonRefresh.Text = "Cập nhật";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.RefreshItems);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(810, 53);
+            this.panel1.TabIndex = 5;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.buttonNew);
+            this.groupBox1.Controls.Add(this.buttonRefresh);
+            this.groupBox1.Controls.Add(this.buttonUpdate);
+            this.groupBox1.Controls.Add(this.buttonDelete);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(810, 53);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 53);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(810, 342);
+            this.panel2.TabIndex = 6;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(810, 342);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Danh sách quyền";
             // 
             // RoleView
             // 

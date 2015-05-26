@@ -384,6 +384,8 @@
     <Content Include="Images\Add.ico" />
     <Content Include="Images\Delete.ico" />
     <Content Include="Images\Down.ico" />
+    <Content Include="Images\edit.ico" />
+    <Content Include="Images\Save.ico" />
     <Content Include="Images\Up.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
