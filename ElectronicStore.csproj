@@ -379,6 +379,13 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\Add.ico" />
+    <Content Include="Images\Delete.ico" />
+    <Content Include="Images\Down.ico" />
+    <Content Include="Images\Up.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
