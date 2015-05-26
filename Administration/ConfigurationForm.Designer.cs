@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurationForm));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textValue = new System.Windows.Forms.TextBox();
@@ -90,9 +91,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(327, 132);
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(311, 132);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(91, 25);
             this.button2.TabIndex = 4;
             this.button2.Text = "Thoát";
             this.button2.UseVisualStyleBackColor = true;
@@ -100,9 +103,11 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(246, 132);
+            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
+            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSave.Location = new System.Drawing.Point(214, 132);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(91, 25);
             this.buttonSave.TabIndex = 3;
             this.buttonSave.Text = "Cập nhật";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -122,6 +127,7 @@
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.button2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ConfigurationForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
