@@ -30,13 +30,11 @@
         {
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,10 +62,10 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cbo,
             this.OrderId,
             this.Customer,
             this.OrderDate,
@@ -85,19 +83,9 @@
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CellClicked);
             // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Location = new System.Drawing.Point(82, 19);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(70, 23);
-            this.buttonDelete.TabIndex = 3;
-            this.buttonDelete.Text = "Xóa";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.DeleteItem);
-            // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(158, 19);
+            this.buttonRefresh.Location = new System.Drawing.Point(82, 19);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(70, 23);
             this.buttonRefresh.TabIndex = 4;
@@ -118,7 +106,6 @@
             // 
             this.groupBox1.Controls.Add(this.buttonNew);
             this.groupBox1.Controls.Add(this.buttonRefresh);
-            this.groupBox1.Controls.Add(this.buttonDelete);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -146,18 +133,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách hóa đơn";
             // 
-            // cbo
-            // 
-            this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20.30457F;
-            this.cbo.HeaderText = "";
-            this.cbo.IndeterminateValue = "";
-            this.cbo.MinimumWidth = 20;
-            this.cbo.Name = "cbo";
-            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cbo.TrueValue = "1";
-            this.cbo.Width = 36;
-            // 
             // OrderId
             // 
             this.OrderId.DataPropertyName = "OrderNo";
@@ -171,7 +146,6 @@
             this.Customer.HeaderText = "Khách hàng";
             this.Customer.Name = "Customer";
             this.Customer.ReadOnly = true;
-            this.Customer.Width = 200;
             // 
             // OrderDate
             // 
@@ -179,7 +153,6 @@
             this.OrderDate.HeaderText = "Ngày tạo đơn hàng";
             this.OrderDate.Name = "OrderDate";
             this.OrderDate.ReadOnly = true;
-            this.OrderDate.Width = 150;
             // 
             // Status
             // 
@@ -194,7 +167,6 @@
             this.DeliveryDate.HeaderText = "Ngày chuyển hàng";
             this.DeliveryDate.Name = "DeliveryDate";
             this.DeliveryDate.ReadOnly = true;
-            this.DeliveryDate.Width = 150;
             // 
             // RoleId
             // 
@@ -226,13 +198,11 @@
 
         private System.Windows.Forms.Button buttonNew;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn cbo;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderDate;
