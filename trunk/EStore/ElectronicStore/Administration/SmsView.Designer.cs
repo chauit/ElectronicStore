@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SmsView));
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -53,9 +54,11 @@
             // 
             // buttonNew
             // 
-            this.buttonNew.Location = new System.Drawing.Point(12, 19);
+            this.buttonNew.Image = ((System.Drawing.Image)(resources.GetObject("buttonNew.Image")));
+            this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNew.Location = new System.Drawing.Point(12, 16);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(70, 23);
+            this.buttonNew.Size = new System.Drawing.Size(91, 25);
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "Thêm";
             this.buttonNew.UseVisualStyleBackColor = true;
@@ -144,9 +147,11 @@
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(88, 19);
+            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
+            this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUpdate.Location = new System.Drawing.Point(109, 16);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(70, 23);
+            this.buttonUpdate.Size = new System.Drawing.Size(91, 25);
             this.buttonUpdate.TabIndex = 2;
             this.buttonUpdate.Text = "Sửa";
             this.buttonUpdate.UseVisualStyleBackColor = true;
@@ -154,9 +159,9 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(164, 19);
+            this.buttonDelete.Location = new System.Drawing.Point(206, 16);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(70, 23);
+            this.buttonDelete.Size = new System.Drawing.Size(91, 25);
             this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Text = "Xóa";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -164,7 +169,7 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(240, 19);
+            this.buttonRefresh.Location = new System.Drawing.Point(303, 16);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(70, 23);
             this.buttonRefresh.TabIndex = 4;
