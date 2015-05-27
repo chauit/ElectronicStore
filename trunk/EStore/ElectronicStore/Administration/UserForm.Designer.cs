@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textOtherInformation = new System.Windows.Forms.TextBox();
@@ -40,10 +41,10 @@
             this.textUsername = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textLastName = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonSave = new System.Windows.Forms.Button();
             this.textFirstName = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -158,16 +159,6 @@
             this.textLastName.Size = new System.Drawing.Size(187, 20);
             this.textLastName.TabIndex = 2;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(480, 252);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Thoát";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.CancelItem);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -177,22 +168,36 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Tên";
             // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(397, 252);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
-            this.buttonSave.TabIndex = 7;
-            this.buttonSave.Text = "Cập nhật";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.SaveItem);
-            // 
             // textFirstName
             // 
             this.textFirstName.Location = new System.Drawing.Point(110, 22);
             this.textFirstName.Name = "textFirstName";
             this.textFirstName.Size = new System.Drawing.Size(201, 20);
             this.textFirstName.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(464, 252);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(91, 25);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Thoát";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.CancelItem);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
+            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSave.Location = new System.Drawing.Point(367, 252);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(91, 25);
+            this.buttonSave.TabIndex = 7;
+            this.buttonSave.Text = "Cập nhật";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.SaveItem);
             // 
             // errorProvider
             // 

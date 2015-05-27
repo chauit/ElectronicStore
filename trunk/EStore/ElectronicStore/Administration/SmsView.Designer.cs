@@ -159,6 +159,8 @@
             // 
             // buttonDelete
             // 
+            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
+            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDelete.Location = new System.Drawing.Point(206, 16);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(91, 25);
@@ -169,9 +171,11 @@
             // 
             // buttonRefresh
             // 
+            this.buttonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.Image")));
+            this.buttonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonRefresh.Location = new System.Drawing.Point(303, 16);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(70, 23);
+            this.buttonRefresh.Size = new System.Drawing.Size(91, 25);
             this.buttonRefresh.TabIndex = 4;
             this.buttonRefresh.Text = "Cập nhật";
             this.buttonRefresh.UseVisualStyleBackColor = true;

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimeStartTime = new System.Windows.Forms.DateTimePicker();
@@ -97,7 +97,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(677, 222);
+            this.groupBox1.Size = new System.Drawing.Size(660, 222);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin giao hàng";
@@ -105,7 +105,7 @@
             // dateTimeStartTime
             // 
             this.dateTimeStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimeStartTime.Location = new System.Drawing.Point(567, 92);
+            this.dateTimeStartTime.Location = new System.Drawing.Point(547, 92);
             this.dateTimeStartTime.Name = "dateTimeStartTime";
             this.dateTimeStartTime.Size = new System.Drawing.Size(101, 20);
             this.dateTimeStartTime.TabIndex = 3;
@@ -113,7 +113,7 @@
             // labelStatus
             // 
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(564, 25);
+            this.labelStatus.Location = new System.Drawing.Point(544, 25);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(82, 13);
             this.labelStatus.TabIndex = 22;
@@ -122,7 +122,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(457, 22);
+            this.label6.Location = new System.Drawing.Point(437, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 21;
@@ -133,7 +133,7 @@
             this.textOtherInformation.Location = new System.Drawing.Point(135, 126);
             this.textOtherInformation.Multiline = true;
             this.textOtherInformation.Name = "textOtherInformation";
-            this.textOtherInformation.Size = new System.Drawing.Size(533, 88);
+            this.textOtherInformation.Size = new System.Drawing.Size(513, 88);
             this.textOtherInformation.TabIndex = 4;
             // 
             // label3
@@ -173,7 +173,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(457, 95);
+            this.label5.Location = new System.Drawing.Point(437, 95);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 13);
             this.label5.TabIndex = 14;
@@ -200,9 +200,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(682, 47);
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(666, 43);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(91, 25);
             this.button2.TabIndex = 5;
             this.button2.Text = "Thoát";
             this.button2.UseVisualStyleBackColor = true;
@@ -210,9 +212,11 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(681, 12);
+            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
+            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSave.Location = new System.Drawing.Point(666, 12);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(91, 25);
             this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Cập nhật";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -226,9 +230,9 @@
             // 
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(252, 14);
+            this.button3.Location = new System.Drawing.Point(300, 14);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 25);
+            this.button3.Size = new System.Drawing.Size(91, 25);
             this.button3.TabIndex = 27;
             this.button3.Text = "Down";
             this.button3.UseVisualStyleBackColor = true;
@@ -238,9 +242,9 @@
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(171, 14);
+            this.button1.Location = new System.Drawing.Point(203, 14);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 25);
+            this.button1.Size = new System.Drawing.Size(91, 25);
             this.button1.TabIndex = 26;
             this.button1.Text = "Up";
             this.button1.UseVisualStyleBackColor = true;
@@ -250,9 +254,9 @@
             // 
             this.buttonDeleteProduct.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteProduct.Image")));
             this.buttonDeleteProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDeleteProduct.Location = new System.Drawing.Point(90, 14);
+            this.buttonDeleteProduct.Location = new System.Drawing.Point(106, 14);
             this.buttonDeleteProduct.Name = "buttonDeleteProduct";
-            this.buttonDeleteProduct.Size = new System.Drawing.Size(75, 25);
+            this.buttonDeleteProduct.Size = new System.Drawing.Size(91, 25);
             this.buttonDeleteProduct.TabIndex = 25;
             this.buttonDeleteProduct.Text = "Delete";
             this.buttonDeleteProduct.UseVisualStyleBackColor = true;
@@ -264,7 +268,7 @@
             this.buttonAddProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAddProduct.Location = new System.Drawing.Point(9, 14);
             this.buttonAddProduct.Name = "buttonAddProduct";
-            this.buttonAddProduct.Size = new System.Drawing.Size(75, 25);
+            this.buttonAddProduct.Size = new System.Drawing.Size(91, 25);
             this.buttonAddProduct.TabIndex = 23;
             this.buttonAddProduct.Text = "Thêm";
             this.buttonAddProduct.UseVisualStyleBackColor = true;
@@ -272,11 +276,14 @@
             // 
             // buttonSendSms
             // 
-            this.buttonSendSms.Location = new System.Drawing.Point(682, 82);
+            this.buttonSendSms.Image = ((System.Drawing.Image)(resources.GetObject("buttonSendSms.Image")));
+            this.buttonSendSms.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSendSms.Location = new System.Drawing.Point(666, 74);
             this.buttonSendSms.Name = "buttonSendSms";
-            this.buttonSendSms.Size = new System.Drawing.Size(75, 23);
+            this.buttonSendSms.Size = new System.Drawing.Size(91, 25);
             this.buttonSendSms.TabIndex = 6;
             this.buttonSendSms.Text = "Send SMS";
+            this.buttonSendSms.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSendSms.UseVisualStyleBackColor = true;
             this.buttonSendSms.Click += new System.EventHandler(this.SaveAndSendMessages);
             // 
@@ -357,9 +364,9 @@
             // ColumnTime
             // 
             this.ColumnTime.DataPropertyName = "DeliveryTime";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnTime.HeaderText = "Thời gian";
             this.ColumnTime.Name = "ColumnTime";
             // 
