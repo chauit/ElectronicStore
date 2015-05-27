@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FindProduct));
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.ColumnProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textCode = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,10 +42,6 @@
             this.drlProductType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ColumnProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +67,36 @@
             this.dataGridView.Size = new System.Drawing.Size(769, 316);
             this.dataGridView.TabIndex = 1;
             this.dataGridView.DoubleClick += new System.EventHandler(this.SelectProduct);
+            // 
+            // ColumnProductType
+            // 
+            this.ColumnProductType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColumnProductType.DataPropertyName = "TypeValue";
+            this.ColumnProductType.HeaderText = "Loại sản phẩm";
+            this.ColumnProductType.Name = "ColumnProductType";
+            this.ColumnProductType.ReadOnly = true;
+            this.ColumnProductType.Width = 370;
+            // 
+            // ColumnName
+            // 
+            this.ColumnName.DataPropertyName = "Name";
+            this.ColumnName.HeaderText = "Tên sản phẩm";
+            this.ColumnName.Name = "ColumnName";
+            this.ColumnName.ReadOnly = true;
+            // 
+            // ColumnCode
+            // 
+            this.ColumnCode.DataPropertyName = "Code";
+            this.ColumnCode.HeaderText = "Mã sản phẩm";
+            this.ColumnCode.Name = "ColumnCode";
+            this.ColumnCode.ReadOnly = true;
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
             // 
             // groupBox1
             // 
@@ -108,9 +139,11 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(655, 22);
+            this.buttonSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonSearch.Image")));
+            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSearch.Location = new System.Drawing.Point(632, 22);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(91, 25);
             this.buttonSearch.TabIndex = 4;
             this.buttonSearch.Text = "Tìm kiếm";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -143,36 +176,6 @@
             this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Loại sản phẩm";
-            // 
-            // ColumnProductType
-            // 
-            this.ColumnProductType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColumnProductType.DataPropertyName = "TypeValue";
-            this.ColumnProductType.HeaderText = "Loại sản phẩm";
-            this.ColumnProductType.Name = "ColumnProductType";
-            this.ColumnProductType.ReadOnly = true;
-            this.ColumnProductType.Width = 370;
-            // 
-            // ColumnName
-            // 
-            this.ColumnName.DataPropertyName = "Name";
-            this.ColumnName.HeaderText = "Tên sản phẩm";
-            this.ColumnName.Name = "ColumnName";
-            this.ColumnName.ReadOnly = true;
-            // 
-            // ColumnCode
-            // 
-            this.ColumnCode.DataPropertyName = "Code";
-            this.ColumnCode.HeaderText = "Mã sản phẩm";
-            this.ColumnCode.Name = "ColumnCode";
-            this.ColumnCode.ReadOnly = true;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
             // 
             // FindProduct
             // 

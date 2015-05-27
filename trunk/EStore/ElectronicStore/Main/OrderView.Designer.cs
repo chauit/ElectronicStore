@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderView));
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeliveryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -50,9 +51,11 @@
             // 
             // buttonNew
             // 
+            this.buttonNew.Image = ((System.Drawing.Image)(resources.GetObject("buttonNew.Image")));
+            this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNew.Location = new System.Drawing.Point(6, 19);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(70, 23);
+            this.buttonNew.Size = new System.Drawing.Size(91, 25);
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "Thêm";
             this.buttonNew.UseVisualStyleBackColor = true;
@@ -83,11 +86,55 @@
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CellClicked);
             // 
+            // OrderId
+            // 
+            this.OrderId.DataPropertyName = "OrderNo";
+            this.OrderId.HeaderText = "Mã đơn hàng";
+            this.OrderId.Name = "OrderId";
+            this.OrderId.ReadOnly = true;
+            // 
+            // Customer
+            // 
+            this.Customer.DataPropertyName = "CustomerName";
+            this.Customer.HeaderText = "Khách hàng";
+            this.Customer.Name = "Customer";
+            this.Customer.ReadOnly = true;
+            // 
+            // OrderDate
+            // 
+            this.OrderDate.DataPropertyName = "OrderDate";
+            this.OrderDate.HeaderText = "Ngày tạo đơn hàng";
+            this.OrderDate.Name = "OrderDate";
+            this.OrderDate.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Tình trạng";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // DeliveryDate
+            // 
+            this.DeliveryDate.DataPropertyName = "DeliveryDate";
+            this.DeliveryDate.HeaderText = "Ngày chuyển hàng";
+            this.DeliveryDate.Name = "DeliveryDate";
+            this.DeliveryDate.ReadOnly = true;
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
+            // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(82, 19);
+            this.buttonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.Image")));
+            this.buttonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRefresh.Location = new System.Drawing.Point(103, 19);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(70, 23);
+            this.buttonRefresh.Size = new System.Drawing.Size(91, 25);
             this.buttonRefresh.TabIndex = 4;
             this.buttonRefresh.Text = "Cập nhật";
             this.buttonRefresh.UseVisualStyleBackColor = true;
@@ -132,48 +179,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách hóa đơn";
-            // 
-            // OrderId
-            // 
-            this.OrderId.DataPropertyName = "OrderNo";
-            this.OrderId.HeaderText = "Mã đơn hàng";
-            this.OrderId.Name = "OrderId";
-            this.OrderId.ReadOnly = true;
-            // 
-            // Customer
-            // 
-            this.Customer.DataPropertyName = "CustomerName";
-            this.Customer.HeaderText = "Khách hàng";
-            this.Customer.Name = "Customer";
-            this.Customer.ReadOnly = true;
-            // 
-            // OrderDate
-            // 
-            this.OrderDate.DataPropertyName = "OrderDate";
-            this.OrderDate.HeaderText = "Ngày tạo đơn hàng";
-            this.OrderDate.Name = "OrderDate";
-            this.OrderDate.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Tình trạng";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // DeliveryDate
-            // 
-            this.DeliveryDate.DataPropertyName = "DeliveryDate";
-            this.DeliveryDate.HeaderText = "Ngày chuyển hàng";
-            this.DeliveryDate.Name = "DeliveryDate";
-            this.DeliveryDate.ReadOnly = true;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
             // 
             // OrderView
             // 

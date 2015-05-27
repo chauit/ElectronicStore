@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FindOrder));
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.DeliveryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.cboOrderDate = new System.Windows.Forms.CheckBox();
@@ -38,11 +44,6 @@
             this.dateOrderDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.DeliveryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +70,45 @@
             this.dataGridView.TabIndex = 1;
             this.dataGridView.DoubleClick += new System.EventHandler(this.SelectOrder);
             // 
+            // DeliveryId
+            // 
+            this.DeliveryId.DataPropertyName = "OrderNo";
+            this.DeliveryId.HeaderText = "Mã đơn hàng";
+            this.DeliveryId.Name = "DeliveryId";
+            this.DeliveryId.ReadOnly = true;
+            this.DeliveryId.Width = 150;
+            // 
+            // StartDate
+            // 
+            this.StartDate.DataPropertyName = "OrderDate";
+            this.StartDate.HeaderText = "Ngày tạo đơn hàng";
+            this.StartDate.Name = "StartDate";
+            this.StartDate.ReadOnly = true;
+            this.StartDate.Width = 150;
+            // 
+            // EndDate
+            // 
+            this.EndDate.DataPropertyName = "DeliveryDate";
+            this.EndDate.HeaderText = "Ngày chuyển hàng";
+            this.EndDate.Name = "EndDate";
+            this.EndDate.ReadOnly = true;
+            this.EndDate.Width = 150;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "CustomerName";
+            this.Status.HeaderText = "Khách hàng";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 250;
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.buttonSearch);
@@ -88,9 +128,11 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(586, 55);
+            this.buttonSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonSearch.Image")));
+            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSearch.Location = new System.Drawing.Point(570, 54);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(91, 25);
             this.buttonSearch.TabIndex = 5;
             this.buttonSearch.Text = "Tìm kiếm";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -174,45 +216,6 @@
             this.label1.Size = new System.Drawing.Size(99, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ngày tạo hợp đồng";
-            // 
-            // DeliveryId
-            // 
-            this.DeliveryId.DataPropertyName = "OrderNo";
-            this.DeliveryId.HeaderText = "Mã đơn hàng";
-            this.DeliveryId.Name = "DeliveryId";
-            this.DeliveryId.ReadOnly = true;
-            this.DeliveryId.Width = 150;
-            // 
-            // StartDate
-            // 
-            this.StartDate.DataPropertyName = "OrderDate";
-            this.StartDate.HeaderText = "Ngày tạo đơn hàng";
-            this.StartDate.Name = "StartDate";
-            this.StartDate.ReadOnly = true;
-            this.StartDate.Width = 150;
-            // 
-            // EndDate
-            // 
-            this.EndDate.DataPropertyName = "DeliveryDate";
-            this.EndDate.HeaderText = "Ngày chuyển hàng";
-            this.EndDate.Name = "EndDate";
-            this.EndDate.ReadOnly = true;
-            this.EndDate.Width = 150;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "CustomerName";
-            this.Status.HeaderText = "Khách hàng";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 250;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
             // 
             // FindOrder
             // 

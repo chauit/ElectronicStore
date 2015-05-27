@@ -28,17 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryView));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Vehicle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeliveryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +40,13 @@
             this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -55,9 +56,11 @@
             // 
             // buttonNew
             // 
-            this.buttonNew.Location = new System.Drawing.Point(6, 19);
+            this.buttonNew.Image = ((System.Drawing.Image)(resources.GetObject("buttonNew.Image")));
+            this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNew.Location = new System.Drawing.Point(6, 16);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(70, 23);
+            this.buttonNew.Size = new System.Drawing.Size(91, 25);
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "Thêm";
             this.buttonNew.UseVisualStyleBackColor = true;
@@ -88,11 +91,80 @@
             this.dataGridView.Size = new System.Drawing.Size(804, 323);
             this.dataGridView.TabIndex = 1;
             // 
+            // cbo
+            // 
+            this.cbo.FalseValue = "0";
+            this.cbo.FillWeight = 7.342756F;
+            this.cbo.HeaderText = "";
+            this.cbo.IndeterminateValue = "";
+            this.cbo.MinimumWidth = 20;
+            this.cbo.Name = "cbo";
+            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cbo.TrueValue = "1";
+            // 
+            // Vehicle
+            // 
+            this.Vehicle.DataPropertyName = "VehicleName";
+            this.Vehicle.FillWeight = 36.16307F;
+            this.Vehicle.HeaderText = "Xe";
+            this.Vehicle.Name = "Vehicle";
+            this.Vehicle.ReadOnly = true;
+            // 
+            // DeliveryId
+            // 
+            this.DeliveryId.DataPropertyName = "DeliveryNo";
+            this.DeliveryId.FillWeight = 36.16307F;
+            this.DeliveryId.HeaderText = "Số giao hàng";
+            this.DeliveryId.Name = "DeliveryId";
+            this.DeliveryId.ReadOnly = true;
+            // 
+            // StartDate
+            // 
+            this.StartDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.StartDate.DataPropertyName = "DeliveryDate";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
+            this.StartDate.DefaultCellStyle = dataGridViewCellStyle3;
+            this.StartDate.FillWeight = 304.4726F;
+            this.StartDate.HeaderText = "Ngày giao hàng";
+            this.StartDate.Name = "StartDate";
+            this.StartDate.ReadOnly = true;
+            this.StartDate.Width = 130;
+            // 
+            // EndDate
+            // 
+            this.EndDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.EndDate.DataPropertyName = "StartTime";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.Format = "hh\\:mm";
+            this.EndDate.DefaultCellStyle = dataGridViewCellStyle4;
+            this.EndDate.HeaderText = "Thời gian giao hàng";
+            this.EndDate.Name = "EndDate";
+            this.EndDate.ReadOnly = true;
+            this.EndDate.Width = 130;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.FillWeight = 36.16307F;
+            this.Status.HeaderText = "Tình trạng";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
+            // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(82, 19);
+            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
+            this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUpdate.Location = new System.Drawing.Point(103, 16);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(70, 23);
+            this.buttonUpdate.Size = new System.Drawing.Size(91, 25);
             this.buttonUpdate.TabIndex = 2;
             this.buttonUpdate.Text = "Sửa";
             this.buttonUpdate.UseVisualStyleBackColor = true;
@@ -100,9 +172,11 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(158, 19);
+            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
+            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelete.Location = new System.Drawing.Point(200, 16);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(70, 23);
+            this.buttonDelete.Size = new System.Drawing.Size(91, 25);
             this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Text = "Xóa";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -110,9 +184,11 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(234, 19);
+            this.buttonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.Image")));
+            this.buttonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRefresh.Location = new System.Drawing.Point(297, 16);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(70, 23);
+            this.buttonRefresh.Size = new System.Drawing.Size(91, 25);
             this.buttonRefresh.TabIndex = 4;
             this.buttonRefresh.Text = "Cập nhật";
             this.buttonRefresh.UseVisualStyleBackColor = true;
@@ -159,73 +235,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách giao hàng";
-            // 
-            // cbo
-            // 
-            this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 7.342756F;
-            this.cbo.HeaderText = "";
-            this.cbo.IndeterminateValue = "";
-            this.cbo.MinimumWidth = 20;
-            this.cbo.Name = "cbo";
-            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cbo.TrueValue = "1";
-            // 
-            // Vehicle
-            // 
-            this.Vehicle.DataPropertyName = "VehicleName";
-            this.Vehicle.FillWeight = 36.16307F;
-            this.Vehicle.HeaderText = "Xe";
-            this.Vehicle.Name = "Vehicle";
-            this.Vehicle.ReadOnly = true;
-            // 
-            // DeliveryId
-            // 
-            this.DeliveryId.DataPropertyName = "DeliveryNo";
-            this.DeliveryId.FillWeight = 36.16307F;
-            this.DeliveryId.HeaderText = "Số giao hàng";
-            this.DeliveryId.Name = "DeliveryId";
-            this.DeliveryId.ReadOnly = true;
-            // 
-            // StartDate
-            // 
-            this.StartDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.StartDate.DataPropertyName = "DeliveryDate";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            this.StartDate.DefaultCellStyle = dataGridViewCellStyle1;
-            this.StartDate.FillWeight = 304.4726F;
-            this.StartDate.HeaderText = "Ngày giao hàng";
-            this.StartDate.Name = "StartDate";
-            this.StartDate.ReadOnly = true;
-            this.StartDate.Width = 130;
-            // 
-            // EndDate
-            // 
-            this.EndDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.EndDate.DataPropertyName = "StartTime";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.Format = "hh\\:mm";
-            this.EndDate.DefaultCellStyle = dataGridViewCellStyle2;
-            this.EndDate.HeaderText = "Thời gian giao hàng";
-            this.EndDate.Name = "EndDate";
-            this.EndDate.ReadOnly = true;
-            this.EndDate.Width = 130;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.FillWeight = 36.16307F;
-            this.Status.HeaderText = "Tình trạng";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
             // 
             // DeliveryView
             // 
