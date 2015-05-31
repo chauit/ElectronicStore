@@ -85,9 +85,16 @@ namespace ElectronicStore.Main
             if (selectedId > 0)
             {
                 var biz = new OrderBiz();
-                biz.RemoveSingleItem(selectedId);
+                if (biz.IsDependent(selectedId))
+                {
+                    MessageBox.Show(Constants.Messages.DependentOrderMessage);
+                }
+                else
+                {
+                    biz.RemoveSingleItem(selectedId);
 
-                RefreshItems(sender, e); 
+                    RefreshItems(sender, e);
+                }
             }
         }
 
@@ -113,11 +120,11 @@ namespace ElectronicStore.Main
                 if (order != null)
                 {
                     selectedId = order.Id;
-                    isDelivered = string.Equals(order.Status, Constants.OrderStatusDelivered, StringComparison.InvariantCultureIgnoreCase);                    
+                    isDelivered = string.Equals(order.Status, Constants.OrderStatusDelivered, StringComparison.InvariantCultureIgnoreCase);
                 }
 
                 var menu = AddMenu(isDelivered);
-                menu.Show(Cursor.Position.X, Cursor.Position.Y);                
+                menu.Show(Cursor.Position.X, Cursor.Position.Y);
             }
         }
     }
