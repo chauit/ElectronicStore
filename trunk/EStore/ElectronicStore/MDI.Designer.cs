@@ -29,30 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDI));
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Manage Role");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Manage User");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Manage Configuration");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Manage SMS");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Manage Email");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Administration", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Quản lý nhân viên");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Quản lý cấu hình hệ thông");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Quản lý thông tin tin nhắn");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Quản lý nội dung email");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Quản trị hệ thống", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
             treeNode3,
             treeNode4,
             treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Manage Customer");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Manage Product Type");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Manage Product");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Manage Vehicle");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Reference", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Quản lý khách hàng");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Quản lý loại sản phẩm");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Quản lý sản phẩm");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Quản lý thiết bị vận chuyển");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Quản trị nội dung", new System.Windows.Forms.TreeNode[] {
             treeNode7,
             treeNode8,
             treeNode9,
             treeNode10});
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Manage Order");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Manage Delivery");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Main", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Quản lý đơn hàng");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Quản lý thông tin vận chuyển");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Quản lý đơn hàng & vận chuyển", new System.Windows.Forms.TreeNode[] {
             treeNode12,
             treeNode13});
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -62,12 +61,6 @@
             this.changePasswordMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -83,8 +76,7 @@
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileMenu,
-            this.helpMenu});
+            this.fileMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -109,79 +101,33 @@
             // 
             this.loginMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.loginMenuItem.Name = "loginMenuItem";
-            this.loginMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.loginMenuItem.Text = "Login";
+            this.loginMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loginMenuItem.Text = "Đăng nhập";
             this.loginMenuItem.Click += new System.EventHandler(this.Login);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(165, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // changePasswordMenuItem
             // 
             this.changePasswordMenuItem.Name = "changePasswordMenuItem";
-            this.changePasswordMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.changePasswordMenuItem.Text = "Change Password";
+            this.changePasswordMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.changePasswordMenuItem.Text = "Đổi mật khẩu";
             this.changePasswordMenuItem.Click += new System.EventHandler(this.ChangePassword);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(165, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Thoát";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitForm);
-            // 
-            // helpMenu
-            // 
-            this.helpMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.contentsToolStripMenuItem,
-            this.indexToolStripMenuItem,
-            this.searchToolStripMenuItem,
-            this.toolStripSeparator8,
-            this.aboutToolStripMenuItem});
-            this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(44, 20);
-            this.helpMenu.Text = "&Help";
-            // 
-            // contentsToolStripMenuItem
-            // 
-            this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.contentsToolStripMenuItem.Text = "&Contents";
-            // 
-            // indexToolStripMenuItem
-            // 
-            this.indexToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("indexToolStripMenuItem.Image")));
-            this.indexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.indexToolStripMenuItem.Text = "&Index";
-            // 
-            // searchToolStripMenuItem
-            // 
-            this.searchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchToolStripMenuItem.Image")));
-            this.searchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.searchToolStripMenuItem.Text = "&Search";
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(165, 6);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.aboutToolStripMenuItem.Text = "&About ... ...";
             // 
             // statusStrip
             // 
@@ -215,7 +161,7 @@
             // 
             this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Size = new System.Drawing.Size(737, 477);
-            this.splitContainer1.SplitterDistance = 180;
+            this.splitContainer1.SplitterDistance = 213;
             this.splitContainer1.SplitterWidth = 1;
             this.splitContainer1.TabIndex = 4;
             // 
@@ -227,36 +173,36 @@
             treeNode1.Name = "nodeRole";
             treeNode1.Text = "Manage Role";
             treeNode2.Name = "nodeUser";
-            treeNode2.Text = "Manage User";
+            treeNode2.Text = "Quản lý nhân viên";
             treeNode3.Name = "nodeConfiguration";
-            treeNode3.Text = "Manage Configuration";
+            treeNode3.Text = "Quản lý cấu hình hệ thông";
             treeNode4.Name = "nodeSms";
-            treeNode4.Text = "Manage SMS";
+            treeNode4.Text = "Quản lý thông tin tin nhắn";
             treeNode5.Name = "nodeEmail";
-            treeNode5.Text = "Manage Email";
+            treeNode5.Text = "Quản lý nội dung email";
             treeNode6.Name = "Node0";
-            treeNode6.Text = "Administration";
+            treeNode6.Text = "Quản trị hệ thống";
             treeNode7.Name = "nodeCustomer";
-            treeNode7.Text = "Manage Customer";
+            treeNode7.Text = "Quản lý khách hàng";
             treeNode8.Name = "nodeProductType";
-            treeNode8.Text = "Manage Product Type";
+            treeNode8.Text = "Quản lý loại sản phẩm";
             treeNode9.Name = "nodeProduct";
-            treeNode9.Text = "Manage Product";
+            treeNode9.Text = "Quản lý sản phẩm";
             treeNode10.Name = "nodeVehicle";
-            treeNode10.Text = "Manage Vehicle";
+            treeNode10.Text = "Quản lý thiết bị vận chuyển";
             treeNode11.Name = "Node3";
-            treeNode11.Text = "Reference";
+            treeNode11.Text = "Quản trị nội dung";
             treeNode12.Name = "nodeOrder";
-            treeNode12.Text = "Manage Order";
+            treeNode12.Text = "Quản lý đơn hàng";
             treeNode13.Name = "nodeDelivery";
-            treeNode13.Text = "Manage Delivery";
+            treeNode13.Text = "Quản lý thông tin vận chuyển";
             treeNode14.Name = "Node7";
-            treeNode14.Text = "Main";
+            treeNode14.Text = "Quản lý đơn hàng & vận chuyển";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode6,
             treeNode11,
             treeNode14});
-            this.treeView.Size = new System.Drawing.Size(180, 477);
+            this.treeView.Size = new System.Drawing.Size(213, 477);
             this.treeView.TabIndex = 0;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.SelectNode);
             // 
@@ -295,17 +241,11 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileMenu;
         private System.Windows.Forms.ToolStripMenuItem loginMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changePasswordMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpMenu;
-        private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView treeView;

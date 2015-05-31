@@ -4,12 +4,13 @@ using ElectronicStore.Administration;
 using ElectronicStore.Common;
 using ElectronicStore.Main;
 using ElectronicStore.Reference;
+using Model;
 
 namespace ElectronicStore
 {
     public partial class MDI : Form
     {
-        private int childFormNumber = 0;
+        public User CurrentUser { get; set; }
 
         public MDI()
         {
@@ -20,6 +21,34 @@ namespace ElectronicStore
             if (!StringComparer.OrdinalIgnoreCase.Equals(license, "ElectronicStore"))
             {
                 Application.Exit();
+            }
+
+            FormLoad();
+        }
+
+        private void FormLoad()
+        {
+            if (CurrentUser == null)
+            {
+                treeView.Visible = false;
+                loginMenuItem.Text = "Đăng nhập";
+                changePasswordMenuItem.Visible = false;
+                toolStripSeparator3.Visible = false;
+                ShowLogin();
+            }
+        }
+
+        private void ShowLogin()
+        {
+            var login = new LoginForm();
+            var result = login.ShowDialog();
+            if(result == System.Windows.Forms.DialogResult.OK)
+            {
+                treeView.Visible = true;
+                loginMenuItem.Text = "Đăng xuất";
+                toolStripSeparator3.Visible = true;
+                changePasswordMenuItem.Visible = true;
+                CurrentUser = login.Result;
             }
         }
 
@@ -81,12 +110,34 @@ namespace ElectronicStore
 
         private void ChangePassword(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var changePassword = new ChangePasswordForm(CurrentUser.Username);
+            var result = changePassword.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                CurrentUser = null;
+                
+                treeView.Visible = false;
+                loginMenuItem.Text = "Đăng nhập";
+                changePasswordMenuItem.Visible = false;
+                toolStripSeparator3.Visible = false;
+                ShowLogin();                
+            }
         }
 
         private void Login(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if(string.Equals(loginMenuItem.Text,"Đăng nhập", StringComparison.InvariantCultureIgnoreCase))
+            {
+                ShowLogin();
+            }
+            else
+            {
+                CurrentUser = null;
+                treeView.Visible = false;
+                loginMenuItem.Text = "Đăng nhập";
+                changePasswordMenuItem.Visible = false;
+                toolStripSeparator3.Visible = false;
+            }
         }        
 
         private void SelectNode(object sender, TreeViewEventArgs e)

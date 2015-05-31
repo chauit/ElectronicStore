@@ -119,6 +119,12 @@
     <Compile Include="Administration\EmailForm.Designer.cs">
       <DependentUpon>EmailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administration\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\SmsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,12 @@
     </Compile>
     <Compile Include="Administration\SmsForm.Designer.cs">
       <DependentUpon>SmsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Administration\UserView.cs">
       <SubType>Form</SubType>
@@ -268,11 +280,17 @@
     <EmbeddedResource Include="Administration\EmailForm.resx">
       <DependentUpon>EmailForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Administration\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\SmsView.resx">
       <DependentUpon>SmsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\SmsForm.resx">
       <DependentUpon>SmsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\UserView.resx">
       <DependentUpon>UserView.cs</DependentUpon>
