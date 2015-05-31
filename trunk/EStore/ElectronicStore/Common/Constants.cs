@@ -12,6 +12,7 @@ namespace ElectronicStore.Common
         {
             public const string RequireMessage = "Thông tin cần nhập";
             public const string ConflictOrderMessage = "Đơn hàng đã có người cập nhật. Bạn không thể cập nhật thông tin của đơn hàng này";
+            public const string DependentOrderMessage = "Bạn không xóa được đơn hàng do đơn hàng đã được chuyển sang đơn vị vận chuyển. ";
         }
 
         public const string DefaultPassword = "1";
