@@ -49,7 +49,6 @@
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -143,9 +142,10 @@
             this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSearch.Location = new System.Drawing.Point(632, 22);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(91, 25);
+            this.buttonSearch.Size = new System.Drawing.Size(75, 25);
             this.buttonSearch.TabIndex = 4;
             this.buttonSearch.Text = "Tìm kiếm";
+            this.buttonSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.Search);
             // 

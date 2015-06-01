@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboDeliveryInternal = new System.Windows.Forms.CheckBox();
@@ -111,7 +111,7 @@
             // cboDeliveryInternal
             // 
             this.cboDeliveryInternal.AutoSize = true;
-            this.cboDeliveryInternal.Location = new System.Drawing.Point(530, 129);
+            this.cboDeliveryInternal.Location = new System.Drawing.Point(540, 95);
             this.cboDeliveryInternal.Name = "cboDeliveryInternal";
             this.cboDeliveryInternal.Size = new System.Drawing.Size(15, 14);
             this.cboDeliveryInternal.TabIndex = 25;
@@ -120,7 +120,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(407, 130);
+            this.label7.Location = new System.Drawing.Point(417, 95);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(117, 13);
             this.label7.TabIndex = 24;
@@ -213,7 +213,7 @@
             this.drlCustomer.FormattingEnabled = true;
             this.drlCustomer.Location = new System.Drawing.Point(152, 92);
             this.drlCustomer.Name = "drlCustomer";
-            this.drlCustomer.Size = new System.Drawing.Size(300, 21);
+            this.drlCustomer.Size = new System.Drawing.Size(246, 21);
             this.drlCustomer.TabIndex = 2;
             this.drlCustomer.SelectedIndexChanged += new System.EventHandler(this.SelectCustomer);
             // 
@@ -232,9 +232,10 @@
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(673, 43);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 25);
+            this.button2.Size = new System.Drawing.Size(75, 25);
             this.button2.TabIndex = 5;
-            this.button2.Text = "Thoát";
+            this.button2.Text = "Thoát   ";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.CancelItem);
             // 
@@ -244,9 +245,10 @@
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSave.Location = new System.Drawing.Point(673, 12);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(91, 25);
+            this.buttonSave.Size = new System.Drawing.Size(75, 25);
             this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Cập nhật";
+            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.SaveItem);
             // 
@@ -324,9 +326,9 @@
             // Price
             // 
             this.Price.DataPropertyName = "Price";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle5.Format = "0,000";
-            this.Price.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle1.Format = "0,000";
+            this.Price.DefaultCellStyle = dataGridViewCellStyle1;
             this.Price.HeaderText = "Đơn giá";
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
@@ -334,8 +336,8 @@
             // Total
             // 
             this.Total.DataPropertyName = "TotalValue";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.Total.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle2;
             this.Total.HeaderText = "Tổng";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
@@ -373,9 +375,10 @@
             this.buttonAddProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAddProduct.Location = new System.Drawing.Point(18, 15);
             this.buttonAddProduct.Name = "buttonAddProduct";
-            this.buttonAddProduct.Size = new System.Drawing.Size(91, 25);
+            this.buttonAddProduct.Size = new System.Drawing.Size(75, 25);
             this.buttonAddProduct.TabIndex = 23;
-            this.buttonAddProduct.Text = "Thêm";
+            this.buttonAddProduct.Text = "Thêm   ";
+            this.buttonAddProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAddProduct.UseVisualStyleBackColor = true;
             this.buttonAddProduct.Click += new System.EventHandler(this.AddNewProduct);
             // 
@@ -385,9 +388,10 @@
             this.buttonDeleteProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDeleteProduct.Location = new System.Drawing.Point(115, 15);
             this.buttonDeleteProduct.Name = "buttonDeleteProduct";
-            this.buttonDeleteProduct.Size = new System.Drawing.Size(91, 25);
+            this.buttonDeleteProduct.Size = new System.Drawing.Size(75, 25);
             this.buttonDeleteProduct.TabIndex = 25;
-            this.buttonDeleteProduct.Text = "Xóa";
+            this.buttonDeleteProduct.Text = "Xóa    ";
+            this.buttonDeleteProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDeleteProduct.UseVisualStyleBackColor = true;
             this.buttonDeleteProduct.Click += new System.EventHandler(this.DeleteProduct);
             // 

@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Manage Role");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Quản lý nhân viên");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Quản lý cấu hình hệ thông");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Quản lý thông tin tin nhắn");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Quản lý cấu hình hệ thống");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Quản lý nội dung tin nhắn");
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Quản lý nội dung email");
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Quản trị hệ thống", new System.Windows.Forms.TreeNode[] {
             treeNode1,
@@ -101,31 +101,31 @@
             // 
             this.loginMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.loginMenuItem.Name = "loginMenuItem";
-            this.loginMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loginMenuItem.Size = new System.Drawing.Size(145, 22);
             this.loginMenuItem.Text = "Đăng nhập";
             this.loginMenuItem.Click += new System.EventHandler(this.Login);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(142, 6);
             // 
             // changePasswordMenuItem
             // 
             this.changePasswordMenuItem.Name = "changePasswordMenuItem";
-            this.changePasswordMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.changePasswordMenuItem.Size = new System.Drawing.Size(145, 22);
             this.changePasswordMenuItem.Text = "Đổi mật khẩu";
             this.changePasswordMenuItem.Click += new System.EventHandler(this.ChangePassword);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(142, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.exitToolStripMenuItem.Text = "Thoát";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitForm);
             // 
@@ -175,9 +175,9 @@
             treeNode2.Name = "nodeUser";
             treeNode2.Text = "Quản lý nhân viên";
             treeNode3.Name = "nodeConfiguration";
-            treeNode3.Text = "Quản lý cấu hình hệ thông";
+            treeNode3.Text = "Quản lý cấu hình hệ thống";
             treeNode4.Name = "nodeSms";
-            treeNode4.Text = "Quản lý thông tin tin nhắn";
+            treeNode4.Text = "Quản lý nội dung tin nhắn";
             treeNode5.Name = "nodeEmail";
             treeNode5.Text = "Quản lý nội dung email";
             treeNode6.Name = "Node0";

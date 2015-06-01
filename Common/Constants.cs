@@ -27,6 +27,10 @@ namespace ElectronicStore.Common
         public const string OrderStatusDelivered = "Đã chuyển hàng";
         public const string DeliveryStatusDraft = "Chưa chuyển hàng";
         public const string DeliveryStatusDelivered = "Đã chuyển hàng";
+        public const string DeliverySentSms = "Đã gửi";
+        public const string DeliverySendSms = "Chưa gửi";
+        public const string DeliverySentEmail = "Đã gửi";
+        public const string DeliverySendEmail = "Chưa gửi";
 
         public const string CityInternal = "Hà Nội";       
     }

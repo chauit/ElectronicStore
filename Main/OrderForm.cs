@@ -19,7 +19,7 @@ namespace ElectronicStore.Main
         private int currentUser;
 
         public List<int> removedItems;
-        private List<SearchProduct> listProduct;
+        public List<SearchProduct> listProduct;
         private bool HasFooter;
 
         private void InitForm()
@@ -124,6 +124,8 @@ namespace ElectronicStore.Main
                     if (itemId > 0)
                     {
                         item.Id = itemId;
+                        item.Status = labelStatus.Text;
+                        item.OrderNo = labelOrderNo.Text;
                         item.Created = created;
                         item.CreatedByUserId = createdBy;
 
@@ -219,33 +221,35 @@ namespace ElectronicStore.Main
         private void AddNewProduct(object sender, EventArgs e)
         {
             var dialog = new FindProduct();
-            var result = dialog.ShowDialog();
+            dialog.ParentForm = this;
+            dialog.ShowDialog();            
+        }
 
-            if (result == System.Windows.Forms.DialogResult.OK)
+        public void UpdateGrid(SearchProduct product)
+        {            
+            if (product != null)
             {
-                var product = dialog.SelectedProduct;
-                if (product != null)
+                if (listProduct == null)
                 {
-                    if (listProduct == null)
-                    {
-                        listProduct = new List<SearchProduct>();
-                    }
-
-                    if (!HasFooter)
-                    {
-                        listProduct.Add(product);                        
-                        listProduct.Add(new SearchProduct());
-                        HasFooter = true;
-                    }
-                    else
-                    {
-                        listProduct.Insert(listProduct.Count - 1, product);
-                    }
-
-                    dataGridView.DataSource = null;
-                    dataGridView.DataSource = listProduct;
-                    dataGridView.Refresh();
+                    listProduct = new List<SearchProduct>();
                 }
+
+                if (!HasFooter)
+                {
+                    listProduct.Add(product);
+                    listProduct.Add(new SearchProduct());
+                    listProduct.Add(new SearchProduct());
+                    listProduct.Add(new SearchProduct());
+                    HasFooter = true;
+                }
+                else
+                {
+                    listProduct.Insert(listProduct.Count - 3, product);
+                }
+
+                dataGridView.DataSource = null;
+                dataGridView.DataSource = listProduct;
+                dataGridView.Refresh();
             }
         }
 
@@ -304,6 +308,8 @@ namespace ElectronicStore.Main
             }
 
             listProduct.Add(new SearchProduct());
+            listProduct.Add(new SearchProduct());
+            listProduct.Add(new SearchProduct());
             HasFooter = true;
 
             dataGridView.DataSource = null;
@@ -317,7 +323,7 @@ namespace ElectronicStore.Main
             {
                 int index = dataGridView.SelectedRows[0].Index;
 
-                if (index == dataGridView.RowCount - 1) return;
+                if (index >= dataGridView.RowCount - 3) return;
 
                 var content = Convert.ToString(dataGridView.SelectedRows[0].Cells[5].Value);
                 if (!string.IsNullOrEmpty(content))
@@ -326,7 +332,7 @@ namespace ElectronicStore.Main
                 }
 
                 listProduct.RemoveAt(index);
-                if (listProduct.Count == 1)
+                if (listProduct.Count == 3)
                 {
                     listProduct.Clear();
                     HasFooter = false;
@@ -343,7 +349,7 @@ namespace ElectronicStore.Main
             var biz = new OrderDetailBiz();
             biz.RemoveItemsByOrderId(order.Id);
 
-            for (int i = 0; i < dataGridView.RowCount - 1; i++)
+            for (int i = 0; i < dataGridView.RowCount - 3; i++)
             {
                 var entity = dataGridView.Rows[i].DataBoundItem as SearchProduct;
                 if (entity != null && entity.Total > 0)
@@ -366,10 +372,10 @@ namespace ElectronicStore.Main
 
         private void UpdateTotal()
         {
-            if (dataGridView.RowCount > 1)
+            if (dataGridView.RowCount > 3)
             {
                 decimal total = 0;
-                for (int i = 0; i <= dataGridView.RowCount - 2; i++)
+                for (int i = 0; i <= dataGridView.RowCount - 4; i++)
                 {
                     var item = dataGridView.Rows[i].DataBoundItem as SearchProduct;
                     if (item != null && !string.IsNullOrEmpty(item.TotalValue))
@@ -379,13 +385,22 @@ namespace ElectronicStore.Main
                     }
                 }
 
-                var footer = dataGridView.Rows[dataGridView.RowCount - 1];
+                var footer = dataGridView.Rows[dataGridView.RowCount - 3];
                 footer.Cells[4].Value = "Tổng: " + total.ToString("0,000");
+
+                var vat = dataGridView.Rows[dataGridView.RowCount - 2];                
+                decimal vatValue = (total * 10) / 100;
+                vat.Cells[4].Value = "VAT(10%): " + vatValue.ToString("0,000");
+                
+                var final = dataGridView.Rows[dataGridView.RowCount - 1];                
+                final.Cells[4].Value = "Tổng: " + (total + vatValue).ToString("0,000");
             }
         }
 
         private bool CheckSecurity(int id)
         {
+            if (id == 0) return false;
+
             var biz = new OrderBiz();
             var current = biz.LoadItem(id);
             if(current != null)
