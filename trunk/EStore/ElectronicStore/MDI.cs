@@ -150,45 +150,45 @@ namespace ElectronicStore
                     RoleView roleView = new RoleView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(roleView);
                     break;
-                case "Manage User":
+                case "Quản lý nhân viên":
                     UserView userView = new UserView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(userView);
                     break;
-                case "Manage Configuration":
+                case "Quản lý cấu hình hệ thống":
                     ConfigurationView configurationView = new ConfigurationView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(configurationView);
                     break;
-                case "Manage SMS":
+                case "Quản lý nội dung tin nhắn":
                     SmsView smsView = new SmsView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(smsView);
                     break;
-                case "Manage Email":
+                case "Quản lý nội dung email":
                     EmailView emailView = new EmailView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(emailView);
                     break;
 
-                case "Manage Customer":
+                case "Quản lý khách hàng":
                     CustomerView customerView = new CustomerView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(customerView);
                     break;
-                case "Manage Product Type":
+                case "Quản lý loại sản phẩm":
                     ProductTypeView productTypeView = new ProductTypeView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(productTypeView);
                     break;
-                case "Manage Product":
+                case "Quản lý sản phẩm":
                     ProductView productView = new ProductView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(productView);
                     break;
-                case "Manage Vehicle":
+                case "Quản lý thiết bị vận chuyển":
                     VehicleView vehicleView = new VehicleView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(vehicleView);
                     break;
 
-                case "Manage Order":
+                case "Quản lý đơn hàng":
                     OrderView orderView = new OrderView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(orderView);
                     break;
-                case "Manage Delivery":
+                case "Quản lý thông tin vận chuyển":
                     DeliveryView deliveryView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(deliveryView);
                     break;

@@ -71,6 +71,9 @@ namespace ElectronicStore.Main
 
             labelDeliveryNo.Text = item.DeliveryNo;
             labelStatus.Text = item.Status;
+            labelSendSms.Text = item.IsSendSms;
+            labelSendEmail.Text = item.IsSendEmail;
+
             if (item.DeliveryDate.HasValue)
             {
                 dateStartDate.Value = item.DeliveryDate.Value;
@@ -95,7 +98,8 @@ namespace ElectronicStore.Main
         {
             if (CustomValidation())
             {
-                SaveDelivery();
+                var item = new Delivery();
+                SaveDelivery(item);
 
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
@@ -112,9 +116,8 @@ namespace ElectronicStore.Main
             }
         }
 
-        private Delivery SaveDelivery()
-        {
-            var item = new Delivery();
+        private Delivery SaveDelivery(Delivery item)
+        {            
             item.DeliveryDate = dateStartDate.Value;
             item.StartTime = TimeSpan.Parse(dateTimeStartTime.Value.ToString(@"hh\:mm"));
             item.OtherInformation = textOtherInformation.Text;
@@ -125,6 +128,19 @@ namespace ElectronicStore.Main
                 item.Id = itemId;
                 item.Created = created;
                 item.CreatedByUserId = createdBy;
+
+                if (string.IsNullOrEmpty(item.IsSendEmail))
+                {
+                    item.IsSendEmail = labelSendEmail.Text;
+                }
+
+                if (string.IsNullOrEmpty(item.IsSendSms))
+                {
+                    item.IsSendSms = labelSendSms.Text;
+                }
+
+                item.DeliveryNo = labelDeliveryNo.Text;
+                item.Status = labelStatus.Text;
 
                 item.Modified = DateTime.Now;
                 item.ModifiedByUserId = currentUser;
@@ -137,6 +153,15 @@ namespace ElectronicStore.Main
                 item.Status = Constants.DeliveryStatusDraft;
                 item.Created = DateTime.Now;
                 item.CreatedByUserId = currentUser;
+                if (string.IsNullOrEmpty(item.IsSendEmail))
+                {
+                    item.IsSendEmail = Constants.DeliverySendEmail;
+                }
+
+                if (string.IsNullOrEmpty(item.IsSendSms))
+                {
+                    item.IsSendSms = Constants.DeliverySendSms;
+                }
 
                 item.Modified = DateTime.Now;
                 item.ModifiedByUserId = currentUser;
@@ -194,24 +219,23 @@ namespace ElectronicStore.Main
         private void SelectOrder(object sender, EventArgs e)
         {
             var dialog = new FindOrder();
-            var result = dialog.ShowDialog();
+            dialog.ParentForm = this;
+            dialog.ShowDialog();  
+        }
 
-            if (result == System.Windows.Forms.DialogResult.OK)
+        public void UpdateGrid(SearchOrder order)
+        {
+            if (order != null)
             {
-                var order = dialog.SelectedOrder;
-                if (order != null)
+                if (listOrder == null)
                 {
-                    if (listOrder == null)
-                    {
-                        listOrder = new List<SearchOrder>();
-                    }
-
-                    listOrder.Add(order);
-                                        
-                    dataGridView.DataSource = null;
-                    dataGridView.DataSource = listOrder;
-                    dataGridView.Refresh();
+                    listOrder = new List<SearchOrder>();
                 }
+
+                listOrder.Add(order);
+                dataGridView.DataSource = null;
+                dataGridView.DataSource = listOrder;
+                dataGridView.Refresh();
             }
         }
 
@@ -318,10 +342,40 @@ namespace ElectronicStore.Main
         {
             if (CustomValidation())
             {
-                var item = SaveDelivery();
+                var delivery = new Delivery();
+                delivery.IsSendSms = Constants.DeliverySentSms;
+
+                var item = SaveDelivery(delivery);
 
                 var biz = new DeliveryBiz();
-                biz.SendMessage(item.Id);
+                biz.SendSms(item.Id);
+
+                var parent = this.Parent as SplitterPanel;
+                parent.Controls.Clear();
+
+                var deliveryView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
+                parent.Controls.Add(deliveryView);
+                deliveryView.Show();
+
+                this.Close();
+            }
+            else
+            {
+                this.DialogResult = System.Windows.Forms.DialogResult.None;
+            }
+        }
+
+        private void SaveAndSendEmail(object sender, EventArgs e)
+        {
+            if (CustomValidation())
+            {
+                var delivery = new Delivery();
+                delivery.IsSendEmail = Constants.DeliverySentEmail;
+
+                var item = SaveDelivery(delivery);
+
+                var biz = new DeliveryBiz();
+                biz.SendEmail(item.Id);
 
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();

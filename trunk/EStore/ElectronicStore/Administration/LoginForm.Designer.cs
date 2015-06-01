@@ -42,7 +42,7 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(402, 20);
+            this.buttonLogin.Location = new System.Drawing.Point(135, 114);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(75, 23);
             this.buttonLogin.TabIndex = 3;
@@ -65,6 +65,7 @@
             this.textUsername.Name = "textUsername";
             this.textUsername.Size = new System.Drawing.Size(245, 20);
             this.textUsername.TabIndex = 1;
+            this.textUsername.Text = "admin";
             // 
             // label2
             // 
@@ -81,11 +82,12 @@
             this.textPassword.Name = "textPassword";
             this.textPassword.Size = new System.Drawing.Size(245, 20);
             this.textPassword.TabIndex = 2;
+            this.textPassword.Text = "2";
             this.textPassword.UseSystemPasswordChar = true;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(483, 20);
+            this.buttonCancel.Location = new System.Drawing.Point(216, 114);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 4;
@@ -111,7 +113,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(599, 131);
+            this.ClientSize = new System.Drawing.Size(420, 157);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textPassword);

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimeStartTime = new System.Windows.Forms.DateTimePicker();
@@ -41,7 +41,7 @@
             this.dateStartDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.labelDeliveryNo = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelSendEmail = new System.Windows.Forms.Label();
             this.drlVehicle = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.buttonDeleteProduct = new System.Windows.Forms.Button();
             this.buttonAddProduct = new System.Windows.Forms.Button();
-            this.buttonSendSms = new System.Windows.Forms.Button();
+            this.buttonSendEmail = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -62,6 +62,10 @@
             this.ColumnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.labelSendSms = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.buttonSendSms = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -82,6 +86,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.labelSendSms);
             this.groupBox1.Controls.Add(this.dateTimeStartTime);
             this.groupBox1.Controls.Add(this.labelStatus);
             this.groupBox1.Controls.Add(this.label6);
@@ -90,14 +97,14 @@
             this.groupBox1.Controls.Add(this.dateStartDate);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.labelDeliveryNo);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.labelSendEmail);
             this.groupBox1.Controls.Add(this.drlVehicle);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(660, 222);
+            this.groupBox1.Size = new System.Drawing.Size(660, 260);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin giao hàng";
@@ -130,7 +137,7 @@
             // 
             // textOtherInformation
             // 
-            this.textOtherInformation.Location = new System.Drawing.Point(135, 126);
+            this.textOtherInformation.Location = new System.Drawing.Point(135, 166);
             this.textOtherInformation.Multiline = true;
             this.textOtherInformation.Name = "textOtherInformation";
             this.textOtherInformation.Size = new System.Drawing.Size(513, 88);
@@ -139,7 +146,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 126);
+            this.label3.Location = new System.Drawing.Point(25, 166);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
             this.label3.TabIndex = 19;
@@ -170,14 +177,13 @@
             this.labelDeliveryNo.TabIndex = 15;
             this.labelDeliveryNo.Text = "Delivery ID";
             // 
-            // label5
+            // labelSendEmail
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(437, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Thời gian giao hàng:";
+            this.labelSendEmail.AutoSize = true;
+            this.labelSendEmail.Location = new System.Drawing.Point(496, 129);
+            this.labelSendEmail.Name = "labelSendEmail";
+            this.labelSendEmail.Size = new System.Drawing.Size(0, 13);
+            this.labelSendEmail.TabIndex = 14;
             // 
             // drlVehicle
             // 
@@ -206,7 +212,8 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(91, 25);
             this.button2.TabIndex = 5;
-            this.button2.Text = "Thoát";
+            this.button2.Text = "Thoát        ";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.CancelItem);
             // 
@@ -218,7 +225,8 @@
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(91, 25);
             this.buttonSave.TabIndex = 4;
-            this.buttonSave.Text = "Cập nhật";
+            this.buttonSave.Text = "Cập nhật   ";
+            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.SaveItem);
             // 
@@ -274,29 +282,30 @@
             this.buttonAddProduct.UseVisualStyleBackColor = true;
             this.buttonAddProduct.Click += new System.EventHandler(this.SelectOrder);
             // 
-            // buttonSendSms
+            // buttonSendEmail
             // 
-            this.buttonSendSms.Image = ((System.Drawing.Image)(resources.GetObject("buttonSendSms.Image")));
-            this.buttonSendSms.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSendSms.Location = new System.Drawing.Point(666, 74);
-            this.buttonSendSms.Name = "buttonSendSms";
-            this.buttonSendSms.Size = new System.Drawing.Size(91, 25);
-            this.buttonSendSms.TabIndex = 6;
-            this.buttonSendSms.Text = "Send SMS";
-            this.buttonSendSms.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSendSms.UseVisualStyleBackColor = true;
-            this.buttonSendSms.Click += new System.EventHandler(this.SaveAndSendMessages);
+            this.buttonSendEmail.Image = ((System.Drawing.Image)(resources.GetObject("buttonSendEmail.Image")));
+            this.buttonSendEmail.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSendEmail.Location = new System.Drawing.Point(666, 74);
+            this.buttonSendEmail.Name = "buttonSendEmail";
+            this.buttonSendEmail.Size = new System.Drawing.Size(91, 25);
+            this.buttonSendEmail.TabIndex = 6;
+            this.buttonSendEmail.Text = "Gửi email   ";
+            this.buttonSendEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSendEmail.UseVisualStyleBackColor = true;
+            this.buttonSendEmail.Click += new System.EventHandler(this.SaveAndSendEmail);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.buttonSendSms);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.buttonSendEmail);
             this.panel1.Controls.Add(this.buttonSave);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(769, 222);
+            this.panel1.Size = new System.Drawing.Size(769, 260);
             this.panel1.TabIndex = 7;
             // 
             // panel2
@@ -304,9 +313,9 @@
             this.panel2.Controls.Add(this.groupBox4);
             this.panel2.Controls.Add(this.groupBox3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 222);
+            this.panel2.Location = new System.Drawing.Point(0, 260);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(769, 366);
+            this.panel2.Size = new System.Drawing.Size(769, 328);
             this.panel2.TabIndex = 8;
             // 
             // groupBox4
@@ -315,7 +324,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 49);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(769, 317);
+            this.groupBox4.Size = new System.Drawing.Size(769, 279);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin hóa đơn";
@@ -337,7 +346,7 @@
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.Size = new System.Drawing.Size(763, 298);
+            this.dataGridView.Size = new System.Drawing.Size(763, 260);
             this.dataGridView.TabIndex = 0;
             // 
             // Customer
@@ -364,9 +373,9 @@
             // ColumnTime
             // 
             this.ColumnTime.DataPropertyName = "DeliveryTime";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColumnTime.HeaderText = "Thời gian";
             this.ColumnTime.Name = "ColumnTime";
             // 
@@ -390,6 +399,44 @@
             this.groupBox3.Size = new System.Drawing.Size(769, 49);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
+            // 
+            // labelSendSms
+            // 
+            this.labelSendSms.AutoSize = true;
+            this.labelSendSms.Location = new System.Drawing.Point(190, 129);
+            this.labelSendSms.Name = "labelSendSms";
+            this.labelSendSms.Size = new System.Drawing.Size(0, 13);
+            this.labelSendSms.TabIndex = 23;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(135, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Gửi SMS:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(437, 129);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 13);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Gửi email:";
+            // 
+            // buttonSendSms
+            // 
+            this.buttonSendSms.Image = ((System.Drawing.Image)(resources.GetObject("buttonSendSms.Image")));
+            this.buttonSendSms.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSendSms.Location = new System.Drawing.Point(666, 105);
+            this.buttonSendSms.Name = "buttonSendSms";
+            this.buttonSendSms.Size = new System.Drawing.Size(91, 25);
+            this.buttonSendSms.TabIndex = 7;
+            this.buttonSendSms.Text = "Gửi SMS   ";
+            this.buttonSendSms.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSendSms.UseVisualStyleBackColor = true;
             // 
             // DeliveryForm
             // 
@@ -424,7 +471,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelSendEmail;
         private System.Windows.Forms.ComboBox drlVehicle;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelDeliveryNo;
@@ -439,7 +486,7 @@
         private System.Windows.Forms.DateTimePicker dateTimeStartTime;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button buttonSendSms;
+        private System.Windows.Forms.Button buttonSendEmail;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -450,5 +497,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label labelSendSms;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonSendSms;
     }
 }

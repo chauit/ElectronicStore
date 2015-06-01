@@ -14,7 +14,11 @@ namespace ElectronicStore.Main
 {
     public partial class FindOrder : Form
     {
+        public DeliveryForm ParentForm { get; set; }
+
         public SearchOrder SelectedOrder;
+
+        private List<SearchOrder> ListSelectedOrder { get; set; }
 
         public FindOrder()
         {
@@ -23,6 +27,8 @@ namespace ElectronicStore.Main
             dataGridView.AutoGenerateColumns = false;
 
             LoadCustomer();
+
+            ListSelectedOrder = new List<SearchOrder>();
         }
 
         private void LoadCustomer()
@@ -60,7 +66,18 @@ namespace ElectronicStore.Main
             }
 
             var biz = new OrderBiz();
-            dataGridView.DataSource = biz.SearchOrder(date, month, customerId);
+            var data = biz.SearchOrder(date, month, customerId);
+
+            foreach (var p in ListSelectedOrder)
+            {
+                var item = data.Find(i => i.Id == p.Id);
+                if (item != null)
+                {
+                    data.Remove(item);
+                }
+            }
+
+            dataGridView.DataSource = data;
         }
 
         private void SelectOrderDate(object sender, EventArgs e)
@@ -78,9 +95,22 @@ namespace ElectronicStore.Main
         {
             if (dataGridView.SelectedRows.Count > 0)
             {
+                int index = dataGridView.SelectedRows[0].Index;
                 SelectedOrder = dataGridView.SelectedRows[0].DataBoundItem as SearchOrder;
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.Close();
+
+                ListSelectedOrder.Add(SelectedOrder);
+
+                var deliveryForm = this.ParentForm as DeliveryForm;
+                if (deliveryForm != null)
+                {
+                    deliveryForm.UpdateGrid(SelectedOrder);
+                }
+
+                var list = dataGridView.DataSource as List<SearchOrder>;
+                list.RemoveAt(index);
+
+                dataGridView.DataSource = list;
+                dataGridView.Refresh();
             }
         }
     }
