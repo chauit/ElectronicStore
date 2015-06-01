@@ -99,23 +99,37 @@ namespace ElectronicStore.Main
 
         private void SaveItem(object sender, EventArgs e)
         {
-            if (CustomValidation())
+            if (CheckSecurity(itemId))
             {
-                var item = new Delivery();
-                SaveDelivery(item);
-
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
-                var deliveryView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
-                parent.Controls.Add(deliveryView);
-                deliveryView.Show();
+                var orderView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
+                parent.Controls.Add(orderView);
+                orderView.Show();
 
                 this.Close();
             }
             else
             {
-                this.DialogResult = System.Windows.Forms.DialogResult.None;
+                if (CustomValidation())
+                {
+                    var item = new Delivery();
+                    SaveDelivery(item);
+
+                    var parent = this.Parent as SplitterPanel;
+                    parent.Controls.Clear();
+
+                    var deliveryView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
+                    parent.Controls.Add(deliveryView);
+                    deliveryView.Show();
+
+                    this.Close();
+                }
+                else
+                {
+                    this.DialogResult = System.Windows.Forms.DialogResult.None;
+                }
             }
         }
 
@@ -417,6 +431,24 @@ namespace ElectronicStore.Main
             {
                 this.DialogResult = System.Windows.Forms.DialogResult.None;
             }
+        }
+
+        private bool CheckSecurity(int id)
+        {
+            if (id == 0) return false;
+
+            var biz = new DeliveryBiz();
+            var current = biz.LoadItem(id);
+            if (current != null)
+            {
+                if (current.Modified.Value != modified.Value)
+                {
+                    MessageBox.Show(Constants.Messages.ConflictOrderMessage);
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
