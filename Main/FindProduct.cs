@@ -13,7 +13,7 @@ namespace ElectronicStore.Main
         public SearchProduct SelectedProduct;
         private List<SearchProduct> ListSelectedProduct { get; set; }
 
-        public FindProduct()
+        public FindProduct(List<SearchProduct> listProduct)
         {
             InitializeComponent();
 
@@ -22,6 +22,11 @@ namespace ElectronicStore.Main
             LoadProductType();
 
             ListSelectedProduct = new List<SearchProduct>();
+
+            foreach(var product in listProduct)
+            {
+                ListSelectedProduct.Add(product);
+            }
         }
 
         private void LoadProductType()
