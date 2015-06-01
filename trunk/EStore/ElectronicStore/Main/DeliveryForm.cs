@@ -3,6 +3,7 @@ using ElectronicStore.Common;
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ElectronicStore.Main
@@ -33,6 +34,8 @@ namespace ElectronicStore.Main
             button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 
             LoadVehicle();
+
+            listOrder = new List<SearchOrder>();
         }
 
         public DeliveryForm()
@@ -201,6 +204,30 @@ namespace ElectronicStore.Main
                 drlVehicle.Focus();
             }
 
+            string ids = string.Empty;
+            foreach(var o in listOrder)
+            {
+                ids = string.Concat(ids, ",", o.Id);
+            }
+
+            ids = ids.TrimStart(',');
+
+            var biz = new DeliveryDetailBiz();
+            var orderIds = biz.GetByOrders(ids);
+            if(orderIds != null && orderIds.Count > 0)
+            {
+                hasError = false;
+
+                for (int i = 0; i < listOrder.Count; i++)
+                {
+                    if (orderIds.Contains(listOrder[i].Id))
+                    {
+                        dataGridView.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                        dataGridView.Refresh();
+                    }
+                }
+            }
+
             return hasError;
         }
 
@@ -218,7 +245,7 @@ namespace ElectronicStore.Main
 
         private void SelectOrder(object sender, EventArgs e)
         {
-            var dialog = new FindOrder();
+            var dialog = new FindOrder(listOrder);
             dialog.ParentForm = this;
             dialog.ShowDialog();  
         }

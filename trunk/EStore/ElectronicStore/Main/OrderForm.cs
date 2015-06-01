@@ -31,6 +31,7 @@ namespace ElectronicStore.Main
             currentUser = 6;
 
             LoadCustomer();
+            listProduct = new List<SearchProduct>();
             removedItems = new List<int>();
 
             dataGridView.AutoGenerateColumns = false;
@@ -220,7 +221,7 @@ namespace ElectronicStore.Main
 
         private void AddNewProduct(object sender, EventArgs e)
         {
-            var dialog = new FindProduct();
+            var dialog = new FindProduct(listProduct);
             dialog.ParentForm = this;
             dialog.ShowDialog();            
         }

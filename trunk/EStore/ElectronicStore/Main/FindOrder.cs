@@ -20,7 +20,7 @@ namespace ElectronicStore.Main
 
         private List<SearchOrder> ListSelectedOrder { get; set; }
 
-        public FindOrder()
+        public FindOrder(List<SearchOrder> orders)
         {
             InitializeComponent();
 
@@ -29,6 +29,11 @@ namespace ElectronicStore.Main
             LoadCustomer();
 
             ListSelectedOrder = new List<SearchOrder>();
+
+            foreach(var o in orders)
+            {
+                ListSelectedOrder.Add(o);
+            }
         }
 
         private void LoadCustomer()
@@ -109,6 +114,7 @@ namespace ElectronicStore.Main
                 var list = dataGridView.DataSource as List<SearchOrder>;
                 list.RemoveAt(index);
 
+                dataGridView.DataSource = null;
                 dataGridView.DataSource = list;
                 dataGridView.Refresh();
             }
