@@ -31,6 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurationView));
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ConfigurationKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,13 +46,6 @@
             this.FieldCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FieldModified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FieldModifiedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -89,71 +89,6 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(904, 329);
             this.dataGridView.TabIndex = 1;
-            // 
-            // cbo
-            // 
-            this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20.30457F;
-            this.cbo.HeaderText = "";
-            this.cbo.IndeterminateValue = "";
-            this.cbo.MinimumWidth = 20;
-            this.cbo.Name = "cbo";
-            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cbo.TrueValue = "1";
-            this.cbo.Width = 36;
-            // 
-            // ConfigurationKey
-            // 
-            this.ConfigurationKey.DataPropertyName = "Key";
-            this.ConfigurationKey.FillWeight = 179.6954F;
-            this.ConfigurationKey.HeaderText = "Khóa";
-            this.ConfigurationKey.Name = "ConfigurationKey";
-            this.ConfigurationKey.Width = 150;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
-            // 
-            // ConfigurationValue
-            // 
-            this.ConfigurationValue.DataPropertyName = "Value";
-            this.ConfigurationValue.HeaderText = "Giá trị";
-            this.ConfigurationValue.Name = "ConfigurationValue";
-            this.ConfigurationValue.ReadOnly = true;
-            this.ConfigurationValue.Width = 150;
-            // 
-            // FieldCreated
-            // 
-            this.FieldCreated.DataPropertyName = "Created";
-            this.FieldCreated.HeaderText = "Ngày tạo";
-            this.FieldCreated.Name = "FieldCreated";
-            this.FieldCreated.ReadOnly = true;
-            // 
-            // FieldCreatedBy
-            // 
-            this.FieldCreatedBy.DataPropertyName = "CreatedBy";
-            this.FieldCreatedBy.HeaderText = "Người tạo";
-            this.FieldCreatedBy.Name = "FieldCreatedBy";
-            this.FieldCreatedBy.ReadOnly = true;
-            this.FieldCreatedBy.Width = 150;
-            // 
-            // FieldModified
-            // 
-            this.FieldModified.DataPropertyName = "Modified";
-            this.FieldModified.HeaderText = "Ngày sửa";
-            this.FieldModified.Name = "FieldModified";
-            this.FieldModified.ReadOnly = true;
-            // 
-            // FieldModifiedBy
-            // 
-            this.FieldModifiedBy.DataPropertyName = "ModifiedBy";
-            this.FieldModifiedBy.HeaderText = "Người sửa";
-            this.FieldModifiedBy.Name = "FieldModifiedBy";
-            this.FieldModifiedBy.ReadOnly = true;
-            this.FieldModifiedBy.Width = 150;
             // 
             // buttonUpdate
             // 
@@ -233,6 +168,71 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách cấu hình";
             // 
+            // cbo
+            // 
+            this.cbo.FalseValue = "0";
+            this.cbo.FillWeight = 20.30457F;
+            this.cbo.HeaderText = "";
+            this.cbo.IndeterminateValue = "";
+            this.cbo.MinimumWidth = 20;
+            this.cbo.Name = "cbo";
+            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cbo.TrueValue = "1";
+            this.cbo.Width = 36;
+            // 
+            // ConfigurationKey
+            // 
+            this.ConfigurationKey.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ConfigurationKey.DataPropertyName = "Key";
+            this.ConfigurationKey.FillWeight = 179.6954F;
+            this.ConfigurationKey.HeaderText = "Khóa";
+            this.ConfigurationKey.Name = "ConfigurationKey";
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
+            // 
+            // ConfigurationValue
+            // 
+            this.ConfigurationValue.DataPropertyName = "Value";
+            this.ConfigurationValue.HeaderText = "Giá trị";
+            this.ConfigurationValue.Name = "ConfigurationValue";
+            this.ConfigurationValue.ReadOnly = true;
+            this.ConfigurationValue.Width = 150;
+            // 
+            // FieldCreated
+            // 
+            this.FieldCreated.DataPropertyName = "Created";
+            this.FieldCreated.HeaderText = "Ngày tạo";
+            this.FieldCreated.Name = "FieldCreated";
+            this.FieldCreated.ReadOnly = true;
+            // 
+            // FieldCreatedBy
+            // 
+            this.FieldCreatedBy.DataPropertyName = "CreatedBy";
+            this.FieldCreatedBy.HeaderText = "Người tạo";
+            this.FieldCreatedBy.Name = "FieldCreatedBy";
+            this.FieldCreatedBy.ReadOnly = true;
+            this.FieldCreatedBy.Width = 150;
+            // 
+            // FieldModified
+            // 
+            this.FieldModified.DataPropertyName = "Modified";
+            this.FieldModified.HeaderText = "Ngày sửa";
+            this.FieldModified.Name = "FieldModified";
+            this.FieldModified.ReadOnly = true;
+            // 
+            // FieldModifiedBy
+            // 
+            this.FieldModifiedBy.DataPropertyName = "ModifiedBy";
+            this.FieldModifiedBy.HeaderText = "Người sửa";
+            this.FieldModifiedBy.Name = "FieldModifiedBy";
+            this.FieldModifiedBy.ReadOnly = true;
+            this.FieldModifiedBy.Width = 150;
+            // 
             // ConfigurationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,6 +259,10 @@
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cbo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ConfigurationKey;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
@@ -267,9 +271,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FieldCreatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn FieldModified;
         private System.Windows.Forms.DataGridViewTextBoxColumn FieldModifiedBy;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

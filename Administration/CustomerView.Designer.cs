@@ -31,12 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerView));
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mobile1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
@@ -44,6 +38,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mobile1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -85,57 +85,6 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(804, 332);
             this.dataGridView.TabIndex = 1;
-            // 
-            // cbo
-            // 
-            this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20.30457F;
-            this.cbo.HeaderText = "";
-            this.cbo.IndeterminateValue = "";
-            this.cbo.MinimumWidth = 20;
-            this.cbo.Name = "cbo";
-            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cbo.TrueValue = "1";
-            this.cbo.Width = 36;
-            // 
-            // FullName
-            // 
-            this.FullName.DataPropertyName = "FullName";
-            this.FullName.FillWeight = 179.6954F;
-            this.FullName.HeaderText = "Họ tên";
-            this.FullName.Name = "FullName";
-            this.FullName.Width = 250;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
-            // 
-            // Mobile1
-            // 
-            this.Mobile1.DataPropertyName = "Mobile1";
-            this.Mobile1.HeaderText = "Di động 1";
-            this.Mobile1.Name = "Mobile1";
-            this.Mobile1.ReadOnly = true;
-            this.Mobile1.Width = 150;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Email1";
-            this.Type.HeaderText = "Email 1";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            this.Type.Width = 150;
-            // 
-            // City
-            // 
-            this.City.DataPropertyName = "City";
-            this.City.HeaderText = "Thành phố";
-            this.City.Name = "City";
-            this.City.ReadOnly = true;
-            this.City.Width = 150;
             // 
             // buttonUpdate
             // 
@@ -215,6 +164,57 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách khách hàng";
             // 
+            // cbo
+            // 
+            this.cbo.FalseValue = "0";
+            this.cbo.FillWeight = 20.30457F;
+            this.cbo.HeaderText = "";
+            this.cbo.IndeterminateValue = "";
+            this.cbo.MinimumWidth = 20;
+            this.cbo.Name = "cbo";
+            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cbo.TrueValue = "1";
+            this.cbo.Width = 36;
+            // 
+            // FullName
+            // 
+            this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.FillWeight = 179.6954F;
+            this.FullName.HeaderText = "Họ tên";
+            this.FullName.Name = "FullName";
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
+            // 
+            // Mobile1
+            // 
+            this.Mobile1.DataPropertyName = "Mobile1";
+            this.Mobile1.HeaderText = "Di động 1";
+            this.Mobile1.Name = "Mobile1";
+            this.Mobile1.ReadOnly = true;
+            this.Mobile1.Width = 150;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Email1";
+            this.Type.HeaderText = "Email 1";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Width = 150;
+            // 
+            // City
+            // 
+            this.City.DataPropertyName = "City";
+            this.City.HeaderText = "Thành phố";
+            this.City.Name = "City";
+            this.City.ReadOnly = true;
+            this.City.Width = 150;
+            // 
             // CustomerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,15 +241,15 @@
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cbo;
         private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mobile1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn City;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

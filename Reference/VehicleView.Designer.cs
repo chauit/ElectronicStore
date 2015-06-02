@@ -31,11 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleView));
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LicensePlate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
@@ -43,6 +38,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LicensePlate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -83,49 +83,6 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(804, 320);
             this.dataGridView.TabIndex = 1;
-            // 
-            // cbo
-            // 
-            this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20.30457F;
-            this.cbo.HeaderText = "";
-            this.cbo.IndeterminateValue = "";
-            this.cbo.MinimumWidth = 20;
-            this.cbo.Name = "cbo";
-            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cbo.TrueValue = "1";
-            this.cbo.Width = 36;
-            // 
-            // VehicleName
-            // 
-            this.VehicleName.DataPropertyName = "Name";
-            this.VehicleName.FillWeight = 179.6954F;
-            this.VehicleName.HeaderText = "Tên phương tiện";
-            this.VehicleName.Name = "VehicleName";
-            this.VehicleName.Width = 250;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
-            // 
-            // VehicleType
-            // 
-            this.VehicleType.DataPropertyName = "Type";
-            this.VehicleType.HeaderText = "Loại phương tiện";
-            this.VehicleType.Name = "VehicleType";
-            this.VehicleType.ReadOnly = true;
-            this.VehicleType.Width = 240;
-            // 
-            // LicensePlate
-            // 
-            this.LicensePlate.DataPropertyName = "LicensePlate";
-            this.LicensePlate.HeaderText = "Biển số";
-            this.LicensePlate.Name = "LicensePlate";
-            this.LicensePlate.ReadOnly = true;
-            this.LicensePlate.Width = 200;
             // 
             // buttonUpdate
             // 
@@ -205,6 +162,49 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách Vehicle";
             // 
+            // cbo
+            // 
+            this.cbo.FalseValue = "0";
+            this.cbo.FillWeight = 20.30457F;
+            this.cbo.HeaderText = "";
+            this.cbo.IndeterminateValue = "";
+            this.cbo.MinimumWidth = 20;
+            this.cbo.Name = "cbo";
+            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cbo.TrueValue = "1";
+            this.cbo.Width = 36;
+            // 
+            // VehicleName
+            // 
+            this.VehicleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.VehicleName.DataPropertyName = "Name";
+            this.VehicleName.FillWeight = 179.6954F;
+            this.VehicleName.HeaderText = "Tên phương tiện";
+            this.VehicleName.Name = "VehicleName";
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
+            // 
+            // VehicleType
+            // 
+            this.VehicleType.DataPropertyName = "Type";
+            this.VehicleType.HeaderText = "Loại phương tiện";
+            this.VehicleType.Name = "VehicleType";
+            this.VehicleType.ReadOnly = true;
+            this.VehicleType.Width = 240;
+            // 
+            // LicensePlate
+            // 
+            this.LicensePlate.DataPropertyName = "LicensePlate";
+            this.LicensePlate.HeaderText = "Biển số";
+            this.LicensePlate.Name = "LicensePlate";
+            this.LicensePlate.ReadOnly = true;
+            this.LicensePlate.Width = 200;
+            // 
             // VehicleView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,14 +231,14 @@
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cbo;
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleName;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
         private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
         private System.Windows.Forms.DataGridViewTextBoxColumn LicensePlate;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
