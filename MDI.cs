@@ -15,14 +15,7 @@ namespace ElectronicStore
         public MDI()
         {
             InitializeComponent();
-            treeView.ExpandAll();  
-            LicenseUtil utilities = new LicenseUtil();
-            var license = utilities.Read("License");
-            if (!StringComparer.OrdinalIgnoreCase.Equals(license, "ElectronicStore"))
-            {
-                Application.Exit();
-            }
-
+            treeView.ExpandAll();
             FormLoad();
         }
 
