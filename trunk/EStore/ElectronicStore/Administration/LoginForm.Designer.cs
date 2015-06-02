@@ -37,12 +37,14 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.labelMessage = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(135, 114);
+            this.buttonLogin.Location = new System.Drawing.Point(209, 101);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(75, 23);
             this.buttonLogin.TabIndex = 3;
@@ -53,7 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 25);
+            this.label1.Location = new System.Drawing.Point(23, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 1;
@@ -61,7 +63,7 @@
             // 
             // textUsername
             // 
-            this.textUsername.Location = new System.Drawing.Point(135, 22);
+            this.textUsername.Location = new System.Drawing.Point(120, 25);
             this.textUsername.Name = "textUsername";
             this.textUsername.Size = new System.Drawing.Size(245, 20);
             this.textUsername.TabIndex = 1;
@@ -70,7 +72,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 66);
+            this.label2.Location = new System.Drawing.Point(23, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 3;
@@ -78,7 +80,7 @@
             // 
             // textPassword
             // 
-            this.textPassword.Location = new System.Drawing.Point(135, 63);
+            this.textPassword.Location = new System.Drawing.Point(120, 61);
             this.textPassword.Name = "textPassword";
             this.textPassword.Size = new System.Drawing.Size(245, 20);
             this.textPassword.TabIndex = 2;
@@ -87,7 +89,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(216, 114);
+            this.buttonCancel.Location = new System.Drawing.Point(290, 101);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 4;
@@ -108,24 +110,37 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.textUsername);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.textPassword);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(378, 95);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thông tin đăng nhập";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(420, 157);
+            this.ClientSize = new System.Drawing.Size(378, 134);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.textPassword);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textUsername);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập hệ thống";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,6 +156,7 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelMessage;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.GroupBox groupBox1;
 
     }
 }
