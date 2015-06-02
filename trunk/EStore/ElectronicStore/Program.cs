@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElectronicStore.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +15,19 @@ namespace ElectronicStore
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MDI());
+            LicenseUtil utilities = new LicenseUtil();
+            var license = utilities.Read("License");
+            if (StringComparer.OrdinalIgnoreCase.Equals(license, "ElectronicStore"))
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MDI());    
+            }
+            else
+            {
+                MessageBox.Show("Bạn không có quyền sử dụng chương trình này.");
+                Application.Exit();                        
+            }
         }
     }
 }
