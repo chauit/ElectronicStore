@@ -17,7 +17,7 @@ namespace ElectronicStore
         {
             LicenseUtil utilities = new LicenseUtil();
             var license = utilities.Read("License");
-            if (StringComparer.OrdinalIgnoreCase.Equals(license, "ElectronicStore"))
+            if (StringComparer.OrdinalIgnoreCase.Equals(license, "Electronic Store"))
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
