@@ -17,24 +17,17 @@ namespace ElectronicStore.Common
             string subKey = string.Format(Key, manufacturer, productname);
 
             RegistryKey sk1 = rk.OpenSubKey(subKey);
-            // If the RegistrySubKey doesn't exist -> (null)
             if (sk1 == null)
             {
                 return null;
             }
-            else
+            try
             {
-                try
-                {
-                    // If the RegistryKey exists I get its value
-                    // or null is returned.
-                    return (string)sk1.GetValue(KeyName.ToUpper());
-                }
-                catch (Exception e)
-                {
-                    // AAAAAAAAAAARGH, an error!
-                    return null;
-                }
+                return (string)sk1.GetValue(KeyName.ToUpper());
+            }
+            catch (Exception e)
+            {
+                return null;
             }
         }
     

@@ -173,6 +173,12 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\LicenseUtil.cs" />
     <Compile Include="Common\Utilities.cs" />
+    <Compile Include="Main\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\DashboardForm.Designer.cs">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\FindProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,6 +271,7 @@
     <Compile Include="Reference\VehicleForm.Designer.cs">
       <DependentUpon>VehicleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\DashBoardModel.cs" />
     <EmbeddedResource Include="Administration\ConfigurationForm.resx">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -306,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\RoleView.resx">
       <DependentUpon>RoleView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\DashboardForm.resx">
+      <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\FindProduct.resx">
       <DependentUpon>FindProduct.cs</DependentUpon>

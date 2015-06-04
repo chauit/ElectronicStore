@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using ElectronicStore.Administration;
-using ElectronicStore.Common;
 using ElectronicStore.Main;
 using ElectronicStore.Reference;
 using Model;
@@ -29,13 +28,14 @@ namespace ElectronicStore
                 toolStripSeparator3.Visible = false;
                 ShowLogin();
             }
+            
         }
 
         private void ShowLogin()
         {
             var login = new LoginForm();
             var result = login.ShowDialog();
-            if(result == System.Windows.Forms.DialogResult.OK)
+            if(result == DialogResult.OK)
             {
                 treeView.Visible = true;
                 loginMenuItem.Text = "Đăng xuất";
@@ -91,8 +91,6 @@ namespace ElectronicStore
                     UserView userView = new UserView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(userView);
                     break;
-                default:
-                    break;
             }
         }
 
@@ -105,7 +103,7 @@ namespace ElectronicStore
         {
             var changePassword = new ChangePasswordForm(CurrentUser.Username);
             var result = changePassword.ShowDialog();
-            if (result == System.Windows.Forms.DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 CurrentUser = null;
                 
@@ -140,52 +138,53 @@ namespace ElectronicStore
             switch (name)
             {
                 case "Manage Role":
-                    RoleView roleView = new RoleView { Dock = DockStyle.Fill, TopLevel = false };
+                    var roleView = new RoleView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(roleView);
                     break;
                 case "Quản lý nhân viên":
-                    UserView userView = new UserView { Dock = DockStyle.Fill, TopLevel = false };
+                    var userView = new UserView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(userView);
                     break;
                 case "Quản lý cấu hình hệ thống":
-                    ConfigurationView configurationView = new ConfigurationView { Dock = DockStyle.Fill, TopLevel = false };
+                    var configurationView = new ConfigurationView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(configurationView);
                     break;
                 case "Quản lý nội dung tin nhắn":
-                    SmsView smsView = new SmsView { Dock = DockStyle.Fill, TopLevel = false };
+                    var smsView = new SmsView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(smsView);
                     break;
                 case "Quản lý nội dung email":
-                    EmailView emailView = new EmailView { Dock = DockStyle.Fill, TopLevel = false };
+                    var emailView = new EmailView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(emailView);
                     break;
 
                 case "Quản lý khách hàng":
-                    CustomerView customerView = new CustomerView { Dock = DockStyle.Fill, TopLevel = false };
+                    var customerView = new CustomerView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(customerView);
                     break;
                 case "Quản lý loại sản phẩm":
-                    ProductTypeView productTypeView = new ProductTypeView { Dock = DockStyle.Fill, TopLevel = false };
+                    var productTypeView = new ProductTypeView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(productTypeView);
                     break;
                 case "Quản lý sản phẩm":
-                    ProductView productView = new ProductView { Dock = DockStyle.Fill, TopLevel = false };
+                    var productView = new ProductView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(productView);
                     break;
                 case "Quản lý thiết bị vận chuyển":
-                    VehicleView vehicleView = new VehicleView { Dock = DockStyle.Fill, TopLevel = false };
+                    var vehicleView = new VehicleView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(vehicleView);
                     break;
-
                 case "Quản lý đơn hàng":
-                    OrderView orderView = new OrderView { Dock = DockStyle.Fill, TopLevel = false };
+                    var orderView = new OrderView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(orderView);
                     break;
                 case "Quản lý thông tin vận chuyển":
-                    DeliveryView deliveryView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
+                    var deliveryView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(deliveryView);
                     break;
                 default:
+                    var frm = new DashboardForm { Dock = DockStyle.Fill, TopLevel = false };
+                    OpenForm(frm);
                     break;
             }
         }
