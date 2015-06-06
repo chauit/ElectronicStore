@@ -14,19 +14,18 @@ namespace ElectronicStore.Main
         private int? createdBy;
         private DateTime? modified;
         private int? modifiedBy;
-        private int currentUser;
+        private User currentUser;
 
         private int itemId;
 
         private List<SearchOrder> listOrder;
 
-        private void InitForm()
+        private void InitForm(User user)
         {
             buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 
-            //TODO: Get Id from Login page
-            currentUser = 6;
+            currentUser = user;
 
             dataGridView.AutoGenerateColumns = false;
 
@@ -38,7 +37,7 @@ namespace ElectronicStore.Main
             listOrder = new List<SearchOrder>();
         }
 
-        public DeliveryForm()
+        public DeliveryForm(User user)
         {
             InitializeComponent();
 
@@ -50,16 +49,16 @@ namespace ElectronicStore.Main
             dateStartDate.Value = DateTime.Now;
             dateTimeStartTime.Value = DateTime.Now.AddHours(1);
 
-            InitForm();
+            InitForm(user);
 
             this.Text = "Thêm thông tin giao hàng";
         }
 
-        public DeliveryForm(int id)
+        public DeliveryForm(int id, User user)
         {
             InitializeComponent();
 
-            InitForm();
+            InitForm(user);
 
             drlVehicle.Focus();
             itemId = id;
@@ -104,7 +103,7 @@ namespace ElectronicStore.Main
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
-                var orderView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
+                var orderView = new DeliveryView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
                 parent.Controls.Add(orderView);
                 orderView.Show();
 
@@ -120,7 +119,7 @@ namespace ElectronicStore.Main
                     var parent = this.Parent as SplitterPanel;
                     parent.Controls.Clear();
 
-                    var deliveryView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
+                    var deliveryView = new DeliveryView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
                     parent.Controls.Add(deliveryView);
                     deliveryView.Show();
 
@@ -160,7 +159,7 @@ namespace ElectronicStore.Main
                 item.Status = labelStatus.Text;
 
                 item.Modified = DateTime.Now;
-                item.ModifiedByUserId = currentUser;
+                item.ModifiedByUserId = currentUser.Id;
 
                 var biz = new DeliveryBiz();
                 biz.UpdateItem(item);
@@ -169,7 +168,7 @@ namespace ElectronicStore.Main
             {
                 item.Status = Constants.DeliveryStatusDraft;
                 item.Created = DateTime.Now;
-                item.CreatedByUserId = currentUser;
+                item.CreatedByUserId = currentUser.Id;
                 if (string.IsNullOrEmpty(item.IsSendEmail))
                 {
                     item.IsSendEmail = Constants.DeliverySendEmail;
@@ -181,7 +180,7 @@ namespace ElectronicStore.Main
                 }
 
                 item.Modified = DateTime.Now;
-                item.ModifiedByUserId = currentUser;
+                item.ModifiedByUserId = currentUser.Id;
 
                 var biz = new DeliveryBiz();
                 biz.SaveItem(item);
@@ -198,7 +197,7 @@ namespace ElectronicStore.Main
 
             parent.Controls.Clear();
 
-            var deliveryView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
+            var deliveryView = new DeliveryView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
             parent.Controls.Add(deliveryView);
             deliveryView.Show();
 
@@ -394,7 +393,7 @@ namespace ElectronicStore.Main
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
-                var deliveryView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
+                var deliveryView = new DeliveryView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
                 parent.Controls.Add(deliveryView);
                 deliveryView.Show();
 
@@ -421,7 +420,7 @@ namespace ElectronicStore.Main
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
-                var deliveryView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
+                var deliveryView = new DeliveryView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
                 parent.Controls.Add(deliveryView);
                 deliveryView.Show();
 

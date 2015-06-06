@@ -14,7 +14,8 @@ namespace ElectronicStore.Reference
 {
     public partial class ProductTypeView : Form
     {
-        public ProductTypeView()
+        private User currentUser;
+        public ProductTypeView(User user)
         {
             InitializeComponent();
 
@@ -23,11 +24,13 @@ namespace ElectronicStore.Reference
             var biz = new ProductTypeBiz();
             dataGridView.DataSource = biz.LoadItems();
             dataGridView.Refresh();
+
+            currentUser = user;
         }
 
         private void NewItem(object sender, EventArgs e)
         {
-            var newProductType = new ProductTypeForm();
+            var newProductType = new ProductTypeForm(currentUser);
             var result = newProductType.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
@@ -39,7 +42,7 @@ namespace ElectronicStore.Reference
         {
             var role = dataGridView.SelectedRows[0].DataBoundItem as ProductType;
 
-            var newProductType = new ProductTypeForm(role.Id);
+            var newProductType = new ProductTypeForm(role.Id, currentUser);
             var result = newProductType.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {

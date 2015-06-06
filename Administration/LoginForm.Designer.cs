@@ -55,7 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 28);
+            this.label1.Location = new System.Drawing.Point(23, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 1;
@@ -63,7 +63,7 @@
             // 
             // textUsername
             // 
-            this.textUsername.Location = new System.Drawing.Point(120, 25);
+            this.textUsername.Location = new System.Drawing.Point(120, 13);
             this.textUsername.Name = "textUsername";
             this.textUsername.Size = new System.Drawing.Size(245, 20);
             this.textUsername.TabIndex = 1;
@@ -72,7 +72,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 64);
+            this.label2.Location = new System.Drawing.Point(23, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             // textPassword
             // 
-            this.textPassword.Location = new System.Drawing.Point(120, 61);
+            this.textPassword.Location = new System.Drawing.Point(121, 44);
             this.textPassword.Name = "textPassword";
             this.textPassword.Size = new System.Drawing.Size(245, 20);
             this.textPassword.TabIndex = 2;
@@ -101,7 +101,7 @@
             // 
             this.labelMessage.AutoSize = true;
             this.labelMessage.ForeColor = System.Drawing.Color.Red;
-            this.labelMessage.Location = new System.Drawing.Point(132, 98);
+            this.labelMessage.Location = new System.Drawing.Point(118, 67);
             this.labelMessage.Name = "labelMessage";
             this.labelMessage.Size = new System.Drawing.Size(0, 13);
             this.labelMessage.TabIndex = 5;
@@ -113,6 +113,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.labelMessage);
             this.groupBox1.Controls.Add(this.textUsername);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textPassword);
@@ -122,7 +123,6 @@
             this.groupBox1.Size = new System.Drawing.Size(378, 95);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin đăng nhập";
             // 
             // LoginForm
             // 
@@ -131,7 +131,6 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(378, 134);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -142,7 +141,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

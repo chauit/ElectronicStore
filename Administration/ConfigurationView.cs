@@ -8,9 +8,12 @@ namespace ElectronicStore.Administration
 {
     public partial class ConfigurationView : Form
     {
-        public ConfigurationView()
+        private User currentUser;
+        public ConfigurationView(User user)
         {
             InitializeComponent();
+
+            currentUser = user;
 
             dataGridView.AutoGenerateColumns = false;
 
@@ -21,7 +24,7 @@ namespace ElectronicStore.Administration
 
         private void NewItem(object sender, EventArgs e)
         {
-            var newConfiguration = new ConfigurationForm();
+            var newConfiguration = new ConfigurationForm(currentUser);
             var result = newConfiguration.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
@@ -34,7 +37,7 @@ namespace ElectronicStore.Administration
             var role = dataGridView.SelectedRows[0].DataBoundItem as Configuration;
             if (role != null)
             {
-                var newConfiguration = new ConfigurationForm(role.Id);
+                var newConfiguration = new ConfigurationForm(role.Id, currentUser);
                 var result = newConfiguration.ShowDialog();
                 if (result == System.Windows.Forms.DialogResult.OK)
                 {

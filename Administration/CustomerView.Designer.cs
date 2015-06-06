@@ -57,9 +57,10 @@
             this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNew.Location = new System.Drawing.Point(6, 13);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(91, 25);
+            this.buttonNew.Size = new System.Drawing.Size(70, 25);
             this.buttonNew.TabIndex = 0;
-            this.buttonNew.Text = "Thêm";
+            this.buttonNew.Text = "Thêm   ";
+            this.buttonNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.NewItem);
             // 
@@ -67,6 +68,7 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -90,11 +92,12 @@
             // 
             this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
             this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.Location = new System.Drawing.Point(103, 14);
+            this.buttonUpdate.Location = new System.Drawing.Point(82, 13);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(91, 25);
+            this.buttonUpdate.Size = new System.Drawing.Size(70, 25);
             this.buttonUpdate.TabIndex = 2;
-            this.buttonUpdate.Text = "Sửa";
+            this.buttonUpdate.Text = "Sửa    ";
+            this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonUpdate.UseVisualStyleBackColor = true;
             this.buttonUpdate.Click += new System.EventHandler(this.UpdateItem);
             // 
@@ -102,11 +105,12 @@
             // 
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(200, 14);
+            this.buttonDelete.Location = new System.Drawing.Point(158, 13);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(91, 25);
+            this.buttonDelete.Size = new System.Drawing.Size(70, 25);
             this.buttonDelete.TabIndex = 3;
-            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.Text = "Xóa    ";
+            this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.DeleteItem);
             // 
@@ -114,11 +118,12 @@
             // 
             this.buttonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.Image")));
             this.buttonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRefresh.Location = new System.Drawing.Point(297, 14);
+            this.buttonRefresh.Location = new System.Drawing.Point(234, 14);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(91, 23);
+            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
             this.buttonRefresh.TabIndex = 4;
             this.buttonRefresh.Text = "Cập nhật";
+            this.buttonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.RefreshItems);
             // 
@@ -174,7 +179,6 @@
             this.cbo.Name = "cbo";
             this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.cbo.TrueValue = "1";
-            this.cbo.Width = 36;
             // 
             // FullName
             // 
@@ -194,18 +198,16 @@
             // Mobile1
             // 
             this.Mobile1.DataPropertyName = "Mobile1";
-            this.Mobile1.HeaderText = "Di động 1";
+            this.Mobile1.HeaderText = "Di động";
             this.Mobile1.Name = "Mobile1";
             this.Mobile1.ReadOnly = true;
-            this.Mobile1.Width = 150;
             // 
             // Type
             // 
             this.Type.DataPropertyName = "Email1";
-            this.Type.HeaderText = "Email 1";
+            this.Type.HeaderText = "Email";
             this.Type.Name = "Type";
             this.Type.ReadOnly = true;
-            this.Type.Width = 150;
             // 
             // City
             // 
@@ -213,7 +215,6 @@
             this.City.HeaderText = "Thành phố";
             this.City.Name = "City";
             this.City.ReadOnly = true;
-            this.City.Width = 150;
             // 
             // CustomerView
             // 

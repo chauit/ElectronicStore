@@ -68,7 +68,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(427, 125);
+            this.groupBox1.Size = new System.Drawing.Size(534, 168);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chung";
@@ -86,14 +86,15 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(117, 92);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 20);
+            this.textBox1.Size = new System.Drawing.Size(194, 20);
             this.textBox1.TabIndex = 3;
             // 
             // numberPrice
             // 
             this.numberPrice.Location = new System.Drawing.Point(117, 127);
             this.numberPrice.Name = "numberPrice";
-            this.numberPrice.Size = new System.Drawing.Size(138, 20);
+            this.numberPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.numberPrice.Size = new System.Drawing.Size(194, 20);
             this.numberPrice.TabIndex = 4;
             this.numberPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -112,7 +113,7 @@
             this.drlType.FormattingEnabled = true;
             this.drlType.Location = new System.Drawing.Point(117, 22);
             this.drlType.Name = "drlType";
-            this.drlType.Size = new System.Drawing.Size(194, 21);
+            this.drlType.Size = new System.Drawing.Size(397, 21);
             this.drlType.TabIndex = 1;
             // 
             // label4
@@ -135,11 +136,12 @@
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(326, 132);
+            this.button2.Location = new System.Drawing.Point(423, 174);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 25);
+            this.button2.Size = new System.Drawing.Size(75, 25);
             this.button2.TabIndex = 6;
-            this.button2.Text = "Cancel";
+            this.button2.Text = "Thoát    ";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.CancelItem);
             // 
@@ -147,11 +149,12 @@
             // 
             this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSave.Location = new System.Drawing.Point(229, 132);
+            this.buttonSave.Location = new System.Drawing.Point(342, 174);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(91, 25);
+            this.buttonSave.Size = new System.Drawing.Size(75, 25);
             this.buttonSave.TabIndex = 5;
-            this.buttonSave.Text = "Save";
+            this.buttonSave.Text = "Cập nhật";
+            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.SaveItem);
             // 
@@ -164,7 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(427, 163);
+            this.ClientSize = new System.Drawing.Size(534, 211);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.button2);

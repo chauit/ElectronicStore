@@ -16,35 +16,34 @@ namespace ElectronicStore.Main
         private DateTime? modified;
         private int? modifiedBy;
 
-        private int currentUser;
+        private User currentUser;
 
         public List<int> removedItems;
         public List<SearchProduct> listProduct;
         private bool HasFooter;
 
-        private void InitForm()
+        private void InitForm(User user)
         {
             buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 
-            //TODO: Get Id from Login page
-            currentUser = 6;
+            currentUser = user;
 
             LoadCustomer();
             listProduct = new List<SearchProduct>();
             removedItems = new List<int>();
 
             dataGridView.AutoGenerateColumns = false;
-        }        
+        }
 
-        public OrderForm()
+        public OrderForm(User user)
         {
             InitializeComponent();
 
             dateOrderDate.Focus();
             itemId = 0;
 
-            InitForm();
+            InitForm(user);
 
             this.Text = "Thêm đơn hàng";
             labelOrderNo.Text = string.Empty;
@@ -53,11 +52,11 @@ namespace ElectronicStore.Main
             dateDeliveryDate.Value = DateTime.Now;
         }
 
-        public OrderForm(int id)
+        public OrderForm(int id, User user)
         {
             InitializeComponent();
 
-            InitForm();
+            InitForm(user);
 
             drlCustomer.Focus();
             itemId = id;
@@ -105,7 +104,7 @@ namespace ElectronicStore.Main
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
-                var orderView = new OrderView { Dock = DockStyle.Fill, TopLevel = false };
+                var orderView = new OrderView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
                 parent.Controls.Add(orderView);
                 orderView.Show();
 
@@ -131,7 +130,7 @@ namespace ElectronicStore.Main
                         item.CreatedByUserId = createdBy;
 
                         item.Modified = DateTime.Now;
-                        item.ModifiedByUserId = currentUser;
+                        item.ModifiedByUserId = currentUser.Id;
 
                         var biz = new OrderBiz();
                         biz.UpdateItem(item);
@@ -140,10 +139,10 @@ namespace ElectronicStore.Main
                     {
                         item.Status = Constants.OrderStatusDraft;
                         item.Created = DateTime.Now;
-                        item.CreatedByUserId = currentUser;
+                        item.CreatedByUserId = currentUser.Id;
 
                         item.Modified = DateTime.Now;
-                        item.ModifiedByUserId = currentUser;
+                        item.ModifiedByUserId = currentUser.Id;
 
                         var biz = new OrderBiz();
                         biz.SaveItem(item);
@@ -155,7 +154,7 @@ namespace ElectronicStore.Main
                     var parent = this.Parent as SplitterPanel;
                     parent.Controls.Clear();
 
-                    var orderView = new OrderView { Dock = DockStyle.Fill, TopLevel = false };
+                    var orderView = new OrderView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
                     parent.Controls.Add(orderView);
                     orderView.Show();
 
@@ -174,7 +173,7 @@ namespace ElectronicStore.Main
 
             parent.Controls.Clear();
 
-            var orderView = new OrderView { Dock = DockStyle.Fill, TopLevel = false };
+            var orderView = new OrderView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
             parent.Controls.Add(orderView);
             orderView.Show();
             this.Close();

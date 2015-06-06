@@ -15,6 +15,7 @@ namespace ElectronicStore.Common
             public const string DependentOrderMessage = "Bạn không xóa được đơn hàng do đơn hàng đã được chuyển sang đơn vị vận chuyển. ";
             public const string ConflictDeliveryOrderMessage = "Có đơn hàng đã được đưa vào phiếu giao hàng khác.";
             public const string CannotLogin = "Tên đăng nhập hoặc mật khẩu không đúng.";
+            public const string AccountExist = "Tên đăng nhập đã tồn tại";
 
             public const string CannotChangePassword = "Tên đăng nhập hoặc mật khẩu cũ không đúng.";
 

@@ -17,28 +17,27 @@ namespace ElectronicStore.Reference
 
         private int currentUser;
 
-        private void InitForm()
+        private void InitForm(User user)
         {
             buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 
-            //TODO: Get Id from Login page
-            currentUser = 6;
+            currentUser = user.Id;
         }
 
-        public VehicleForm()
+        public VehicleForm(User user)
         {
             InitializeComponent();
 
             textName.Focus();
             itemId = 0;
 
-            InitForm();
+            InitForm(user);
 
             this.Text = "Thêm phương tiện";
         }
 
-        public VehicleForm(int id)
+        public VehicleForm(int id, User user)
         {
             InitializeComponent();
 
@@ -57,7 +56,7 @@ namespace ElectronicStore.Reference
             modified = item.Modified;
             modifiedBy = item.ModifiedByUserId;
 
-            InitForm();
+            InitForm(user);
 
             this.Text = "Sửa phương tiện";
         }

@@ -30,9 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelSendSms = new System.Windows.Forms.Label();
             this.dateTimeStartTime = new System.Windows.Forms.DateTimePicker();
             this.labelStatus = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,6 +56,7 @@
             this.buttonAddProduct = new System.Windows.Forms.Button();
             this.buttonSendEmail = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonSendSms = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
@@ -62,10 +66,6 @@
             this.ColumnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.labelSendSms = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.buttonSendSms = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -108,6 +108,32 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin giao hàng";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(437, 129);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 13);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Gửi email:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(135, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Gửi SMS:";
+            // 
+            // labelSendSms
+            // 
+            this.labelSendSms.AutoSize = true;
+            this.labelSendSms.Location = new System.Drawing.Point(190, 129);
+            this.labelSendSms.Name = "labelSendSms";
+            this.labelSendSms.Size = new System.Drawing.Size(0, 13);
+            this.labelSendSms.TabIndex = 23;
             // 
             // dateTimeStartTime
             // 
@@ -237,24 +263,20 @@
             // button3
             // 
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(300, 14);
+            this.button3.Location = new System.Drawing.Point(197, 14);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 25);
+            this.button3.Size = new System.Drawing.Size(30, 25);
             this.button3.TabIndex = 27;
-            this.button3.Text = "Down";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.DownOrder);
             // 
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(203, 14);
+            this.button1.Location = new System.Drawing.Point(161, 14);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 25);
+            this.button1.Size = new System.Drawing.Size(30, 25);
             this.button1.TabIndex = 26;
-            this.button1.Text = "Up";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.UpOrder);
             // 
@@ -262,11 +284,12 @@
             // 
             this.buttonDeleteProduct.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteProduct.Image")));
             this.buttonDeleteProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDeleteProduct.Location = new System.Drawing.Point(106, 14);
+            this.buttonDeleteProduct.Location = new System.Drawing.Point(85, 14);
             this.buttonDeleteProduct.Name = "buttonDeleteProduct";
-            this.buttonDeleteProduct.Size = new System.Drawing.Size(91, 25);
+            this.buttonDeleteProduct.Size = new System.Drawing.Size(70, 25);
             this.buttonDeleteProduct.TabIndex = 25;
-            this.buttonDeleteProduct.Text = "Delete";
+            this.buttonDeleteProduct.Text = "Delete  ";
+            this.buttonDeleteProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDeleteProduct.UseVisualStyleBackColor = true;
             this.buttonDeleteProduct.Click += new System.EventHandler(this.DeleteOrder);
             // 
@@ -276,9 +299,10 @@
             this.buttonAddProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAddProduct.Location = new System.Drawing.Point(9, 14);
             this.buttonAddProduct.Name = "buttonAddProduct";
-            this.buttonAddProduct.Size = new System.Drawing.Size(91, 25);
+            this.buttonAddProduct.Size = new System.Drawing.Size(70, 25);
             this.buttonAddProduct.TabIndex = 23;
-            this.buttonAddProduct.Text = "Thêm";
+            this.buttonAddProduct.Text = "Thêm   ";
+            this.buttonAddProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAddProduct.UseVisualStyleBackColor = true;
             this.buttonAddProduct.Click += new System.EventHandler(this.SelectOrder);
             // 
@@ -307,6 +331,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(769, 260);
             this.panel1.TabIndex = 7;
+            // 
+            // buttonSendSms
+            // 
+            this.buttonSendSms.Image = ((System.Drawing.Image)(resources.GetObject("buttonSendSms.Image")));
+            this.buttonSendSms.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSendSms.Location = new System.Drawing.Point(666, 105);
+            this.buttonSendSms.Name = "buttonSendSms";
+            this.buttonSendSms.Size = new System.Drawing.Size(91, 25);
+            this.buttonSendSms.TabIndex = 7;
+            this.buttonSendSms.Text = "Gửi SMS   ";
+            this.buttonSendSms.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSendSms.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -373,9 +409,9 @@
             // ColumnTime
             // 
             this.ColumnTime.DataPropertyName = "DeliveryTime";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColumnTime.HeaderText = "Thời gian";
             this.ColumnTime.Name = "ColumnTime";
             // 
@@ -399,44 +435,6 @@
             this.groupBox3.Size = new System.Drawing.Size(769, 49);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
-            // 
-            // labelSendSms
-            // 
-            this.labelSendSms.AutoSize = true;
-            this.labelSendSms.Location = new System.Drawing.Point(190, 129);
-            this.labelSendSms.Name = "labelSendSms";
-            this.labelSendSms.Size = new System.Drawing.Size(0, 13);
-            this.labelSendSms.TabIndex = 23;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(135, 129);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "Gửi SMS:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(437, 129);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 13);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Gửi email:";
-            // 
-            // buttonSendSms
-            // 
-            this.buttonSendSms.Image = ((System.Drawing.Image)(resources.GetObject("buttonSendSms.Image")));
-            this.buttonSendSms.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSendSms.Location = new System.Drawing.Point(666, 105);
-            this.buttonSendSms.Name = "buttonSendSms";
-            this.buttonSendSms.Size = new System.Drawing.Size(91, 25);
-            this.buttonSendSms.TabIndex = 7;
-            this.buttonSendSms.Text = "Gửi SMS   ";
-            this.buttonSendSms.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSendSms.UseVisualStyleBackColor = true;
             // 
             // DeliveryForm
             // 
