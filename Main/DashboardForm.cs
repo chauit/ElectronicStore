@@ -19,14 +19,24 @@ namespace ElectronicStore.Main
 
             dataGridView.AutoGenerateColumns = false;
 
-            timer.Tick += new EventHandler(timer_Tick); // Every time timer ticks, timer_Tick will be called
-            timer.Interval = (10) * (1000);             // Timer will tick every 10 seconds
-            timer.Enabled = true;                       // Enable the timer
-            timer.Start();       
-            
+            LoadDataSource();
+
+            timer.Tick += new EventHandler(timer_Tick);
+            // Timer will tick every 3 minute
+            timer.Interval = (3) * (60) * (1000);
+            // Enable the timer
+            timer.Enabled = true;                       
+            timer.Start();   
         }
+
+
         Timer timer = new Timer();
         void timer_Tick(object sender, EventArgs e)
+        {
+            LoadDataSource();
+        }
+
+        private void LoadDataSource()
         {
             var biz = new OrderBiz();
             dataGridView.DataSource = biz.LoadItemsToDashBoard();

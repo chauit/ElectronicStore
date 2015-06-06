@@ -77,23 +77,6 @@ namespace ElectronicStore
             form.Show();            
         }
 
-        private void SelectNode(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            string name = treeView.SelectedNode.Text;
-
-            switch (name)
-            {
-                case "Manage Role":
-                    RoleView roleView = new RoleView { Dock = DockStyle.Fill, TopLevel = false };
-                    OpenForm(roleView);
-                    break;
-                case "Manage User":
-                    UserView userView = new UserView { Dock = DockStyle.Fill, TopLevel = false };
-                    OpenForm(userView);
-                    break;
-            }
-        }
-
         private void ExitForm(object sender, EventArgs e)
         {            
             Application.Exit();
@@ -182,9 +165,11 @@ namespace ElectronicStore
                     var deliveryView = new DeliveryView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(deliveryView);
                     break;
-                default:
-                    var frm = new DashboardForm { Dock = DockStyle.Fill, TopLevel = false };
-                    OpenForm(frm);
+                case "Bảng thông tin đơn hàng":
+                    var frm = new DashboardForm { Dock = DockStyle.Fill, TopLevel = true };
+                    frm.ShowDialog();
+                    break;
+                default:                    
                     break;
             }
         }
