@@ -31,13 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurationView));
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.buttonUpdate = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ConfigurationKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +39,13 @@
             this.FieldCreatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FieldModified = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FieldModifiedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -59,9 +59,10 @@
             this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNew.Location = new System.Drawing.Point(10, 14);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(91, 25);
+            this.buttonNew.Size = new System.Drawing.Size(70, 25);
             this.buttonNew.TabIndex = 0;
-            this.buttonNew.Text = "Thêm";
+            this.buttonNew.Text = "Thêm   ";
+            this.buttonNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.NewItem);
             // 
@@ -69,6 +70,7 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -90,15 +92,77 @@
             this.dataGridView.Size = new System.Drawing.Size(904, 329);
             this.dataGridView.TabIndex = 1;
             // 
+            // cbo
+            // 
+            this.cbo.FalseValue = "0";
+            this.cbo.FillWeight = 20.30457F;
+            this.cbo.HeaderText = "";
+            this.cbo.IndeterminateValue = "";
+            this.cbo.MinimumWidth = 20;
+            this.cbo.Name = "cbo";
+            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cbo.TrueValue = "1";
+            // 
+            // ConfigurationKey
+            // 
+            this.ConfigurationKey.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ConfigurationKey.DataPropertyName = "Key";
+            this.ConfigurationKey.FillWeight = 179.6954F;
+            this.ConfigurationKey.HeaderText = "Khóa";
+            this.ConfigurationKey.Name = "ConfigurationKey";
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
+            // 
+            // ConfigurationValue
+            // 
+            this.ConfigurationValue.DataPropertyName = "Value";
+            this.ConfigurationValue.HeaderText = "Giá trị";
+            this.ConfigurationValue.Name = "ConfigurationValue";
+            this.ConfigurationValue.ReadOnly = true;
+            // 
+            // FieldCreated
+            // 
+            this.FieldCreated.DataPropertyName = "Created";
+            this.FieldCreated.HeaderText = "Ngày tạo";
+            this.FieldCreated.Name = "FieldCreated";
+            this.FieldCreated.ReadOnly = true;
+            // 
+            // FieldCreatedBy
+            // 
+            this.FieldCreatedBy.DataPropertyName = "CreatedBy";
+            this.FieldCreatedBy.HeaderText = "Người tạo";
+            this.FieldCreatedBy.Name = "FieldCreatedBy";
+            this.FieldCreatedBy.ReadOnly = true;
+            // 
+            // FieldModified
+            // 
+            this.FieldModified.DataPropertyName = "Modified";
+            this.FieldModified.HeaderText = "Ngày sửa";
+            this.FieldModified.Name = "FieldModified";
+            this.FieldModified.ReadOnly = true;
+            // 
+            // FieldModifiedBy
+            // 
+            this.FieldModifiedBy.DataPropertyName = "ModifiedBy";
+            this.FieldModifiedBy.HeaderText = "Người sửa";
+            this.FieldModifiedBy.Name = "FieldModifiedBy";
+            this.FieldModifiedBy.ReadOnly = true;
+            // 
             // buttonUpdate
             // 
             this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
             this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.Location = new System.Drawing.Point(107, 14);
+            this.buttonUpdate.Location = new System.Drawing.Point(86, 14);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(91, 25);
+            this.buttonUpdate.Size = new System.Drawing.Size(70, 25);
             this.buttonUpdate.TabIndex = 2;
-            this.buttonUpdate.Text = "Sửa";
+            this.buttonUpdate.Text = "Sửa     ";
+            this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonUpdate.UseVisualStyleBackColor = true;
             this.buttonUpdate.Click += new System.EventHandler(this.UpdateItem);
             // 
@@ -106,11 +170,12 @@
             // 
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(204, 14);
+            this.buttonDelete.Location = new System.Drawing.Point(162, 14);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(91, 25);
+            this.buttonDelete.Size = new System.Drawing.Size(70, 25);
             this.buttonDelete.TabIndex = 3;
-            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.Text = "Xóa    ";
+            this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.DeleteItem);
             // 
@@ -118,11 +183,12 @@
             // 
             this.buttonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.Image")));
             this.buttonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRefresh.Location = new System.Drawing.Point(301, 14);
+            this.buttonRefresh.Location = new System.Drawing.Point(238, 14);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(91, 25);
+            this.buttonRefresh.Size = new System.Drawing.Size(75, 25);
             this.buttonRefresh.TabIndex = 4;
             this.buttonRefresh.Text = "Cập nhật";
+            this.buttonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.RefreshItems);
             // 
@@ -167,71 +233,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách cấu hình";
-            // 
-            // cbo
-            // 
-            this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20.30457F;
-            this.cbo.HeaderText = "";
-            this.cbo.IndeterminateValue = "";
-            this.cbo.MinimumWidth = 20;
-            this.cbo.Name = "cbo";
-            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cbo.TrueValue = "1";
-            this.cbo.Width = 36;
-            // 
-            // ConfigurationKey
-            // 
-            this.ConfigurationKey.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ConfigurationKey.DataPropertyName = "Key";
-            this.ConfigurationKey.FillWeight = 179.6954F;
-            this.ConfigurationKey.HeaderText = "Khóa";
-            this.ConfigurationKey.Name = "ConfigurationKey";
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
-            // 
-            // ConfigurationValue
-            // 
-            this.ConfigurationValue.DataPropertyName = "Value";
-            this.ConfigurationValue.HeaderText = "Giá trị";
-            this.ConfigurationValue.Name = "ConfigurationValue";
-            this.ConfigurationValue.ReadOnly = true;
-            this.ConfigurationValue.Width = 150;
-            // 
-            // FieldCreated
-            // 
-            this.FieldCreated.DataPropertyName = "Created";
-            this.FieldCreated.HeaderText = "Ngày tạo";
-            this.FieldCreated.Name = "FieldCreated";
-            this.FieldCreated.ReadOnly = true;
-            // 
-            // FieldCreatedBy
-            // 
-            this.FieldCreatedBy.DataPropertyName = "CreatedBy";
-            this.FieldCreatedBy.HeaderText = "Người tạo";
-            this.FieldCreatedBy.Name = "FieldCreatedBy";
-            this.FieldCreatedBy.ReadOnly = true;
-            this.FieldCreatedBy.Width = 150;
-            // 
-            // FieldModified
-            // 
-            this.FieldModified.DataPropertyName = "Modified";
-            this.FieldModified.HeaderText = "Ngày sửa";
-            this.FieldModified.Name = "FieldModified";
-            this.FieldModified.ReadOnly = true;
-            // 
-            // FieldModifiedBy
-            // 
-            this.FieldModifiedBy.DataPropertyName = "ModifiedBy";
-            this.FieldModifiedBy.HeaderText = "Người sửa";
-            this.FieldModifiedBy.Name = "FieldModifiedBy";
-            this.FieldModifiedBy.ReadOnly = true;
-            this.FieldModifiedBy.Width = 150;
             // 
             // ConfigurationView
             // 

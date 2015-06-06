@@ -8,16 +8,23 @@ namespace ElectronicStore.Administration
 {
     public partial class EmailView : Form
     {
-        public EmailView()
+        private User currentUser;
+        public EmailView(User user)
         {
             InitializeComponent();
 
             dataGridView.AutoGenerateColumns = false;
+
+            currentUser = user;
+
+            var biz = new EmailBiz();
+            dataGridView.DataSource = biz.LoadItems();
+            dataGridView.Refresh();
         }
 
         private void NewItem(object sender, EventArgs e)
         {
-            var newEmail = new EmailForm();
+            var newEmail = new EmailForm(currentUser);
             var result = newEmail.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
@@ -29,7 +36,7 @@ namespace ElectronicStore.Administration
         {
             var item = dataGridView.SelectedRows[0].DataBoundItem as Email;
 
-            var newEmail = new EmailForm(item.Id);
+            var newEmail = new EmailForm(item.Id, currentUser);
             var result = newEmail.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {

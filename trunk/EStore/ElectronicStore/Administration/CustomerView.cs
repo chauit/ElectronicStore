@@ -8,7 +8,9 @@ namespace ElectronicStore.Administration
 {
     public partial class CustomerView : Form
     {
-        public CustomerView()
+        private User currentUser;
+
+        public CustomerView(User user)
         {
             InitializeComponent();
 
@@ -17,11 +19,13 @@ namespace ElectronicStore.Administration
             var biz = new CustomerBiz();
             dataGridView.DataSource = biz.LoadItems();
             dataGridView.Refresh();
+
+            currentUser = user;
         }
 
         private void NewItem(object sender, EventArgs e)
         {
-            var newCustomer = new CustomerForm();
+            var newCustomer = new CustomerForm(currentUser);
             var result = newCustomer.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
@@ -33,7 +37,7 @@ namespace ElectronicStore.Administration
         {
             var user = dataGridView.SelectedRows[0].DataBoundItem as Customer;
 
-            var newCustomer = new CustomerForm(user.Id);
+            var newCustomer = new CustomerForm(user.Id, currentUser);
             var result = newCustomer.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {

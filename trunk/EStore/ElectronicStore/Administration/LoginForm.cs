@@ -39,7 +39,7 @@ namespace ElectronicStore.Administration
 
         private void Cancel(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private bool CustomValidate()

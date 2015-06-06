@@ -8,7 +8,8 @@ namespace ElectronicStore.Reference
 {
     public partial class VehicleView : Form
     {
-        public VehicleView()
+        private User currentUser;
+        public VehicleView(User user)
         {
             InitializeComponent();
 
@@ -17,11 +18,13 @@ namespace ElectronicStore.Reference
             var biz = new VehicleBiz();
             dataGridView.DataSource = biz.LoadItems();
             dataGridView.Refresh();
+
+            currentUser = user;
         }
 
         private void NewItem(object sender, EventArgs e)
         {
-            var newVehicle = new VehicleForm();
+            var newVehicle = new VehicleForm(currentUser);
             var result = newVehicle.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
@@ -33,7 +36,7 @@ namespace ElectronicStore.Reference
         {
             var item = dataGridView.SelectedRows[0].DataBoundItem as Vehicle;
 
-            var newVehicle = new VehicleForm(item.Id);
+            var newVehicle = new VehicleForm(item.Id, currentUser);
             var result = newVehicle.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {

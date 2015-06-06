@@ -158,18 +158,6 @@
     <Compile Include="Administration\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administration\RoleForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administration\RoleForm.Designer.cs">
-      <DependentUpon>RoleForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administration\RoleView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administration\RoleView.Designer.cs">
-      <DependentUpon>RoleView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\LicenseUtil.cs" />
     <Compile Include="Common\Utilities.cs" />
@@ -190,12 +178,6 @@
     </Compile>
     <Compile Include="Main\FindOrder.Designer.cs">
       <DependentUpon>FindOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main\OrderDetailForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main\OrderDetailForm.Designer.cs">
-      <DependentUpon>OrderDetailForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Main\DeliveryView.cs">
       <SubType>Form</SubType>
@@ -226,12 +208,6 @@
     </Compile>
     <Compile Include="MDI.Designer.cs">
       <DependentUpon>MDI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MDIParent.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MDIParent.Designer.cs">
-      <DependentUpon>MDIParent.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -308,12 +284,6 @@
     <EmbeddedResource Include="Administration\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administration\RoleForm.resx">
-      <DependentUpon>RoleForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administration\RoleView.resx">
-      <DependentUpon>RoleView.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Main\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,9 +292,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\FindOrder.resx">
       <DependentUpon>FindOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main\OrderDetailForm.resx">
-      <DependentUpon>OrderDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\DeliveryView.resx">
       <DependentUpon>DeliveryView.cs</DependentUpon>
@@ -340,9 +307,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MDI.resx">
       <DependentUpon>MDI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MDIParent.resx">
-      <DependentUpon>MDIParent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -46,11 +46,11 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(474, 20);
+            this.buttonLogin.Location = new System.Drawing.Point(257, 216);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(75, 23);
+            this.buttonLogin.Size = new System.Drawing.Size(80, 23);
             this.buttonLogin.TabIndex = 3;
-            this.buttonLogin.Text = "Đăng nhập";
+            this.buttonLogin.Text = "Đổi mật khẩu";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.ChangePassword);
             // 
@@ -89,7 +89,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(555, 20);
+            this.buttonCancel.Location = new System.Drawing.Point(343, 216);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 4;
@@ -149,7 +149,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(642, 214);
+            this.ClientSize = new System.Drawing.Size(467, 251);
             this.Controls.Add(this.textConfirmPasswordNew);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textPasswordNew);

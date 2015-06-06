@@ -329,9 +329,10 @@
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(503, 420);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 25);
+            this.button2.Size = new System.Drawing.Size(75, 25);
             this.button2.TabIndex = 15;
-            this.button2.Text = "Thoát";
+            this.button2.Text = "Thoát   ";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.CancelItem);
             // 
@@ -341,9 +342,10 @@
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSave.Location = new System.Drawing.Point(406, 420);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(91, 25);
+            this.buttonSave.Size = new System.Drawing.Size(75, 25);
             this.buttonSave.TabIndex = 14;
             this.buttonSave.Text = "Cập nhật";
+            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.SaveItem);
             // 

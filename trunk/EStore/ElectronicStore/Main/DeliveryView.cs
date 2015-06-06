@@ -15,7 +15,8 @@ namespace ElectronicStore.Main
 {
     public partial class DeliveryView : Form
     {
-        public DeliveryView()
+        private User currentUser;
+        public DeliveryView(User user)
         {
             InitializeComponent();
 
@@ -24,6 +25,8 @@ namespace ElectronicStore.Main
             var biz = new DeliveryBiz();
             dataGridView.DataSource = biz.LoadItems();
             dataGridView.Refresh();
+
+            currentUser = user;
         }
 
         private void NewItem(object sender, EventArgs e)
@@ -32,7 +35,7 @@ namespace ElectronicStore.Main
 
             parent.Controls.Clear();
 
-            var newDelivery = new DeliveryForm { Dock = DockStyle.Fill, TopLevel = false };
+            var newDelivery = new DeliveryForm(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
             parent.Controls.Add(newDelivery);
             newDelivery.Show();
 
@@ -114,7 +117,7 @@ namespace ElectronicStore.Main
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
-                var newDelivery = new DeliveryForm(selectedId) { Dock = DockStyle.Fill, TopLevel = false };
+                var newDelivery = new DeliveryForm(selectedId, currentUser) { Dock = DockStyle.Fill, TopLevel = false };
                 parent.Controls.Add(newDelivery);
                 newDelivery.Show();
 

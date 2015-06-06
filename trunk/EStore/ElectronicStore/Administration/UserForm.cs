@@ -8,13 +8,15 @@ namespace ElectronicStore.Administration
 {
     public partial class UserForm : Form
     {
-        private int itemId;
+        private int itemId = 0;
         private string password;
+
 
         private void InitForm()
         {
             buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+
         }
 
         public UserForm()
@@ -59,7 +61,7 @@ namespace ElectronicStore.Administration
                 var item = new User();
                 item.FirstName = textFirstName.Text;
                 item.LastName = textLastName.Text;
-                item.Username = textUsername.Text;
+                item.Username = textUsername.Text.Trim();
                 item.Type = Convert.ToString(drlType.SelectedItem);
                 item.Mobile = textMobile.Text;
                 item.AdditionalInformation = textOtherInformation.Text;
@@ -135,8 +137,20 @@ namespace ElectronicStore.Administration
                 hasError = false;
 
                 textMobile.Focus();
+            }
+
+            if (itemId == 0)
+            {
+                var biz = new UserBiz();
+
+                if (biz.IsAccountExist(textUsername.Text.Trim()))
+                {
+                    errorProvider.SetError(textUsername, Constants.Messages.AccountExist);
+                    hasError = false;
+
+                    textMobile.Focus();
+                }
             }            
-            
 
             return hasError;
         }

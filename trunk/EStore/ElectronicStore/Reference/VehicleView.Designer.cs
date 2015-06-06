@@ -31,6 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VehicleView));
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LicensePlate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
@@ -38,11 +43,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.VehicleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LicensePlate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -56,9 +56,10 @@
             this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNew.Location = new System.Drawing.Point(16, 19);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(91, 25);
+            this.buttonNew.Size = new System.Drawing.Size(70, 25);
             this.buttonNew.TabIndex = 0;
-            this.buttonNew.Text = "Thêm";
+            this.buttonNew.Text = "Thêm   ";
+            this.buttonNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.NewItem);
             // 
@@ -66,6 +67,7 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -84,15 +86,56 @@
             this.dataGridView.Size = new System.Drawing.Size(804, 320);
             this.dataGridView.TabIndex = 1;
             // 
+            // cbo
+            // 
+            this.cbo.FalseValue = "0";
+            this.cbo.FillWeight = 20.30457F;
+            this.cbo.HeaderText = "";
+            this.cbo.IndeterminateValue = "";
+            this.cbo.MinimumWidth = 20;
+            this.cbo.Name = "cbo";
+            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cbo.TrueValue = "1";
+            // 
+            // VehicleName
+            // 
+            this.VehicleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.VehicleName.DataPropertyName = "Name";
+            this.VehicleName.FillWeight = 179.6954F;
+            this.VehicleName.HeaderText = "Tên phương tiện";
+            this.VehicleName.Name = "VehicleName";
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
+            // 
+            // VehicleType
+            // 
+            this.VehicleType.DataPropertyName = "Type";
+            this.VehicleType.HeaderText = "Loại phương tiện";
+            this.VehicleType.Name = "VehicleType";
+            this.VehicleType.ReadOnly = true;
+            // 
+            // LicensePlate
+            // 
+            this.LicensePlate.DataPropertyName = "LicensePlate";
+            this.LicensePlate.HeaderText = "Biển số";
+            this.LicensePlate.Name = "LicensePlate";
+            this.LicensePlate.ReadOnly = true;
+            // 
             // buttonUpdate
             // 
             this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
             this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.Location = new System.Drawing.Point(113, 19);
+            this.buttonUpdate.Location = new System.Drawing.Point(92, 19);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(91, 25);
+            this.buttonUpdate.Size = new System.Drawing.Size(70, 25);
             this.buttonUpdate.TabIndex = 2;
-            this.buttonUpdate.Text = "Sửa";
+            this.buttonUpdate.Text = "Sửa    ";
+            this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonUpdate.UseVisualStyleBackColor = true;
             this.buttonUpdate.Click += new System.EventHandler(this.UpdateItem);
             // 
@@ -100,11 +143,12 @@
             // 
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(210, 19);
+            this.buttonDelete.Location = new System.Drawing.Point(168, 19);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(91, 25);
+            this.buttonDelete.Size = new System.Drawing.Size(70, 25);
             this.buttonDelete.TabIndex = 3;
-            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.Text = "Xóa     ";
+            this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.DeleteItem);
             // 
@@ -112,11 +156,12 @@
             // 
             this.buttonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.Image")));
             this.buttonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRefresh.Location = new System.Drawing.Point(307, 19);
+            this.buttonRefresh.Location = new System.Drawing.Point(244, 19);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(91, 25);
+            this.buttonRefresh.Size = new System.Drawing.Size(75, 25);
             this.buttonRefresh.TabIndex = 4;
             this.buttonRefresh.Text = "Cập nhật";
+            this.buttonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.RefreshItems);
             // 
@@ -161,49 +206,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách Vehicle";
-            // 
-            // cbo
-            // 
-            this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20.30457F;
-            this.cbo.HeaderText = "";
-            this.cbo.IndeterminateValue = "";
-            this.cbo.MinimumWidth = 20;
-            this.cbo.Name = "cbo";
-            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cbo.TrueValue = "1";
-            this.cbo.Width = 36;
-            // 
-            // VehicleName
-            // 
-            this.VehicleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VehicleName.DataPropertyName = "Name";
-            this.VehicleName.FillWeight = 179.6954F;
-            this.VehicleName.HeaderText = "Tên phương tiện";
-            this.VehicleName.Name = "VehicleName";
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
-            // 
-            // VehicleType
-            // 
-            this.VehicleType.DataPropertyName = "Type";
-            this.VehicleType.HeaderText = "Loại phương tiện";
-            this.VehicleType.Name = "VehicleType";
-            this.VehicleType.ReadOnly = true;
-            this.VehicleType.Width = 240;
-            // 
-            // LicensePlate
-            // 
-            this.LicensePlate.DataPropertyName = "LicensePlate";
-            this.LicensePlate.HeaderText = "Biển số";
-            this.LicensePlate.Name = "LicensePlate";
-            this.LicensePlate.ReadOnly = true;
-            this.LicensePlate.Width = 200;
             // 
             // VehicleView
             // 

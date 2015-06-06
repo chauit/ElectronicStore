@@ -56,9 +56,9 @@
             this.buttonNew.Location = new System.Drawing.Point(6, 19);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.buttonNew.Size = new System.Drawing.Size(75, 25);
+            this.buttonNew.Size = new System.Drawing.Size(70, 25);
             this.buttonNew.TabIndex = 0;
-            this.buttonNew.Text = "Thêm    ";
+            this.buttonNew.Text = "Thêm   ";
             this.buttonNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.NewItem);
@@ -134,7 +134,7 @@
             // 
             this.buttonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.Image")));
             this.buttonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRefresh.Location = new System.Drawing.Point(103, 19);
+            this.buttonRefresh.Location = new System.Drawing.Point(87, 19);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(75, 25);
             this.buttonRefresh.TabIndex = 4;

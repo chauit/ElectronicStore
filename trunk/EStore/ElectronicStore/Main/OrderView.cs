@@ -9,7 +9,8 @@ namespace ElectronicStore.Main
 {
     public partial class OrderView : Form
     {
-        public OrderView()
+        private User currentUser;
+        public OrderView(User user)
         {
             InitializeComponent();
 
@@ -18,6 +19,8 @@ namespace ElectronicStore.Main
             var biz = new OrderBiz();
             dataGridView.DataSource = biz.LoadItems();
             dataGridView.Refresh();
+
+            currentUser = user;
         }
 
         private ContextMenuStrip AddMenu(bool isDelivered)
@@ -51,7 +54,7 @@ namespace ElectronicStore.Main
             var parent = this.Parent as SplitterPanel;            
             parent.Controls.Clear();
 
-            var newOrder = new OrderForm { Dock = DockStyle.Fill, TopLevel = false };
+            var newOrder = new OrderForm(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
             parent.Controls.Add(newOrder);
             newOrder.Show();
 
@@ -72,7 +75,7 @@ namespace ElectronicStore.Main
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
-                var newOrder = new OrderForm(selectedId) { Dock = DockStyle.Fill, TopLevel = false };
+                var newOrder = new OrderForm(selectedId, currentUser) { Dock = DockStyle.Fill, TopLevel = false };
                 parent.Controls.Add(newOrder);
                 newOrder.Show();
 

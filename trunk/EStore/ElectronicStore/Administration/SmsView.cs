@@ -11,10 +11,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ElectronicStore.Administration
-{
+{    
     public partial class SmsView : Form
     {
-        public SmsView()
+        private User currentUser;
+        public SmsView(User user)
         {
             InitializeComponent();
 
@@ -23,11 +24,13 @@ namespace ElectronicStore.Administration
             var biz = new SmsBiz();
             dataGridView.DataSource = biz.LoadItems();
             dataGridView.Refresh();
+
+            currentUser = user;
         }
 
         private void NewItem(object sender, EventArgs e)
         {
-            var newSms = new SmsForm();
+            var newSms = new SmsForm(currentUser);
             var result = newSms.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
@@ -39,7 +42,7 @@ namespace ElectronicStore.Administration
         {
             var item = dataGridView.SelectedRows[0].DataBoundItem as Sms;
 
-            var newSms = new SmsForm(item.Id);
+            var newSms = new SmsForm(item.Id, currentUser);
             var result = newSms.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {

@@ -17,13 +17,12 @@ namespace ElectronicStore.Reference
 
         private int currentUser;
 
-        private void InitForm()
+        private void InitForm(User user)
         {
             buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 
-            //TODO: Get Id from Login page
-            currentUser = 6;
+            currentUser = user.Id;
 
             var biz = new ProductTypeBiz();
             var types = biz.LoadItems();
@@ -35,11 +34,11 @@ namespace ElectronicStore.Reference
             drlType.ValueMember = "Id";            
         }
 
-        public ProductForm()
+        public ProductForm(User user)
         {
             InitializeComponent();
 
-            InitForm();
+            InitForm(user);
 
             textName.Focus();
             itemId = 0;
@@ -49,11 +48,11 @@ namespace ElectronicStore.Reference
             this.Text = "Thêm sản phẩm";
         }
 
-        public ProductForm(int id)
+        public ProductForm(int id, User user)
         {
             InitializeComponent();
 
-            InitForm();
+            InitForm(user);
 
             textName.Focus();
             itemId = id;
