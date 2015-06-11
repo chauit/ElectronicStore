@@ -38,6 +38,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.IsEncryption = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +55,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.IsEncryption);
             this.groupBox1.Controls.Add(this.textValue);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.textKey);
@@ -60,7 +64,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(415, 126);
+            this.groupBox1.Size = new System.Drawing.Size(415, 135);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chung";
@@ -70,7 +74,7 @@
             this.textValue.Location = new System.Drawing.Point(102, 57);
             this.textValue.Multiline = true;
             this.textValue.Name = "textValue";
-            this.textValue.Size = new System.Drawing.Size(300, 56);
+            this.textValue.Size = new System.Drawing.Size(300, 42);
             this.textValue.TabIndex = 2;
             // 
             // label6
@@ -93,7 +97,7 @@
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(311, 132);
+            this.button2.Location = new System.Drawing.Point(326, 141);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 25);
             this.button2.TabIndex = 4;
@@ -106,7 +110,7 @@
             // 
             this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSave.Location = new System.Drawing.Point(214, 132);
+            this.buttonSave.Location = new System.Drawing.Point(245, 141);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 25);
             this.buttonSave.TabIndex = 3;
@@ -119,12 +123,30 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // IsEncryption
+            // 
+            this.IsEncryption.AutoSize = true;
+            this.IsEncryption.Location = new System.Drawing.Point(102, 111);
+            this.IsEncryption.Name = "IsEncryption";
+            this.IsEncryption.Size = new System.Drawing.Size(15, 14);
+            this.IsEncryption.TabIndex = 13;
+            this.IsEncryption.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Mã hóa:";
+            // 
             // ConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(415, 163);
+            this.ClientSize = new System.Drawing.Size(415, 174);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.button2);
@@ -152,5 +174,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.TextBox textValue;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox IsEncryption;
     }
 }
