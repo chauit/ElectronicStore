@@ -51,6 +51,7 @@ namespace ElectronicStore.Administration
             textValue.Text = item.Value;
             created = item.Created;
             createdBy = item.CreatedByUserId;
+            IsEncryption.Checked = item.Encryption;
             modified = item.Modified;
             modifiedBy = item.ModifiedByUserId;
 
@@ -65,7 +66,11 @@ namespace ElectronicStore.Administration
             {
                 var item = new Configuration();
                 item.Key = textKey.Text;
-                item.Value = textValue.Text;
+                item.Encryption = IsEncryption.Checked;
+                if (IsEncryption.Checked)
+                {
+                    item.Value = Utility.EncodePassword(textValue.Text);
+                }
 
                 if (itemId > 0)
                 {
