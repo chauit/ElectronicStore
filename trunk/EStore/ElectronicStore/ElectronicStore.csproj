@@ -91,9 +91,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administration\ConfigurationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Administration\ConfigurationForm.cs" />
     <Compile Include="Administration\ConfigurationForm.Designer.cs">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </Compile>
