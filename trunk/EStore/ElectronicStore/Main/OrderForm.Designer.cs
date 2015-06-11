@@ -34,6 +34,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtRecipientPhone = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtRecipient = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.cboDeliveryInternal = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dateOrderDate = new System.Windows.Forms.DateTimePicker();
@@ -86,6 +92,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtRecipientPhone);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.txtRecipient);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.txtDiscount);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.cboDeliveryInternal);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.dateOrderDate);
@@ -103,15 +115,64 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(667, 259);
+            this.groupBox1.Size = new System.Drawing.Size(800, 284);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đơn hàng";
             // 
+            // txtRecipientPhone
+            // 
+            this.txtRecipientPhone.Location = new System.Drawing.Point(547, 127);
+            this.txtRecipientPhone.Name = "txtRecipientPhone";
+            this.txtRecipientPhone.Size = new System.Drawing.Size(247, 20);
+            this.txtRecipientPhone.TabIndex = 31;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(424, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(73, 13);
+            this.label10.TabIndex = 30;
+            this.label10.Text = "Số điện thoại:";
+            // 
+            // txtRecipient
+            // 
+            this.txtRecipient.Location = new System.Drawing.Point(136, 124);
+            this.txtRecipient.Name = "txtRecipient";
+            this.txtRecipient.Size = new System.Drawing.Size(206, 20);
+            this.txtRecipient.TabIndex = 29;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(25, 127);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 13);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Người nhận:";
+            // 
+            // txtDiscount
+            // 
+            this.txtDiscount.Location = new System.Drawing.Point(136, 154);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(206, 20);
+            this.txtDiscount.TabIndex = 27;
+            this.txtDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(25, 157);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 13);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Chiết khấu:";
+            // 
             // cboDeliveryInternal
             // 
             this.cboDeliveryInternal.AutoSize = true;
-            this.cboDeliveryInternal.Location = new System.Drawing.Point(540, 95);
+            this.cboDeliveryInternal.Location = new System.Drawing.Point(547, 95);
             this.cboDeliveryInternal.Name = "cboDeliveryInternal";
             this.cboDeliveryInternal.Size = new System.Drawing.Size(15, 14);
             this.cboDeliveryInternal.TabIndex = 25;
@@ -120,7 +181,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(417, 95);
+            this.label7.Location = new System.Drawing.Point(424, 95);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(117, 13);
             this.label7.TabIndex = 24;
@@ -130,15 +191,15 @@
             // 
             this.dateOrderDate.CustomFormat = "dd/MM/yyyy hh:mm tt";
             this.dateOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateOrderDate.Location = new System.Drawing.Point(152, 57);
+            this.dateOrderDate.Location = new System.Drawing.Point(136, 60);
             this.dateOrderDate.Name = "dateOrderDate";
-            this.dateOrderDate.Size = new System.Drawing.Size(147, 20);
+            this.dateOrderDate.Size = new System.Drawing.Size(206, 20);
             this.dateOrderDate.TabIndex = 23;
             // 
             // labelStatus
             // 
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(527, 25);
+            this.labelStatus.Location = new System.Drawing.Point(544, 25);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(127, 13);
             this.labelStatus.TabIndex = 22;
@@ -147,7 +208,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(417, 25);
+            this.label6.Location = new System.Drawing.Point(424, 24);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 13);
             this.label6.TabIndex = 21;
@@ -155,28 +216,28 @@
             // 
             // textDeliverrAddress
             // 
-            this.textDeliverrAddress.Location = new System.Drawing.Point(152, 162);
+            this.textDeliverrAddress.Location = new System.Drawing.Point(136, 184);
             this.textDeliverrAddress.Multiline = true;
             this.textDeliverrAddress.Name = "textDeliverrAddress";
-            this.textDeliverrAddress.Size = new System.Drawing.Size(504, 87);
+            this.textDeliverrAddress.Size = new System.Drawing.Size(658, 87);
             this.textDeliverrAddress.TabIndex = 20;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 165);
+            this.label3.Location = new System.Drawing.Point(25, 187);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 13);
+            this.label3.Size = new System.Drawing.Size(108, 13);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Địa chỉ chuyển hàng";
+            this.label3.Text = "Địa chỉ chuyển hàng:";
             // 
             // dateDeliveryDate
             // 
             this.dateDeliveryDate.CustomFormat = "dd/MM/yyyy hh:mm tt";
             this.dateDeliveryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDeliveryDate.Location = new System.Drawing.Point(152, 127);
+            this.dateDeliveryDate.Location = new System.Drawing.Point(136, 93);
             this.dateDeliveryDate.Name = "dateDeliveryDate";
-            this.dateDeliveryDate.Size = new System.Drawing.Size(147, 20);
+            this.dateDeliveryDate.Size = new System.Drawing.Size(206, 20);
             this.dateDeliveryDate.TabIndex = 18;
             // 
             // label2
@@ -200,7 +261,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 130);
+            this.label5.Location = new System.Drawing.Point(25, 96);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 13);
             this.label5.TabIndex = 14;
@@ -211,16 +272,16 @@
             this.drlCustomer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.drlCustomer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.drlCustomer.FormattingEnabled = true;
-            this.drlCustomer.Location = new System.Drawing.Point(152, 92);
+            this.drlCustomer.Location = new System.Drawing.Point(547, 60);
             this.drlCustomer.Name = "drlCustomer";
-            this.drlCustomer.Size = new System.Drawing.Size(246, 21);
+            this.drlCustomer.Size = new System.Drawing.Size(247, 21);
             this.drlCustomer.TabIndex = 2;
             this.drlCustomer.SelectedIndexChanged += new System.EventHandler(this.SelectCustomer);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 95);
+            this.label4.Location = new System.Drawing.Point(424, 60);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 13;
@@ -230,7 +291,7 @@
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(673, 43);
+            this.button2.Location = new System.Drawing.Point(806, 44);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 25);
             this.button2.TabIndex = 5;
@@ -243,7 +304,7 @@
             // 
             this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSave.Location = new System.Drawing.Point(673, 12);
+            this.buttonSave.Location = new System.Drawing.Point(806, 13);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 25);
             this.buttonSave.TabIndex = 4;
@@ -263,7 +324,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(786, 441);
+            this.groupBox2.Size = new System.Drawing.Size(890, 416);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mã hàng khách yêu cầu";
@@ -274,7 +335,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 65);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(780, 373);
+            this.groupBox4.Size = new System.Drawing.Size(884, 348);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách sản phẩm";
@@ -298,7 +359,7 @@
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.Size = new System.Drawing.Size(774, 354);
+            this.dataGridView.Size = new System.Drawing.Size(878, 329);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.DataSourceChanged += new System.EventHandler(this.ChangeSource);
             this.dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.UpdateQuantity);
@@ -365,7 +426,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(3, 16);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(780, 49);
+            this.groupBox3.Size = new System.Drawing.Size(884, 49);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             // 
@@ -403,16 +464,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(786, 259);
+            this.panel1.Size = new System.Drawing.Size(890, 284);
             this.panel1.TabIndex = 6;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 259);
+            this.panel2.Location = new System.Drawing.Point(0, 284);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(786, 441);
+            this.panel2.Size = new System.Drawing.Size(890, 416);
             this.panel2.TabIndex = 7;
             // 
             // OrderForm
@@ -421,7 +483,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(786, 700);
+            this.ClientSize = new System.Drawing.Size(890, 700);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -478,5 +540,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtDiscount;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtRecipient;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtRecipientPhone;
+        private System.Windows.Forms.Label label10;
     }
 }

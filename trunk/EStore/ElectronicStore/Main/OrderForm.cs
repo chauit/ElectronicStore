@@ -24,8 +24,8 @@ namespace ElectronicStore.Main
 
         private void InitForm(User user)
         {
-            buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            buttonSave.DialogResult = DialogResult.OK;
+            button2.DialogResult = DialogResult.Cancel;
 
             currentUser = user;
 
@@ -74,6 +74,9 @@ namespace ElectronicStore.Main
             dateOrderDate.Value = item.OrderDate;
             dateDeliveryDate.Value = item.DeliveryDate;
             textDeliverrAddress.Text = item.DeliveryAddress;
+            txtDiscount.Text = item.Discount.ToString();
+            txtRecipient.Text = item.Recipient;
+            txtRecipientPhone.Text = item.RecipientPhone;
             cboDeliveryInternal.Checked = item.DeliveryInternal;
             if (item.CustomerId.HasValue)
             {
@@ -120,6 +123,9 @@ namespace ElectronicStore.Main
                     item.DeliveryAddress = textDeliverrAddress.Text;
                     item.CustomerId = Convert.ToInt32(Convert.ToString(drlCustomer.SelectedValue));
                     item.DeliveryInternal = cboDeliveryInternal.Checked;
+                    item.Discount = Convert.ToDecimal(txtDiscount.Text);
+                    item.Recipient = txtRecipient.Text;
+                    item.RecipientPhone = txtRecipientPhone.Text;
 
                     if (itemId > 0)
                     {
@@ -162,7 +168,7 @@ namespace ElectronicStore.Main
                 }
                 else
                 {
-                    this.DialogResult = System.Windows.Forms.DialogResult.None;
+                    this.DialogResult = DialogResult.None;
                 }
             }
         }
@@ -413,6 +419,11 @@ namespace ElectronicStore.Main
             }
 
             return false;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
     }
