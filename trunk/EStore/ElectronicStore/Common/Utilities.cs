@@ -51,6 +51,13 @@ namespace ElectronicStore.Common
             return cities;
         }
 
-        
+        public static List<string> GetSegments()
+        {
+            var cities = new List<string>();
+            cities.Add("Thương Mại");
+            cities.Add("Nhà Thầu");
+            cities.Add("Chủ Đầu Tư");
+            return cities;
+        }
     }
 }

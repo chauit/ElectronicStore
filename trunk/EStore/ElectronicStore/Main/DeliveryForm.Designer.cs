@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -66,6 +66,7 @@
             this.ColumnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -86,6 +87,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.labelSendSms);
@@ -138,7 +140,7 @@
             // dateTimeStartTime
             // 
             this.dateTimeStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimeStartTime.Location = new System.Drawing.Point(547, 92);
+            this.dateTimeStartTime.Location = new System.Drawing.Point(504, 92);
             this.dateTimeStartTime.Name = "dateTimeStartTime";
             this.dateTimeStartTime.Size = new System.Drawing.Size(101, 20);
             this.dateTimeStartTime.TabIndex = 3;
@@ -146,7 +148,7 @@
             // labelStatus
             // 
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(544, 25);
+            this.labelStatus.Location = new System.Drawing.Point(501, 22);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(82, 13);
             this.labelStatus.TabIndex = 22;
@@ -409,9 +411,9 @@
             // ColumnTime
             // 
             this.ColumnTime.DataPropertyName = "DeliveryTime";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle1;
             this.ColumnTime.HeaderText = "Thời gian";
             this.ColumnTime.Name = "ColumnTime";
             // 
@@ -435,6 +437,15 @@
             this.groupBox3.Size = new System.Drawing.Size(769, 49);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(611, 95);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "(Phút)";
             // 
             // DeliveryForm
             // 
@@ -499,5 +510,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonSendSms;
+        private System.Windows.Forms.Label label8;
     }
 }
