@@ -24,7 +24,9 @@ namespace ElectronicStore.Administration
 
             drlCity.Items.Clear();
             drlCity.DataSource = Utilities.GetCities();
-                        
+
+            drlSegment.Items.Clear();
+            drlSegment.DataSource = Utilities.GetSegments();
             currentUser = user.Id;
         }
 
@@ -43,6 +45,7 @@ namespace ElectronicStore.Administration
         public CustomerForm(int id, User user)
         {
             InitializeComponent();
+            InitForm(user);
 
             textFirstName.Focus();
             itemId = id;
@@ -61,6 +64,7 @@ namespace ElectronicStore.Administration
             textMobile2.Text = item.Mobile2;
             textEmail1.Text = item.Email1;
             textEmail2.Text = item.Email2;
+            drlSegment.SelectedItem = item.Segment;
             if (item.Delivery.HasValue)
             {
                 numberDelivery.Text = Convert.ToString(item.Delivery.Value);
@@ -72,7 +76,7 @@ namespace ElectronicStore.Administration
             modified = item.Modified;
             modifiedBy = item.ModifiedByUserId;
 
-            InitForm(user);
+            
 
             this.Text = "Sửa khách hàng";
         }
@@ -89,6 +93,8 @@ namespace ElectronicStore.Administration
                 item.FullName = string.Concat(item.FirstName, " ", item.LastName);
 
                 item.City = Convert.ToString(drlCity.SelectedItem);
+                item.Segment = Convert.ToString(drlSegment.SelectedItem);
+
                 item.PostalCode = textPostalCode.Text;
                 item.Tel = textTel.Text;
                 item.Mobile1 = textMobile1.Text;
