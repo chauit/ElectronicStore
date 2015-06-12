@@ -109,6 +109,12 @@
     <Compile Include="Administration\CustomerForm.Designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administration\CustomerImportPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\CustomerImportPreviewForm.Designer.cs">
+      <DependentUpon>CustomerImportPreviewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\CustomerView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +259,7 @@
     <Compile Include="Reference\VehicleForm.Designer.cs">
       <DependentUpon>VehicleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CustomerItem.cs" />
     <Compile Include="Views\DashBoardModel.cs" />
     <EmbeddedResource Include="Administration\ConfigurationForm.resx">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
@@ -262,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\CustomerImportPreviewForm.resx">
+      <DependentUpon>CustomerImportPreviewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\CustomerView.resx">
       <DependentUpon>CustomerView.cs</DependentUpon>
