@@ -55,7 +55,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.Size = new System.Drawing.Size(25, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ:";
             // 
@@ -94,7 +94,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(25, 116);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 13);
+            this.label6.Size = new System.Drawing.Size(87, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "Thông tin khác:";
             // 
@@ -102,7 +102,7 @@
             // 
             this.textMobile.Location = new System.Drawing.Point(110, 85);
             this.textMobile.Name = "textMobile";
-            this.textMobile.Size = new System.Drawing.Size(201, 20);
+            this.textMobile.Size = new System.Drawing.Size(201, 22);
             this.textMobile.TabIndex = 5;
             // 
             // label5
@@ -110,7 +110,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(25, 88);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 10;
             this.label5.Text = "Di động";
             // 
@@ -132,7 +132,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(323, 57);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 13);
+            this.label4.Size = new System.Drawing.Size(28, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Loại";
             // 
@@ -140,7 +140,7 @@
             // 
             this.textUsername.Location = new System.Drawing.Point(110, 54);
             this.textUsername.Name = "textUsername";
-            this.textUsername.Size = new System.Drawing.Size(201, 20);
+            this.textUsername.Size = new System.Drawing.Size(201, 22);
             this.textUsername.TabIndex = 3;
             // 
             // label3
@@ -148,7 +148,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(25, 57);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Username";
             // 
@@ -156,7 +156,7 @@
             // 
             this.textLastName.Location = new System.Drawing.Point(368, 22);
             this.textLastName.Name = "textLastName";
-            this.textLastName.Size = new System.Drawing.Size(187, 20);
+            this.textLastName.Size = new System.Drawing.Size(187, 22);
             this.textLastName.TabIndex = 2;
             // 
             // label2
@@ -164,7 +164,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(323, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(25, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Tên";
             // 
@@ -172,7 +172,7 @@
             // 
             this.textFirstName.Location = new System.Drawing.Point(110, 22);
             this.textFirstName.Name = "textFirstName";
-            this.textFirstName.Size = new System.Drawing.Size(201, 20);
+            this.textFirstName.Size = new System.Drawing.Size(201, 22);
             this.textFirstName.TabIndex = 1;
             // 
             // button2
@@ -214,6 +214,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.button2);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "UserForm";
             this.ShowIcon = false;

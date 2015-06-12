@@ -59,7 +59,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(38, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên đăng nhập";
             // 
@@ -67,7 +67,7 @@
             // 
             this.textUsername.Location = new System.Drawing.Point(173, 22);
             this.textUsername.Name = "textUsername";
-            this.textUsername.Size = new System.Drawing.Size(245, 20);
+            this.textUsername.Size = new System.Drawing.Size(245, 22);
             this.textUsername.TabIndex = 1;
             // 
             // label2
@@ -75,7 +75,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(38, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
+            this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Mật khẩu cũ";
             // 
@@ -83,7 +83,7 @@
             // 
             this.textPasswordOld.Location = new System.Drawing.Point(173, 63);
             this.textPasswordOld.Name = "textPasswordOld";
-            this.textPasswordOld.Size = new System.Drawing.Size(245, 20);
+            this.textPasswordOld.Size = new System.Drawing.Size(245, 22);
             this.textPasswordOld.TabIndex = 2;
             this.textPasswordOld.UseSystemPasswordChar = true;
             // 
@@ -115,7 +115,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(38, 106);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Mật khẩu mới";
             // 
@@ -123,7 +123,7 @@
             // 
             this.textPasswordNew.Location = new System.Drawing.Point(173, 103);
             this.textPasswordNew.Name = "textPasswordNew";
-            this.textPasswordNew.Size = new System.Drawing.Size(245, 20);
+            this.textPasswordNew.Size = new System.Drawing.Size(245, 22);
             this.textPasswordNew.TabIndex = 7;
             this.textPasswordNew.UseSystemPasswordChar = true;
             // 
@@ -132,7 +132,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(38, 149);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 13);
+            this.label4.Size = new System.Drawing.Size(123, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Nhập lại mật khẩu mới";
             // 
@@ -140,7 +140,7 @@
             // 
             this.textConfirmPasswordNew.Location = new System.Drawing.Point(173, 146);
             this.textConfirmPasswordNew.Name = "textConfirmPasswordNew";
-            this.textConfirmPasswordNew.Size = new System.Drawing.Size(245, 20);
+            this.textConfirmPasswordNew.Size = new System.Drawing.Size(245, 22);
             this.textConfirmPasswordNew.TabIndex = 9;
             this.textConfirmPasswordNew.UseSystemPasswordChar = true;
             // 
@@ -161,6 +161,7 @@
             this.Controls.Add(this.textUsername);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonLogin);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ChangePasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.labelSendSms = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@
             this.ColumnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -81,7 +81,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Số giao hàng";
             // 
@@ -111,12 +111,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin giao hàng";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(611, 95);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 13);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "(Phút)";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(437, 129);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 13);
+            this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 25;
             this.label7.Text = "Gửi email:";
             // 
@@ -125,7 +134,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(135, 129);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 24;
             this.label5.Text = "Gửi SMS:";
             // 
@@ -142,7 +151,7 @@
             this.dateTimeStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimeStartTime.Location = new System.Drawing.Point(504, 92);
             this.dateTimeStartTime.Name = "dateTimeStartTime";
-            this.dateTimeStartTime.Size = new System.Drawing.Size(101, 20);
+            this.dateTimeStartTime.Size = new System.Drawing.Size(101, 22);
             this.dateTimeStartTime.TabIndex = 3;
             // 
             // labelStatus
@@ -150,7 +159,7 @@
             this.labelStatus.AutoSize = true;
             this.labelStatus.Location = new System.Drawing.Point(501, 22);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(82, 13);
+            this.labelStatus.Size = new System.Drawing.Size(90, 13);
             this.labelStatus.TabIndex = 22;
             this.labelStatus.Text = "Chưa giao hàng";
             // 
@@ -159,7 +168,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(437, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 21;
             this.label6.Text = "Tình trạng:";
             // 
@@ -176,7 +185,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(25, 166);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 13);
+            this.label3.Size = new System.Drawing.Size(95, 13);
             this.label3.TabIndex = 19;
             this.label3.Text = "Thông tin chi tiêt";
             // 
@@ -184,7 +193,7 @@
             // 
             this.dateStartDate.Location = new System.Drawing.Point(135, 92);
             this.dateStartDate.Name = "dateStartDate";
-            this.dateStartDate.Size = new System.Drawing.Size(200, 20);
+            this.dateStartDate.Size = new System.Drawing.Size(200, 22);
             this.dateStartDate.TabIndex = 2;
             // 
             // label2
@@ -192,7 +201,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(25, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 13);
+            this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 16;
             this.label2.Text = "Ngày giao hàng";
             // 
@@ -201,7 +210,7 @@
             this.labelDeliveryNo.AutoSize = true;
             this.labelDeliveryNo.Location = new System.Drawing.Point(135, 25);
             this.labelDeliveryNo.Name = "labelDeliveryNo";
-            this.labelDeliveryNo.Size = new System.Drawing.Size(59, 13);
+            this.labelDeliveryNo.Size = new System.Drawing.Size(61, 13);
             this.labelDeliveryNo.TabIndex = 15;
             this.labelDeliveryNo.Text = "Delivery ID";
             // 
@@ -228,7 +237,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(25, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(20, 13);
+            this.label4.Size = new System.Drawing.Size(19, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "Xe";
             // 
@@ -380,11 +389,11 @@
             this.ColumnTime,
             this.Id});
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView.Location = new System.Drawing.Point(3, 18);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.Size = new System.Drawing.Size(763, 260);
+            this.dataGridView.Size = new System.Drawing.Size(763, 258);
             this.dataGridView.TabIndex = 0;
             // 
             // Customer
@@ -438,15 +447,6 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(611, 95);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "(Phút)";
-            // 
             // DeliveryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,6 +455,7 @@
             this.ClientSize = new System.Drawing.Size(769, 588);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DeliveryForm";
             this.ShowIcon = false;

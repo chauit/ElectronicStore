@@ -51,7 +51,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên sản phẩm:";
             // 
@@ -78,7 +78,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(25, 130);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.Size = new System.Drawing.Size(24, 13);
             this.label2.TabIndex = 16;
             this.label2.Text = "Giá";
             // 
@@ -86,7 +86,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(117, 92);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 20);
+            this.textBox1.Size = new System.Drawing.Size(194, 22);
             this.textBox1.TabIndex = 3;
             // 
             // numberPrice
@@ -94,7 +94,7 @@
             this.numberPrice.Location = new System.Drawing.Point(117, 127);
             this.numberPrice.Name = "numberPrice";
             this.numberPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.numberPrice.Size = new System.Drawing.Size(194, 20);
+            this.numberPrice.Size = new System.Drawing.Size(194, 22);
             this.numberPrice.TabIndex = 4;
             this.numberPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -103,7 +103,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(25, 95);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "Ký hiệu:";
             // 
@@ -121,7 +121,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(25, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.Size = new System.Drawing.Size(84, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "Loại sản phẩm:";
             // 
@@ -129,7 +129,7 @@
             // 
             this.textName.Location = new System.Drawing.Point(117, 57);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(194, 20);
+            this.textName.Size = new System.Drawing.Size(194, 22);
             this.textName.TabIndex = 2;
             // 
             // button2
@@ -171,6 +171,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.button2);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ProductForm";

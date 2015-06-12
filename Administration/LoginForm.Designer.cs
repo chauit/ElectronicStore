@@ -55,7 +55,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(23, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên đăng nhập";
             // 
@@ -63,7 +63,7 @@
             // 
             this.textUsername.Location = new System.Drawing.Point(120, 16);
             this.textUsername.Name = "textUsername";
-            this.textUsername.Size = new System.Drawing.Size(245, 20);
+            this.textUsername.Size = new System.Drawing.Size(245, 22);
             this.textUsername.TabIndex = 1;
             // 
             // label2
@@ -71,7 +71,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(23, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Mật khẩu";
             // 
@@ -79,7 +79,7 @@
             // 
             this.textPassword.Location = new System.Drawing.Point(120, 59);
             this.textPassword.Name = "textPassword";
-            this.textPassword.Size = new System.Drawing.Size(245, 20);
+            this.textPassword.Size = new System.Drawing.Size(245, 22);
             this.textPassword.TabIndex = 2;
             this.textPassword.UseSystemPasswordChar = true;
             // 
@@ -119,6 +119,7 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.label2);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

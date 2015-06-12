@@ -185,7 +185,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(20, 60);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Tháng";
             // 
@@ -195,7 +195,7 @@
             this.dateOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateOrderDate.Location = new System.Drawing.Point(156, 22);
             this.dateOrderDate.Name = "dateOrderDate";
-            this.dateOrderDate.Size = new System.Drawing.Size(82, 20);
+            this.dateOrderDate.Size = new System.Drawing.Size(82, 22);
             this.dateOrderDate.TabIndex = 2;
             this.dateOrderDate.TabStop = false;
             // 
@@ -204,7 +204,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(268, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tên khách hàng";
             // 
@@ -213,7 +213,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(20, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
+            this.label1.Size = new System.Drawing.Size(108, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ngày tạo hợp đồng";
             // 
@@ -225,6 +225,7 @@
             this.ClientSize = new System.Drawing.Size(810, 436);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FindOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
