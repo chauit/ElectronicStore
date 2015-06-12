@@ -387,7 +387,9 @@
     <Content Include="Images\Delete.ico" />
     <Content Include="Images\Down.ico" />
     <Content Include="Images\edit.ico" />
+    <Content Include="Images\file_export.ico" />
     <Content Include="Images\Find.ico" />
+    <Content Include="Images\import.ico" />
     <Content Include="Images\mail-send.png" />
     <Content Include="Images\Save.ico" />
     <Content Include="Images\Up.ico" />
