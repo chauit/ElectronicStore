@@ -1,8 +1,8 @@
-﻿using Business;
+﻿using System;
+using System.Windows.Forms;
+using Business;
 using ElectronicStore.Common;
 using Model;
-using System;
-using System.Windows.Forms;
 
 namespace ElectronicStore.Administration
 {
@@ -19,8 +19,8 @@ namespace ElectronicStore.Administration
 
         private void InitForm(User user)
         {
-            buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            buttonSave.DialogResult = DialogResult.OK;
+            button2.DialogResult = DialogResult.Cancel;
 
             drlCity.Items.Clear();
             drlCity.DataSource = Utilities.GetCities();
@@ -75,8 +75,6 @@ namespace ElectronicStore.Administration
             createdBy = item.CreatedByUserId;
             modified = item.Modified;
             modifiedBy = item.ModifiedByUserId;
-
-            
 
             this.Text = "Sửa khách hàng";
         }
@@ -135,7 +133,7 @@ namespace ElectronicStore.Administration
             }
             else
             {
-                this.DialogResult = System.Windows.Forms.DialogResult.None;
+                this.DialogResult = DialogResult.None;
             }
         }
 
@@ -199,6 +197,8 @@ namespace ElectronicStore.Administration
             
             return hasError;
         }
+
+        
 
         private void label3_Click(object sender, EventArgs e)
         {
