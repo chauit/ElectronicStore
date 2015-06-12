@@ -32,14 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurationForm));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.IsEncryption = new System.Windows.Forms.CheckBox();
             this.textValue = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textKey = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.IsEncryption = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +49,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Khóa:";
             // 
@@ -69,6 +69,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chung";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Mã hóa:";
+            // 
+            // IsEncryption
+            // 
+            this.IsEncryption.AutoSize = true;
+            this.IsEncryption.Location = new System.Drawing.Point(102, 111);
+            this.IsEncryption.Name = "IsEncryption";
+            this.IsEncryption.Size = new System.Drawing.Size(15, 14);
+            this.IsEncryption.TabIndex = 13;
+            this.IsEncryption.UseVisualStyleBackColor = true;
+            // 
             // textValue
             // 
             this.textValue.Location = new System.Drawing.Point(102, 57);
@@ -82,7 +100,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(25, 60);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "Giá trị:";
             // 
@@ -90,7 +108,7 @@
             // 
             this.textKey.Location = new System.Drawing.Point(102, 22);
             this.textKey.Name = "textKey";
-            this.textKey.Size = new System.Drawing.Size(219, 20);
+            this.textKey.Size = new System.Drawing.Size(219, 22);
             this.textKey.TabIndex = 1;
             // 
             // button2
@@ -123,24 +141,6 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // IsEncryption
-            // 
-            this.IsEncryption.AutoSize = true;
-            this.IsEncryption.Location = new System.Drawing.Point(102, 111);
-            this.IsEncryption.Name = "IsEncryption";
-            this.IsEncryption.Size = new System.Drawing.Size(15, 14);
-            this.IsEncryption.TabIndex = 13;
-            this.IsEncryption.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Mã hóa:";
-            // 
             // ConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +150,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.button2);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ConfigurationForm";

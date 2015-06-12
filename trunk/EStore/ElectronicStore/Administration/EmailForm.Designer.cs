@@ -51,7 +51,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên:";
             // 
@@ -76,7 +76,7 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(3, 16);
+            this.groupBox2.Location = new System.Drawing.Point(3, 18);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(517, 226);
             this.groupBox2.TabIndex = 13;
@@ -88,7 +88,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(22, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 14;
             this.label2.Text = "Nội dung:";
             // 
@@ -96,14 +96,14 @@
             // 
             this.textSubject.Location = new System.Drawing.Point(81, 55);
             this.textSubject.Name = "textSubject";
-            this.textSubject.Size = new System.Drawing.Size(303, 20);
+            this.textSubject.Size = new System.Drawing.Size(303, 22);
             this.textSubject.TabIndex = 2;
             // 
             // textName
             // 
             this.textName.Location = new System.Drawing.Point(81, 19);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(200, 20);
+            this.textName.Size = new System.Drawing.Size(200, 22);
             this.textName.TabIndex = 1;
             // 
             // textContent
@@ -160,6 +160,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(523, 282);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "EmailForm";

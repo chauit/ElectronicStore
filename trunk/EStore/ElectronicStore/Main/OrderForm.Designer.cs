@@ -30,10 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
+            this.cboVat = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtRecipientPhone = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -71,9 +74,6 @@
             this.buttonDeleteProduct = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cboVat = new System.Windows.Forms.CheckBox();
-            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -89,7 +89,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.Size = new System.Drawing.Size(77, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã đơn hàng";
             // 
@@ -126,20 +126,47 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đơn hàng";
             // 
+            // txtDiscount
+            // 
+            this.txtDiscount.Location = new System.Drawing.Point(136, 154);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(63, 22);
+            this.txtDiscount.TabIndex = 7;
+            this.txtDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DiscountKeyPress);
+            // 
+            // cboVat
+            // 
+            this.cboVat.AutoSize = true;
+            this.cboVat.Location = new System.Drawing.Point(562, 157);
+            this.cboVat.Name = "cboVat";
+            this.cboVat.Size = new System.Drawing.Size(15, 14);
+            this.cboVat.TabIndex = 34;
+            this.cboVat.UseVisualStyleBackColor = true;
+            this.cboVat.CheckedChanged += new System.EventHandler(this.SelectVat);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(424, 157);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(43, 13);
+            this.label12.TabIndex = 33;
+            this.label12.Text = "Có VAT";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(201, 157);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(15, 13);
+            this.label11.Size = new System.Drawing.Size(16, 13);
             this.label11.TabIndex = 32;
             this.label11.Text = "%";
             // 
             // txtRecipientPhone
             // 
-            this.txtRecipientPhone.Location = new System.Drawing.Point(547, 124);
+            this.txtRecipientPhone.Location = new System.Drawing.Point(562, 124);
             this.txtRecipientPhone.Name = "txtRecipientPhone";
-            this.txtRecipientPhone.Size = new System.Drawing.Size(236, 20);
+            this.txtRecipientPhone.Size = new System.Drawing.Size(221, 22);
             this.txtRecipientPhone.TabIndex = 6;
             // 
             // label10
@@ -147,7 +174,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(424, 127);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(73, 13);
+            this.label10.Size = new System.Drawing.Size(79, 13);
             this.label10.TabIndex = 30;
             this.label10.Text = "Số điện thoại:";
             // 
@@ -155,7 +182,7 @@
             // 
             this.txtRecipient.Location = new System.Drawing.Point(136, 124);
             this.txtRecipient.Name = "txtRecipient";
-            this.txtRecipient.Size = new System.Drawing.Size(206, 20);
+            this.txtRecipient.Size = new System.Drawing.Size(206, 22);
             this.txtRecipient.TabIndex = 5;
             // 
             // label9
@@ -163,7 +190,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(25, 127);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 13);
+            this.label9.Size = new System.Drawing.Size(72, 13);
             this.label9.TabIndex = 28;
             this.label9.Text = "Người nhận:";
             // 
@@ -172,14 +199,14 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(25, 157);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 13);
+            this.label8.Size = new System.Drawing.Size(66, 13);
             this.label8.TabIndex = 26;
             this.label8.Text = "Chiết khấu:";
             // 
             // cboDeliveryInternal
             // 
             this.cboDeliveryInternal.AutoSize = true;
-            this.cboDeliveryInternal.Location = new System.Drawing.Point(547, 96);
+            this.cboDeliveryInternal.Location = new System.Drawing.Point(562, 96);
             this.cboDeliveryInternal.Name = "cboDeliveryInternal";
             this.cboDeliveryInternal.Size = new System.Drawing.Size(15, 14);
             this.cboDeliveryInternal.TabIndex = 4;
@@ -190,7 +217,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(424, 96);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 13);
+            this.label7.Size = new System.Drawing.Size(132, 13);
             this.label7.TabIndex = 24;
             this.label7.Text = "Chuyển trong nội thành";
             // 
@@ -200,7 +227,9 @@
             this.dateOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateOrderDate.Location = new System.Drawing.Point(136, 57);
             this.dateOrderDate.Name = "dateOrderDate";
-            this.dateOrderDate.Size = new System.Drawing.Size(146, 20);
+            this.dateOrderDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dateOrderDate.RightToLeftLayout = true;
+            this.dateOrderDate.Size = new System.Drawing.Size(206, 22);
             this.dateOrderDate.TabIndex = 1;
             // 
             // labelStatus
@@ -208,7 +237,7 @@
             this.labelStatus.AutoSize = true;
             this.labelStatus.Location = new System.Drawing.Point(544, 25);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(127, 13);
+            this.labelStatus.Size = new System.Drawing.Size(137, 13);
             this.labelStatus.TabIndex = 22;
             this.labelStatus.Text = "Nhận đơn hàng từ khách";
             // 
@@ -217,7 +246,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(424, 24);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 13);
+            this.label6.Size = new System.Drawing.Size(116, 13);
             this.label6.TabIndex = 21;
             this.label6.Text = "Trạng thái đơn hàng:";
             // 
@@ -234,7 +263,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(25, 187);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 13);
+            this.label3.Size = new System.Drawing.Size(115, 13);
             this.label3.TabIndex = 19;
             this.label3.Text = "Địa chỉ chuyển hàng:";
             // 
@@ -244,7 +273,9 @@
             this.dateDeliveryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateDeliveryDate.Location = new System.Drawing.Point(136, 93);
             this.dateDeliveryDate.Name = "dateDeliveryDate";
-            this.dateDeliveryDate.Size = new System.Drawing.Size(146, 20);
+            this.dateDeliveryDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dateDeliveryDate.RightToLeftLayout = true;
+            this.dateDeliveryDate.Size = new System.Drawing.Size(206, 22);
             this.dateDeliveryDate.TabIndex = 3;
             // 
             // label2
@@ -252,7 +283,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(25, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 16;
             this.label2.Text = "Ngày tạo đơn hàng";
             // 
@@ -261,7 +292,7 @@
             this.labelOrderNo.AutoSize = true;
             this.labelOrderNo.Location = new System.Drawing.Point(133, 25);
             this.labelOrderNo.Name = "labelOrderNo";
-            this.labelOrderNo.Size = new System.Drawing.Size(50, 13);
+            this.labelOrderNo.Size = new System.Drawing.Size(55, 13);
             this.labelOrderNo.TabIndex = 15;
             this.labelOrderNo.Text = "Order No";
             // 
@@ -270,7 +301,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(25, 96);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(97, 13);
+            this.label5.Size = new System.Drawing.Size(103, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "Ngày chuyển hàng";
             // 
@@ -279,9 +310,9 @@
             this.drlCustomer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.drlCustomer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.drlCustomer.FormattingEnabled = true;
-            this.drlCustomer.Location = new System.Drawing.Point(547, 57);
+            this.drlCustomer.Location = new System.Drawing.Point(562, 57);
             this.drlCustomer.Name = "drlCustomer";
-            this.drlCustomer.Size = new System.Drawing.Size(236, 21);
+            this.drlCustomer.Size = new System.Drawing.Size(221, 21);
             this.drlCustomer.TabIndex = 2;
             this.drlCustomer.SelectedIndexChanged += new System.EventHandler(this.SelectCustomer);
             // 
@@ -290,7 +321,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(424, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.Size = new System.Drawing.Size(68, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "Khách hàng";
             // 
@@ -340,9 +371,9 @@
             // 
             this.groupBox4.Controls.Add(this.dataGridView);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(3, 65);
+            this.groupBox4.Location = new System.Drawing.Point(3, 67);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(884, 348);
+            this.groupBox4.Size = new System.Drawing.Size(884, 346);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách sản phẩm";
@@ -362,11 +393,11 @@
             this.Id,
             this.ColumnTotal});
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView.Location = new System.Drawing.Point(3, 18);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.Size = new System.Drawing.Size(878, 329);
+            this.dataGridView.Size = new System.Drawing.Size(878, 325);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.DataSourceChanged += new System.EventHandler(this.ChangeSource);
             this.dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.UpdateQuantity);
@@ -394,9 +425,9 @@
             // Price
             // 
             this.Price.DataPropertyName = "ActualPrice";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle5.Format = "0,000";
-            this.Price.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle11.Format = "0,000";
+            this.Price.DefaultCellStyle = dataGridViewCellStyle11;
             this.Price.HeaderText = "Đơn giá";
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
@@ -404,8 +435,8 @@
             // Total
             // 
             this.Total.DataPropertyName = "TotalValue";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.Total.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle12;
             this.Total.HeaderText = "Tổng";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
@@ -431,7 +462,7 @@
             this.groupBox3.Controls.Add(this.buttonAddProduct);
             this.groupBox3.Controls.Add(this.buttonDeleteProduct);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(3, 16);
+            this.groupBox3.Location = new System.Drawing.Point(3, 18);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(884, 49);
             this.groupBox3.TabIndex = 26;
@@ -483,33 +514,6 @@
             this.panel2.Size = new System.Drawing.Size(890, 416);
             this.panel2.TabIndex = 7;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(424, 157);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(44, 13);
-            this.label12.TabIndex = 33;
-            this.label12.Text = "Có VAT";
-            // 
-            // cboVat
-            // 
-            this.cboVat.AutoSize = true;
-            this.cboVat.Location = new System.Drawing.Point(547, 157);
-            this.cboVat.Name = "cboVat";
-            this.cboVat.Size = new System.Drawing.Size(15, 14);
-            this.cboVat.TabIndex = 34;
-            this.cboVat.UseVisualStyleBackColor = true;
-            this.cboVat.CheckedChanged += new System.EventHandler(this.SelectVat);
-            // 
-            // txtDiscount
-            // 
-            this.txtDiscount.Location = new System.Drawing.Point(136, 154);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(63, 20);
-            this.txtDiscount.TabIndex = 7;
-            this.txtDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DiscountKeyPress);
-            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,6 +523,7 @@
             this.ClientSize = new System.Drawing.Size(890, 700);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OrderForm";
             this.ShowIcon = false;

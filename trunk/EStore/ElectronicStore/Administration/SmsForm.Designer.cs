@@ -71,7 +71,7 @@
             this.groupBox2.Controls.Add(this.textName);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(3, 16);
+            this.groupBox2.Location = new System.Drawing.Point(3, 18);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(514, 348);
             this.groupBox2.TabIndex = 13;
@@ -90,7 +90,7 @@
             // 
             this.textName.Location = new System.Drawing.Point(77, 24);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(282, 20);
+            this.textName.Size = new System.Drawing.Size(282, 22);
             this.textName.TabIndex = 1;
             // 
             // label6
@@ -98,7 +98,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(21, 53);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "Nội dung:";
             // 
@@ -139,6 +139,7 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(520, 405);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "SmsForm";

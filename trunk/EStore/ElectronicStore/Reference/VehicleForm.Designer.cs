@@ -49,7 +49,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên phương tiện";
             // 
@@ -76,9 +76,9 @@
             this.drlType.Items.AddRange(new object[] {
             "Ô tô",
             "Xe Máy"});
-            this.drlType.Location = new System.Drawing.Point(117, 57);
+            this.drlType.Location = new System.Drawing.Point(127, 57);
             this.drlType.Name = "drlType";
-            this.drlType.Size = new System.Drawing.Size(300, 21);
+            this.drlType.Size = new System.Drawing.Size(290, 21);
             this.drlType.TabIndex = 2;
             // 
             // label4
@@ -86,15 +86,15 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(25, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 13);
+            this.label4.Size = new System.Drawing.Size(96, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Loại phương tiện";
             // 
             // textLicensePlate
             // 
-            this.textLicensePlate.Location = new System.Drawing.Point(117, 92);
+            this.textLicensePlate.Location = new System.Drawing.Point(127, 92);
             this.textLicensePlate.Name = "textLicensePlate";
-            this.textLicensePlate.Size = new System.Drawing.Size(300, 20);
+            this.textLicensePlate.Size = new System.Drawing.Size(290, 22);
             this.textLicensePlate.TabIndex = 3;
             // 
             // label3
@@ -102,15 +102,15 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(25, 95);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Biển số";
             // 
             // textName
             // 
-            this.textName.Location = new System.Drawing.Point(116, 22);
+            this.textName.Location = new System.Drawing.Point(127, 22);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(209, 20);
+            this.textName.Size = new System.Drawing.Size(290, 22);
             this.textName.TabIndex = 1;
             // 
             // button2
@@ -152,6 +152,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.button2);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "VehicleForm";

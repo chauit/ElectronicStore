@@ -117,7 +117,7 @@
             // 
             this.textCode.Location = new System.Drawing.Point(122, 92);
             this.textCode.Name = "textCode";
-            this.textCode.Size = new System.Drawing.Size(215, 20);
+            this.textCode.Size = new System.Drawing.Size(215, 22);
             this.textCode.TabIndex = 3;
             // 
             // label2
@@ -125,7 +125,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(20, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Mã sản phẩm";
             // 
@@ -133,7 +133,7 @@
             // 
             this.textName.Location = new System.Drawing.Point(122, 57);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(215, 20);
+            this.textName.Size = new System.Drawing.Size(215, 22);
             this.textName.TabIndex = 2;
             // 
             // buttonSearch
@@ -164,7 +164,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(20, 60);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
+            this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Tên sản phẩm";
             // 
@@ -173,7 +173,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(20, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Loại sản phẩm";
             // 
@@ -185,6 +185,7 @@
             this.ClientSize = new System.Drawing.Size(810, 498);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FindProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

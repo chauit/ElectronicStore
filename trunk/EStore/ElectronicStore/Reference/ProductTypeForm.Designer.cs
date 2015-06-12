@@ -45,7 +45,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.Size = new System.Drawing.Size(103, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên loại sản phẩm:";
             // 
@@ -64,7 +64,7 @@
             // 
             this.textName.Location = new System.Drawing.Point(135, 22);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(300, 20);
+            this.textName.Size = new System.Drawing.Size(300, 22);
             this.textName.TabIndex = 1;
             // 
             // button2
@@ -106,6 +106,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ProductTypeForm";
             this.ShowIcon = false;
