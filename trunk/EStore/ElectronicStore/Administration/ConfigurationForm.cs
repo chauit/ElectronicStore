@@ -66,6 +66,7 @@ namespace ElectronicStore.Administration
             {
                 var item = new Configuration();
                 item.Key = textKey.Text;
+                item.Value = textValue.Text;
                 item.Encryption = IsEncryption.Checked;
                 if (IsEncryption.Checked)
                 {
