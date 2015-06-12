@@ -235,6 +235,16 @@ namespace ElectronicStore.Main
         {            
             if (product != null)
             {
+                product.ActualPrice = product.Price;
+
+                if (product.Price.HasValue && product.Price.Value > 0)
+                {
+                    var discount = Convert.ToInt32(txtDiscount.Text);
+                    decimal x = 1.1M;
+                    var rootPrice = Math.Round(product.Price.Value / x);
+                    product.ActualPrice = rootPrice - (rootPrice * discount) / 100;
+                }
+
                 if (listProduct == null)
                 {
                     listProduct = new List<SearchProduct>();
@@ -305,6 +315,7 @@ namespace ElectronicStore.Main
                 searchProduct.Price = detail.ProductPrice;
                 searchProduct.Quantity = detail.Quantity;
                 searchProduct.Total = detail.Total;
+                searchProduct.ActualPrice = detail.ProductActualPrice;
                 searchProduct.TotalValue = detail.Total.ToString("0,000");
                 searchProduct.Id = detail.Id;
                 searchProduct.Name = detail.Product.Name;
@@ -365,7 +376,8 @@ namespace ElectronicStore.Main
                     detail.ProductId = entity.Id;
                     detail.Quantity = entity.Quantity.Value;
                     detail.ProductPrice = entity.Price.Value;
-                    detail.Total = entity.Total.Value;
+                    detail.Total = Convert.ToDecimal(entity.TotalValue);
+                    detail.ProductActualPrice = entity.ActualPrice;
                     biz.SaveItem(detail);
                 }
             }
@@ -421,9 +433,35 @@ namespace ElectronicStore.Main
             return false;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void DiscountKeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                decimal rate = Convert.ToDecimal(txtDiscount.Text);
 
+                var list = dataGridView.DataSource as List<SearchProduct>;
+
+                if (list != null && list.Count > 0)
+                {
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        var product = list[i];
+                        if (!string.IsNullOrEmpty(product.Code))
+                        {
+                            decimal x = 1.1M;
+                            var rootPrice = Math.Round(product.Price.Value / x);
+                            product.ActualPrice = rootPrice - (rootPrice * rate) / 100;
+                            product.TotalValue = (product.ActualPrice * product.Quantity).Value.ToString("0,000");
+                        }
+                    }
+
+                    listProduct = list;
+
+                    dataGridView.DataSource = null;
+                    dataGridView.DataSource = listProduct;
+                    dataGridView.Refresh();
+                }
+            }
         }
 
     }
