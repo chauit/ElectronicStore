@@ -30,11 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtDiscount = new System.Windows.Forms.MaskedTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtRecipientPhone = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -72,6 +71,9 @@
             this.buttonDeleteProduct = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cboVat = new System.Windows.Forms.CheckBox();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -94,6 +96,8 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtDiscount);
+            this.groupBox1.Controls.Add(this.cboVat);
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtRecipientPhone);
             this.groupBox1.Controls.Add(this.label10);
@@ -122,21 +126,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đơn hàng";
             // 
-            // txtDiscount
-            // 
-            this.txtDiscount.Location = new System.Drawing.Point(136, 154);
-            this.txtDiscount.Mask = "00";
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.PromptChar = '0';
-            this.txtDiscount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtDiscount.Size = new System.Drawing.Size(70, 20);
-            this.txtDiscount.TabIndex = 7;
-            this.txtDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DiscountKeyPress);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(205, 157);
+            this.label11.Location = new System.Drawing.Point(201, 157);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(15, 13);
             this.label11.TabIndex = 32;
@@ -146,7 +139,7 @@
             // 
             this.txtRecipientPhone.Location = new System.Drawing.Point(547, 124);
             this.txtRecipientPhone.Name = "txtRecipientPhone";
-            this.txtRecipientPhone.Size = new System.Drawing.Size(247, 20);
+            this.txtRecipientPhone.Size = new System.Drawing.Size(236, 20);
             this.txtRecipientPhone.TabIndex = 6;
             // 
             // label10
@@ -233,7 +226,7 @@
             this.textDeliverrAddress.Location = new System.Drawing.Point(136, 184);
             this.textDeliverrAddress.Multiline = true;
             this.textDeliverrAddress.Name = "textDeliverrAddress";
-            this.textDeliverrAddress.Size = new System.Drawing.Size(658, 87);
+            this.textDeliverrAddress.Size = new System.Drawing.Size(647, 87);
             this.textDeliverrAddress.TabIndex = 8;
             // 
             // label3
@@ -288,7 +281,7 @@
             this.drlCustomer.FormattingEnabled = true;
             this.drlCustomer.Location = new System.Drawing.Point(547, 57);
             this.drlCustomer.Name = "drlCustomer";
-            this.drlCustomer.Size = new System.Drawing.Size(247, 21);
+            this.drlCustomer.Size = new System.Drawing.Size(236, 21);
             this.drlCustomer.TabIndex = 2;
             this.drlCustomer.SelectedIndexChanged += new System.EventHandler(this.SelectCustomer);
             // 
@@ -401,9 +394,9 @@
             // Price
             // 
             this.Price.DataPropertyName = "ActualPrice";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle1.Format = "0,000";
-            this.Price.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle5.Format = "0,000";
+            this.Price.DefaultCellStyle = dataGridViewCellStyle5;
             this.Price.HeaderText = "Đơn giá";
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
@@ -411,8 +404,8 @@
             // Total
             // 
             this.Total.DataPropertyName = "TotalValue";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.Total.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle6;
             this.Total.HeaderText = "Tổng";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
@@ -490,6 +483,33 @@
             this.panel2.Size = new System.Drawing.Size(890, 416);
             this.panel2.TabIndex = 7;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(424, 157);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 13);
+            this.label12.TabIndex = 33;
+            this.label12.Text = "Có VAT";
+            // 
+            // cboVat
+            // 
+            this.cboVat.AutoSize = true;
+            this.cboVat.Location = new System.Drawing.Point(547, 157);
+            this.cboVat.Name = "cboVat";
+            this.cboVat.Size = new System.Drawing.Size(15, 14);
+            this.cboVat.TabIndex = 34;
+            this.cboVat.UseVisualStyleBackColor = true;
+            this.cboVat.CheckedChanged += new System.EventHandler(this.SelectVat);
+            // 
+            // txtDiscount
+            // 
+            this.txtDiscount.Location = new System.Drawing.Point(136, 154);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(63, 20);
+            this.txtDiscount.TabIndex = 7;
+            this.txtDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DiscountKeyPress);
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -552,7 +572,6 @@
         private System.Windows.Forms.TextBox txtRecipientPhone;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.MaskedTextBox txtDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
@@ -560,5 +579,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotal;
+        private System.Windows.Forms.CheckBox cboVat;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtDiscount;
     }
 }

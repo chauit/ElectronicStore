@@ -78,6 +78,7 @@ namespace ElectronicStore.Main
             txtRecipient.Text = item.Recipient;
             txtRecipientPhone.Text = item.RecipientPhone;
             cboDeliveryInternal.Checked = item.DeliveryInternal;
+            cboVat.Checked = item.Vat;
             if (item.CustomerId.HasValue)
             {
                 drlCustomer.SelectedValue = item.CustomerId.Value;
@@ -123,9 +124,14 @@ namespace ElectronicStore.Main
                     item.DeliveryAddress = textDeliverrAddress.Text;
                     item.CustomerId = Convert.ToInt32(Convert.ToString(drlCustomer.SelectedValue));
                     item.DeliveryInternal = cboDeliveryInternal.Checked;
-                    item.Discount = Convert.ToDecimal(txtDiscount.Text);
+                    int discount = 0;
+                    if (int.TryParse(txtDiscount.Text, out discount))
+                    {
+                        item.Discount = discount;
+                    }
                     item.Recipient = txtRecipient.Text;
                     item.RecipientPhone = txtRecipientPhone.Text;
+                    item.Vat = cboVat.Checked;
 
                     if (itemId > 0)
                     {
@@ -239,7 +245,9 @@ namespace ElectronicStore.Main
 
                 if (product.Price.HasValue && product.Price.Value > 0)
                 {
-                    var discount = Convert.ToInt32(txtDiscount.Text);
+                    int discount = 0;
+                    int.TryParse(txtDiscount.Text, out discount);
+                    
                     decimal x = 1.1M;
                     var rootPrice = Math.Round(product.Price.Value / x);
                     product.ActualPrice = rootPrice - (rootPrice * discount) / 100;
@@ -408,7 +416,16 @@ namespace ElectronicStore.Main
 
                 var vat = dataGridView.Rows[dataGridView.RowCount - 2];                
                 decimal vatValue = (total * 10) / 100;
-                vat.Cells[4].Value = "VAT(10%): " + vatValue.ToString("0,000");
+
+                if (!cboVat.Checked)
+                {
+                    vat.Cells[4].Value = "VAT(0%)";
+                    vatValue = 0;
+                }
+                else
+                {
+                    vat.Cells[4].Value = "VAT(10%): " + vatValue.ToString("0,000");
+                }                
                 
                 var final = dataGridView.Rows[dataGridView.RowCount - 1];                
                 final.Cells[4].Value = "Tổng: " + (total + vatValue).ToString("0,000");
@@ -435,33 +452,45 @@ namespace ElectronicStore.Main
 
         private void DiscountKeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Enter))
             {
-                decimal rate = Convert.ToDecimal(txtDiscount.Text);
-
-                var list = dataGridView.DataSource as List<SearchProduct>;
-
-                if (list != null && list.Count > 0)
+                e.Handled = true;
+            }
+            else
+            {
+                if (e.KeyChar == (char)Keys.Enter)
                 {
-                    for (int i = 0; i < list.Count; i++)
+                    decimal rate = Convert.ToDecimal(txtDiscount.Text);
+
+                    var list = dataGridView.DataSource as List<SearchProduct>;
+
+                    if (list != null && list.Count > 0)
                     {
-                        var product = list[i];
-                        if (!string.IsNullOrEmpty(product.Code))
+                        for (int i = 0; i < list.Count; i++)
                         {
-                            decimal x = 1.1M;
-                            var rootPrice = Math.Round(product.Price.Value / x);
-                            product.ActualPrice = rootPrice - (rootPrice * rate) / 100;
-                            product.TotalValue = (product.ActualPrice * product.Quantity).Value.ToString("0,000");
+                            var product = list[i];
+                            if (!string.IsNullOrEmpty(product.Code))
+                            {
+                                decimal x = 1.1M;
+                                var rootPrice = Math.Round(product.Price.Value / x);
+                                product.ActualPrice = rootPrice - (rootPrice * rate) / 100;
+                                product.TotalValue = (product.ActualPrice * product.Quantity).Value.ToString("0,000");
+                            }
                         }
+
+                        listProduct = list;
+
+                        dataGridView.DataSource = null;
+                        dataGridView.DataSource = listProduct;
+                        dataGridView.Refresh();
                     }
-
-                    listProduct = list;
-
-                    dataGridView.DataSource = null;
-                    dataGridView.DataSource = listProduct;
-                    dataGridView.Refresh();
                 }
             }
+        }
+
+        private void SelectVat(object sender, EventArgs e)
+        {
+            UpdateTotal();
         }
 
     }
