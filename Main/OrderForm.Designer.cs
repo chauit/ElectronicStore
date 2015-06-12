@@ -30,15 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtDiscount = new System.Windows.Forms.MaskedTextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txtRecipientPhone = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtRecipient = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cboDeliveryInternal = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -92,11 +93,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtDiscount);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtRecipientPhone);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtRecipient);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtDiscount);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.cboDeliveryInternal);
             this.groupBox1.Controls.Add(this.label7);
@@ -120,12 +122,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đơn hàng";
             // 
+            // txtDiscount
+            // 
+            this.txtDiscount.Location = new System.Drawing.Point(136, 154);
+            this.txtDiscount.Mask = "00";
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.PromptChar = '0';
+            this.txtDiscount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtDiscount.Size = new System.Drawing.Size(70, 20);
+            this.txtDiscount.TabIndex = 7;
+            this.txtDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DiscountKeyPress);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(205, 157);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(15, 13);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "%";
+            // 
             // txtRecipientPhone
             // 
-            this.txtRecipientPhone.Location = new System.Drawing.Point(547, 127);
+            this.txtRecipientPhone.Location = new System.Drawing.Point(547, 124);
             this.txtRecipientPhone.Name = "txtRecipientPhone";
             this.txtRecipientPhone.Size = new System.Drawing.Size(247, 20);
-            this.txtRecipientPhone.TabIndex = 31;
+            this.txtRecipientPhone.TabIndex = 6;
             // 
             // label10
             // 
@@ -141,7 +163,7 @@
             this.txtRecipient.Location = new System.Drawing.Point(136, 124);
             this.txtRecipient.Name = "txtRecipient";
             this.txtRecipient.Size = new System.Drawing.Size(206, 20);
-            this.txtRecipient.TabIndex = 29;
+            this.txtRecipient.TabIndex = 5;
             // 
             // label9
             // 
@@ -151,14 +173,6 @@
             this.label9.Size = new System.Drawing.Size(65, 13);
             this.label9.TabIndex = 28;
             this.label9.Text = "Người nhận:";
-            // 
-            // txtDiscount
-            // 
-            this.txtDiscount.Location = new System.Drawing.Point(136, 154);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(206, 20);
-            this.txtDiscount.TabIndex = 27;
-            this.txtDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
@@ -172,16 +186,16 @@
             // cboDeliveryInternal
             // 
             this.cboDeliveryInternal.AutoSize = true;
-            this.cboDeliveryInternal.Location = new System.Drawing.Point(547, 95);
+            this.cboDeliveryInternal.Location = new System.Drawing.Point(547, 96);
             this.cboDeliveryInternal.Name = "cboDeliveryInternal";
             this.cboDeliveryInternal.Size = new System.Drawing.Size(15, 14);
-            this.cboDeliveryInternal.TabIndex = 25;
+            this.cboDeliveryInternal.TabIndex = 4;
             this.cboDeliveryInternal.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(424, 95);
+            this.label7.Location = new System.Drawing.Point(424, 96);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(117, 13);
             this.label7.TabIndex = 24;
@@ -191,10 +205,10 @@
             // 
             this.dateOrderDate.CustomFormat = "dd/MM/yyyy hh:mm tt";
             this.dateOrderDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateOrderDate.Location = new System.Drawing.Point(136, 60);
+            this.dateOrderDate.Location = new System.Drawing.Point(136, 57);
             this.dateOrderDate.Name = "dateOrderDate";
-            this.dateOrderDate.Size = new System.Drawing.Size(206, 20);
-            this.dateOrderDate.TabIndex = 23;
+            this.dateOrderDate.Size = new System.Drawing.Size(146, 20);
+            this.dateOrderDate.TabIndex = 1;
             // 
             // labelStatus
             // 
@@ -220,7 +234,7 @@
             this.textDeliverrAddress.Multiline = true;
             this.textDeliverrAddress.Name = "textDeliverrAddress";
             this.textDeliverrAddress.Size = new System.Drawing.Size(658, 87);
-            this.textDeliverrAddress.TabIndex = 20;
+            this.textDeliverrAddress.TabIndex = 8;
             // 
             // label3
             // 
@@ -237,8 +251,8 @@
             this.dateDeliveryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateDeliveryDate.Location = new System.Drawing.Point(136, 93);
             this.dateDeliveryDate.Name = "dateDeliveryDate";
-            this.dateDeliveryDate.Size = new System.Drawing.Size(206, 20);
-            this.dateDeliveryDate.TabIndex = 18;
+            this.dateDeliveryDate.Size = new System.Drawing.Size(146, 20);
+            this.dateDeliveryDate.TabIndex = 3;
             // 
             // label2
             // 
@@ -252,7 +266,7 @@
             // labelOrderNo
             // 
             this.labelOrderNo.AutoSize = true;
-            this.labelOrderNo.Location = new System.Drawing.Point(149, 25);
+            this.labelOrderNo.Location = new System.Drawing.Point(133, 25);
             this.labelOrderNo.Name = "labelOrderNo";
             this.labelOrderNo.Size = new System.Drawing.Size(50, 13);
             this.labelOrderNo.TabIndex = 15;
@@ -272,7 +286,7 @@
             this.drlCustomer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.drlCustomer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.drlCustomer.FormattingEnabled = true;
-            this.drlCustomer.Location = new System.Drawing.Point(547, 60);
+            this.drlCustomer.Location = new System.Drawing.Point(547, 57);
             this.drlCustomer.Name = "drlCustomer";
             this.drlCustomer.Size = new System.Drawing.Size(247, 21);
             this.drlCustomer.TabIndex = 2;
@@ -294,7 +308,7 @@
             this.button2.Location = new System.Drawing.Point(806, 44);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 25);
-            this.button2.TabIndex = 5;
+            this.button2.TabIndex = 12;
             this.button2.Text = "Thoát   ";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
@@ -307,7 +321,7 @@
             this.buttonSave.Location = new System.Drawing.Point(806, 13);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 25);
-            this.buttonSave.TabIndex = 4;
+            this.buttonSave.TabIndex = 11;
             this.buttonSave.Text = "Cập nhật";
             this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -386,10 +400,10 @@
             // 
             // Price
             // 
-            this.Price.DataPropertyName = "Price";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle3.Format = "0,000";
-            this.Price.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Price.DataPropertyName = "ActualPrice";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle1.Format = "0,000";
+            this.Price.DefaultCellStyle = dataGridViewCellStyle1;
             this.Price.HeaderText = "Đơn giá";
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
@@ -397,8 +411,8 @@
             // Total
             // 
             this.Total.DataPropertyName = "TotalValue";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.Total.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle2;
             this.Total.HeaderText = "Tổng";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
@@ -437,7 +451,7 @@
             this.buttonAddProduct.Location = new System.Drawing.Point(18, 15);
             this.buttonAddProduct.Name = "buttonAddProduct";
             this.buttonAddProduct.Size = new System.Drawing.Size(75, 25);
-            this.buttonAddProduct.TabIndex = 23;
+            this.buttonAddProduct.TabIndex = 9;
             this.buttonAddProduct.Text = "Thêm   ";
             this.buttonAddProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAddProduct.UseVisualStyleBackColor = true;
@@ -450,7 +464,7 @@
             this.buttonDeleteProduct.Location = new System.Drawing.Point(99, 15);
             this.buttonDeleteProduct.Name = "buttonDeleteProduct";
             this.buttonDeleteProduct.Size = new System.Drawing.Size(75, 25);
-            this.buttonDeleteProduct.TabIndex = 25;
+            this.buttonDeleteProduct.TabIndex = 10;
             this.buttonDeleteProduct.Text = "Xóa     ";
             this.buttonDeleteProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDeleteProduct.UseVisualStyleBackColor = true;
@@ -466,7 +480,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(890, 284);
             this.panel1.TabIndex = 6;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
@@ -527,6 +540,19 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button buttonDeleteProduct;
         private System.Windows.Forms.DateTimePicker dateOrderDate;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox cboDeliveryInternal;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtRecipient;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtRecipientPhone;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.MaskedTextBox txtDiscount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
@@ -534,17 +560,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotal;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox cboDeliveryInternal;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtDiscount;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtRecipient;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtRecipientPhone;
-        private System.Windows.Forms.Label label10;
     }
 }
