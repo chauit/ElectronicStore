@@ -63,6 +63,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.drlMr = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -78,6 +79,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.drlMr);
             this.groupBox1.Controls.Add(this.drlSegment);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.textOtherInformation);
@@ -339,9 +341,9 @@
             // 
             // textFirstName
             // 
-            this.textFirstName.Location = new System.Drawing.Point(106, 22);
+            this.textFirstName.Location = new System.Drawing.Point(160, 22);
             this.textFirstName.Name = "textFirstName";
-            this.textFirstName.Size = new System.Drawing.Size(199, 22);
+            this.textFirstName.Size = new System.Drawing.Size(145, 22);
             this.textFirstName.TabIndex = 1;
             // 
             // button2
@@ -373,6 +375,21 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            // 
+            // drlMr
+            // 
+            this.drlMr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.drlMr.FormattingEnabled = true;
+            this.drlMr.Items.AddRange(new object[] {
+            "",
+            "Chú",
+            "Cô",
+            "Anh",
+            "Chị"});
+            this.drlMr.Location = new System.Drawing.Point(106, 22);
+            this.drlMr.Name = "drlMr";
+            this.drlMr.Size = new System.Drawing.Size(48, 21);
+            this.drlMr.TabIndex = 0;
             // 
             // CustomerForm
             // 
@@ -433,5 +450,6 @@
         private System.Windows.Forms.TextBox textOtherInformation;
         private System.Windows.Forms.ComboBox drlSegment;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox drlMr;
     }
 }

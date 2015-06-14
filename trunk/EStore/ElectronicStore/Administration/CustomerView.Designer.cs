@@ -31,12 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerView));
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mobile1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
@@ -46,6 +40,14 @@
             this.btnImport = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ColumnMr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSegment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mobile1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -75,7 +77,9 @@
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cbo,
+            this.ColumnMr,
             this.FullName,
+            this.ColumnSegment,
             this.RoleId,
             this.Mobile1,
             this.Type,
@@ -89,53 +93,6 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(804, 330);
             this.dataGridView.TabIndex = 1;
-            // 
-            // cbo
-            // 
-            this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20.30457F;
-            this.cbo.HeaderText = "";
-            this.cbo.IndeterminateValue = "";
-            this.cbo.MinimumWidth = 20;
-            this.cbo.Name = "cbo";
-            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cbo.TrueValue = "1";
-            // 
-            // FullName
-            // 
-            this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FullName.DataPropertyName = "FullName";
-            this.FullName.FillWeight = 179.6954F;
-            this.FullName.HeaderText = "Họ tên";
-            this.FullName.Name = "FullName";
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
-            // 
-            // Mobile1
-            // 
-            this.Mobile1.DataPropertyName = "Mobile1";
-            this.Mobile1.HeaderText = "Di động";
-            this.Mobile1.Name = "Mobile1";
-            this.Mobile1.ReadOnly = true;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Email1";
-            this.Type.HeaderText = "Email";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            // 
-            // City
-            // 
-            this.City.DataPropertyName = "City";
-            this.City.HeaderText = "Thành phố";
-            this.City.Name = "City";
-            this.City.ReadOnly = true;
             // 
             // buttonUpdate
             // 
@@ -211,6 +168,8 @@
             this.btnExport.Text = "Export";
             this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Visible = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnImport
             // 
@@ -245,6 +204,69 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách khách hàng";
             // 
+            // cbo
+            // 
+            this.cbo.FalseValue = "0";
+            this.cbo.FillWeight = 20.30457F;
+            this.cbo.HeaderText = "";
+            this.cbo.IndeterminateValue = "";
+            this.cbo.MinimumWidth = 20;
+            this.cbo.Name = "cbo";
+            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cbo.TrueValue = "1";
+            // 
+            // ColumnMr
+            // 
+            this.ColumnMr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ColumnMr.DataPropertyName = "Mr";
+            this.ColumnMr.HeaderText = "";
+            this.ColumnMr.Name = "ColumnMr";
+            this.ColumnMr.ReadOnly = true;
+            this.ColumnMr.Width = 50;
+            // 
+            // FullName
+            // 
+            this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.FillWeight = 179.6954F;
+            this.FullName.HeaderText = "Họ tên";
+            this.FullName.Name = "FullName";
+            // 
+            // ColumnSegment
+            // 
+            this.ColumnSegment.DataPropertyName = "Segment";
+            this.ColumnSegment.HeaderText = "Phân khúc";
+            this.ColumnSegment.Name = "ColumnSegment";
+            this.ColumnSegment.ReadOnly = true;
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
+            // 
+            // Mobile1
+            // 
+            this.Mobile1.DataPropertyName = "Mobile1";
+            this.Mobile1.HeaderText = "Di động";
+            this.Mobile1.Name = "Mobile1";
+            this.Mobile1.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Email1";
+            this.Type.HeaderText = "Email";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // City
+            // 
+            this.City.DataPropertyName = "City";
+            this.City.HeaderText = "Thành phố";
+            this.City.Name = "City";
+            this.City.ReadOnly = true;
+            // 
             // CustomerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,13 +298,15 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cbo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMr;
         private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSegment;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mobile1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn City;
-        private System.Windows.Forms.Button btnImport;
-        private System.Windows.Forms.Button btnExport;
     }
 }

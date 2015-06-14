@@ -34,6 +34,11 @@ namespace ElectronicStore.Main
 
             LoadVehicle();
 
+            LoadUser();
+
+            labelSendSms.Text = Constants.DeliverySendSms;
+            labelSendEmail.Text = Constants.DeliverySendEmail;
+
             listOrder = new List<SearchOrder>();
         }
 
@@ -90,6 +95,10 @@ namespace ElectronicStore.Main
             {
                 drlVehicle.SelectedValue = item.VehicleId.Value;
             }
+            if (item.StaffId.HasValue)
+            {
+                drlUser.SelectedValue = item.StaffId.Value;
+            }
 
             LoadOrders(item);
 
@@ -138,6 +147,7 @@ namespace ElectronicStore.Main
             item.StartTime = TimeSpan.Parse(dateTimeStartTime.Value.ToString(@"hh\:mm"));
             item.OtherInformation = textOtherInformation.Text;
             item.VehicleId = Convert.ToInt32(drlVehicle.SelectedValue);
+            item.StaffId = Convert.ToInt32(drlUser.SelectedValue);
 
             if (itemId > 0)
             {
@@ -217,6 +227,14 @@ namespace ElectronicStore.Main
                 drlVehicle.Focus();
             }
 
+            if (drlUser.SelectedItem == null || Convert.ToInt32(drlUser.SelectedValue) == 0)
+            {
+                errorProvider.SetError(drlUser, Constants.Messages.RequireMessage);
+                hasError = false;
+
+                drlUser.Focus();
+            }
+
             string ids = string.Empty;
             foreach(var o in listOrder)
             {
@@ -226,7 +244,7 @@ namespace ElectronicStore.Main
             ids = ids.TrimStart(',');
 
             var biz = new DeliveryDetailBiz();
-            var orderIds = biz.GetByOrders(ids);
+            var orderIds = biz.GetByOrders(ids, itemId);
             if(orderIds != null && orderIds.Count > 0)
             {
                 hasError = false;
@@ -254,6 +272,18 @@ namespace ElectronicStore.Main
             drlVehicle.DataSource = items;
             drlVehicle.DisplayMember = "Name";
             drlVehicle.ValueMember = "Id";
+        }
+
+        private void LoadUser()
+        {
+            var biz = new UserBiz();
+            var items = biz.LoadDelivery();
+            items.Insert(0, new User());
+
+            drlUser.Items.Clear();
+            drlUser.DataSource = items;
+            drlUser.DisplayMember = "FullName";
+            drlUser.ValueMember = "Id";
         }
 
         private void SelectOrder(object sender, EventArgs e)
@@ -384,16 +414,12 @@ namespace ElectronicStore.Main
             {
                 var delivery = new Delivery();
                 delivery.IsSendSms = Constants.DeliverySentSms;
-
                 var item = SaveDelivery(delivery);
-
-                var biz = new DeliveryBiz();
-                biz.SendSms(item.Id);
 
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
-                var deliveryView = new DeliveryView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                var deliveryView = new DeliveryView(currentUser, false, true, item.Id) { Dock = DockStyle.Fill, TopLevel = false };
                 parent.Controls.Add(deliveryView);
                 deliveryView.Show();
 
@@ -410,17 +436,13 @@ namespace ElectronicStore.Main
             if (CustomValidation())
             {
                 var delivery = new Delivery();
-                delivery.IsSendEmail = Constants.DeliverySentEmail;
-
+                
                 var item = SaveDelivery(delivery);
-
-                var biz = new DeliveryBiz();
-                biz.SendEmail(item.Id);
 
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
-                var deliveryView = new DeliveryView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                var deliveryView = new DeliveryView(currentUser, true, false, item.Id) { Dock = DockStyle.Fill, TopLevel = false };
                 parent.Controls.Add(deliveryView);
                 deliveryView.Show();
 

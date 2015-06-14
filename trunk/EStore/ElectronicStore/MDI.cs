@@ -4,6 +4,7 @@ using ElectronicStore.Administration;
 using ElectronicStore.Main;
 using ElectronicStore.Reference;
 using Model;
+using Business;
 
 namespace ElectronicStore
 {
@@ -26,6 +27,7 @@ namespace ElectronicStore
                 loginMenuItem.Text = "Đăng nhập";
                 changePasswordMenuItem.Visible = false;
                 toolStripSeparator3.Visible = false;
+                textSearchCustomer.Visible = false;
                 ShowLogin();
             }
             
@@ -41,8 +43,21 @@ namespace ElectronicStore
                 loginMenuItem.Text = "Đăng xuất";
                 toolStripSeparator3.Visible = true;
                 changePasswordMenuItem.Visible = true;
+                textSearchCustomer.Visible = true;
                 CurrentUser = login.Result;
+
+                LoadCustomer();
             }
+        }
+
+        private void LoadCustomer()
+        {
+            var biz = new CustomerBiz();
+            var items = biz.LoadAllCustomerName();
+            AutoCompleteStringCollection list = new AutoCompleteStringCollection();
+            list.AddRange(items.ToArray());
+            textSearchCustomer.AutoCompleteCustomSource = null;
+            textSearchCustomer.AutoCompleteCustomSource = list;
         }
        
         private void OpenForm(Form form)
@@ -87,6 +102,7 @@ namespace ElectronicStore
                 loginMenuItem.Text = "Đăng nhập";
                 changePasswordMenuItem.Visible = false;
                 toolStripSeparator3.Visible = false;
+                textSearchCustomer.Visible = false;
                 splitContainer1.Panel2.Controls.Clear();
             }
         }        
@@ -146,5 +162,14 @@ namespace ElectronicStore
                     break;
             }
         }
+
+        private void SearchCustomerKeyDown(object sender, KeyEventArgs e)
+        {
+             if (e.KeyCode == Keys.Enter)
+             {
+                 string s = "";
+             }
+        }
+
     }
 }

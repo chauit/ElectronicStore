@@ -16,6 +16,9 @@ namespace ElectronicStore.Main
     public partial class DeliveryView : Form
     {
         private User currentUser;
+        private bool flagSendMail;
+        private bool flagSendSms;
+
         public DeliveryView(User user)
         {
             InitializeComponent();
@@ -27,8 +30,75 @@ namespace ElectronicStore.Main
             dataGridView.Refresh();
 
             currentUser = user;
+            flagSendMail = false;
+            flagSendSms = false;
+
+            backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsync);
+            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompleted);
         }
 
+        private void WorkAsync(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+            if (flagSendMail)
+            {
+                SendMail(Convert.ToInt32(e.Argument));
+            }
+            if(flagSendSms)
+            {
+                SendSms(Convert.ToInt32(e.Argument));
+            }
+        }
+
+        void SendMail(int id)
+        {
+            var biz = new DeliveryBiz();
+            var status = biz.SendEmail(id);
+            if(!string.IsNullOrEmpty(status.Error))
+            {
+                MessageBox.Show(status.Error);
+            }
+            biz.UpdateEmailStatus(id, status.Status);
+        }
+
+        void SendSms(int id)
+        {
+            var biz = new DeliveryBiz();
+            biz.SendSms(id);
+        }
+
+        private void WorkAsyncCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            var biz = new DeliveryBiz();
+            dataGridView.DataSource = null;
+            dataGridView.DataSource = biz.LoadItems();
+            dataGridView.Refresh();
+        }
+
+        public DeliveryView(User user, bool isSendMail = false, bool isSendSms = false, int itemId = 0)
+        {
+            InitializeComponent();
+
+            dataGridView.AutoGenerateColumns = false;
+
+            var biz = new DeliveryBiz();
+            dataGridView.DataSource = biz.LoadItems();
+            dataGridView.Refresh();
+
+            currentUser = user;
+            
+            backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsync);
+            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompleted);
+            this.flagSendMail = isSendMail;
+            this.flagSendSms = isSendSms;
+
+            if (isSendMail || isSendSms)
+            {
+                backgroundWorker.RunWorkerAsync(itemId);
+            }
+        }
+        
         private void NewItem(object sender, EventArgs e)
         {
             var parent = this.Parent as SplitterPanel;

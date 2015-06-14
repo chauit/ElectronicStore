@@ -45,6 +45,7 @@ namespace ElectronicStore.Common
         public static List<string> GetCities()
         {
             var cities = new List<string>();
+            cities.Add(string.Empty);
             cities.Add("Hà Nội");
             cities.Add("Thành phố Hồ Chí Mính");
 
@@ -54,6 +55,7 @@ namespace ElectronicStore.Common
         public static List<string> GetSegments()
         {
             var cities = new List<string>();
+            cities.Add(string.Empty);
             cities.Add("Thương Mại");
             cities.Add("Nhà Thầu");
             cities.Add("Chủ Đầu Tư");
