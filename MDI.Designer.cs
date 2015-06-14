@@ -66,6 +66,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView = new System.Windows.Forms.TreeView();
+            this.textSearchCustomer = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -206,6 +207,18 @@
             this.treeView.TabIndex = 0;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.SelectNode);
             // 
+            // textSearchCustomer
+            // 
+            this.textSearchCustomer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textSearchCustomer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textSearchCustomer.CausesValidation = false;
+            this.textSearchCustomer.Location = new System.Drawing.Point(585, 1);
+            this.textSearchCustomer.Name = "textSearchCustomer";
+            this.textSearchCustomer.Size = new System.Drawing.Size(150, 23);
+            this.textSearchCustomer.TabIndex = 1;
+            this.textSearchCustomer.TabStop = false;
+            this.textSearchCustomer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchCustomerKeyDown);
+            // 
             // MDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -213,6 +226,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(737, 523);
+            this.Controls.Add(this.textSearchCustomer);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
@@ -249,6 +263,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView treeView;
+        private System.Windows.Forms.TextBox textSearchCustomer;
     }
 }
 

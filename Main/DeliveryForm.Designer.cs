@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.labelSendSms = new System.Windows.Forms.Label();
@@ -61,12 +60,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.drlUser = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -87,6 +88,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.drlUser);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label5);
@@ -111,19 +113,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin giao hàng";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(611, 95);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 13);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "(Phút)";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(437, 129);
+            this.label7.Location = new System.Drawing.Point(437, 74);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 25;
@@ -132,7 +125,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(135, 129);
+            this.label5.Location = new System.Drawing.Point(437, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 24;
@@ -141,18 +134,19 @@
             // labelSendSms
             // 
             this.labelSendSms.AutoSize = true;
-            this.labelSendSms.Location = new System.Drawing.Point(190, 129);
+            this.labelSendSms.Location = new System.Drawing.Point(501, 49);
             this.labelSendSms.Name = "labelSendSms";
             this.labelSendSms.Size = new System.Drawing.Size(0, 13);
             this.labelSendSms.TabIndex = 23;
             // 
             // dateTimeStartTime
             // 
-            this.dateTimeStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimeStartTime.Location = new System.Drawing.Point(504, 92);
+            this.dateTimeStartTime.CustomFormat = "hh:mm";
+            this.dateTimeStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimeStartTime.Location = new System.Drawing.Point(269, 126);
             this.dateTimeStartTime.Name = "dateTimeStartTime";
-            this.dateTimeStartTime.Size = new System.Drawing.Size(101, 22);
-            this.dateTimeStartTime.TabIndex = 3;
+            this.dateTimeStartTime.Size = new System.Drawing.Size(66, 22);
+            this.dateTimeStartTime.TabIndex = 4;
             // 
             // labelStatus
             // 
@@ -178,7 +172,7 @@
             this.textOtherInformation.Multiline = true;
             this.textOtherInformation.Name = "textOtherInformation";
             this.textOtherInformation.Size = new System.Drawing.Size(513, 88);
-            this.textOtherInformation.TabIndex = 4;
+            this.textOtherInformation.TabIndex = 5;
             // 
             // label3
             // 
@@ -191,15 +185,17 @@
             // 
             // dateStartDate
             // 
-            this.dateStartDate.Location = new System.Drawing.Point(135, 92);
+            this.dateStartDate.CustomFormat = "dd/MM/yyyy";
+            this.dateStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateStartDate.Location = new System.Drawing.Point(135, 126);
             this.dateStartDate.Name = "dateStartDate";
-            this.dateStartDate.Size = new System.Drawing.Size(200, 22);
-            this.dateStartDate.TabIndex = 2;
+            this.dateStartDate.Size = new System.Drawing.Size(128, 22);
+            this.dateStartDate.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 95);
+            this.label2.Location = new System.Drawing.Point(25, 129);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 13);
             this.label2.TabIndex = 16;
@@ -217,7 +213,7 @@
             // labelSendEmail
             // 
             this.labelSendEmail.AutoSize = true;
-            this.labelSendEmail.Location = new System.Drawing.Point(496, 129);
+            this.labelSendEmail.Location = new System.Drawing.Point(501, 74);
             this.labelSendEmail.Name = "labelSendEmail";
             this.labelSendEmail.Size = new System.Drawing.Size(0, 13);
             this.labelSendEmail.TabIndex = 14;
@@ -229,7 +225,7 @@
             this.drlVehicle.FormattingEnabled = true;
             this.drlVehicle.Location = new System.Drawing.Point(135, 57);
             this.drlVehicle.Name = "drlVehicle";
-            this.drlVehicle.Size = new System.Drawing.Size(300, 21);
+            this.drlVehicle.Size = new System.Drawing.Size(200, 21);
             this.drlVehicle.TabIndex = 1;
             // 
             // label4
@@ -354,6 +350,7 @@
             this.buttonSendSms.Text = "Gửi SMS   ";
             this.buttonSendSms.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSendSms.UseVisualStyleBackColor = true;
+            this.buttonSendSms.Click += new System.EventHandler(this.SaveAndSendMessages);
             // 
             // panel2
             // 
@@ -396,6 +393,19 @@
             this.dataGridView.Size = new System.Drawing.Size(763, 258);
             this.dataGridView.TabIndex = 0;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.buttonDeleteProduct);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.buttonAddProduct);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(769, 49);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            // 
             // Customer
             // 
             this.Customer.DataPropertyName = "CustomerName";
@@ -423,7 +433,7 @@
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ColumnTime.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ColumnTime.HeaderText = "Thời gian";
+            this.ColumnTime.HeaderText = "Thời gian (phút)";
             this.ColumnTime.Name = "ColumnTime";
             // 
             // Id
@@ -434,18 +444,24 @@
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
             // 
-            // groupBox3
+            // label8
             // 
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.buttonDeleteProduct);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.buttonAddProduct);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(769, 49);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(25, 96);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Nhân viên";
+            // 
+            // drlUser
+            // 
+            this.drlUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.drlUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.drlUser.FormattingEnabled = true;
+            this.drlUser.Location = new System.Drawing.Point(135, 93);
+            this.drlUser.Name = "drlUser";
+            this.drlUser.Size = new System.Drawing.Size(200, 21);
+            this.drlUser.TabIndex = 2;
             // 
             // DeliveryForm
             // 
@@ -501,16 +517,17 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label labelSendSms;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonSendSms;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox drlUser;
     }
 }

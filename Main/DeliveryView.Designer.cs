@@ -33,6 +33,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.Vehicle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeliveryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,11 +47,6 @@
             this.IsSendSMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsSendMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -92,68 +93,6 @@
             this.dataGridView.Size = new System.Drawing.Size(804, 321);
             this.dataGridView.TabIndex = 1;
             this.dataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CellClicked);
-            // 
-            // Vehicle
-            // 
-            this.Vehicle.DataPropertyName = "VehicleName";
-            this.Vehicle.HeaderText = "Xe";
-            this.Vehicle.Name = "Vehicle";
-            this.Vehicle.ReadOnly = true;
-            // 
-            // DeliveryId
-            // 
-            this.DeliveryId.DataPropertyName = "DeliveryNo";
-            this.DeliveryId.HeaderText = "Số giao hàng";
-            this.DeliveryId.Name = "DeliveryId";
-            this.DeliveryId.ReadOnly = true;
-            // 
-            // StartDate
-            // 
-            this.StartDate.DataPropertyName = "DeliveryDate";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            this.StartDate.DefaultCellStyle = dataGridViewCellStyle1;
-            this.StartDate.HeaderText = "Ngày giao hàng";
-            this.StartDate.Name = "StartDate";
-            this.StartDate.ReadOnly = true;
-            // 
-            // EndDate
-            // 
-            this.EndDate.DataPropertyName = "StartTime";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.Format = "hh\\:mm";
-            this.EndDate.DefaultCellStyle = dataGridViewCellStyle2;
-            this.EndDate.HeaderText = "Thời gian (phút)";
-            this.EndDate.Name = "EndDate";
-            this.EndDate.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Tình trạng";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // IsSendSMS
-            // 
-            this.IsSendSMS.DataPropertyName = "IsSendSms";
-            this.IsSendSMS.HeaderText = "Gửi tin nhắn";
-            this.IsSendSMS.Name = "IsSendSMS";
-            this.IsSendSMS.ReadOnly = true;
-            // 
-            // IsSendMail
-            // 
-            this.IsSendMail.DataPropertyName = "IsSendEmail";
-            this.IsSendMail.HeaderText = "Gửi email";
-            this.IsSendMail.Name = "IsSendMail";
-            this.IsSendMail.ReadOnly = true;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
             // 
             // buttonRefresh
             // 
@@ -208,6 +147,68 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách giao hàng";
             // 
+            // Vehicle
+            // 
+            this.Vehicle.DataPropertyName = "VehicleName";
+            this.Vehicle.HeaderText = "Xe";
+            this.Vehicle.Name = "Vehicle";
+            this.Vehicle.ReadOnly = true;
+            // 
+            // DeliveryId
+            // 
+            this.DeliveryId.DataPropertyName = "DeliveryNo";
+            this.DeliveryId.HeaderText = "Số giao hàng";
+            this.DeliveryId.Name = "DeliveryId";
+            this.DeliveryId.ReadOnly = true;
+            // 
+            // StartDate
+            // 
+            this.StartDate.DataPropertyName = "DeliveryDate";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            this.StartDate.DefaultCellStyle = dataGridViewCellStyle1;
+            this.StartDate.HeaderText = "Ngày giao";
+            this.StartDate.Name = "StartDate";
+            this.StartDate.ReadOnly = true;
+            // 
+            // EndDate
+            // 
+            this.EndDate.DataPropertyName = "StartTime";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.Format = "hh\\:mm";
+            this.EndDate.DefaultCellStyle = dataGridViewCellStyle2;
+            this.EndDate.HeaderText = "Giờ giao";
+            this.EndDate.Name = "EndDate";
+            this.EndDate.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Tình trạng";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // IsSendSMS
+            // 
+            this.IsSendSMS.DataPropertyName = "IsSendSms";
+            this.IsSendSMS.HeaderText = "Gửi tin nhắn";
+            this.IsSendSMS.Name = "IsSendSMS";
+            this.IsSendSMS.ReadOnly = true;
+            // 
+            // IsSendMail
+            // 
+            this.IsSendMail.DataPropertyName = "IsSendEmail";
+            this.IsSendMail.HeaderText = "Gửi email";
+            this.IsSendMail.Name = "IsSendMail";
+            this.IsSendMail.ReadOnly = true;
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Visible = false;
+            // 
             // DeliveryView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,6 +238,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vehicle;
         private System.Windows.Forms.DataGridViewTextBoxColumn DeliveryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;

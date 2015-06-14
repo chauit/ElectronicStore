@@ -20,6 +20,7 @@ namespace ElectronicStore.Common
             public const string CannotChangePassword = "Tên đăng nhập hoặc mật khẩu cũ không đúng.";
 
             public const string ChangePasswordSuccessful = "Bạn đã đổi mật khẩu thành công.";
+            public const string CannotImportCustomer = "Dữ liệu khách hàng không đúng. Đề nghị kiểm tra lại thông tin";
         }
 
         public const string DefaultPassword = "1";

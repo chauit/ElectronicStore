@@ -89,26 +89,34 @@ namespace ElectronicStore.Administration
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                ExportDataSet(ofd.FileName);
+                try
+                {
+                    ExportDataSet(ofd.FileName);
+
+                    RefreshItems();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(Common.Constants.Messages.CannotImportCustomer);
+                }
             }
         }
 
         private void ExportDataSet(string fileName)
-        {
-            var dataTable = new DataTable();
+        {            
+            var biz = new CustomerBiz();
+
             using (var document = SpreadsheetDocument.Open(fileName, true))
             {
                 var wbPart = document.WorkbookPart;
-                Sheet theSheet = wbPart.Workbook.Descendants<Sheet>().FirstOrDefault(s => s.Name == "Customer");
-                if (theSheet == null)
-                {
-                    throw new ArgumentException("Sheet name is invalid");
-                }
+                Sheet theSheet = wbPart.Workbook.Descendants<Sheet>().FirstOrDefault();
+                
                 var wsPart = (WorksheetPart)(wbPart.GetPartById(theSheet.Id));
                 var customerListing = new List<CustomerItem>();
                 for (var i = 2; i <= wsPart.Worksheet.Descendants<Row>().Count(); i++)
                 {
-                    var item = new CustomerItem
+                    int number = 0;
+                    var item = new Customer
                     {
                         FirstName = IOReader.GetCellValue(document, theSheet, "B" + i),
                         LastName = IOReader.GetCellValue(document, theSheet, "C" + i),
@@ -126,26 +134,21 @@ namespace ElectronicStore.Administration
                     };
 
                     var delivery = IOReader.GetCellValue(document, theSheet, "M" + i);
-                    if (!string.IsNullOrEmpty(delivery))
+                    if (!string.IsNullOrEmpty(delivery) && int.TryParse(delivery, out number))
                     {
-                        try
-                        {
-                            item.Delivery = int.Parse(delivery);
-                        }
-                        catch
-                        {
-                            item.Message = string.Format("Giá trị {0} của Delivery Field không đúng", delivery);
-                        }
+                        item.Delivery = number;
                     }
 
-                    customerListing.Add(item);
-                }
+                    item.FullName = string.Concat(item.FirstName, " ", item.LastName);
 
-                var frmPreview = new CustomerImportPreviewForm(customerListing, _currentUser);
-
-                frmPreview.OnLoadData += RefreshItems;
-                frmPreview.ShowDialog();
+                    biz.SaveItem(item);
+                }                
             }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

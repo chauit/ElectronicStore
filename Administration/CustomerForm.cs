@@ -65,6 +65,9 @@ namespace ElectronicStore.Administration
             textEmail1.Text = item.Email1;
             textEmail2.Text = item.Email2;
             drlSegment.SelectedItem = item.Segment;
+
+            drlMr.SelectedItem = item.Mr;
+
             if (item.Delivery.HasValue)
             {
                 numberDelivery.Text = Convert.ToString(item.Delivery.Value);
@@ -92,6 +95,7 @@ namespace ElectronicStore.Administration
 
                 item.City = Convert.ToString(drlCity.SelectedItem);
                 item.Segment = Convert.ToString(drlSegment.SelectedItem);
+                item.Mr = Convert.ToString(drlMr.SelectedItem);
 
                 item.PostalCode = textPostalCode.Text;
                 item.Tel = textTel.Text;
@@ -147,6 +151,14 @@ namespace ElectronicStore.Administration
             bool hasError = true;            
             errorProvider.Clear();
 
+            if (string.IsNullOrEmpty(Convert.ToString(drlMr.SelectedItem)))
+            {
+                errorProvider.SetError(drlMr, Constants.Messages.RequireMessage);
+                hasError = false;
+
+                drlMr.Focus();
+            }
+
             if (string.IsNullOrEmpty(textFirstName.Text))
             {
                 errorProvider.SetError(textFirstName, Constants.Messages.RequireMessage);
@@ -177,6 +189,14 @@ namespace ElectronicStore.Administration
                 hasError = false;
 
                 drlCity.Focus();
+            }
+
+            if (string.IsNullOrEmpty(Convert.ToString(drlSegment.SelectedItem)))
+            {
+                errorProvider.SetError(drlSegment, Constants.Messages.RequireMessage);
+                hasError = false;
+
+                drlSegment.Focus();
             }
 
             if (string.IsNullOrEmpty(textMobile1.Text))
