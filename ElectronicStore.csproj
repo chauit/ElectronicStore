@@ -115,6 +115,12 @@
     <Compile Include="Administration\CustomerImportPreviewForm.Designer.cs">
       <DependentUpon>CustomerImportPreviewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administration\SearchCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\SearchCustomer.Designer.cs">
+      <DependentUpon>SearchCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\CustomerView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\CustomerImportPreviewForm.resx">
       <DependentUpon>CustomerImportPreviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\SearchCustomer.resx">
+      <DependentUpon>SearchCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\CustomerView.resx">
       <DependentUpon>CustomerView.cs</DependentUpon>

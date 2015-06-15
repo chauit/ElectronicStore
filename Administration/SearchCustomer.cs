@@ -11,11 +11,11 @@ using Model;
 
 namespace ElectronicStore.Administration
 {
-    public partial class CustomerView : Form
+    public partial class SearchCustomer : Form
     {
         private readonly User _currentUser;
 
-        public CustomerView(User user)
+        public SearchCustomer(User user)
         {
             InitializeComponent();
 
@@ -149,6 +149,63 @@ namespace ElectronicStore.Administration
         private void btnExport_Click(object sender, EventArgs e)
         {
 
+        }
+    }
+
+
+    public class IOReader
+    {
+        public static SpreadsheetDocument LoadDocument(string inputPath)
+        {
+            SpreadsheetDocument document =
+                SpreadsheetDocument.Open(inputPath, false);
+            return document;
+        }
+
+        public static string GetCellValue(SpreadsheetDocument document, Sheet theSheet, string addressName)
+        {
+            string value = null;
+
+            WorkbookPart wbPart = document.WorkbookPart;
+
+            var wsPart =
+                (WorksheetPart)(wbPart.GetPartById(theSheet.Id));
+            Cell theCell = wsPart.Worksheet.Descendants<Cell>().FirstOrDefault(c => c.CellReference == addressName);
+
+            if (theCell != null)
+            {
+                value = theCell.InnerText;
+
+                if (theCell.DataType != null)
+                {
+                    switch (theCell.DataType.Value)
+                    {
+                        case CellValues.SharedString:
+                            var stringTable = wbPart.
+                                GetPartsOfType<SharedStringTablePart>().FirstOrDefault();
+                            if (stringTable != null)
+                            {
+                                value = stringTable.SharedStringTable.
+                                    ElementAt(int.Parse(value)).InnerText;
+                            }
+                            break;
+
+                        case CellValues.Boolean:
+                            switch (value)
+                            {
+                                case "0":
+                                    value = "FALSE";
+                                    break;
+                                default:
+                                    value = "TRUE";
+                                    break;
+                            }
+                            break;
+                    }
+                }
+            }
+
+            return value;
         }
     }
 }
