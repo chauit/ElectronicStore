@@ -165,15 +165,18 @@ namespace ElectronicStore
 
         private void SearchCustomerKeyDown(object sender, KeyEventArgs e)
         {
-             if (e.KeyCode == Keys.Enter)
-             {
-                 if(!string.IsNullOrEmpty(textSearchCustomer.Text))
-                 {
-                     var searchCustomer = new SearchCustomer(CurrentUser, textSearchCustomer.Text);
-                     searchCustomer.ShowDialog();
+             
+        }
 
-                 }
-             }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            
+                if (!string.IsNullOrEmpty(textSearchCustomer.Text))
+                {
+                    var searchCustomer = new SearchCustomer(CurrentUser, textSearchCustomer.Text);
+                    searchCustomer.ShowDialog();
+
+                }
         }
 
     }
