@@ -34,7 +34,7 @@ namespace ElectronicStore.Administration
         {
             InitializeComponent();
 
-            textFirstName.Focus();
+            textFullName.Focus();
             itemId = 0;
 
             InitForm(user);
@@ -47,14 +47,13 @@ namespace ElectronicStore.Administration
             InitializeComponent();
             InitForm(user);
 
-            textFirstName.Focus();
+            textFullName.Focus();
             itemId = id;
 
             var biz = new CustomerBiz();
             var item = biz.LoadItem(id);
 
-            textFirstName.Text = item.FirstName;
-            textLastName.Text = item.LastName;
+            textFullName.Text = item.FullName;
             textAddress1.Text = item.Address1;
             textAddress2.Text = item.Address2;
             drlCity.SelectedItem = item.City;
@@ -65,6 +64,7 @@ namespace ElectronicStore.Administration
             textEmail1.Text = item.Email1;
             textEmail2.Text = item.Email2;
             drlSegment.SelectedItem = item.Segment;
+            txtCompany.Text = item.Company;
 
             drlMr.SelectedItem = item.Mr;
 
@@ -87,12 +87,9 @@ namespace ElectronicStore.Administration
             if (CustomValidation())
             {
                 var item = new Customer();
-                item.FirstName = textFirstName.Text;
-                item.LastName = textLastName.Text;
+                item.FullName = textFullName.Text;
                 item.Address1 = textAddress1.Text;
                 item.Address2 = textAddress2.Text;                
-                item.FullName = string.Concat(item.FirstName, " ", item.LastName);
-
                 item.City = Convert.ToString(drlCity.SelectedItem);
                 item.Segment = Convert.ToString(drlSegment.SelectedItem);
                 item.Mr = Convert.ToString(drlMr.SelectedItem);
@@ -108,6 +105,7 @@ namespace ElectronicStore.Administration
                     item.Delivery = Convert.ToInt32(numberDelivery.Text);
                 }
                 item.OtherInformation = textOtherInformation.Text;
+                item.Company = txtCompany.Text;
 
                 if (itemId > 0)
                 {
@@ -159,20 +157,12 @@ namespace ElectronicStore.Administration
                 drlMr.Focus();
             }
 
-            if (string.IsNullOrEmpty(textFirstName.Text))
+            if (string.IsNullOrEmpty(textFullName.Text))
             {
-                errorProvider.SetError(textFirstName, Constants.Messages.RequireMessage);
+                errorProvider.SetError(textFullName, Constants.Messages.RequireMessage);
                 hasError = false;
 
-                textFirstName.Focus();
-            }
-
-            if (string.IsNullOrEmpty(textLastName.Text))
-            {
-                errorProvider.SetError(textLastName, Constants.Messages.RequireMessage);
-                hasError = false;
-
-                textLastName.Focus();
+                textFullName.Focus();
             }
 
             if (string.IsNullOrEmpty(textAddress1.Text))
