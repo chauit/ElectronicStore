@@ -30,14 +30,14 @@ namespace ElectronicStore
                 textSearchCustomer.Visible = false;
                 ShowLogin();
             }
-            
+
         }
 
         private void ShowLogin()
         {
             var login = new LoginForm();
             var result = login.ShowDialog();
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 treeView.Visible = true;
                 loginMenuItem.Text = "Đăng xuất";
@@ -59,17 +59,17 @@ namespace ElectronicStore
             textSearchCustomer.AutoCompleteCustomSource = null;
             textSearchCustomer.AutoCompleteCustomSource = list;
         }
-       
+
         private void OpenForm(Form form)
         {
-            splitContainer1.Panel2.Controls.Clear();            
-            splitContainer1.Panel2.Controls.Add(form);            
-            
-            form.Show();            
+            splitContainer1.Panel2.Controls.Clear();
+            splitContainer1.Panel2.Controls.Add(form);
+
+            form.Show();
         }
 
         private void ExitForm(object sender, EventArgs e)
-        {            
+        {
             Application.Exit();
         }
 
@@ -80,18 +80,18 @@ namespace ElectronicStore
             if (result == DialogResult.OK)
             {
                 CurrentUser = null;
-                
+
                 treeView.Visible = false;
                 loginMenuItem.Text = "Đăng nhập";
                 changePasswordMenuItem.Visible = false;
                 toolStripSeparator3.Visible = false;
-                ShowLogin();                
+                ShowLogin();
             }
         }
 
         private void Login(object sender, EventArgs e)
         {
-            if(string.Equals(loginMenuItem.Text,"Đăng nhập", StringComparison.InvariantCultureIgnoreCase))
+            if (string.Equals(loginMenuItem.Text, "Đăng nhập", StringComparison.InvariantCultureIgnoreCase))
             {
                 ShowLogin();
             }
@@ -105,14 +105,14 @@ namespace ElectronicStore
                 textSearchCustomer.Visible = false;
                 splitContainer1.Panel2.Controls.Clear();
             }
-        }        
+        }
 
         private void SelectNode(object sender, TreeViewEventArgs e)
         {
             string name = treeView.SelectedNode.Text;
 
             switch (name)
-            {                
+            {
                 case "Quản lý nhân viên":
                     var userView = new UserView { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(userView);
@@ -158,25 +158,18 @@ namespace ElectronicStore
                     var frm = new DashboardForm { Dock = DockStyle.Fill, TopLevel = true };
                     frm.ShowDialog();
                     break;
-                default:                    
+                default:
                     break;
             }
         }
 
-        private void SearchCustomerKeyDown(object sender, KeyEventArgs e)
-        {
-             
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            
-                if (!string.IsNullOrEmpty(textSearchCustomer.Text))
-                {
-                    var searchCustomer = new SearchCustomer(CurrentUser, textSearchCustomer.Text);
-                    searchCustomer.ShowDialog();
-
-                }
+            if (!string.IsNullOrEmpty(textSearchCustomer.Text))
+            {
+                var searchCustomer = new SearchCustomer(CurrentUser, textSearchCustomer.Text);
+                searchCustomer.ShowDialog();
+            }
         }
 
     }
