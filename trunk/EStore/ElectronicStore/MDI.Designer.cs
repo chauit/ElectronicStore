@@ -29,31 +29,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("Quản lý nhân viên");
-            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("Quản lý cấu hình hệ thống");
-            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("Quản lý nội dung tin nhắn");
-            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Quản lý nội dung email");
-            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Quản trị hệ thống", new System.Windows.Forms.TreeNode[] {
-            treeNode57,
-            treeNode58,
-            treeNode59,
-            treeNode60});
-            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Quản lý khách hàng");
-            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("Quản lý loại sản phẩm");
-            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Quản lý sản phẩm");
-            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("Quản lý thiết bị vận chuyển");
-            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("Quản trị nội dung", new System.Windows.Forms.TreeNode[] {
-            treeNode62,
-            treeNode63,
-            treeNode64,
-            treeNode65});
-            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Quản lý đơn hàng");
-            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Quản lý thông tin vận chuyển");
-            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Bảng thông tin đơn hàng");
-            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Quản lý đơn hàng & vận chuyển", new System.Windows.Forms.TreeNode[] {
-            treeNode67,
-            treeNode68,
-            treeNode69});
+            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Quản lý nhân viên");
+            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Quản lý cấu hình hệ thống");
+            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Quản lý nội dung tin nhắn");
+            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Quản lý nội dung email");
+            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Quản trị hệ thống", new System.Windows.Forms.TreeNode[] {
+            treeNode71,
+            treeNode72,
+            treeNode73,
+            treeNode74});
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Quản lý khách hàng");
+            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Quản lý loại sản phẩm");
+            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("Quản lý sản phẩm");
+            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("Quản lý thiết bị vận chuyển");
+            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("Quản trị nội dung", new System.Windows.Forms.TreeNode[] {
+            treeNode76,
+            treeNode77,
+            treeNode78,
+            treeNode79});
+            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("Quản lý đơn hàng");
+            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("Quản lý thông tin vận chuyển");
+            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("Bảng thông tin đơn hàng");
+            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("Quản lý đơn hàng & vận chuyển", new System.Windows.Forms.TreeNode[] {
+            treeNode81,
+            treeNode82,
+            treeNode83});
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDI));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.loginMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -173,38 +174,38 @@
             this.treeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView.Location = new System.Drawing.Point(0, 0);
             this.treeView.Name = "treeView";
-            treeNode57.Name = "nodeUser";
-            treeNode57.Text = "Quản lý nhân viên";
-            treeNode58.Name = "nodeConfiguration";
-            treeNode58.Text = "Quản lý cấu hình hệ thống";
-            treeNode59.Name = "nodeSms";
-            treeNode59.Text = "Quản lý nội dung tin nhắn";
-            treeNode60.Name = "nodeEmail";
-            treeNode60.Text = "Quản lý nội dung email";
-            treeNode61.Name = "Node0";
-            treeNode61.Text = "Quản trị hệ thống";
-            treeNode62.Name = "nodeCustomer";
-            treeNode62.Text = "Quản lý khách hàng";
-            treeNode63.Name = "nodeProductType";
-            treeNode63.Text = "Quản lý loại sản phẩm";
-            treeNode64.Name = "nodeProduct";
-            treeNode64.Text = "Quản lý sản phẩm";
-            treeNode65.Name = "nodeVehicle";
-            treeNode65.Text = "Quản lý thiết bị vận chuyển";
-            treeNode66.Name = "Node3";
-            treeNode66.Text = "Quản trị nội dung";
-            treeNode67.Name = "nodeOrder";
-            treeNode67.Text = "Quản lý đơn hàng";
-            treeNode68.Name = "nodeDelivery";
-            treeNode68.Text = "Quản lý thông tin vận chuyển";
-            treeNode69.Name = "Node0";
-            treeNode69.Text = "Bảng thông tin đơn hàng";
-            treeNode70.Name = "Node7";
-            treeNode70.Text = "Quản lý đơn hàng & vận chuyển";
+            treeNode71.Name = "nodeUser";
+            treeNode71.Text = "Quản lý nhân viên";
+            treeNode72.Name = "nodeConfiguration";
+            treeNode72.Text = "Quản lý cấu hình hệ thống";
+            treeNode73.Name = "nodeSms";
+            treeNode73.Text = "Quản lý nội dung tin nhắn";
+            treeNode74.Name = "nodeEmail";
+            treeNode74.Text = "Quản lý nội dung email";
+            treeNode75.Name = "Node0";
+            treeNode75.Text = "Quản trị hệ thống";
+            treeNode76.Name = "nodeCustomer";
+            treeNode76.Text = "Quản lý khách hàng";
+            treeNode77.Name = "nodeProductType";
+            treeNode77.Text = "Quản lý loại sản phẩm";
+            treeNode78.Name = "nodeProduct";
+            treeNode78.Text = "Quản lý sản phẩm";
+            treeNode79.Name = "nodeVehicle";
+            treeNode79.Text = "Quản lý thiết bị vận chuyển";
+            treeNode80.Name = "Node3";
+            treeNode80.Text = "Quản trị nội dung";
+            treeNode81.Name = "nodeOrder";
+            treeNode81.Text = "Quản lý đơn hàng";
+            treeNode82.Name = "nodeDelivery";
+            treeNode82.Text = "Quản lý thông tin vận chuyển";
+            treeNode83.Name = "Node0";
+            treeNode83.Text = "Bảng thông tin đơn hàng";
+            treeNode84.Name = "Node7";
+            treeNode84.Text = "Quản lý đơn hàng & vận chuyển";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode61,
-            treeNode66,
-            treeNode70});
+            treeNode75,
+            treeNode80,
+            treeNode84});
             this.treeView.Size = new System.Drawing.Size(213, 477);
             this.treeView.TabIndex = 0;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.SelectNode);
@@ -215,9 +216,9 @@
             this.textSearchCustomer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textSearchCustomer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textSearchCustomer.CausesValidation = false;
-            this.textSearchCustomer.Location = new System.Drawing.Point(416, 0);
+            this.textSearchCustomer.Location = new System.Drawing.Point(402, 0);
             this.textSearchCustomer.Name = "textSearchCustomer";
-            this.textSearchCustomer.Size = new System.Drawing.Size(230, 23);
+            this.textSearchCustomer.Size = new System.Drawing.Size(238, 23);
             this.textSearchCustomer.TabIndex = 1;
             this.textSearchCustomer.TabStop = false;
             this.textSearchCustomer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchCustomerKeyDown);
@@ -227,7 +228,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Menu;
-            this.label1.Location = new System.Drawing.Point(285, 3);
+            this.label1.Location = new System.Drawing.Point(271, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 15);
             this.label1.TabIndex = 5;
@@ -236,11 +237,14 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(653, 0);
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(646, 0);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(82, 23);
             this.btnSearch.TabIndex = 6;
             this.btnSearch.Text = "Tìm kiếm";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
