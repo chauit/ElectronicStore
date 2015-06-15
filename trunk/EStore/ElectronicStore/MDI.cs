@@ -167,7 +167,8 @@ namespace ElectronicStore
         {
              if (e.KeyCode == Keys.Enter)
              {
-                 string s = "";
+                 var biz = new CustomerBiz();
+                 biz.SearchCustomerByName(textSearchCustomer.Text);
              }
         }
 
