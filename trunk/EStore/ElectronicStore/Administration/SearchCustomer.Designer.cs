@@ -215,7 +215,7 @@
             // 
             // ColumnDate
             // 
-            this.ColumnDate.DataPropertyName = "Date";
+            this.ColumnDate.DataPropertyName = "OrderDate";
             this.ColumnDate.HeaderText = "Ngày";
             this.ColumnDate.Name = "ColumnDate";
             this.ColumnDate.ReadOnly = true;
@@ -245,8 +245,10 @@
             // 
             // ColumnPrice
             // 
-            this.ColumnPrice.DataPropertyName = "Price";
+            this.ColumnPrice.DataPropertyName = "ProductPrice";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle2.Format = "#,###";
+            dataGridViewCellStyle2.NullValue = null;
             this.ColumnPrice.DefaultCellStyle = dataGridViewCellStyle2;
             this.ColumnPrice.HeaderText = "Giá";
             this.ColumnPrice.Name = "ColumnPrice";
@@ -265,6 +267,7 @@
             this.Name = "SearchCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tìm kiếm thông tin khách hàng";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
