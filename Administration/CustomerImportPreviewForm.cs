@@ -41,8 +41,8 @@ namespace ElectronicStore.Administration
             dataGridView.DataSource = _customerList.Select(p => new
             {
                 p.Message,
-                p.FirstName,
-                p.LastName,
+                p.Mr,
+                p.FullName,
                 p.Address1,
                 p.Address2,
                 p.City,
@@ -72,11 +72,10 @@ namespace ElectronicStore.Administration
                 if (isChecked)
                 {
                     var item = new Customer();
-                    item.FirstName = Convert.ToString(row.Cells["FirstName"].Value);
-                    item.LastName = Convert.ToString(row.Cells["LastName"].Value);
+                    item.Mr = Convert.ToString(row.Cells["Mr"].Value);
+                    item.FullName = Convert.ToString(row.Cells["FirstName"].Value);
                     item.Address1 = Convert.ToString(row.Cells["Address1"].Value);
                     item.Address2 = Convert.ToString(row.Cells["Address2"].Value);
-                    item.FullName = string.Concat(item.FirstName, " ", item.LastName);
 
                     item.City = Convert.ToString(row.Cells["City"].Value);
                     item.Segment = Convert.ToString(row.Cells["Segment"].Value);

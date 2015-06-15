@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerForm));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.drlMr = new System.Windows.Forms.ComboBox();
             this.drlSegment = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.textOtherInformation = new System.Windows.Forms.TextBox();
@@ -57,13 +58,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textAddress1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textLastName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textFirstName = new System.Windows.Forms.TextBox();
+            this.textFullName = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.drlMr = new System.Windows.Forms.ComboBox();
+            this.txtCompany = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -73,12 +73,14 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 13);
+            this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Họ:";
+            this.label1.Text = "Họ tên:";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCompany);
+            this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.drlMr);
             this.groupBox1.Controls.Add(this.drlSegment);
             this.groupBox1.Controls.Add(this.label15);
@@ -105,9 +107,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textAddress1);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textLastName);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textFirstName);
+            this.groupBox1.Controls.Add(this.textFullName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -116,6 +116,21 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chung";
+            // 
+            // drlMr
+            // 
+            this.drlMr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.drlMr.FormattingEnabled = true;
+            this.drlMr.Items.AddRange(new object[] {
+            "",
+            "Chú",
+            "Cô",
+            "Anh",
+            "Chị"});
+            this.drlMr.Location = new System.Drawing.Point(106, 22);
+            this.drlMr.Name = "drlMr";
+            this.drlMr.Size = new System.Drawing.Size(48, 21);
+            this.drlMr.TabIndex = 0;
             // 
             // drlSegment
             // 
@@ -323,28 +338,12 @@
             this.label3.Text = "Địa chỉ 1:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // textLastName
+            // textFullName
             // 
-            this.textLastName.Location = new System.Drawing.Point(406, 22);
-            this.textLastName.Name = "textLastName";
-            this.textLastName.Size = new System.Drawing.Size(188, 22);
-            this.textLastName.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(326, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Tên:";
-            // 
-            // textFirstName
-            // 
-            this.textFirstName.Location = new System.Drawing.Point(160, 22);
-            this.textFirstName.Name = "textFirstName";
-            this.textFirstName.Size = new System.Drawing.Size(145, 22);
-            this.textFirstName.TabIndex = 1;
+            this.textFullName.Location = new System.Drawing.Point(160, 22);
+            this.textFullName.Name = "textFullName";
+            this.textFullName.Size = new System.Drawing.Size(434, 22);
+            this.textFullName.TabIndex = 1;
             // 
             // button2
             // 
@@ -376,20 +375,21 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // drlMr
+            // txtCompany
             // 
-            this.drlMr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.drlMr.FormattingEnabled = true;
-            this.drlMr.Items.AddRange(new object[] {
-            "",
-            "Chú",
-            "Cô",
-            "Anh",
-            "Chị"});
-            this.drlMr.Location = new System.Drawing.Point(106, 22);
-            this.drlMr.Name = "drlMr";
-            this.drlMr.Size = new System.Drawing.Size(48, 21);
-            this.drlMr.TabIndex = 0;
+            this.txtCompany.Location = new System.Drawing.Point(406, 187);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(188, 22);
+            this.txtCompany.TabIndex = 32;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(326, 189);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(50, 13);
+            this.label16.TabIndex = 33;
+            this.label16.Text = "Công ty:";
             // 
             // CustomerForm
             // 
@@ -419,14 +419,12 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textFirstName;
+        private System.Windows.Forms.TextBox textFullName;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.TextBox textAddress1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textLastName;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -451,5 +449,7 @@
         private System.Windows.Forms.ComboBox drlSegment;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox drlMr;
+        private System.Windows.Forms.TextBox txtCompany;
+        private System.Windows.Forms.Label label16;
     }
 }

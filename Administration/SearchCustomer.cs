@@ -118,8 +118,8 @@ namespace ElectronicStore.Administration
                     int number = 0;
                     var item = new Customer
                     {
-                        FirstName = IOReader.GetCellValue(document, theSheet, "B" + i),
-                        LastName = IOReader.GetCellValue(document, theSheet, "C" + i),
+                        Mr = IOReader.GetCellValue(document, theSheet, "B" + i),
+                        FullName = IOReader.GetCellValue(document, theSheet, "C" + i),
                         Address1 = IOReader.GetCellValue(document, theSheet, "D" + i),
                         Address2 = IOReader.GetCellValue(document, theSheet, "E" + i),
                         City = IOReader.GetCellValue(document, theSheet, "F" + i),
@@ -138,8 +138,6 @@ namespace ElectronicStore.Administration
                     {
                         item.Delivery = number;
                     }
-
-                    item.FullName = string.Concat(item.FirstName, " ", item.LastName);
 
                     biz.SaveItem(item);
                 }                
