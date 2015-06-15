@@ -67,7 +67,7 @@ namespace ElectronicStore.Administration
 
                     if(data != null && data.Count > 0)
                     {
-                        dataGridViewDetail.Visible = false;
+                        dataGridViewDetail.Visible = true;
 
                         dataGridViewDetail.DataSource = null;
                         dataGridViewDetail.DataSource = data;
