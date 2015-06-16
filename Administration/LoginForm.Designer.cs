@@ -65,7 +65,6 @@
             this.textUsername.Name = "textUsername";
             this.textUsername.Size = new System.Drawing.Size(245, 22);
             this.textUsername.TabIndex = 1;
-            this.textUsername.Text = "admin";
             // 
             // label2
             // 
@@ -82,7 +81,6 @@
             this.textPassword.Name = "textPassword";
             this.textPassword.Size = new System.Drawing.Size(245, 22);
             this.textPassword.TabIndex = 2;
-            this.textPassword.Text = "2";
             this.textPassword.UseSystemPasswordChar = true;
             // 
             // buttonCancel
