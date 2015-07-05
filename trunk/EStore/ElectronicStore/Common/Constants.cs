@@ -16,6 +16,7 @@ namespace ElectronicStore.Common
             public const string ConflictDeliveryOrderMessage = "Có đơn hàng đã được đưa vào phiếu giao hàng khác.";
             public const string CannotLogin = "Tên đăng nhập hoặc mật khẩu không đúng.";
             public const string AccountExist = "Tên đăng nhập đã tồn tại";
+            public const string SmsOverRange = "Tên gửi tin nhắn quá dài";
 
             public const string CannotChangePassword = "Tên đăng nhập hoặc mật khẩu cũ không đúng.";
 
@@ -34,6 +35,15 @@ namespace ElectronicStore.Common
         public const string DeliverySendSms = "Chưa gửi";
         public const string DeliverySentEmail = "Đã gửi";
         public const string DeliverySendEmail = "Chưa gửi";
+
+        public const string SmsDeliveryInternal1 = "Giao trong thành phố trực tiếp";
+        public const string SmsDeliveryInternal2 = "Giao trong thành phố thông báo";
+        public const string SmsDeliveryExternal = "Giao ngoài thành phố";
+
+        public const string SmsParameter1 = "<SMSNAME>";
+        public const string SmsParameter2 = "<MOBILE>";
+        public const string SmsParameter3 = "<TIME>";
+        public const string SmsParameter4 = "<RECIPIENT>";
 
         public const string CityInternal = "Hà Nội";       
     }

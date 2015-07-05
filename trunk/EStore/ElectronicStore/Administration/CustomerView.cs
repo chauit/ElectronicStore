@@ -106,7 +106,7 @@ namespace ElectronicStore.Administration
         {            
             var biz = new CustomerBiz();
 
-            using (var document = SpreadsheetDocument.Open(fileName, true))
+            using (var document = SpreadsheetDocument.Open(fileName, false))
             {
                 var wbPart = document.WorkbookPart;
                 Sheet theSheet = wbPart.Workbook.Descendants<Sheet>().FirstOrDefault();
@@ -118,7 +118,7 @@ namespace ElectronicStore.Administration
                     int number = 0;
                     var item = new Customer
                     {
-                        Mr = IOReader.GetCellValue(document, theSheet, "B" + i),
+                        SMS = IOReader.GetCellValue(document, theSheet, "B" + i),
                         FullName = IOReader.GetCellValue(document, theSheet, "C" + i),
                         Address1 = IOReader.GetCellValue(document, theSheet, "D" + i),
                         Address2 = IOReader.GetCellValue(document, theSheet, "E" + i),
@@ -139,7 +139,11 @@ namespace ElectronicStore.Administration
                         item.Delivery = number;
                     }
 
-                    biz.SaveItem(item);
+                    if (!string.IsNullOrEmpty(item.FullName))
+                    {
+                        biz.SaveItem(item);
+                        break;
+                    }                    
                 }                
             }
         }

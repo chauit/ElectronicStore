@@ -204,6 +204,24 @@ namespace ElectronicStore.Main
                 drlCustomer.Focus();
             }
 
+            if (!string.IsNullOrEmpty(txtRecipient.Text) && txtRecipient.Text.Length > 0)
+            {
+                var biz = new SmsBiz();
+                var sms = biz.LoadItem(Constants.SmsDeliveryInternal1);
+                if (sms != null)
+                {
+                    var content = sms.Content;
+                    content = content.Replace(Constants.SmsParameter1, txtRecipient.Text.Trim());
+                    if (content.Length > 158)
+                    {
+                        errorProvider.SetError(txtRecipient, Constants.Messages.SmsOverRange);
+                        hasError = false;
+
+                        txtRecipient.Focus();
+                    }
+                }
+            }
+
             return hasError;
         }
 
@@ -450,48 +468,43 @@ namespace ElectronicStore.Main
             return false;
         }
 
-        private void DiscountKeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && (e.KeyChar != (char)Keys.Enter))
-            {
-                e.Handled = true;
-            }
-            else
-            {
-                if (e.KeyChar == (char)Keys.Enter)
-                {
-                    decimal rate = Convert.ToDecimal(txtDiscount.Text);
-
-                    var list = dataGridView.DataSource as List<SearchProduct>;
-
-                    if (list != null && list.Count > 0)
-                    {
-                        for (int i = 0; i < list.Count; i++)
-                        {
-                            var product = list[i];
-                            if (!string.IsNullOrEmpty(product.Code))
-                            {
-                                decimal x = 1.1M;
-                                var rootPrice = Math.Round(product.Price.Value / x);
-                                product.ActualPrice = rootPrice - (rootPrice * rate) / 100;
-                                product.TotalValue = (product.ActualPrice * product.Quantity).Value.ToString("0,000");
-                            }
-                        }
-
-                        listProduct = list;
-
-                        dataGridView.DataSource = null;
-                        dataGridView.DataSource = listProduct;
-                        dataGridView.Refresh();
-                    }
-                }
-            }
-        }
-
         private void SelectVat(object sender, EventArgs e)
         {
             UpdateTotal();
         }
 
+        private void DiscountKeyPress(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                decimal rate = Convert.ToDecimal(txtDiscount.Text);
+
+                var list = dataGridView.DataSource as List<SearchProduct>;
+
+                if (list != null && list.Count > 0)
+                {
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        var product = list[i];
+                        if (!string.IsNullOrEmpty(product.Code))
+                        {
+                            decimal x = 1.1M;
+                            var rootPrice = Math.Round(product.Price.Value / x);
+                            product.ActualPrice = rootPrice - (rootPrice * rate) / 100;
+                            if (product.Quantity.HasValue)
+                            {
+                                product.TotalValue = (product.ActualPrice * product.Quantity).Value.ToString("0,000");
+                            }
+                        }
+                    }
+
+                    listProduct = list;
+
+                    dataGridView.DataSource = null;
+                    dataGridView.DataSource = listProduct;
+                    dataGridView.Refresh();
+                }
+            }
+        }
     }
 }
