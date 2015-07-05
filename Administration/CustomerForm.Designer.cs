@@ -32,7 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerForm));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.drlMr = new System.Windows.Forms.ComboBox();
+            this.textTenSms = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCompany = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.drlSegment = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.textOtherInformation = new System.Windows.Forms.TextBox();
@@ -62,8 +65,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtCompany = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -79,9 +80,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textTenSms);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtCompany);
             this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.drlMr);
             this.groupBox1.Controls.Add(this.drlSegment);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.textOtherInformation);
@@ -117,20 +119,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chung";
             // 
-            // drlMr
+            // textTenSms
             // 
-            this.drlMr.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.drlMr.FormattingEnabled = true;
-            this.drlMr.Items.AddRange(new object[] {
-            "",
-            "Chú",
-            "Cô",
-            "Anh",
-            "Chị"});
-            this.drlMr.Location = new System.Drawing.Point(106, 22);
-            this.drlMr.Name = "drlMr";
-            this.drlMr.Size = new System.Drawing.Size(48, 21);
-            this.drlMr.TabIndex = 0;
+            this.textTenSms.Location = new System.Drawing.Point(406, 22);
+            this.textTenSms.Name = "textTenSms";
+            this.textTenSms.Size = new System.Drawing.Size(188, 22);
+            this.textTenSms.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(326, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 13);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Tên SMS";
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.Location = new System.Drawing.Point(406, 187);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(188, 22);
+            this.txtCompany.TabIndex = 32;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(326, 189);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(50, 13);
+            this.label16.TabIndex = 33;
+            this.label16.Text = "Công ty:";
             // 
             // drlSegment
             // 
@@ -336,13 +355,12 @@
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Địa chỉ 1:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // textFullName
             // 
-            this.textFullName.Location = new System.Drawing.Point(160, 22);
+            this.textFullName.Location = new System.Drawing.Point(106, 22);
             this.textFullName.Name = "textFullName";
-            this.textFullName.Size = new System.Drawing.Size(434, 22);
+            this.textFullName.Size = new System.Drawing.Size(199, 22);
             this.textFullName.TabIndex = 1;
             // 
             // button2
@@ -374,22 +392,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // txtCompany
-            // 
-            this.txtCompany.Location = new System.Drawing.Point(406, 187);
-            this.txtCompany.Name = "txtCompany";
-            this.txtCompany.Size = new System.Drawing.Size(188, 22);
-            this.txtCompany.TabIndex = 32;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(326, 189);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(50, 13);
-            this.label16.TabIndex = 33;
-            this.label16.Text = "Công ty:";
             // 
             // CustomerForm
             // 
@@ -448,8 +450,9 @@
         private System.Windows.Forms.TextBox textOtherInformation;
         private System.Windows.Forms.ComboBox drlSegment;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox drlMr;
         private System.Windows.Forms.TextBox txtCompany;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textTenSms;
+        private System.Windows.Forms.Label label2;
     }
 }

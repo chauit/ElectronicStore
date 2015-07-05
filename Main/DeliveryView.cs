@@ -65,7 +65,12 @@ namespace ElectronicStore.Main
         void SendSms(int id)
         {
             var biz = new DeliveryBiz();
-            biz.SendSms(id);
+            var status = biz.SendSms(id);
+            if (!string.IsNullOrEmpty(status.Error))
+            {
+                MessageBox.Show(status.Error);
+            }
+            biz.UpdateSmsStatus(id, status.Status);
         }
 
         private void WorkAsyncCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -221,10 +226,7 @@ namespace ElectronicStore.Main
         {
             if (selectedId > 0)
             {
-                var biz = new DeliveryBiz();
-                biz.UpdateEmailStatus(selectedId, ECommon.Constants.DeliverySentEmail);
-
-                biz.SendEmail(selectedId);
+                SendMail(selectedId);
 
                 RefreshItems(sender, e);
             }
@@ -234,11 +236,7 @@ namespace ElectronicStore.Main
         {
             if (selectedId > 0)
             {
-                var biz = new DeliveryBiz();
-                biz.UpdateSmsStatus(selectedId, ECommon.Constants.DeliverySentSms);
-
-                biz.SendSms(selectedId);
-
+                SendSms(selectedId);
                 RefreshItems(sender, e);
             }
         }

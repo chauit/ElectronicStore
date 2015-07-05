@@ -169,6 +169,7 @@ namespace ElectronicStore
             {
                 var searchCustomer = new SearchCustomer(CurrentUser, textSearchCustomer.Text);
                 searchCustomer.ShowDialog();
+                textSearchCustomer.Text = string.Empty;
             }
         }
 

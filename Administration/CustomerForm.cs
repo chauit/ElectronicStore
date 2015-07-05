@@ -66,7 +66,7 @@ namespace ElectronicStore.Administration
             drlSegment.SelectedItem = item.Segment;
             txtCompany.Text = item.Company;
 
-            drlMr.SelectedItem = item.Mr;
+            textTenSms.Text = item.SMS;
 
             if (item.Delivery.HasValue)
             {
@@ -92,7 +92,7 @@ namespace ElectronicStore.Administration
                 item.Address2 = textAddress2.Text;                
                 item.City = Convert.ToString(drlCity.SelectedItem);
                 item.Segment = Convert.ToString(drlSegment.SelectedItem);
-                item.Mr = Convert.ToString(drlMr.SelectedItem);
+                item.SMS = textTenSms.Text;
 
                 item.PostalCode = textPostalCode.Text;
                 item.Tel = textTel.Text;
@@ -149,12 +149,12 @@ namespace ElectronicStore.Administration
             bool hasError = true;            
             errorProvider.Clear();
 
-            if (string.IsNullOrEmpty(Convert.ToString(drlMr.SelectedItem)))
+            if (string.IsNullOrEmpty(textTenSms.Text))
             {
-                errorProvider.SetError(drlMr, Constants.Messages.RequireMessage);
+                errorProvider.SetError(textTenSms, Constants.Messages.RequireMessage);
                 hasError = false;
 
-                drlMr.Focus();
+                textTenSms.Focus();
             }
 
             if (string.IsNullOrEmpty(textFullName.Text))
@@ -203,16 +203,24 @@ namespace ElectronicStore.Administration
                 hasError = false;
 
                 textEmail1.Focus();
-            } 
+            }
+
+            var biz = new SmsBiz();
+            var sms = biz.LoadItem(Constants.SmsDeliveryInternal1);
+            if(sms != null)
+            {
+                var content = sms.Content;
+                content = content.Replace(Constants.SmsParameter1, textTenSms.Text.Trim());
+                if(content.Length > 158)
+                {
+                    errorProvider.SetError(textTenSms, Constants.Messages.SmsOverRange);
+                    hasError = false;
+
+                    textTenSms.Focus();
+                }
+            }
             
             return hasError;
-        }
-
-        
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

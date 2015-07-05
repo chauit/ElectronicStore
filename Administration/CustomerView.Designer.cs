@@ -41,7 +41,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ColumnMr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSegment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,7 +76,6 @@
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cbo,
-            this.ColumnMr,
             this.FullName,
             this.ColumnSegment,
             this.RoleId,
@@ -215,15 +213,6 @@
             this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.cbo.TrueValue = "1";
             // 
-            // ColumnMr
-            // 
-            this.ColumnMr.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColumnMr.DataPropertyName = "Mr";
-            this.ColumnMr.HeaderText = "";
-            this.ColumnMr.Name = "ColumnMr";
-            this.ColumnMr.ReadOnly = true;
-            this.ColumnMr.Width = 50;
-            // 
             // FullName
             // 
             this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -301,7 +290,6 @@
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cbo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMr;
         private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSegment;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
