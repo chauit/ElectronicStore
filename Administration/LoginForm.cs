@@ -1,13 +1,14 @@
-﻿using Business;
-using Model;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Windows.Forms;
+using Business;
+using ElectronicStore.Common;
+using Model;
 
 namespace ElectronicStore.Administration
 {
     public partial class LoginForm : Form
     {
+        ILogger logger = new Logger();
         public User Result { get; set; }
 
         public LoginForm()
@@ -26,13 +27,19 @@ namespace ElectronicStore.Administration
 
                 if (currentUser == null)
                 {
-                    labelMessage.Text = ElectronicStore.Common.Constants.Messages.CannotLogin;
+                    labelMessage.Text = Constants.Messages.CannotLogin;
                 }
                 else
                 {
-                    this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    DialogResult = DialogResult.OK;
                     Result = currentUser;
-                    this.Close();
+                    logger.EnterMethod("Main");
+                    logger.LogInfoMessage("Hello World");
+                    logger.LogError("The world is upside down!");
+
+                    logger.LeaveMethod("Main");
+                    Close();
+                    
                 }                
             }
         }
@@ -51,7 +58,7 @@ namespace ElectronicStore.Administration
 
             if (string.IsNullOrEmpty(textUsername.Text))
             {
-                errorProvider.SetError(textUsername, ElectronicStore.Common.Constants.Messages.RequireMessage);
+                errorProvider.SetError(textUsername, Constants.Messages.RequireMessage);
                 result = false;
 
                 textUsername.Focus();
@@ -60,7 +67,7 @@ namespace ElectronicStore.Administration
 
             if (string.IsNullOrEmpty(textPassword.Text))
             {
-                errorProvider.SetError(textPassword, ElectronicStore.Common.Constants.Messages.RequireMessage);
+                errorProvider.SetError(textPassword, Constants.Messages.RequireMessage);
                 result = false;
 
                 if (!isFocused)
