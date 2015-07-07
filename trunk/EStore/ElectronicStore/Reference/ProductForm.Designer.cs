@@ -68,7 +68,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(534, 168);
+            this.groupBox1.Size = new System.Drawing.Size(507, 168);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chung";
@@ -113,7 +113,7 @@
             this.drlType.FormattingEnabled = true;
             this.drlType.Location = new System.Drawing.Point(117, 22);
             this.drlType.Name = "drlType";
-            this.drlType.Size = new System.Drawing.Size(397, 21);
+            this.drlType.Size = new System.Drawing.Size(381, 21);
             this.drlType.TabIndex = 1;
             // 
             // label4
@@ -167,7 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(534, 211);
+            this.ClientSize = new System.Drawing.Size(507, 211);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.button2);
