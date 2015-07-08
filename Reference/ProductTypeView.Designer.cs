@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductTypeView));
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
@@ -41,6 +38,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,8 +70,8 @@
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cbo,
-            this.ProductTypeName,
-            this.RoleId});
+            this.RoleId,
+            this.ProductTypeName});
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.GridColor = System.Drawing.SystemColors.Control;
             this.dataGridView.Location = new System.Drawing.Point(3, 18);
@@ -81,33 +81,6 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(804, 435);
             this.dataGridView.TabIndex = 1;
-            // 
-            // cbo
-            // 
-            this.cbo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20F;
-            this.cbo.HeaderText = "";
-            this.cbo.IndeterminateValue = "";
-            this.cbo.MinimumWidth = 20;
-            this.cbo.Name = "cbo";
-            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cbo.TrueValue = "1";
-            this.cbo.Width = 30;
-            // 
-            // ProductTypeName
-            // 
-            this.ProductTypeName.DataPropertyName = "Name";
-            this.ProductTypeName.FillWeight = 179.6954F;
-            this.ProductTypeName.HeaderText = "Tên loại sản phẩm";
-            this.ProductTypeName.Name = "ProductTypeName";
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
             // 
             // buttonUpdate
             // 
@@ -190,6 +163,34 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách loại sản phẩm";
             // 
+            // cbo
+            // 
+            this.cbo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cbo.FalseValue = "0";
+            this.cbo.FillWeight = 20F;
+            this.cbo.HeaderText = "";
+            this.cbo.IndeterminateValue = "";
+            this.cbo.MinimumWidth = 20;
+            this.cbo.Name = "cbo";
+            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cbo.TrueValue = "1";
+            this.cbo.Width = 30;
+            // 
+            // RoleId
+            // 
+            this.RoleId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.RoleId.DataPropertyName = "Id";
+            this.RoleId.HeaderText = "Id";
+            this.RoleId.Name = "RoleId";
+            this.RoleId.Width = 50;
+            // 
+            // ProductTypeName
+            // 
+            this.ProductTypeName.DataPropertyName = "Name";
+            this.ProductTypeName.FillWeight = 179.6954F;
+            this.ProductTypeName.HeaderText = "Tên loại sản phẩm";
+            this.ProductTypeName.Name = "ProductTypeName";
+            // 
             // ProductTypeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,12 +218,12 @@
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonRefresh;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn cbo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn cbo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductTypeName;
     }
 }
