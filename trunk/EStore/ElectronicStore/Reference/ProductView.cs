@@ -155,7 +155,20 @@ namespace ElectronicStore.Reference
                     }
                     else
                     {
-                        biz.SaveItem(product);
+                        product.Id = 0;
+                        product.Created = DateTime.Now;
+                        product.CreatedByUserId = currentUser.Id;
+                        product.Modified = DateTime.Now;
+                        product.ModifiedByUserId = currentUser.Id;
+
+                        try
+                        {
+                            biz.SaveItem(product);
+                        }
+                        catch(Exception ex)
+                        {
+
+                        }                        
                     }
                 }
 
