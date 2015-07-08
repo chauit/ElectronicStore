@@ -427,7 +427,7 @@ namespace ElectronicStore.Main
             }
             else
             {
-                this.DialogResult = System.Windows.Forms.DialogResult.None;
+                this.DialogResult = DialogResult.None;
             }
         }
 
@@ -450,7 +450,7 @@ namespace ElectronicStore.Main
             }
             else
             {
-                this.DialogResult = System.Windows.Forms.DialogResult.None;
+                this.DialogResult = DialogResult.None;
             }
         }
 
