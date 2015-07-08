@@ -111,8 +111,8 @@ namespace ElectronicStore.Reference
                 var theSheet = wbPart.Workbook.Descendants<Sheet>().FirstOrDefault();
 
                 var wsPart = (WorksheetPart)(wbPart.GetPartById(theSheet.Id));
-                
-                for (var i = 2; i <= wsPart.Worksheet.Descendants<Row>().Count(); i++)
+                var count = wsPart.Worksheet.Descendants<Row>().Count();
+                for (var i = 2; i <= count; i++)
                 {
                     var product = new Product
                     {
@@ -136,18 +136,30 @@ namespace ElectronicStore.Reference
 
                     var item = biz.LoadItems().FirstOrDefault(p => p.Code == product.Code);
 
-                    if (item!=null)
+                    if (string.IsNullOrEmpty(product.Code))
+                    {
+                        break;
+                    }
+
+                    if (item != null)
                     {
                         product.Id = item.Id;
                         product.Code = item.Code;
-                        product.Name = item.Name;
+                        product.Name = item.Name;                        
                         product.ProductTypeId = item.ProductTypeId;
+                        product.Created = item.Created;
+                        product.CreatedByUserId = item.CreatedByUserId;
+                        product.Modified = item.Modified;
+                        product.ModifiedByUserId = item.ModifiedByUserId;                        
                         biz.UpdateItem(product);
-                        break;
                     }
-                    biz.SaveItem(product);
-                    break;
+                    else
+                    {
+                        biz.SaveItem(product);
+                    }
                 }
+
+                MessageBox.Show("Cập nhật thành công.");
             }
         }
     }
