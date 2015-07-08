@@ -8,6 +8,7 @@ namespace ElectronicStore.Administration
 {
     public partial class ConfigurationForm : Form
     {
+        ILogger logger = new Logger();
         private int itemId;
 
         private DateTime? created;
@@ -75,26 +76,43 @@ namespace ElectronicStore.Administration
 
                 if (itemId > 0)
                 {
-                    item.Id = itemId;
-                    item.Created = created;
-                    item.CreatedByUserId = createdBy;
+                    try
+                    {
+                        item.Id = itemId;
+                        item.Created = created;
+                        item.CreatedByUserId = createdBy;
 
-                    item.Modified = DateTime.Now;
-                    item.ModifiedByUserId = currentUser;
+                        item.Modified = DateTime.Now;
+                        item.ModifiedByUserId = currentUser;
 
-                    var biz = new ConfigurationBiz();
-                    biz.UpdateItem(item);
+                        var biz = new ConfigurationBiz();
+
+                        biz.UpdateItem(item);
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.LogInfoMessage("----Update Configuration ERROR----");
+                        logger.LogException(ex);
+                    }
                 }
                 else
                 {
-                    item.Created = DateTime.Now;
-                    item.CreatedByUserId = currentUser;
+                    try
+                    {
+                        item.Created = DateTime.Now;
+                        item.CreatedByUserId = currentUser;
 
-                    item.Modified = DateTime.Now;
-                    item.ModifiedByUserId = currentUser;
+                        item.Modified = DateTime.Now;
+                        item.ModifiedByUserId = currentUser;
 
-                    var biz = new ConfigurationBiz();
-                    biz.SaveItem(item);
+                        var biz = new ConfigurationBiz();
+                        biz.SaveItem(item);
+                    }
+                    catch(Exception ex)
+                    {
+                        logger.LogInfoMessage("----Create Configuration ERROR----");
+                        logger.LogException(ex);
+                    }
                 }
 
                 this.Close();

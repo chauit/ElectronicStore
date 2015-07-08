@@ -33,11 +33,7 @@ namespace ElectronicStore.Administration
                 {
                     DialogResult = DialogResult.OK;
                     Result = currentUser;
-                    logger.EnterMethod("Main");
-                    logger.LogInfoMessage("Hello World");
-                    logger.LogError("The world is upside down!");
-
-                    logger.LeaveMethod("Main");
+                    
                     Close();
                     
                 }                
