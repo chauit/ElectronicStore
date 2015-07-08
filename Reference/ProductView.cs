@@ -8,11 +8,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using ElectronicStore.Views;
+using ElectronicStore.Common;
 
 namespace ElectronicStore.Reference
 {
     public partial class ProductView : Form
     {
+        ILogger logger = new Logger();
+
         private User currentUser;
         public ProductView(User user)
         {
@@ -90,6 +93,7 @@ namespace ElectronicStore.Reference
                 catch (Exception ex)
                 {
                     MessageBox.Show(Common.Constants.Messages.CannotImportProduct);
+                    logger.LogException(ex);
                 }
             }
         }
@@ -151,7 +155,18 @@ namespace ElectronicStore.Reference
                         product.CreatedByUserId = item.CreatedByUserId;
                         product.Modified = item.Modified;
                         product.ModifiedByUserId = item.ModifiedByUserId;                        
-                        biz.UpdateItem(product);
+                                                
+                        try
+                        {
+                            biz.UpdateItem(product);
+                        }
+                        catch (Exception ex)
+                        {
+                            logger.LogInfoMessage("Import Update Product");
+                            string log = string.Format("ID: {0}, Code: {1}, Name: {2}, TypeId: {3}", item.Id, item.Code, item.Name, item.ProductTypeId);
+                            logger.LogInfoMessage(log);
+                            logger.LogException(ex);
+                        } 
                     }
                     else
                     {
@@ -167,7 +182,10 @@ namespace ElectronicStore.Reference
                         }
                         catch(Exception ex)
                         {
-
+                            logger.LogInfoMessage("Import New Product");
+                            string log = string.Format("ID: {0}, Code: {1}, Name: {2}, TypeId: {3}", 0, product.Code, product.Name, product.ProductTypeId);
+                            logger.LogInfoMessage(log);
+                            logger.LogException(ex);
                         }                        
                     }
                 }
