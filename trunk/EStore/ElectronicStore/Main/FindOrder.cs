@@ -1,4 +1,5 @@
 ﻿using Business;
+using ElectronicStore.Common;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace ElectronicStore.Main
 {
     public partial class FindOrder : Form
     {
+        ILogger logger = new Logger();
+
         public DeliveryForm ParentForm { get; set; }
 
         public SearchOrder SelectedOrder;
@@ -100,23 +103,31 @@ namespace ElectronicStore.Main
         {
             if (dataGridView.SelectedRows.Count > 0)
             {
-                int index = dataGridView.SelectedRows[0].Index;
-                SelectedOrder = dataGridView.SelectedRows[0].DataBoundItem as SearchOrder;
-
-                ListSelectedOrder.Add(SelectedOrder);
-
-                var deliveryForm = this.ParentForm as DeliveryForm;
-                if (deliveryForm != null)
+                try
                 {
-                    deliveryForm.UpdateGrid(SelectedOrder);
+                    int index = dataGridView.SelectedRows[0].Index;
+                    SelectedOrder = dataGridView.SelectedRows[0].DataBoundItem as SearchOrder;
+
+                    ListSelectedOrder.Add(SelectedOrder);
+
+                    var deliveryForm = this.ParentForm as DeliveryForm;
+                    if (deliveryForm != null)
+                    {
+                        deliveryForm.UpdateGrid(SelectedOrder);
+                    }
+
+                    var list = dataGridView.DataSource as List<SearchOrder>;
+                    list.RemoveAt(index);
+
+                    dataGridView.DataSource = null;
+                    dataGridView.DataSource = list;
+                    dataGridView.Refresh();
                 }
-
-                var list = dataGridView.DataSource as List<SearchOrder>;
-                list.RemoveAt(index);
-
-                dataGridView.DataSource = null;
-                dataGridView.DataSource = list;
-                dataGridView.Refresh();
+                catch (Exception ex)
+                {
+                    logger.EnterMethod("Select Order");
+                    logger.LogException(ex);
+                }
             }
         }
     }
