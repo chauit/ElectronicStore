@@ -3,11 +3,13 @@ using System.Windows.Forms;
 using Business;
 using Model;
 using System.Collections.Generic;
+using ElectronicStore.Common;
 
 namespace ElectronicStore.Main
 {
     public partial class FindProduct : Form
     {
+        ILogger logger = new Logger();
         public OrderForm ParentForm { get; set; }
 
         public SearchProduct SelectedProduct;
@@ -69,22 +71,31 @@ namespace ElectronicStore.Main
         {
             if (dataGridView.SelectedRows.Count > 0)
             {
-                int index = dataGridView.SelectedRows[0].Index;
-                SelectedProduct = dataGridView.SelectedRows[0].DataBoundItem as SearchProduct;
-
-                ListSelectedProduct.Add(SelectedProduct);
-
-                var orderForm = this.ParentForm as OrderForm;
-                if(orderForm != null)
+                try
                 {
-                    orderForm.UpdateGrid(SelectedProduct);
+                    int index = dataGridView.SelectedRows[0].Index;
+                    SelectedProduct = dataGridView.SelectedRows[0].DataBoundItem as SearchProduct;
+
+                    ListSelectedProduct.Add(SelectedProduct);
+
+                    var orderForm = this.ParentForm as OrderForm;
+                    if (orderForm != null)
+                    {
+                        orderForm.UpdateGrid(SelectedProduct);
+                    }
+
+                    var list = dataGridView.DataSource as List<SearchProduct>;
+                    list.RemoveAt(index);
+
+                    dataGridView.DataSource = null;
+                    dataGridView.DataSource = list;
+                    dataGridView.Refresh();
                 }
-
-                var list = dataGridView.DataSource as List<SearchProduct>;
-                list.RemoveAt(index);
-
-                dataGridView.DataSource = list;
-                dataGridView.Refresh();
+                catch(Exception ex)
+                {
+                    logger.EnterMethod("Select Product");
+                    logger.LogException(ex);
+                }
             }
         }
     }
