@@ -3,6 +3,7 @@ using ElectronicStore.Common;
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ElectronicStore.Main
@@ -128,6 +129,26 @@ namespace ElectronicStore.Main
 
                 var menu = AddMenu(isDelivered);
                 menu.Show(Cursor.Position.X, Cursor.Position.Y);
+            }
+        }
+
+        private void CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 3)
+            {
+                string value = Convert.ToString(e.Value);
+                switch (value)
+                {
+                    case Constants.OrderStatusDraft:
+                        dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                        break;
+                    case Constants.OrderStatusDelivered:
+                        dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Blue;
+                        break;
+                    default:
+                        dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Orange;
+                        break;
+                }
             }
         }
     }

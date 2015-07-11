@@ -120,20 +120,22 @@ namespace ElectronicStore.Administration
                     {
                         SMS = IOReader.GetCellValue(document, theSheet, "B" + i),
                         FullName = IOReader.GetCellValue(document, theSheet, "C" + i),
-                        Address1 = IOReader.GetCellValue(document, theSheet, "D" + i),
-                        Address2 = IOReader.GetCellValue(document, theSheet, "E" + i),
-                        City = IOReader.GetCellValue(document, theSheet, "F" + i),
-                        PostalCode = IOReader.GetCellValue(document, theSheet, "G" + i),
-                        Tel = IOReader.GetCellValue(document, theSheet, "H" + i),
-                        Mobile1 = IOReader.GetCellValue(document, theSheet, "I" + i),
-                        Mobile2 = IOReader.GetCellValue(document, theSheet, "J" + i),
-                        Email1 = IOReader.GetCellValue(document, theSheet, "K" + i),
-                        Email2 = IOReader.GetCellValue(document, theSheet, "L" + i),
-                        OtherInformation = IOReader.GetCellValue(document, theSheet, "N" + i),
-                        Segment = IOReader.GetCellValue(document, theSheet, "O" + i),
+                        Mst = IOReader.GetCellValue(document, theSheet, "D" + i),
+                        Company = IOReader.GetCellValue(document, theSheet, "E" + i),
+                        Address1 = IOReader.GetCellValue(document, theSheet, "F" + i),
+                        Address2 = IOReader.GetCellValue(document, theSheet, "G" + i),
+                        City = IOReader.GetCellValue(document, theSheet, "H" + i),
+                        PostalCode = IOReader.GetCellValue(document, theSheet, "I" + i),
+                        Tel = IOReader.GetCellValue(document, theSheet, "J" + i),
+                        Mobile1 = IOReader.GetCellValue(document, theSheet, "K" + i),
+                        Mobile2 = IOReader.GetCellValue(document, theSheet, "L" + i),
+                        Email1 = IOReader.GetCellValue(document, theSheet, "M" + i),
+                        Email2 = IOReader.GetCellValue(document, theSheet, "N" + i),
+                        OtherInformation = IOReader.GetCellValue(document, theSheet, "P" + i),
+                        Segment = IOReader.GetCellValue(document, theSheet, "Q" + i),
                     };
 
-                    var delivery = IOReader.GetCellValue(document, theSheet, "M" + i);
+                    var delivery = IOReader.GetCellValue(document, theSheet, "O" + i);
                     if (!string.IsNullOrEmpty(delivery) && int.TryParse(delivery, out number))
                     {
                         item.Delivery = number;
@@ -141,8 +143,7 @@ namespace ElectronicStore.Administration
 
                     if (!string.IsNullOrEmpty(item.FullName))
                     {
-                        biz.SaveItem(item);
-                        break;
+                        biz.SaveItem(item);                        
                     }                    
                 }                
             }
