@@ -235,6 +235,14 @@ namespace ElectronicStore.Main
                 drlUser.Focus();
             }
 
+            if (listOrder.Count == 0)
+            {
+                errorProvider.SetError(dataGridView, Constants.Messages.RequireMessage);
+                hasError = false;
+
+                dataGridView.Focus();
+            }
+
             string ids = string.Empty;
             foreach(var o in listOrder)
             {
