@@ -18,10 +18,12 @@ namespace ElectronicStore.Main
         private User currentUser;
         private bool flagSendMail;
         private bool flagSendSms;
+        private int selectedRow;
 
         public DeliveryView(User user)
         {
             InitializeComponent();
+            selectedRow = -1;
 
             dataGridView.AutoGenerateColumns = false;
 
@@ -40,6 +42,12 @@ namespace ElectronicStore.Main
         private void WorkAsync(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
+
+            if (selectedRow >= 0)
+            {
+                dataGridView.Rows[selectedRow].Cells[6].Value = "Đang gửi";
+                dataGridView.Refresh();
+            }
 
             if (flagSendMail)
             {
@@ -84,12 +92,26 @@ namespace ElectronicStore.Main
         public DeliveryView(User user, bool isSendMail = false, bool isSendSms = false, int itemId = 0)
         {
             InitializeComponent();
+            selectedRow = -1;
 
             dataGridView.AutoGenerateColumns = false;
 
             var biz = new DeliveryBiz();
-            dataGridView.DataSource = biz.LoadItems();
+            var list = biz.LoadItems();
+            dataGridView.DataSource = list;
             dataGridView.Refresh();
+
+            if(list != null && list.Count > 0)
+            {
+                for(int i=0;i<list.Count;i++)
+                {
+                    if (list[i].Id == itemId)
+                    {
+                        selectedRow = i;
+                        break;
+                    }
+                }
+            }
 
             currentUser = user;
             
@@ -180,6 +202,8 @@ namespace ElectronicStore.Main
                     isSendSms = string.Equals(delivery.IsSendSms, ECommon.Constants.DeliverySentSms, StringComparison.InvariantCultureIgnoreCase);
                 }
 
+                selectedRow = e.RowIndex;
+
                 var menu = AddMenu(isDelivered, isSendEmail, isSendSms);
                 menu.Show(Cursor.Position.X, Cursor.Position.Y);
             }
@@ -226,6 +250,12 @@ namespace ElectronicStore.Main
         {
             if (selectedId > 0)
             {
+                if(selectedRow >= 0)
+                {
+                    dataGridView.Rows[selectedRow].Cells[6].Value = "Đang gửi";
+                    dataGridView.Refresh();
+                }
+
                 SendMail(selectedId);
 
                 RefreshItems(sender, e);
@@ -236,6 +266,12 @@ namespace ElectronicStore.Main
         {
             if (selectedId > 0)
             {
+                if (selectedRow >= 0)
+                {
+                    dataGridView.Rows[selectedRow].Cells[5].Value = "Đang gửi";
+                    dataGridView.Refresh();
+                }
+
                 SendSms(selectedId);
                 RefreshItems(sender, e);
             }

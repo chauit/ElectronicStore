@@ -65,7 +65,8 @@ namespace ElectronicStore.Administration
             textEmail2.Text = item.Email2;
             drlSegment.SelectedItem = item.Segment;
             txtCompany.Text = item.Company;
-
+            textMst.Text = item.Mst;
+            
             textTenSms.Text = item.SMS;
 
             if (item.Delivery.HasValue)
@@ -106,6 +107,7 @@ namespace ElectronicStore.Administration
                 }
                 item.OtherInformation = textOtherInformation.Text;
                 item.Company = txtCompany.Text;
+                item.Mst = textMst.Text;
 
                 if (itemId > 0)
                 {
