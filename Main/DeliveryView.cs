@@ -240,5 +240,25 @@ namespace ElectronicStore.Main
                 RefreshItems(sender, e);
             }
         }
+
+        private void CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if(e.RowIndex >=0 &&  (e.ColumnIndex == 5 ||e.ColumnIndex == 6))
+            {
+                string value = Convert.ToString(e.Value);
+                switch(value)
+                {
+                    case "Đã gửi":
+                        dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                        break;
+                    case "Chưa gửi":
+                        dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Orange;
+                        break;
+                    default:
+                        dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                        break;
+                }
+            }
+        }
     }
 }
