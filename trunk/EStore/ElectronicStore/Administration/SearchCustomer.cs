@@ -15,7 +15,7 @@ namespace ElectronicStore.Administration
     {
         private readonly User _currentUser;
 
-        public SearchCustomer(User user, string condition)
+        public SearchCustomer(User user, string condition, bool isShowResult = false, int id = 0)
         {
             InitializeComponent();
 
@@ -32,6 +32,11 @@ namespace ElectronicStore.Administration
             _currentUser = user;
 
             LoadCustomer();
+
+            if(isShowResult)
+            {
+                ViewCustomer(id);
+            }
         }
 
         private void Search(object sender, EventArgs e)
@@ -51,6 +56,21 @@ namespace ElectronicStore.Administration
             list.AddRange(items.ToArray());
             textCustomerName.AutoCompleteCustomSource = null;
             textCustomerName.AutoCompleteCustomSource = list;
+        }
+
+        private void ViewCustomer(int id)
+        {
+            var biz = new CustomerBiz();
+            var data = biz.SearchCustomer(id);
+
+            if (data != null && data.Count > 0)
+            {
+                dataGridViewDetail.Visible = true;
+
+                dataGridViewDetail.DataSource = null;
+                dataGridViewDetail.DataSource = data;
+                dataGridViewDetail.Refresh();
+            }
         }
 
         private void SelectCustomer(object sender, EventArgs e)

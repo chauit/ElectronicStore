@@ -16,18 +16,26 @@ namespace ElectronicStore.Administration
         private int? modifiedBy;
 
         private int currentUser;
+        private User currentUserEntity;
+
+        private void LoadCities()
+        {
+            var biz = new CityBiz();
+            drlCity.Items.Clear();
+            drlCity.DataSource = biz.GetAll();
+        }
 
         private void InitForm(User user)
         {
             buttonSave.DialogResult = DialogResult.OK;
             button2.DialogResult = DialogResult.Cancel;
 
-            drlCity.Items.Clear();
-            drlCity.DataSource = Utilities.GetCities();
+            LoadCities();
 
             drlSegment.Items.Clear();
             drlSegment.DataSource = Utilities.GetSegments();
             currentUser = user.Id;
+            currentUserEntity = user;
         }
 
         public CustomerForm(User user)
@@ -38,6 +46,8 @@ namespace ElectronicStore.Administration
             itemId = 0;
 
             InitForm(user);
+
+            buttonViewOrder.Visible = false;
 
             this.Text = "Thêm khách hàng";
         }
@@ -56,7 +66,6 @@ namespace ElectronicStore.Administration
             textFullName.Text = item.FullName;
             textAddress1.Text = item.Address1;
             textAddress2.Text = item.Address2;
-            drlCity.SelectedItem = item.City;
             textPostalCode.Text = item.PostalCode;
             textTel.Text = item.Tel;
             textMobile1.Text = item.Mobile1;
@@ -74,11 +83,22 @@ namespace ElectronicStore.Administration
                 numberDelivery.Text = Convert.ToString(item.Delivery.Value);
             }
             textOtherInformation.Text = item.OtherInformation;
+                        
+            foreach(string city in drlCity.Items)
+            {
+                if(string.Equals(city, item.City, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    drlCity.SelectedItem = city;
+                    break;
+                }
+            }
 
             created = item.Created;
             createdBy = item.CreatedByUserId;
             modified = item.Modified;
             modifiedBy = item.ModifiedByUserId;
+
+            buttonViewOrder.Visible = true;
 
             this.Text = "Sửa khách hàng";
         }
@@ -223,6 +243,15 @@ namespace ElectronicStore.Administration
             }
             
             return hasError;
+        }
+
+        private void ViewOrder(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textFullName.Text))
+            {
+                var searchCustomer = new SearchCustomer(currentUserEntity, textFullName.Text, true, itemId);
+                searchCustomer.ShowDialog();                
+            }
         }
     }
 }
