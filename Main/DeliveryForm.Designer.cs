@@ -33,6 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.drlUser = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.labelSendSms = new System.Windows.Forms.Label();
@@ -60,14 +62,12 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label8 = new System.Windows.Forms.Label();
-            this.drlUser = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel1.SuspendLayout();
@@ -112,6 +112,25 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin giao hàng";
+            // 
+            // drlUser
+            // 
+            this.drlUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.drlUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.drlUser.FormattingEnabled = true;
+            this.drlUser.Location = new System.Drawing.Point(135, 93);
+            this.drlUser.Name = "drlUser";
+            this.drlUser.Size = new System.Drawing.Size(200, 21);
+            this.drlUser.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(25, 96);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Nhân viên";
             // 
             // label7
             // 
@@ -181,7 +200,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 13);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Thông tin chi tiêt";
+            this.label3.Text = "Thông tin chi tiết";
             // 
             // dateStartDate
             // 
@@ -393,19 +412,6 @@
             this.dataGridView.Size = new System.Drawing.Size(763, 258);
             this.dataGridView.TabIndex = 0;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.buttonDeleteProduct);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.buttonAddProduct);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(769, 49);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            // 
             // Customer
             // 
             this.Customer.DataPropertyName = "CustomerName";
@@ -444,24 +450,18 @@
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
             // 
-            // label8
+            // groupBox3
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(25, 96);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 13);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Nhân viên";
-            // 
-            // drlUser
-            // 
-            this.drlUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.drlUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.drlUser.FormattingEnabled = true;
-            this.drlUser.Location = new System.Drawing.Point(135, 93);
-            this.drlUser.Name = "drlUser";
-            this.drlUser.Size = new System.Drawing.Size(200, 21);
-            this.drlUser.TabIndex = 2;
+            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.buttonDeleteProduct);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.buttonAddProduct);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(769, 49);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
             // 
             // DeliveryForm
             // 

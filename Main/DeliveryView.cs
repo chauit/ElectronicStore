@@ -282,6 +282,7 @@ namespace ElectronicStore.Main
             if(e.RowIndex >=0 &&  (e.ColumnIndex == 5 ||e.ColumnIndex == 6))
             {
                 string value = Convert.ToString(e.Value);
+                dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
                 switch(value)
                 {
                     case "Đã gửi":

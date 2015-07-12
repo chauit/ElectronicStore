@@ -158,6 +158,10 @@ namespace ElectronicStore
                     var frm = new DashboardForm { Dock = DockStyle.Fill, TopLevel = true };
                     frm.ShowDialog();
                     break;
+                case "Quản lý tên thành phố":
+                    var cityView = new CityView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                    OpenForm(cityView);
+                    break;                    
                 default:
                     break;
             }

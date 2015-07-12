@@ -137,13 +137,14 @@ namespace ElectronicStore.Main
             if (e.RowIndex >= 0 && e.ColumnIndex == 3)
             {
                 string value = Convert.ToString(e.Value);
+                dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
                 switch (value)
-                {
+                {                        
                     case Constants.OrderStatusDraft:
                         dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
                         break;
                     case Constants.OrderStatusDelivered:
-                        dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Blue;
+                        dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
                         break;
                     default:
                         dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Orange;

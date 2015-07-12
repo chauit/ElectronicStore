@@ -94,11 +94,23 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\CityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\CityForm.Designer.cs">
+      <DependentUpon>CityForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\ConfigurationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administration\ConfigurationForm.Designer.cs">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\CityView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\CityView.Designer.cs">
+      <DependentUpon>CityView.cs</DependentUpon>
     </Compile>
     <Compile Include="Administration\ConfigurationView.cs">
       <SubType>Form</SubType>
@@ -273,8 +285,14 @@
     </Compile>
     <Compile Include="Views\CustomerItem.cs" />
     <Compile Include="Views\DashBoardModel.cs" />
+    <EmbeddedResource Include="Administration\CityForm.resx">
+      <DependentUpon>CityForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\ConfigurationForm.resx">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\CityView.resx">
+      <DependentUpon>CityView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\ConfigurationView.resx">
       <DependentUpon>ConfigurationView.cs</DependentUpon>
