@@ -32,6 +32,8 @@ namespace ElectronicStore.Common
         public const string OrderStatusDraft = "Nhận đơn hàng từ khách";
         public const string OrderStatusDelivering = "Đang vận chuyển hàng";
         public const string OrderStatusDelivered = "Đã chuyển hàng";
+        public const string OrderSentNotification = "Đã gửi.";
+
         public const string DeliveryStatusDraft = "Chưa chuyển hàng";
         public const string DeliveryStatusDelivered = "Đã chuyển hàng";
         public const string DeliverySentSms = "Đã gửi";

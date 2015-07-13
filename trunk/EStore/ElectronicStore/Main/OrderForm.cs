@@ -133,6 +133,11 @@ namespace ElectronicStore.Main
                     item.RecipientPhone = txtRecipientPhone.Text;
                     item.Vat = cboVat.Checked;
 
+                    if (!string.IsNullOrEmpty(item.Recipient) && string.IsNullOrEmpty(item.IsSendNotification))
+                    {
+                        item.IsSendNotification = "Chưa gửi.";
+                    }
+
                     if (itemId > 0)
                     {
                         item.Id = itemId;
