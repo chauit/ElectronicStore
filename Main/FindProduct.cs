@@ -45,15 +45,10 @@ namespace ElectronicStore.Main
 
         private void Search(object sender, EventArgs e)
         {
-            int? typeId = null;
-                        
-            if (drlProductType.SelectedItem != null && Convert.ToInt32(drlProductType.SelectedValue) > 0)
-            {
-                typeId = Convert.ToInt32(Convert.ToString(drlProductType.SelectedValue));
-            }           
+            int? typeId = null;                        
 
             var biz = new ProductBiz();
-            var data = biz.SearchProduct(typeId, textName.Text, textCode.Text);
+            var data = biz.SearchProduct(drlProductType.Text, textName.Text, textCode.Text);
 
             foreach(var p in ListSelectedProduct)
             {

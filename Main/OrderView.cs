@@ -11,6 +11,8 @@ namespace ElectronicStore.Main
     public partial class OrderView : Form
     {
         private User currentUser;
+        private int selectedRow;
+
         public OrderView(User user)
         {
             InitializeComponent();
@@ -24,27 +26,33 @@ namespace ElectronicStore.Main
             currentUser = user;
         }
 
-        private ContextMenuStrip AddMenu(bool isDelivered)
+        private ContextMenuStrip AddMenu(bool isDelivered, bool isDeliverToOther)
         {
             ContextMenuStrip mnu = new ContextMenuStrip();
             
             ToolStripMenuItem mnuUpdate = new ToolStripMenuItem("Sửa đơn hàng");
-            ToolStripMenuItem mnuDelete = new ToolStripMenuItem("Xóa đơn hàng");            
+            ToolStripMenuItem mnuDelete = new ToolStripMenuItem("Xóa đơn hàng");
+            ToolStripMenuItem mnuSendNotification = new ToolStripMenuItem("Gửi tin nhắn thông báo");
             ToolStripMenuItem mnuDeliver = new ToolStripMenuItem("Đã giao đơn hàng");
             
             //Assign event handlers
             mnuUpdate.Click += new EventHandler(UpdateSingleItem);
             mnuDelete.Click += new EventHandler(DeleteSingleItem);
             mnuDeliver.Click += new EventHandler(DeliverItem);
-            
+            mnuSendNotification.Click += new EventHandler(SendNotification);
+
+            mnu.Items.Add(mnuUpdate);
+            mnu.Items.Add(mnuDelete);
+
             //Add to main context menu
-            if (isDelivered)
+            if (!isDelivered)
             {
-                mnu.Items.AddRange(new ToolStripItem[] { mnuUpdate, mnuDelete });
+                mnu.Items.Add(mnuDeliver);
             }
-            else
-            {                
-                mnu.Items.AddRange(new ToolStripItem[] { mnuUpdate, mnuDelete, mnuDeliver });
+
+            if (isDeliverToOther)
+            {
+                mnu.Items.Add(mnuSendNotification);
             }
             
             return mnu;
@@ -102,6 +110,29 @@ namespace ElectronicStore.Main
             }
         }
 
+        public void SendNotification(object sender, EventArgs e)
+        {
+            if (selectedId > 0)
+            {
+                if (selectedRow >= 0)
+                {
+                    dataGridView.Rows[selectedRow].Cells[5].Value = "Đang gửi";
+                    dataGridView.Refresh();
+                }
+
+                var biz = new OrderBiz();
+                var status = biz.SendReport(selectedId);
+
+                if (!string.IsNullOrEmpty(status.Error))
+                {
+                    MessageBox.Show(status.Error);
+                }
+                biz.UpdateNotificationStatus(selectedId, status.Status);
+
+                RefreshItems(sender, e);
+            }
+        }
+
         public void DeliverItem(object sender, EventArgs e)
         {
             if (selectedId > 0)
@@ -120,14 +151,23 @@ namespace ElectronicStore.Main
             if (e.Button == MouseButtons.Right && e.ColumnIndex == 0 && e.RowIndex != -1)
             {
                 bool isDelivered = false;
+                bool isDeliverToOther = false;
                 var order = dataGridView.Rows[e.RowIndex].DataBoundItem as Order;
                 if (order != null)
                 {
                     selectedId = order.Id;
                     isDelivered = string.Equals(order.Status, Constants.OrderStatusDelivered, StringComparison.InvariantCultureIgnoreCase);
+
+                    if(!string.IsNullOrEmpty(order.Recipient) && 
+                        !string.Equals(Constants.OrderSentNotification, order.IsSendNotification, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        isDeliverToOther = true;
+                    }
                 }
 
-                var menu = AddMenu(isDelivered);
+                selectedRow = e.RowIndex;
+
+                var menu = AddMenu(isDelivered, isDeliverToOther);
                 menu.Show(Cursor.Position.X, Cursor.Position.Y);
             }
         }
