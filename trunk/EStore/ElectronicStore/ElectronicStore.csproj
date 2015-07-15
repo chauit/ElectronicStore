@@ -430,6 +430,28 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="DLL\Telerik.WinControls.dll" />
+    <Content Include="DLL\Telerik.WinControls.GridView.dll" />
+    <Content Include="DLL\Telerik.WinControls.RadChart.dll" />
+    <Content Include="DLL\Telerik.WinControls.RadDock.dll" />
+    <Content Include="DLL\Telerik.WinControls.RadMarkupEditor.dll" />
+    <Content Include="DLL\Telerik.WinControls.Scheduler.dll" />
+    <Content Include="DLL\Telerik.WinControls.Themes.Aqua.dll" />
+    <Content Include="DLL\Telerik.WinControls.Themes.Breeze.dll" />
+    <Content Include="DLL\Telerik.WinControls.Themes.Desert.dll" />
+    <Content Include="DLL\Telerik.WinControls.Themes.HighContrastBlack.dll" />
+    <Content Include="DLL\Telerik.WinControls.Themes.Office2007Black.dll" />
+    <Content Include="DLL\Telerik.WinControls.Themes.Office2007Silver.dll" />
+    <Content Include="DLL\Telerik.WinControls.Themes.Office2010Black.dll" />
+    <Content Include="DLL\Telerik.WinControls.Themes.Office2010Blue.dll" />
+    <Content Include="DLL\Telerik.WinControls.Themes.Office2010Silver.dll" />
+    <Content Include="DLL\Telerik.WinControls.Themes.TelerikMetro.dll" />
+    <Content Include="DLL\Telerik.WinControls.Themes.TelerikMetroBlue.dll" />
+    <Content Include="DLL\Telerik.WinControls.Themes.Windows7.dll" />
+    <Content Include="DLL\Telerik.WinControls.UI.Design.dll" />
+    <Content Include="DLL\Telerik.WinControls.UI.dll" />
+    <Content Include="DLL\TelerikCommon.dll" />
+    <Content Include="DLL\TelerikData.dll" />
     <Content Include="Images\Add.ico" />
     <Content Include="Images\Closed.ico" />
     <Content Include="Images\Delete.ico" />
