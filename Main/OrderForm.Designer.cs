@@ -63,6 +63,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonAddProduct = new System.Windows.Forms.Button();
+            this.buttonDeleteProduct = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.ColumnTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,11 +75,6 @@
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.buttonAddProduct = new System.Windows.Forms.Button();
-            this.buttonDeleteProduct = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -402,64 +402,7 @@
             this.dataGridView.TabIndex = 0;
             this.dataGridView.DataSourceChanged += new System.EventHandler(this.ChangeSource);
             this.dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.UpdateQuantity);
-            // 
-            // ColumnTen
-            // 
-            this.ColumnTen.DataPropertyName = "Name";
-            this.ColumnTen.HeaderText = "Tên mặt hàng";
-            this.ColumnTen.Name = "ColumnTen";
-            this.ColumnTen.ReadOnly = true;
-            // 
-            // ColumnCode
-            // 
-            this.ColumnCode.DataPropertyName = "Code";
-            this.ColumnCode.HeaderText = "Mã mặt hàng";
-            this.ColumnCode.Name = "ColumnCode";
-            this.ColumnCode.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.DataPropertyName = "Quantity";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Quantity.HeaderText = "Số lượng (m)";
-            this.Quantity.Name = "Quantity";
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "ActualPrice";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle2.Format = "0,000";
-            this.Price.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Price.HeaderText = "Đơn giá";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "TotalValue";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.Total.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Total.HeaderText = "Tổng";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // ColumnTotal
-            // 
-            this.ColumnTotal.DataPropertyName = "Total";
-            this.ColumnTotal.HeaderText = "Total";
-            this.ColumnTotal.Name = "ColumnTotal";
-            this.ColumnTotal.ReadOnly = true;
-            this.ColumnTotal.Visible = false;
+            this.dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditControlShowing);
             // 
             // groupBox3
             // 
@@ -517,6 +460,66 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(890, 416);
             this.panel2.TabIndex = 7;
+            // 
+            // ColumnTen
+            // 
+            this.ColumnTen.DataPropertyName = "Name";
+            this.ColumnTen.HeaderText = "Tên mặt hàng";
+            this.ColumnTen.Name = "ColumnTen";
+            this.ColumnTen.ReadOnly = true;
+            // 
+            // ColumnCode
+            // 
+            this.ColumnCode.DataPropertyName = "Code";
+            this.ColumnCode.HeaderText = "Mã mặt hàng";
+            this.ColumnCode.Name = "ColumnCode";
+            this.ColumnCode.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "QuantityValue";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Quantity.HeaderText = "Số lượng (m)";
+            this.Quantity.Name = "Quantity";
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "ActualPrice";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle2.Format = "0,000";
+            this.Price.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Price.HeaderText = "Đơn giá";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "TotalValue";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Total.HeaderText = "Tổng";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // ColumnTotal
+            // 
+            this.ColumnTotal.DataPropertyName = "Total";
+            this.ColumnTotal.HeaderText = "Total";
+            this.ColumnTotal.Name = "ColumnTotal";
+            this.ColumnTotal.ReadOnly = true;
+            this.ColumnTotal.Visible = false;
             // 
             // OrderForm
             // 
