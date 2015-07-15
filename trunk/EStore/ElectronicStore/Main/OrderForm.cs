@@ -344,7 +344,7 @@ namespace ElectronicStore.Main
             {
                 var searchProduct = new SearchProduct();
                 searchProduct.Price = detail.ProductPrice;
-                searchProduct.Quantity = detail.Quantity;
+                searchProduct.QuantityValue = detail.Quantity.ToString();
                 searchProduct.Total = detail.Total;
                 searchProduct.ActualPrice = detail.ProductActualPrice;
                 searchProduct.TotalValue = detail.Total.ToString("0,000");
@@ -509,6 +509,27 @@ namespace ElectronicStore.Main
                     dataGridView.DataSource = listProduct;
                     dataGridView.Refresh();
                 }
+            }
+        }
+
+        private void EditControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Quantity_KeyPress);
+            if (dataGridView.CurrentCell.ColumnIndex == 2) 
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Quantity_KeyPress);
+                }
+            }
+        }
+
+        private void Quantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }
