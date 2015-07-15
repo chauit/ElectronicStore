@@ -3,6 +3,7 @@ using ElectronicStore.Common;
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ElectronicStore.Main
@@ -531,6 +532,17 @@ namespace ElectronicStore.Main
             {
                 e.Handled = true;
             }
+        }
+
+        private void CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (dataGridView.Rows.Count > 0 && e.RowIndex > -1)
+            {
+                if (e.RowIndex >= dataGridView.Rows.Count - 3 && e.ColumnIndex == 2)
+                {
+                    dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+                }
+            }            
         }
     }
 }
