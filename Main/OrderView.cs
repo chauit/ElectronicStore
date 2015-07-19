@@ -159,7 +159,8 @@ namespace ElectronicStore.Main
                     isDelivered = string.Equals(order.Status, Constants.OrderStatusDelivered, StringComparison.InvariantCultureIgnoreCase);
 
                     if(!string.IsNullOrEmpty(order.Recipient) && 
-                        !string.Equals(Constants.OrderSentNotification, order.IsSendNotification, StringComparison.InvariantCultureIgnoreCase))
+                        !string.Equals(Constants.OrderReport2, order.IsSendNotification, StringComparison.InvariantCultureIgnoreCase)&&
+                        string.Equals(Constants.OrderSms2, order.SendMessage, StringComparison.InvariantCultureIgnoreCase))
                     {
                         isDeliverToOther = true;
                     }
@@ -174,21 +175,80 @@ namespace ElectronicStore.Main
 
         private void CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == 3)
+            if (e.RowIndex >= 0)
             {
                 string value = Convert.ToString(e.Value);
-                dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
-                switch (value)
-                {                        
-                    case Constants.OrderStatusDraft:
-                        dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
-                        break;
-                    case Constants.OrderStatusDelivered:
-                        dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
-                        break;
-                    default:
-                        dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Orange;
-                        break;
+
+                if (e.ColumnIndex == 3)
+                {
+                    dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
+                    switch (value)
+                    {
+                        case Constants.OrderStatusDraft:
+                            dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            break;
+                        case Constants.OrderStatusDelivered:
+                            dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                            break;
+                        default:
+                            dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Orange;
+                            break;
+                    }
+                }
+
+                if (e.ColumnIndex == 5)
+                {
+                    dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
+                    switch (value)
+                    {
+                        case Constants.OrderEmail1:
+                            dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Orange;
+                            break;
+                        case Constants.OrderEmail2:
+                            dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                            break;
+                        case Constants.OrderEmail3:
+                            dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            break;
+                        default:                            
+                            break;
+                    }
+                }
+                if (e.ColumnIndex == 6)
+                {
+                    dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
+                    switch (value)
+                    {
+                        case Constants.OrderSms1:
+                            dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Orange;
+                            break;
+                        case Constants.OrderSms2:
+                            dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                            break;
+                        case Constants.OrderSms3:
+                            dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                if (e.ColumnIndex == 7)
+                {
+                    dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
+                    switch (value)
+                    {
+                        case Constants.OrderReport1:
+                            dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Orange;
+                            break;
+                        case Constants.OrderReport2:
+                            dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Green;
+                            break;
+                        case Constants.OrderReport3:
+                            dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.Red;
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
