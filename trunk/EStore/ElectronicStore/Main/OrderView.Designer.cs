@@ -41,6 +41,8 @@
             this.OrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeliveryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnSms = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSendNotification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDeliver = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +80,8 @@
             this.OrderDate,
             this.Status,
             this.DeliveryDate,
+            this.columnEmail,
+            this.columnSms,
             this.ColumnSendNotification,
             this.ColumnDeliver,
             this.RoleId});
@@ -189,23 +193,35 @@
             this.DeliveryDate.ReadOnly = true;
             this.DeliveryDate.Width = 120;
             // 
+            // columnEmail
+            // 
+            this.columnEmail.DataPropertyName = "SendEmail";
+            this.columnEmail.HeaderText = "Email";
+            this.columnEmail.Name = "columnEmail";
+            this.columnEmail.ReadOnly = true;
+            // 
+            // columnSms
+            // 
+            this.columnSms.DataPropertyName = "SendMessage";
+            this.columnSms.HeaderText = "Tin nhắn";
+            this.columnSms.Name = "columnSms";
+            this.columnSms.ReadOnly = true;
+            // 
             // ColumnSendNotification
             // 
-            this.ColumnSendNotification.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.ColumnSendNotification.DataPropertyName = "IsSendNotification";
-            this.ColumnSendNotification.HeaderText = "Tin nhắn thông báo";
+            this.ColumnSendNotification.HeaderText = "Thông báo";
             this.ColumnSendNotification.Name = "ColumnSendNotification";
             this.ColumnSendNotification.ReadOnly = true;
-            this.ColumnSendNotification.Width = 150;
             // 
             // ColumnDeliver
             // 
             this.ColumnDeliver.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.ColumnDeliver.DataPropertyName = "DeliveryType";
-            this.ColumnDeliver.HeaderText = "Hình thức vận chuyển";
+            this.ColumnDeliver.HeaderText = "Vận chuyển";
             this.ColumnDeliver.Name = "ColumnDeliver";
             this.ColumnDeliver.ReadOnly = true;
-            this.ColumnDeliver.Width = 150;
+            this.ColumnDeliver.Width = 110;
             // 
             // RoleId
             // 
@@ -248,6 +264,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn DeliveryDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnSms;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSendNotification;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDeliver;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;

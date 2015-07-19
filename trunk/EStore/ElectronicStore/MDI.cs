@@ -151,8 +151,8 @@ namespace ElectronicStore
                     OpenForm(orderView);
                     break;
                 case "Quản lý thông tin vận chuyển":
-                    var deliveryView = new DeliveryView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
-                    OpenForm(deliveryView);
+                    var mainView = new MainView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                    OpenForm(mainView);
                     break;
                 case "Bảng thông tin đơn hàng":
                     var frm = new DashboardForm { Dock = DockStyle.Fill, TopLevel = true };

@@ -136,7 +136,7 @@ namespace ElectronicStore.Main
 
                     if (!string.IsNullOrEmpty(item.Recipient) && string.IsNullOrEmpty(item.IsSendNotification))
                     {
-                        item.IsSendNotification = "Chưa gửi.";
+                        item.IsSendNotification = Constants.OrderReport1;
                     }
 
                     if (itemId > 0)
@@ -156,6 +156,8 @@ namespace ElectronicStore.Main
                     else
                     {
                         item.Status = Constants.OrderStatusDraft;
+                        item.SendEmail = Constants.OrderEmail1;
+                        item.SendMessage = Constants.OrderSms1;
                         item.Created = DateTime.Now;
                         item.CreatedByUserId = currentUser.Id;
 

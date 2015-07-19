@@ -112,7 +112,7 @@ namespace ElectronicStore.Main
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
-                var orderView = new DeliveryView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                var orderView = new MainView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
                 parent.Controls.Add(orderView);
                 orderView.Show();
 
@@ -128,7 +128,7 @@ namespace ElectronicStore.Main
                     var parent = this.Parent as SplitterPanel;
                     parent.Controls.Clear();
 
-                    var deliveryView = new DeliveryView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                    var deliveryView = new MainView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
                     parent.Controls.Add(deliveryView);
                     deliveryView.Show();
 
@@ -207,7 +207,7 @@ namespace ElectronicStore.Main
 
             parent.Controls.Clear();
 
-            var deliveryView = new DeliveryView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
+            var deliveryView = new MainView(currentUser) { Dock = DockStyle.Fill, TopLevel = false };
             parent.Controls.Add(deliveryView);
             deliveryView.Show();
 
@@ -427,7 +427,7 @@ namespace ElectronicStore.Main
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
-                var deliveryView = new DeliveryView(currentUser, false, true, item.Id) { Dock = DockStyle.Fill, TopLevel = false };
+                var deliveryView = new MainView(currentUser, false, true, item.Id) { Dock = DockStyle.Fill, TopLevel = false };
                 parent.Controls.Add(deliveryView);
                 deliveryView.Show();
 
@@ -450,7 +450,7 @@ namespace ElectronicStore.Main
                 var parent = this.Parent as SplitterPanel;
                 parent.Controls.Clear();
 
-                var deliveryView = new DeliveryView(currentUser, true, false, item.Id) { Dock = DockStyle.Fill, TopLevel = false };
+                var deliveryView = new MainView(currentUser, true, false, item.Id) { Dock = DockStyle.Fill, TopLevel = false };
                 parent.Controls.Add(deliveryView);
                 deliveryView.Show();
 
