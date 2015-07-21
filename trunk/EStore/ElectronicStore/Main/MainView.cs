@@ -20,6 +20,8 @@ namespace ElectronicStore.Main
         private User currentUser;
         private bool flagSendMail;
         private bool flagSendSms;
+        private bool flagSendMailOrder;
+        private bool flagSendSmsOrder;
         private int selectedRow;
         public int selectedId = 0;
         private int isLeftClick = 0;
@@ -33,9 +35,7 @@ namespace ElectronicStore.Main
             //this.radGridView.DataSource = deliveryBiz.GetTemplateData();
 
             //var orderBiz = new OrderBiz();
-            //this.radGridView.Templates[0].DataSource = orderBiz.GetTemplateData();  
-
-            
+            //this.radGridView.Templates[0].DataSource = orderBiz.GetTemplateData();              
         }
 
         protected override void OnLoad(EventArgs e)
@@ -67,8 +67,8 @@ namespace ElectronicStore.Main
 
             currentUser = user;
 
-            backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsync);
-            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompleted);
+            backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsyncDelivery);
+            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompletedDelivery);
             this.flagSendMail = isSendMail;
             this.flagSendSms = isSendSms;
 
@@ -133,10 +133,13 @@ namespace ElectronicStore.Main
 
         private void CellClick(object sender, GridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1) return;
+
+
             var template = e.Column.OwnerTemplate;
             if(template is MasterGridViewTemplate)
             {
-                if (isLeftClick == 1)
+                if (isLeftClick == 1 && e.ColumnIndex == 2)
                 {
                     var order = e.Row.DataBoundItem as DeliveryTemplate;
                     if (order != null)
@@ -167,7 +170,7 @@ namespace ElectronicStore.Main
             }
             else
             {
-                if (isLeftClick == 1)
+                if (isLeftClick == 1 && e.ColumnIndex == 1)
                 {
                     var order = e.Row.DataBoundItem as OrderTemplate;
                     if (order != null)
@@ -316,14 +319,24 @@ namespace ElectronicStore.Main
         {
             if (selectedId > 0)
             {
-                var biz = new DeliveryBiz();
-                var status = biz.SendEmail(selectedId);
-                if (!string.IsNullOrEmpty(status.Error))
+                if (selectedRow >= 0)
                 {
-                    MessageBox.Show(status.Error);
-                }                
+                    if (this.Parent.Parent.Parent is MDI)
+                    {
+                        var root = this.Parent.Parent.Parent as MDI;
+                        if (root != null)
+                        {
+                            root.UpdateStatus("Đang gửi mail.");
+                        }
+                    }
+                }
 
-                RefreshItems(sender, e);
+                backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsyncDelivery);
+                backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompletedDelivery);
+                this.flagSendMail = true;
+                this.flagSendSms = false;
+
+                backgroundWorker.RunWorkerAsync(selectedId);                        
             }
         }
 
@@ -331,26 +344,30 @@ namespace ElectronicStore.Main
         {
             if (selectedId > 0)
             {
-                var biz = new DeliveryBiz();
-                var status = biz.SendSms(selectedId);
-                if (!string.IsNullOrEmpty(status.Error))
+                if (selectedRow >= 0)
                 {
-                    MessageBox.Show(status.Error);
+                    if (this.Parent.Parent.Parent is MDI)
+                    {
+                        var root = this.Parent.Parent.Parent as MDI;
+                        if (root != null)
+                        {
+                            root.UpdateStatus("Đang gửi tin nhắn.");
+                        }
+                    }
                 }
 
-                RefreshItems(sender, e);
+                backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsyncDelivery);
+                backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompletedDelivery);
+                this.flagSendMail = false;
+                this.flagSendSms = true;
+
+                backgroundWorker.RunWorkerAsync(selectedId);                       
             }
         }
 
-        private void WorkAsync(object sender, DoWorkEventArgs e)
+        private void WorkAsyncDelivery(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
-
-            if (selectedRow >= 0)
-            {
-                //dataGridView.Rows[selectedRow].Cells[6].Value = "Đang gửi";
-                //dataGridView.Refresh();
-            }
 
             if (flagSendMail)
             {
@@ -372,8 +389,40 @@ namespace ElectronicStore.Main
             }
         }
 
-        private void WorkAsyncCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void WorkAsyncCompletedDelivery(object sender, RunWorkerCompletedEventArgs e)
         {
+            RefreshItems(sender, e);
+        }
+
+        private void WorkAsyncOrder(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+            if (flagSendMailOrder)
+            {
+                var biz = new OrderBiz();
+                var status = biz.SendEmail(Convert.ToInt32(e.Argument));
+                if (!string.IsNullOrEmpty(status.Error))
+                {
+                    MessageBox.Show(status.Error);
+                }
+                biz.UpdateEmailStatus(Convert.ToInt32(e.Argument), status.Status);
+            }
+
+            if (flagSendSmsOrder)
+            {
+                var biz = new OrderBiz();
+                var status = biz.SendSms(Convert.ToInt32(e.Argument));
+                if (!string.IsNullOrEmpty(status.Error))
+                {
+                    MessageBox.Show(status.Error);
+                }
+                biz.UpdateSmsStatus(Convert.ToInt32(e.Argument), status.Status);
+            }
+        }
+
+        private void WorkAsyncCompletedOrder(object sender, RunWorkerCompletedEventArgs e)
+        {            
             RefreshItems(sender, e);
         }
 
@@ -381,6 +430,21 @@ namespace ElectronicStore.Main
         private void RefreshItems(object sender, EventArgs e)
         {
             CreateBoundHierarchy();
+
+            if (this.Parent.Parent.Parent is MDI)
+            {
+                var root = this.Parent.Parent.Parent as MDI;
+                if (root != null)
+                {
+                    root.UpdateStatus(string.Empty);
+                }
+            }
+            
+            flagSendMail = false;
+            flagSendSms = false;
+            flagSendMailOrder = false;
+            flagSendSmsOrder = false;            
+            backgroundWorker.Dispose();            
         }
 
         private void NewItem(object sender, EventArgs e)
@@ -398,24 +462,27 @@ namespace ElectronicStore.Main
 
         //Order functions
         public void SendEmailOrder(object sender, EventArgs e)
-        {
+        {            
             if (selectedId > 0)
             {
                 if (selectedRow >= 0)
                 {
-                    radGridView.Templates[0].Rows[selectedRow].Cells[7].Value = "Đang gửi";
-                    radGridView.Templates[0].Refresh(null);
+                    if (this.Parent.Parent.Parent is MDI)
+                    {
+                        var root = this.Parent.Parent.Parent as MDI;
+                        if (root != null)
+                        {
+                            root.UpdateStatus("Đang gửi mail.");
+                        }
+                    }
                 }
 
-                var biz = new OrderBiz();
-                var status = biz.SendEmail(selectedId);
-                if (!string.IsNullOrEmpty(status.Error))
-                {
-                    MessageBox.Show(status.Error);
-                }
-                biz.UpdateEmailStatus(selectedId, status.Status);
-
-                RefreshItems(sender, e);
+                backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsyncOrder);
+                backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompletedOrder);
+                this.flagSendMailOrder = true;
+                this.flagSendSmsOrder = false;
+            
+                backgroundWorker.RunWorkerAsync(selectedId);                
             }
         }
 
@@ -425,18 +492,22 @@ namespace ElectronicStore.Main
             {
                 if (selectedRow >= 0)
                 {
-                    radGridView.Templates[0].Rows[selectedRow].Cells[6].Value = "Đang gửi";
-                    radGridView.Templates[0].Refresh();
+                    if (this.Parent.Parent.Parent is MDI)
+                    {
+                        var root = this.Parent.Parent.Parent as MDI;
+                        if (root != null)
+                        {
+                            root.UpdateStatus("Đang gửi tin nhắn.");
+                        }
+                    }
                 }
 
-                var biz = new OrderBiz();
-                var status = biz.SendSms(selectedId);
-                if (!string.IsNullOrEmpty(status.Error))
-                {
-                    MessageBox.Show(status.Error);
-                }
-                biz.UpdateSmsStatus(selectedId, status.Status);
-                RefreshItems(sender, e);
+                backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsyncOrder);
+                backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompletedOrder);
+                this.flagSendSmsOrder = true;
+                this.flagSendMailOrder = false;
+
+                backgroundWorker.RunWorkerAsync(selectedId);                
             }
         }
 
