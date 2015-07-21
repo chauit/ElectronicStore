@@ -12,6 +12,11 @@ namespace ElectronicStore
     {
         public User CurrentUser { get; set; }
 
+        public void UpdateStatus(string value)
+        {
+            toolStripStatusLabel.Text = value;
+        }
+
         public MDI()
         {
             InitializeComponent();
