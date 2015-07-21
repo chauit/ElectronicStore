@@ -22,6 +22,7 @@ namespace ElectronicStore.Main
         private bool flagSendSms;
         private int selectedRow;
         public int selectedId = 0;
+        private int isLeftClick = 0;
 
         public MainView(User user)
         {
@@ -135,38 +136,71 @@ namespace ElectronicStore.Main
             var template = e.Column.OwnerTemplate;
             if(template is MasterGridViewTemplate)
             {
-                if (e.ColumnIndex == 2)
+                if (isLeftClick == 1)
                 {
-                    bool isDelivered = false;
-                    var delivery = e.Row.DataBoundItem as DeliveryTemplate;
-                    if (delivery != null)
+                    var order = e.Row.DataBoundItem as DeliveryTemplate;
+                    if (order != null)
                     {
-                        selectedId = delivery.Id;
-                        isDelivered = string.Equals(delivery.Status, ECommon.Constants.DeliveryStatusDelivered, StringComparison.InvariantCultureIgnoreCase);
+                        selectedId = order.Id;
                     }
 
-                    selectedRow = e.RowIndex;
+                    UpdateSingleItem(sender, e);                    
+                }
+                else
+                {
+                    if (e.ColumnIndex == 2)
+                    {
+                        bool isDelivered = false;
+                        var delivery = e.Row.DataBoundItem as DeliveryTemplate;
+                        if (delivery != null)
+                        {
+                            selectedId = delivery.Id;
+                            isDelivered = string.Equals(delivery.Status, ECommon.Constants.DeliveryStatusDelivered, StringComparison.InvariantCultureIgnoreCase);
+                        }
 
-                    var menu = AddMenuDelivery(isDelivered, false, false);
-                    menu.Show(Cursor.Position.X, Cursor.Position.Y);
+                        selectedRow = e.RowIndex;
+
+                        var menu = AddMenuDelivery(isDelivered, false, false);
+                        menu.Show(Cursor.Position.X, Cursor.Position.Y);
+                    }
                 }
             }
             else
             {
-                if (e.ColumnIndex == 1)
+                if (isLeftClick == 1)
                 {
-                    bool isDelivered = false;
                     var order = e.Row.DataBoundItem as OrderTemplate;
                     if (order != null)
                     {
                         selectedId = order.Id;
-                        isDelivered = string.Equals(order.Status, ECommon.Constants.DeliveryStatusDelivered, StringComparison.InvariantCultureIgnoreCase);
                     }
 
-                    selectedRow = e.RowIndex;
+                    var parent = this.Parent as SplitterPanel;
+                    parent.Controls.Clear();
 
-                    var menu = AddMenuOrder(isDelivered, false, false);
-                    menu.Show(Cursor.Position.X, Cursor.Position.Y);
+                    var newOrder = new OrderForm(selectedId, currentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                    parent.Controls.Add(newOrder);
+                    newOrder.Show();
+
+                    this.Close();
+                }
+                else
+                {
+                    if (e.ColumnIndex == 1)
+                    {
+                        bool isDelivered = false;
+                        var order = e.Row.DataBoundItem as OrderTemplate;
+                        if (order != null)
+                        {
+                            selectedId = order.Id;
+                            isDelivered = string.Equals(order.Status, ECommon.Constants.DeliveryStatusDelivered, StringComparison.InvariantCultureIgnoreCase);
+                        }
+
+                        selectedRow = e.RowIndex;
+
+                        var menu = AddMenuOrder(isDelivered, false, false);
+                        menu.Show(Cursor.Position.X, Cursor.Position.Y);
+                    }
                 }
             }
         }
@@ -608,6 +642,20 @@ namespace ElectronicStore.Main
                         }
                     }
                 }
+            }
+        }
+
+        private void MouseClicked(object sender, MouseEventArgs e)
+        {
+            isLeftClick = 0;
+
+            if( e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                isLeftClick = 1;
+            }
+            else if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                isLeftClick = 2;
             }
         }       
     }

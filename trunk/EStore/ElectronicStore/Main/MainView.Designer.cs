@@ -180,6 +180,7 @@
             this.radGridView.CellPaint += new Telerik.WinControls.UI.GridViewCellPaintEventHandler(this.CellPaint);
             this.radGridView.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.CellFormat);
             this.radGridView.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.CellClick);
+            this.radGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClicked);
             // 
             // buttonNew
             // 
