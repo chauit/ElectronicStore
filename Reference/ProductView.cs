@@ -14,7 +14,7 @@ namespace ElectronicStore.Reference
 {
     public partial class ProductView : Form
     {
-        ILogger logger = new Logger();
+        ElectronicStore.Common.ILogger logger = new ElectronicStore.Common.Logger();
 
         private User currentUser;
         public ProductView(User user)

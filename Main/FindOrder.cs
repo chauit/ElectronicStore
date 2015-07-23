@@ -15,7 +15,7 @@ namespace ElectronicStore.Main
 {
     public partial class FindOrder : Form
     {
-        ILogger logger = new Logger();
+        ElectronicStore.Common.ILogger logger = new ElectronicStore.Common.Logger();
 
         public DeliveryForm ParentForm { get; set; }
 
