@@ -67,10 +67,10 @@ namespace ElectronicStore.Main
 
             currentUser = user;
 
-            backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsyncDelivery);
-            backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompletedDelivery);
             this.flagSendMail = isSendMail;
             this.flagSendSms = isSendSms;
+            this.flagSendMailOrder = false;
+            this.flagSendSmsOrder = false;
 
             if (isSendMail || isSendSms)
             {
@@ -192,16 +192,21 @@ namespace ElectronicStore.Main
                     if (e.ColumnIndex == 1)
                     {
                         bool isDelivered = false;
+                        bool isSentEmail = false;
+                        bool isSentSms = false;
+
                         var order = e.Row.DataBoundItem as OrderTemplate;
                         if (order != null)
                         {
                             selectedId = order.Id;
                             isDelivered = string.Equals(order.Status, ECommon.Constants.DeliveryStatusDelivered, StringComparison.InvariantCultureIgnoreCase);
+                            isSentEmail = string.Equals(order.SendEmail, ECommon.Constants.OrderEmail2, StringComparison.InvariantCultureIgnoreCase);
+                            isSentSms = string.Equals(order.SendMessage, ECommon.Constants.OrderSms2, StringComparison.InvariantCultureIgnoreCase);
                         }
 
                         selectedRow = e.RowIndex;
 
-                        var menu = AddMenuOrder(isDelivered, false, false);
+                        var menu = AddMenuOrder(isDelivered, isSentEmail, isSentSms);
                         menu.Show(Cursor.Position.X, Cursor.Position.Y);
                     }
                 }
@@ -331,10 +336,11 @@ namespace ElectronicStore.Main
                     }
                 }
 
-                backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsyncDelivery);
-                backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompletedDelivery);
                 this.flagSendMail = true;
                 this.flagSendSms = false;
+                this.flagSendMailOrder = false;
+                this.flagSendSmsOrder = false;
+
 
                 backgroundWorker.RunWorkerAsync(selectedId);                        
             }
@@ -356,45 +362,16 @@ namespace ElectronicStore.Main
                     }
                 }
 
-                backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsyncDelivery);
-                backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompletedDelivery);
                 this.flagSendMail = false;
-                this.flagSendSms = true;
+                this.flagSendSms = true;                
+                this.flagSendMailOrder = false;
+                this.flagSendSmsOrder = false;
 
                 backgroundWorker.RunWorkerAsync(selectedId);                       
             }
-        }
+        }        
 
-        private void WorkAsyncDelivery(object sender, DoWorkEventArgs e)
-        {
-            BackgroundWorker worker = sender as BackgroundWorker;
-
-            if (flagSendMail)
-            {
-                var biz = new DeliveryBiz();
-                var status = biz.SendEmail(Convert.ToInt32(e.Argument));
-                if (!string.IsNullOrEmpty(status.Error))
-                {
-                    MessageBox.Show(status.Error);
-                } 
-            }
-            if (flagSendSms)
-            {
-                var biz = new DeliveryBiz();
-                var status = biz.SendSms(Convert.ToInt32(e.Argument));
-                if (!string.IsNullOrEmpty(status.Error))
-                {
-                    MessageBox.Show(status.Error);
-                }
-            }
-        }
-
-        private void WorkAsyncCompletedDelivery(object sender, RunWorkerCompletedEventArgs e)
-        {
-            RefreshItems(sender, e);
-        }
-
-        private void WorkAsyncOrder(object sender, DoWorkEventArgs e)
+        private void WorkAsync(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
 
@@ -419,10 +396,30 @@ namespace ElectronicStore.Main
                 }
                 biz.UpdateSmsStatus(Convert.ToInt32(e.Argument), status.Status);
             }
+
+            if (flagSendMail)
+            {
+                var biz = new DeliveryBiz();
+                var status = biz.SendEmail(Convert.ToInt32(e.Argument));
+                if (!string.IsNullOrEmpty(status.Error))
+                {
+                    MessageBox.Show(status.Error);
+                }
+            }
+
+            if (flagSendSms)
+            {
+                var biz = new DeliveryBiz();
+                var status = biz.SendSms(Convert.ToInt32(e.Argument));
+                if (!string.IsNullOrEmpty(status.Error))
+                {
+                    MessageBox.Show(status.Error);
+                }
+            }
         }
 
-        private void WorkAsyncCompletedOrder(object sender, RunWorkerCompletedEventArgs e)
-        {            
+        private void WorkAsyncCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
             RefreshItems(sender, e);
         }
 
@@ -477,8 +474,8 @@ namespace ElectronicStore.Main
                     }
                 }
 
-                backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsyncOrder);
-                backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompletedOrder);
+                this.flagSendMail = false;
+                this.flagSendSms = false;                
                 this.flagSendMailOrder = true;
                 this.flagSendSmsOrder = false;
             
@@ -501,11 +498,11 @@ namespace ElectronicStore.Main
                         }
                     }
                 }
-
-                backgroundWorker.DoWork += new DoWorkEventHandler(WorkAsyncOrder);
-                backgroundWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(WorkAsyncCompletedOrder);
+                
                 this.flagSendSmsOrder = true;
                 this.flagSendMailOrder = false;
+                this.flagSendMail = false;
+                this.flagSendSms = false;
 
                 backgroundWorker.RunWorkerAsync(selectedId);                
             }
