@@ -9,7 +9,7 @@ namespace ElectronicStore.Main
 {
     public partial class FindProduct : Form
     {
-        ILogger logger = new Logger();
+        ElectronicStore.Common.ILogger logger = new ElectronicStore.Common.Logger();
         public OrderForm ParentForm { get; set; }
 
         public SearchProduct SelectedProduct;

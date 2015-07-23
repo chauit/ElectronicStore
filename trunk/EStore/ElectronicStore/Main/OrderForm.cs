@@ -275,7 +275,7 @@ namespace ElectronicStore.Main
                     int.TryParse(txtDiscount.Text, out discount);
                     
                     decimal x = 1.1M;
-                    var rootPrice = Math.Round(product.Price.Value / x);
+                    var rootPrice = Decimal.Round(product.Price.Value / x, 1);
                     product.ActualPrice = rootPrice - (rootPrice * discount) / 100;
                 }
 
@@ -320,8 +320,8 @@ namespace ElectronicStore.Main
                         int number = 0;
                         if (int.TryParse(Convert.ToString(row.Cells[2].Value), out number))
                         {
-                            decimal total = price * number;
-                            row.Cells[4].Value = total.ToString("0,000");
+                            decimal total = Decimal.Round(price * number, 1);
+                            row.Cells[4].Value = total.ToString(Constants.CurrencyFormat);
                             row.Cells[6].Value = total;
 
                             UpdateTotal();
@@ -350,7 +350,7 @@ namespace ElectronicStore.Main
                 searchProduct.QuantityValue = detail.Quantity.ToString();
                 searchProduct.Total = detail.Total;
                 searchProduct.ActualPrice = detail.ProductActualPrice;
-                searchProduct.TotalValue = detail.Total.ToString("0,000");
+                searchProduct.TotalValue = detail.Total.ToString(Constants.CurrencyFormat);
                 searchProduct.Id = detail.Id;
                 searchProduct.Name = detail.Product.Name;
                 searchProduct.Code = detail.Product.Code;
@@ -438,7 +438,7 @@ namespace ElectronicStore.Main
                 }
 
                 var footer = dataGridView.Rows[dataGridView.RowCount - 3];
-                footer.Cells[4].Value = "Tổng: " + total.ToString("0,000");
+                footer.Cells[4].Value = "Tổng: " + total.ToString(Constants.CurrencyFormat);
 
                 var vat = dataGridView.Rows[dataGridView.RowCount - 2];                
                 decimal vatValue = (total * 10) / 100;
@@ -450,11 +450,11 @@ namespace ElectronicStore.Main
                 }
                 else
                 {
-                    vat.Cells[4].Value = "VAT(10%): " + vatValue.ToString("0,000");
+                    vat.Cells[4].Value = "VAT(10%): " + vatValue.ToString(Constants.CurrencyFormat);
                 }                
                 
-                var final = dataGridView.Rows[dataGridView.RowCount - 1];                
-                final.Cells[4].Value = "Tổng: " + (total + vatValue).ToString("0,000");
+                var final = dataGridView.Rows[dataGridView.RowCount - 1];
+                final.Cells[4].Value = "Tổng: " + (total + vatValue).ToString(Constants.CurrencyFormat);
             }
         }
 
@@ -501,7 +501,7 @@ namespace ElectronicStore.Main
                             product.ActualPrice = rootPrice - (rootPrice * rate) / 100;
                             if (product.Quantity.HasValue)
                             {
-                                product.TotalValue = (product.ActualPrice * product.Quantity).Value.ToString("0,000");
+                                product.TotalValue = (product.ActualPrice * product.Quantity).Value.ToString(Constants.CurrencyFormat);
                             }
                         }
                     }

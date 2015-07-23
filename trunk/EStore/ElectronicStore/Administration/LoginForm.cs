@@ -8,7 +8,7 @@ namespace ElectronicStore.Administration
 {
     public partial class LoginForm : Form
     {
-        ILogger logger = new Logger();
+        ElectronicStore.Common.ILogger logger = new ElectronicStore.Common.Logger();
         public User Result { get; set; }
 
         public LoginForm()

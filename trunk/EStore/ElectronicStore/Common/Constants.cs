@@ -27,6 +27,7 @@ namespace ElectronicStore.Common
         }
 
         public const string DefaultPassword = "1";
+        public const string CurrencyFormat = "0,000.0";
         public const string DefaultDateTimeFormat = "dd/MM/yyyy hh:mm tt";
 
         public const string OrderStatusDraft = "Nhận đơn hàng từ khách";

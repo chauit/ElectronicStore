@@ -8,7 +8,7 @@ namespace ElectronicStore.Administration
 {
     public partial class ConfigurationForm : Form
     {
-        ILogger logger = new Logger();
+        ElectronicStore.Common.ILogger logger = new ElectronicStore.Common.Logger();
         private int itemId;
 
         private DateTime? created;
