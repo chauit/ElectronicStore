@@ -164,7 +164,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(323, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 13);
+            this.label2.Size = new System.Drawing.Size(24, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Tên";
             // 
@@ -216,6 +216,7 @@
             this.Controls.Add(this.button2);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "UserForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

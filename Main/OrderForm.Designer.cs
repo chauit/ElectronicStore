@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRecipientPhone = new System.Windows.Forms.TextBox();
@@ -363,7 +363,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(890, 240);
+            this.groupBox2.Size = new System.Drawing.Size(415, 481);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mã hàng";
@@ -374,7 +374,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 67);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(884, 170);
+            this.groupBox4.Size = new System.Drawing.Size(409, 411);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách sản phẩm";
@@ -397,8 +397,8 @@
             this.dataGridView.Location = new System.Drawing.Point(3, 18);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.Size = new System.Drawing.Size(878, 149);
+            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dataGridView.Size = new System.Drawing.Size(403, 390);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.DataSourceChanged += new System.EventHandler(this.ChangeSource);
             this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPainting);
@@ -422,21 +422,21 @@
             // Quantity
             // 
             this.Quantity.DataPropertyName = "QuantityValue";
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle41.Format = "N0";
-            dataGridViewCellStyle41.NullValue = null;
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle1;
             this.Quantity.HeaderText = "Số lượng (m)";
             this.Quantity.Name = "Quantity";
             // 
             // Price
             // 
             this.Price.DataPropertyName = "ActualPrice";
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle42.Format = "0,000.0";
-            dataGridViewCellStyle42.NullValue = null;
-            this.Price.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle2.Format = "0,000.0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Price.DefaultCellStyle = dataGridViewCellStyle2;
             this.Price.HeaderText = "Đơn giá";
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
@@ -444,10 +444,10 @@
             // Total
             // 
             this.Total.DataPropertyName = "TotalValue";
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle43.Format = "0,000.0";
-            dataGridViewCellStyle43.NullValue = null;
-            this.Total.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle3.Format = "0,000.0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle3;
             this.Total.HeaderText = "Tổng";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
@@ -463,8 +463,8 @@
             // ColumnTotal
             // 
             this.ColumnTotal.DataPropertyName = "Total";
-            dataGridViewCellStyle44.Format = "0,000.0";
-            this.ColumnTotal.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle4.Format = "0,000.0";
+            this.ColumnTotal.DefaultCellStyle = dataGridViewCellStyle4;
             this.ColumnTotal.HeaderText = "Total";
             this.ColumnTotal.Name = "ColumnTotal";
             this.ColumnTotal.ReadOnly = true;
@@ -482,7 +482,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(3, 18);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(884, 49);
+            this.groupBox3.Size = new System.Drawing.Size(409, 49);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             // 
@@ -565,7 +565,6 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer1.Panel1
             // 
@@ -575,7 +574,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox5);
             this.splitContainer1.Size = new System.Drawing.Size(890, 481);
-            this.splitContainer1.SplitterDistance = 240;
+            this.splitContainer1.SplitterDistance = 415;
             this.splitContainer1.TabIndex = 3;
             // 
             // groupBox5
@@ -585,7 +584,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(890, 237);
+            this.groupBox5.Size = new System.Drawing.Size(471, 481);
             this.groupBox5.TabIndex = 28;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Mã hàng LD";
@@ -597,7 +596,7 @@
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(3, 67);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(884, 167);
+            this.groupBox6.Size = new System.Drawing.Size(465, 411);
             this.groupBox6.TabIndex = 27;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh sách sản phẩm";
@@ -620,8 +619,8 @@
             this.dataGridViewLD.Location = new System.Drawing.Point(3, 18);
             this.dataGridViewLD.MultiSelect = false;
             this.dataGridViewLD.Name = "dataGridViewLD";
-            this.dataGridViewLD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewLD.Size = new System.Drawing.Size(878, 146);
+            this.dataGridViewLD.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.dataGridViewLD.Size = new System.Drawing.Size(459, 390);
             this.dataGridViewLD.TabIndex = 0;
             this.dataGridViewLD.DataSourceChanged += new System.EventHandler(this.ChangeSourceLD);
             this.dataGridViewLD.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPaintingLD);
@@ -645,21 +644,21 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "QuantityValue";
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle45.Format = "N0";
-            dataGridViewCellStyle45.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn3.HeaderText = "Số lượng (m)";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "ActualPrice";
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle46.Format = "0,000.0";
-            dataGridViewCellStyle46.NullValue = null;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle6.Format = "0,000.0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn4.HeaderText = "Đơn giá";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -667,10 +666,10 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "TotalValue";
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle47.Format = "0,000.0";
-            dataGridViewCellStyle47.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle7.Format = "0,000.0";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn5.HeaderText = "Tổng";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -686,8 +685,8 @@
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "Total";
-            dataGridViewCellStyle48.Format = "0,000.0";
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle8.Format = "0,000.0";
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn7.HeaderText = "Total";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -703,7 +702,7 @@
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox7.Location = new System.Drawing.Point(3, 18);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(884, 49);
+            this.groupBox7.Size = new System.Drawing.Size(465, 49);
             this.groupBox7.TabIndex = 26;
             this.groupBox7.TabStop = false;
             // 
