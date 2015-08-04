@@ -33,11 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRecipientPhone = new System.Windows.Forms.TextBox();
@@ -55,7 +55,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelOrderNo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.drlCustomer = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDiscount = new System.Windows.Forms.TextBox();
             this.cboVat = new System.Windows.Forms.CheckBox();
@@ -74,11 +73,7 @@
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.buttonAddProduct = new System.Windows.Forms.Button();
-            this.buttonDeleteProduct = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -95,8 +90,13 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txtDiscountLD = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.textCustomer = new System.Windows.Forms.TextBox();
+            this.buttonAddProduct = new System.Windows.Forms.Button();
+            this.buttonDeleteProduct = new System.Windows.Forms.Button();
             this.buttonAddProductLD = new System.Windows.Forms.Button();
             this.buttonDeleteProductLD = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -126,6 +126,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textCustomer);
             this.groupBox1.Controls.Add(this.txtRecipientPhone);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtRecipient);
@@ -141,7 +142,6 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.labelOrderNo);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.drlCustomer);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -286,17 +286,6 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Ngày chuyển hàng";
             // 
-            // drlCustomer
-            // 
-            this.drlCustomer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.drlCustomer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.drlCustomer.FormattingEnabled = true;
-            this.drlCustomer.Location = new System.Drawing.Point(562, 57);
-            this.drlCustomer.Name = "drlCustomer";
-            this.drlCustomer.Size = new System.Drawing.Size(221, 21);
-            this.drlCustomer.TabIndex = 2;
-            this.drlCustomer.SelectedIndexChanged += new System.EventHandler(this.SelectCustomer);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -363,7 +352,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(440, 481);
+            this.groupBox2.Size = new System.Drawing.Size(439, 481);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mã hàng";
@@ -374,7 +363,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 67);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(434, 411);
+            this.groupBox4.Size = new System.Drawing.Size(433, 411);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách sản phẩm";
@@ -398,7 +387,7 @@
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dataGridView.Size = new System.Drawing.Size(428, 390);
+            this.dataGridView.Size = new System.Drawing.Size(427, 390);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.DataSourceChanged += new System.EventHandler(this.ChangeSource);
             this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPainting);
@@ -482,35 +471,9 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(3, 18);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(434, 49);
+            this.groupBox3.Size = new System.Drawing.Size(433, 49);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
-            // 
-            // buttonAddProduct
-            // 
-            this.buttonAddProduct.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddProduct.Image")));
-            this.buttonAddProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddProduct.Location = new System.Drawing.Point(18, 15);
-            this.buttonAddProduct.Name = "buttonAddProduct";
-            this.buttonAddProduct.Size = new System.Drawing.Size(75, 25);
-            this.buttonAddProduct.TabIndex = 9;
-            this.buttonAddProduct.Text = "Thêm   ";
-            this.buttonAddProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAddProduct.UseVisualStyleBackColor = true;
-            this.buttonAddProduct.Click += new System.EventHandler(this.AddNewProduct);
-            // 
-            // buttonDeleteProduct
-            // 
-            this.buttonDeleteProduct.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteProduct.Image")));
-            this.buttonDeleteProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDeleteProduct.Location = new System.Drawing.Point(99, 15);
-            this.buttonDeleteProduct.Name = "buttonDeleteProduct";
-            this.buttonDeleteProduct.Size = new System.Drawing.Size(75, 25);
-            this.buttonDeleteProduct.TabIndex = 10;
-            this.buttonDeleteProduct.Text = "Xóa     ";
-            this.buttonDeleteProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonDeleteProduct.UseVisualStyleBackColor = true;
-            this.buttonDeleteProduct.Click += new System.EventHandler(this.DeleteProduct);
             // 
             // panel1
             // 
@@ -522,32 +485,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(890, 260);
             this.panel1.TabIndex = 6;
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
-            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSave.Location = new System.Drawing.Point(803, 13);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(84, 25);
-            this.buttonSave.TabIndex = 11;
-            this.buttonSave.Text = "Cập nhật";
-            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.SaveItem);
-            // 
-            // button2
-            // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(803, 44);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 25);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Thoát   ";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.CancelItem);
             // 
             // panel2
             // 
@@ -574,7 +511,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox5);
             this.splitContainer1.Size = new System.Drawing.Size(890, 481);
-            this.splitContainer1.SplitterDistance = 440;
+            this.splitContainer1.SplitterDistance = 439;
             this.splitContainer1.TabIndex = 3;
             // 
             // groupBox5
@@ -584,7 +521,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(446, 481);
+            this.groupBox5.Size = new System.Drawing.Size(447, 481);
             this.groupBox5.TabIndex = 28;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Mã hàng LD";
@@ -596,7 +533,7 @@
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(3, 67);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(440, 411);
+            this.groupBox6.Size = new System.Drawing.Size(441, 411);
             this.groupBox6.TabIndex = 27;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh sách sản phẩm";
@@ -620,7 +557,7 @@
             this.dataGridViewLD.MultiSelect = false;
             this.dataGridViewLD.Name = "dataGridViewLD";
             this.dataGridViewLD.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dataGridViewLD.Size = new System.Drawing.Size(434, 390);
+            this.dataGridViewLD.Size = new System.Drawing.Size(435, 390);
             this.dataGridViewLD.TabIndex = 0;
             this.dataGridViewLD.DataSourceChanged += new System.EventHandler(this.ChangeSourceLD);
             this.dataGridViewLD.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPaintingLD);
@@ -702,7 +639,7 @@
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox7.Location = new System.Drawing.Point(3, 18);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(440, 49);
+            this.groupBox7.Size = new System.Drawing.Size(441, 49);
             this.groupBox7.TabIndex = 26;
             this.groupBox7.TabStop = false;
             // 
@@ -732,6 +669,40 @@
             this.label13.TabIndex = 35;
             this.label13.Text = "Chiết khấu:";
             // 
+            // textCustomer
+            // 
+            this.textCustomer.Location = new System.Drawing.Point(562, 57);
+            this.textCustomer.Name = "textCustomer";
+            this.textCustomer.Size = new System.Drawing.Size(221, 22);
+            this.textCustomer.TabIndex = 2;
+            this.textCustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CustomerKeyUp);
+            // 
+            // buttonAddProduct
+            // 
+            this.buttonAddProduct.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddProduct.Image")));
+            this.buttonAddProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddProduct.Location = new System.Drawing.Point(18, 15);
+            this.buttonAddProduct.Name = "buttonAddProduct";
+            this.buttonAddProduct.Size = new System.Drawing.Size(75, 25);
+            this.buttonAddProduct.TabIndex = 9;
+            this.buttonAddProduct.Text = "Thêm   ";
+            this.buttonAddProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAddProduct.UseVisualStyleBackColor = true;
+            this.buttonAddProduct.Click += new System.EventHandler(this.AddNewProduct);
+            // 
+            // buttonDeleteProduct
+            // 
+            this.buttonDeleteProduct.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteProduct.Image")));
+            this.buttonDeleteProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDeleteProduct.Location = new System.Drawing.Point(99, 15);
+            this.buttonDeleteProduct.Name = "buttonDeleteProduct";
+            this.buttonDeleteProduct.Size = new System.Drawing.Size(75, 25);
+            this.buttonDeleteProduct.TabIndex = 10;
+            this.buttonDeleteProduct.Text = "Xóa     ";
+            this.buttonDeleteProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonDeleteProduct.UseVisualStyleBackColor = true;
+            this.buttonDeleteProduct.Click += new System.EventHandler(this.DeleteProduct);
+            // 
             // buttonAddProductLD
             // 
             this.buttonAddProductLD.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddProductLD.Image")));
@@ -757,6 +728,32 @@
             this.buttonDeleteProductLD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDeleteProductLD.UseVisualStyleBackColor = true;
             this.buttonDeleteProductLD.Click += new System.EventHandler(this.DeleteProductLD);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
+            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSave.Location = new System.Drawing.Point(803, 13);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(84, 25);
+            this.buttonSave.TabIndex = 11;
+            this.buttonSave.Text = "Cập nhật";
+            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.SaveItem);
+            // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(803, 44);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(84, 25);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Thoát   ";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.CancelItem);
             // 
             // OrderForm
             // 
@@ -808,7 +805,6 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox drlCustomer;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelOrderNo;
         private System.Windows.Forms.Label label2;
@@ -861,5 +857,6 @@
         private System.Windows.Forms.TextBox txtDiscountLD;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textCustomer;
     }
 }
