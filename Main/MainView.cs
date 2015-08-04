@@ -29,13 +29,7 @@ namespace ElectronicStore.Main
         public MainView(User user)
         {
             InitializeComponent();
-            currentUser = user;
-
-            //var deliveryBiz = new DeliveryBiz();
-            //this.radGridView.DataSource = deliveryBiz.GetTemplateData();
-
-            //var orderBiz = new OrderBiz();
-            //this.radGridView.Templates[0].DataSource = orderBiz.GetTemplateData();              
+            currentUser = user;   
         }
 
         protected override void OnLoad(EventArgs e)
@@ -48,8 +42,6 @@ namespace ElectronicStore.Main
             InitializeComponent();
 
             selectedRow = -1;
-
-            //CreateBoundHierarchy();
 
             var list = radGridView.MasterTemplate.DataSource as List<DeliveryTemplate>;
 
@@ -116,7 +108,7 @@ namespace ElectronicStore.Main
                 template.Columns["DeliveryDate"].HeaderText = "Ngày giao";
                 template.Columns["DeliveryInternal"].HeaderText = "Hình thức vận chuyển";                
                 template.Columns["SendMessage"].HeaderText = "Tin nhắn";
-                template.Columns["SendEmail"].HeaderText = "mail";
+                template.Columns["SendEmail"].HeaderText = "Email";
                 template.Columns["SendReport"].HeaderText = "Thông báo";
                 template.Columns["Id"].IsVisible = false;
                 template.Columns["ParentId"].IsVisible = false;
