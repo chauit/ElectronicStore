@@ -7,15 +7,15 @@ using ElectronicStore.Common;
 
 namespace ElectronicStore.Main
 {
-    public partial class FindProduct : Form
+    public partial class FindProductLD : Form
     {
         ElectronicStore.Common.ILogger logger = new ElectronicStore.Common.Logger();
         public OrderForm ParentForm { get; set; }
 
-        public SearchProduct SelectedProduct;
-        private List<SearchProduct> ListSelectedProduct { get; set; }
+        public SearchProductLD SelectedProduct;
+        private List<SearchProductLD> ListSelectedProduct { get; set; }
 
-        public FindProduct(List<SearchProduct> listProduct)
+        public FindProductLD(List<SearchProductLD> listProduct)
         {
             InitializeComponent();
 
@@ -23,7 +23,7 @@ namespace ElectronicStore.Main
 
             LoadProductType();
 
-            ListSelectedProduct = new List<SearchProduct>();
+            ListSelectedProduct = new List<SearchProductLD>();
 
             foreach(var product in listProduct)
             {
@@ -47,7 +47,7 @@ namespace ElectronicStore.Main
         {
             int? typeId = null;                        
 
-            var biz = new ProductBiz();
+            var biz = new ProductLDBiz();
             var data = biz.SearchProduct(drlProductType.Text, textName.Text, textCode.Text);
 
             foreach(var p in ListSelectedProduct)
@@ -69,17 +69,17 @@ namespace ElectronicStore.Main
                 try
                 {
                     int index = dataGridView.SelectedRows[0].Index;
-                    SelectedProduct = dataGridView.SelectedRows[0].DataBoundItem as SearchProduct;
+                    SelectedProduct = dataGridView.SelectedRows[0].DataBoundItem as SearchProductLD;
 
                     ListSelectedProduct.Add(SelectedProduct);
 
                     var orderForm = this.ParentForm as OrderForm;
                     if (orderForm != null)
                     {
-                        orderForm.UpdateGrid(SelectedProduct);
+                        orderForm.UpdateGridLD(SelectedProduct);
                     }
 
-                    var list = dataGridView.DataSource as List<SearchProduct>;
+                    var list = dataGridView.DataSource as List<SearchProductLD>;
                     list.RemoveAt(index);
 
                     dataGridView.DataSource = null;
@@ -88,7 +88,7 @@ namespace ElectronicStore.Main
                 }
                 catch(Exception ex)
                 {
-                    logger.EnterMethod("Select Product");
+                    logger.EnterMethod("Select Product LD");
                     logger.LogException(ex);
                 }
             }

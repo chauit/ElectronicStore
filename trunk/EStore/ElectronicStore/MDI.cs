@@ -147,6 +147,10 @@ namespace ElectronicStore
                     var productView = new ProductView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(productView);
                     break;
+                case "Quản lý sản phẩm LD":
+                    var productLDView = new ProductLDView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                    OpenForm(productLDView);
+                    break;                    
                 case "Quản lý thiết bị vận chuyển":
                     var vehicleView = new VehicleView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(vehicleView);
