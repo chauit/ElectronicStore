@@ -363,7 +363,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(415, 481);
+            this.groupBox2.Size = new System.Drawing.Size(440, 481);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mã hàng";
@@ -374,7 +374,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 67);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(409, 411);
+            this.groupBox4.Size = new System.Drawing.Size(434, 411);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách sản phẩm";
@@ -398,7 +398,7 @@
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dataGridView.Size = new System.Drawing.Size(403, 390);
+            this.dataGridView.Size = new System.Drawing.Size(428, 390);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.DataSourceChanged += new System.EventHandler(this.ChangeSource);
             this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPainting);
@@ -482,7 +482,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(3, 18);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(409, 49);
+            this.groupBox3.Size = new System.Drawing.Size(434, 49);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             // 
@@ -574,7 +574,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox5);
             this.splitContainer1.Size = new System.Drawing.Size(890, 481);
-            this.splitContainer1.SplitterDistance = 415;
+            this.splitContainer1.SplitterDistance = 440;
             this.splitContainer1.TabIndex = 3;
             // 
             // groupBox5
@@ -584,7 +584,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(471, 481);
+            this.groupBox5.Size = new System.Drawing.Size(446, 481);
             this.groupBox5.TabIndex = 28;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Mã hàng LD";
@@ -596,7 +596,7 @@
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(3, 67);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(465, 411);
+            this.groupBox6.Size = new System.Drawing.Size(440, 411);
             this.groupBox6.TabIndex = 27;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh sách sản phẩm";
@@ -620,7 +620,7 @@
             this.dataGridViewLD.MultiSelect = false;
             this.dataGridViewLD.Name = "dataGridViewLD";
             this.dataGridViewLD.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dataGridViewLD.Size = new System.Drawing.Size(459, 390);
+            this.dataGridViewLD.Size = new System.Drawing.Size(434, 390);
             this.dataGridViewLD.TabIndex = 0;
             this.dataGridViewLD.DataSourceChanged += new System.EventHandler(this.ChangeSourceLD);
             this.dataGridViewLD.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPaintingLD);
@@ -702,7 +702,7 @@
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox7.Location = new System.Drawing.Point(3, 18);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(465, 49);
+            this.groupBox7.Size = new System.Drawing.Size(440, 49);
             this.groupBox7.TabIndex = 26;
             this.groupBox7.TabStop = false;
             // 
