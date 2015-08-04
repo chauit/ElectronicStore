@@ -121,7 +121,7 @@
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonSave.Location = new System.Drawing.Point(320, 370);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 25);
+            this.buttonSave.Size = new System.Drawing.Size(91, 25);
             this.buttonSave.TabIndex = 3;
             this.buttonSave.Text = "Cập nhật";
             this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
