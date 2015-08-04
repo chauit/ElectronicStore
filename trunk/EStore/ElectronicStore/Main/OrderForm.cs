@@ -1,4 +1,5 @@
 ﻿using Business;
+using ElectronicStore.Administration;
 using ElectronicStore.Common;
 using Model;
 using System;
@@ -18,6 +19,7 @@ namespace ElectronicStore.Main
         private int? modifiedBy;
 
         private User currentUser;
+        private Customer currentCustomer;
 
         public List<int> removedItems;
         public List<SearchProduct> listProduct;
@@ -31,8 +33,7 @@ namespace ElectronicStore.Main
             button2.DialogResult = DialogResult.Cancel;
 
             currentUser = user;
-
-            LoadCustomer();
+           
             listProduct = new List<SearchProduct>();
             listProductLD = new List<SearchProductLD>();
             removedItems = new List<int>();
@@ -63,7 +64,6 @@ namespace ElectronicStore.Main
 
             InitForm(user);
 
-            drlCustomer.Focus();
             itemId = id;
 
             var biz = new OrderBiz();
@@ -87,24 +87,14 @@ namespace ElectronicStore.Main
             cboVat.Checked = item.Vat;
             if (item.CustomerId.HasValue)
             {
-                drlCustomer.SelectedValue = item.CustomerId.Value;
+                textCustomer.Text = item.CustomerName;
+                currentCustomer = item.Customer;
+                SelectCustomer();
             }
 
             LoadProducts(item);
 
             this.Text = "Sửa đơn hàng";
-        }
-
-        private void LoadCustomer()
-        {
-            var biz = new CustomerBiz();
-            var items = biz.LoadItems();
-            items.Insert(0, new Customer());
-
-            drlCustomer.Items.Clear();
-            drlCustomer.DataSource = items;
-            drlCustomer.DisplayMember = "FullName";
-            drlCustomer.ValueMember = "Id";
         }
 
         private void SaveItem(object sender, EventArgs e)
@@ -128,7 +118,12 @@ namespace ElectronicStore.Main
                     item.OrderDate = dateOrderDate.Value;
                     item.DeliveryDate = dateDeliveryDate.Value;
                     item.DeliveryAddress = textDeliverrAddress.Text;
-                    item.CustomerId = Convert.ToInt32(Convert.ToString(drlCustomer.SelectedValue));
+
+                    if (currentCustomer != null)
+                    {
+                        item.CustomerId = currentCustomer.Id;
+                    }
+                    
                     item.DeliveryInternal = cboDeliveryInternal.Checked;
                     decimal discount = 0;
                     if (decimal.TryParse(txtDiscount.Text, out discount))
@@ -213,12 +208,12 @@ namespace ElectronicStore.Main
             bool hasError = true;            
             errorProvider.Clear();
 
-            if (drlCustomer.SelectedItem == null || Convert.ToInt32(drlCustomer.SelectedValue) == 0)
+            if (currentCustomer == null)
             {
-                errorProvider.SetError(drlCustomer, Constants.Messages.RequireMessage);
+                errorProvider.SetError(textCustomer, Constants.Messages.RequireMessage);
                 hasError = false;
 
-                drlCustomer.Focus();
+                textCustomer.Focus();
             }
 
             if (!string.IsNullOrEmpty(txtRecipient.Text) && txtRecipient.Text.Length > 0)
@@ -242,26 +237,14 @@ namespace ElectronicStore.Main
             return hasError;
         }
 
-        private void SelectCustomer(object sender, EventArgs e)
+        private void SelectCustomer()
         {
             textDeliverrAddress.Text = string.Empty;
 
-            if (drlCustomer.SelectedItem != null)
-            {                
-                var customer = drlCustomer.SelectedItem as Customer;
-                if (customer.Id > 0)
-                {
-                    textDeliverrAddress.Text = customer.Address1;
-
-                    if(string.Equals(customer.City, Constants.CityInternal, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        cboDeliveryInternal.Checked = true;
-                    }
-                    else
-                    {
-                        cboDeliveryInternal.Checked = false;
-                    }
-                }
+            if (currentCustomer != null)
+            {
+                textDeliverrAddress.Text = currentCustomer.Address1;
+                textCustomer.Text = currentCustomer.FullName;                
             }
         }
 
@@ -787,5 +770,37 @@ namespace ElectronicStore.Main
                 }
             }
         }
+
+        private void CustomerKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                var dialog = new FindCustomer(textCustomer.Text);
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    if (dialog.SelectedItem != null)
+                    {
+                        currentCustomer = dialog.SelectedItem;
+                        SelectCustomer();
+
+                        if (string.Equals(currentCustomer.City, Constants.CityInternal, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            cboDeliveryInternal.Checked = true;
+                        }
+                        else
+                        {
+                            cboDeliveryInternal.Checked = false;
+                        }
+                    }
+                }
+                else
+                {
+                    currentCustomer = null;
+                    textCustomer.Text = string.Empty;
+                    textDeliverrAddress.Text = string.Empty;
+                }
+            }
+        }
+
     }
 }
