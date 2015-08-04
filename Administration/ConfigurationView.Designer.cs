@@ -185,7 +185,7 @@
             this.buttonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonRefresh.Location = new System.Drawing.Point(238, 14);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(75, 25);
+            this.buttonRefresh.Size = new System.Drawing.Size(84, 25);
             this.buttonRefresh.TabIndex = 4;
             this.buttonRefresh.Text = "Cập nhật";
             this.buttonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
