@@ -45,7 +45,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(25, 13);
+            this.label1.Size = new System.Drawing.Size(24, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên";
             // 
@@ -85,9 +85,9 @@
             // 
             this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
             this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSave.Location = new System.Drawing.Point(236, 76);
+            this.buttonSave.Location = new System.Drawing.Point(230, 76);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 25);
+            this.buttonSave.Size = new System.Drawing.Size(81, 25);
             this.buttonSave.TabIndex = 3;
             this.buttonSave.Text = "Cập nhật";
             this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
