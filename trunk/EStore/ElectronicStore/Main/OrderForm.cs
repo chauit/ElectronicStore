@@ -313,8 +313,7 @@ namespace ElectronicStore.Main
                     int discount = 0;
                     int.TryParse(txtDiscountLD.Text, out discount);
 
-                    decimal x = 1.1M;
-                    var rootPrice = Decimal.Round(product.Price.Value / x, 1);
+                    var rootPrice = product.Price.Value;
                     product.ActualPrice = rootPrice - (rootPrice * discount) / 100;
                 }
 
@@ -687,9 +686,8 @@ namespace ElectronicStore.Main
                     {
                         var product = list[i];
                         if (!string.IsNullOrEmpty(product.Code))
-                        {
-                            decimal x = 1.1M;
-                            var rootPrice = Math.Round(product.Price.Value / x);
+                        {                            
+                            var rootPrice = product.Price.Value;
                             product.ActualPrice = rootPrice - (rootPrice * rate) / 100;
                             if (product.Quantity.HasValue)
                             {
