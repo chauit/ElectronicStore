@@ -22,6 +22,7 @@ namespace ElectronicStore.Main
         private bool flagSendSms;
         private bool flagSendMailOrder;
         private bool flagSendSmsOrder;
+        private bool flagSendSmsNotification;
         private int selectedRow;
         public int selectedId = 0;
         private int isLeftClick = 0;
@@ -112,6 +113,7 @@ namespace ElectronicStore.Main
                 template.Columns["SendReport"].HeaderText = "Thông báo";
                 template.Columns["Id"].IsVisible = false;
                 template.Columns["ParentId"].IsVisible = false;
+                template.Columns["Recipient"].IsVisible = false;
                             
                 template.AutoSizeColumnsMode = GridViewAutoSizeColumnsMode.Fill;
 
@@ -186,6 +188,7 @@ namespace ElectronicStore.Main
                         bool isDelivered = false;
                         bool isSentEmail = false;
                         bool isSentSms = false;
+                        bool isDeliverToOther = false;
 
                         var order = e.Row.DataBoundItem as OrderTemplate;
                         if (order != null)
@@ -194,11 +197,18 @@ namespace ElectronicStore.Main
                             isDelivered = string.Equals(order.Status, ECommon.Constants.DeliveryStatusDelivered, StringComparison.InvariantCultureIgnoreCase);
                             isSentEmail = string.Equals(order.SendEmail, ECommon.Constants.OrderEmail2, StringComparison.InvariantCultureIgnoreCase);
                             isSentSms = string.Equals(order.SendMessage, ECommon.Constants.OrderSms2, StringComparison.InvariantCultureIgnoreCase);
+
+                            if (!string.IsNullOrEmpty(order.Recipient) &&
+                                !string.Equals(ECommon.Constants.OrderReport2, order.SendReport, StringComparison.InvariantCultureIgnoreCase) &&
+                                string.Equals(ECommon.Constants.OrderSms2, order.SendMessage, StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                isDeliverToOther = true;
+                            }
                         }
 
                         selectedRow = e.RowIndex;
 
-                        var menu = AddMenuOrder(isDelivered, isSentEmail, isSentSms);
+                        var menu = AddMenuOrder(isDelivered, isSentEmail, isSentSms, isDeliverToOther);
                         menu.Show(Cursor.Position.X, Cursor.Position.Y);
                     }
                 }
@@ -243,18 +253,20 @@ namespace ElectronicStore.Main
             return mnu;
         }
 
-        private ContextMenuStrip AddMenuOrder(bool isDelivered, bool isSendEmail, bool isSendSms)
+        private ContextMenuStrip AddMenuOrder(bool isDelivered, bool isSendEmail, bool isSendSms, bool isDeliverToOther)
         {
             ContextMenuStrip mnu = new ContextMenuStrip();
             
             ToolStripMenuItem mnuSendEmail = new ToolStripMenuItem("Gửi email");
             ToolStripMenuItem mnuSendSms = new ToolStripMenuItem("Gửi SMS");
+            ToolStripMenuItem mnuSendNotification = new ToolStripMenuItem("Gửi tin nhắn thông báo");
             ToolStripMenuItem mnuDeliver = new ToolStripMenuItem("Đã giao đơn hàng");
 
             //Assign event handlers
             mnuDeliver.Click += new EventHandler(DeliverOrder);
             mnuSendEmail.Click += new EventHandler(SendEmailOrder);
             mnuSendSms.Click += new EventHandler(SendSmsOrder);
+            mnuSendNotification.Click += new EventHandler(SendNotification);
 
             if (!isDelivered)
             {
@@ -269,6 +281,11 @@ namespace ElectronicStore.Main
             if (!isSendSms)
             {
                 mnu.Items.Add(mnuSendSms);
+            }
+
+            if (isDeliverToOther)
+            {
+                mnu.Items.Add(mnuSendNotification);
             }
 
             return mnu;
@@ -332,7 +349,7 @@ namespace ElectronicStore.Main
                 this.flagSendSms = false;
                 this.flagSendMailOrder = false;
                 this.flagSendSmsOrder = false;
-
+                this.flagSendSmsNotification = false;
 
                 backgroundWorker.RunWorkerAsync(selectedId);                        
             }
@@ -358,6 +375,7 @@ namespace ElectronicStore.Main
                 this.flagSendSms = true;                
                 this.flagSendMailOrder = false;
                 this.flagSendSmsOrder = false;
+                this.flagSendSmsNotification = false;
 
                 backgroundWorker.RunWorkerAsync(selectedId);                       
             }
@@ -389,6 +407,18 @@ namespace ElectronicStore.Main
                 biz.UpdateSmsStatus(Convert.ToInt32(e.Argument), status.Status);
             }
 
+            if (flagSendSmsNotification)
+            {
+                var biz = new OrderBiz();
+                var status = biz.SendReport(Convert.ToInt32(e.Argument));
+
+                if (!string.IsNullOrEmpty(status.Error))
+                {
+                    MessageBox.Show(status.Error);
+                }
+                biz.UpdateNotificationStatus(Convert.ToInt32(e.Argument), status.Status);
+            }
+
             if (flagSendMail)
             {
                 var biz = new DeliveryBiz();
@@ -407,7 +437,7 @@ namespace ElectronicStore.Main
                 {
                     MessageBox.Show(status.Error);
                 }
-            }
+            }            
         }
 
         private void WorkAsyncCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -470,6 +500,7 @@ namespace ElectronicStore.Main
                 this.flagSendSms = false;                
                 this.flagSendMailOrder = true;
                 this.flagSendSmsOrder = false;
+                this.flagSendSmsNotification = false;
             
                 backgroundWorker.RunWorkerAsync(selectedId);                
             }
@@ -495,9 +526,36 @@ namespace ElectronicStore.Main
                 this.flagSendMailOrder = false;
                 this.flagSendMail = false;
                 this.flagSendSms = false;
+                this.flagSendSmsNotification = false;
 
                 backgroundWorker.RunWorkerAsync(selectedId);                
             }
+        }
+
+        public void SendNotification(object sender, EventArgs e)
+        {
+            if (selectedId > 0)
+            {
+                if (selectedRow >= 0)
+                {
+                    if (this.Parent.Parent.Parent is MDI)
+                    {
+                        var root = this.Parent.Parent.Parent as MDI;
+                        if (root != null)
+                        {
+                            root.UpdateStatus("Đang gửi tin nhắn.");
+                        }
+                    }
+                }
+
+                this.flagSendSmsOrder = false;
+                this.flagSendMailOrder = false;
+                this.flagSendMail = false;
+                this.flagSendSms = false;
+                this.flagSendSmsNotification = true;
+
+                backgroundWorker.RunWorkerAsync(selectedId);
+            }            
         }
 
         public void DeliverOrder(object sender, EventArgs e)
