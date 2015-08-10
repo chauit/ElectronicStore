@@ -27,7 +27,10 @@ namespace ElectronicStore.Main
 
             foreach(var product in listProduct)
             {
-                ListSelectedProduct.Add(product);
+                if (!string.IsNullOrEmpty(product.Code) && !string.IsNullOrEmpty(product.Name))
+                {
+                    ListSelectedProduct.Add(product);
+                }
             }
         }
 
