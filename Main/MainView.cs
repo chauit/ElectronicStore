@@ -1,4 +1,5 @@
 ﻿using Business;
+using ElectronicStore.Administration;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -114,6 +115,7 @@ namespace ElectronicStore.Main
                 template.Columns["Id"].IsVisible = false;
                 template.Columns["ParentId"].IsVisible = false;
                 template.Columns["Recipient"].IsVisible = false;
+                template.Columns["CustomerId"].IsVisible = false;               
                             
                 template.AutoSizeColumnsMode = GridViewAutoSizeColumnsMode.Fill;
 
@@ -399,24 +401,36 @@ namespace ElectronicStore.Main
             if (flagSendSmsOrder)
             {
                 var biz = new OrderBiz();
-                var status = biz.SendSms(Convert.ToInt32(e.Argument));
-                if (!string.IsNullOrEmpty(status.Error))
+
+                string content = biz.GetSmsContent(Convert.ToInt32(e.Argument));
+                var result = MessageBox.Show(content, string.Empty, MessageBoxButtons.OKCancel);
+                if(result == System.Windows.Forms.DialogResult.OK)
                 {
-                    MessageBox.Show(status.Error);
-                }
-                biz.UpdateSmsStatus(Convert.ToInt32(e.Argument), status.Status);
+                    var status = biz.SendSms(Convert.ToInt32(e.Argument));
+                    if (!string.IsNullOrEmpty(status.Error))
+                    {
+                        MessageBox.Show(status.Error);
+                    }
+                    biz.UpdateSmsStatus(Convert.ToInt32(e.Argument), status.Status);
+                }                
             }
 
             if (flagSendSmsNotification)
             {
                 var biz = new OrderBiz();
-                var status = biz.SendReport(Convert.ToInt32(e.Argument));
+                string content = biz.GetContentReport(Convert.ToInt32(e.Argument));
 
-                if (!string.IsNullOrEmpty(status.Error))
+                var result = MessageBox.Show(content, string.Empty, MessageBoxButtons.OKCancel);
+                if (result == System.Windows.Forms.DialogResult.OK)
                 {
-                    MessageBox.Show(status.Error);
+                    var status = biz.SendReport(Convert.ToInt32(e.Argument));
+
+                    if (!string.IsNullOrEmpty(status.Error))
+                    {
+                        MessageBox.Show(status.Error);
+                    }
+                    biz.UpdateNotificationStatus(Convert.ToInt32(e.Argument), status.Status);
                 }
-                biz.UpdateNotificationStatus(Convert.ToInt32(e.Argument), status.Status);
             }
 
             if (flagSendMail)
@@ -774,6 +788,32 @@ namespace ElectronicStore.Main
             else if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 isLeftClick = 2;
+            }
+        }
+
+        private void CellDoubleClick(object sender, GridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1) return;
+            
+            var template = e.Column.OwnerTemplate;
+            if (template is MasterGridViewTemplate)
+            {
+                return;
+            }
+            else
+            {
+                if (isLeftClick == 1 && e.ColumnIndex == 2)
+                {
+                    var order = e.Row.DataBoundItem as OrderTemplate;
+                    if (order != null)
+                    {
+                        selectedId = order.CustomerId;
+                    }
+                    
+                    var newCustomer = new CustomerForm(selectedId, currentUser) { Dock = DockStyle.Fill, MaximizeBox = true };
+                    newCustomer.ShowDialog();
+                    RefreshItems(sender, e);
+                }                
             }
         }       
     }

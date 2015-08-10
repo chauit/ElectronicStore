@@ -29,17 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textCustomer = new System.Windows.Forms.TextBox();
             this.txtRecipientPhone = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtRecipient = new System.Windows.Forms.TextBox();
@@ -73,7 +76,11 @@
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonAddProduct = new System.Windows.Forms.Button();
+            this.buttonDeleteProduct = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -90,13 +97,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txtDiscountLD = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textCustomer = new System.Windows.Forms.TextBox();
-            this.buttonAddProduct = new System.Windows.Forms.Button();
-            this.buttonDeleteProduct = new System.Windows.Forms.Button();
             this.buttonAddProductLD = new System.Windows.Forms.Button();
             this.buttonDeleteProductLD = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -126,6 +128,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelTotal);
+            this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.textCustomer);
             this.groupBox1.Controls.Add(this.txtRecipientPhone);
             this.groupBox1.Controls.Add(this.label10);
@@ -147,10 +151,36 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(800, 260);
+            this.groupBox1.Size = new System.Drawing.Size(800, 287);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đơn hàng";
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.ForeColor = System.Drawing.Color.Red;
+            this.labelTotal.Location = new System.Drawing.Point(133, 258);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(0, 13);
+            this.labelTotal.TabIndex = 32;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(25, 258);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(59, 13);
+            this.label15.TabIndex = 31;
+            this.label15.Text = "Tổng tiền:";
+            // 
+            // textCustomer
+            // 
+            this.textCustomer.Location = new System.Drawing.Point(562, 57);
+            this.textCustomer.Name = "textCustomer";
+            this.textCustomer.Size = new System.Drawing.Size(221, 22);
+            this.textCustomer.TabIndex = 2;
+            this.textCustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CustomerKeyUp);
             // 
             // txtRecipientPhone
             // 
@@ -237,7 +267,7 @@
             this.textDeliverrAddress.Multiline = true;
             this.textDeliverrAddress.Name = "textDeliverrAddress";
             this.textDeliverrAddress.Size = new System.Drawing.Size(647, 87);
-            this.textDeliverrAddress.TabIndex = 8;
+            this.textDeliverrAddress.TabIndex = 7;
             // 
             // label3
             // 
@@ -300,8 +330,9 @@
             this.txtDiscount.Location = new System.Drawing.Point(276, 18);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(63, 22);
-            this.txtDiscount.TabIndex = 7;
+            this.txtDiscount.TabIndex = 11;
             this.txtDiscount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DiscountKeyPress);
+            this.txtDiscount.Leave += new System.EventHandler(this.DiscountLeave);
             // 
             // cboVat
             // 
@@ -352,7 +383,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(439, 481);
+            this.groupBox2.Size = new System.Drawing.Size(439, 454);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mã hàng";
@@ -363,7 +394,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 67);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(433, 411);
+            this.groupBox4.Size = new System.Drawing.Size(433, 384);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách sản phẩm";
@@ -387,7 +418,7 @@
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dataGridView.Size = new System.Drawing.Size(427, 390);
+            this.dataGridView.Size = new System.Drawing.Size(427, 363);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.DataSourceChanged += new System.EventHandler(this.ChangeSource);
             this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPainting);
@@ -411,21 +442,21 @@
             // Quantity
             // 
             this.Quantity.DataPropertyName = "QuantityValue";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle9.Format = "N0";
-            dataGridViewCellStyle9.NullValue = null;
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle17.Format = "N0";
+            dataGridViewCellStyle17.NullValue = null;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle17;
             this.Quantity.HeaderText = "Số lượng (m)";
             this.Quantity.Name = "Quantity";
             // 
             // Price
             // 
             this.Price.DataPropertyName = "ActualPrice";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle10.Format = "0,000.0";
-            dataGridViewCellStyle10.NullValue = null;
-            this.Price.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle18.Format = "0,000.0";
+            dataGridViewCellStyle18.NullValue = null;
+            this.Price.DefaultCellStyle = dataGridViewCellStyle18;
             this.Price.HeaderText = "Đơn giá";
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
@@ -433,10 +464,10 @@
             // Total
             // 
             this.Total.DataPropertyName = "TotalValue";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle11.Format = "0,000.0";
-            dataGridViewCellStyle11.NullValue = null;
-            this.Total.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle19.Format = "0,000.0";
+            dataGridViewCellStyle19.NullValue = null;
+            this.Total.DefaultCellStyle = dataGridViewCellStyle19;
             this.Total.HeaderText = "Tổng";
             this.Total.Name = "Total";
             this.Total.ReadOnly = true;
@@ -452,8 +483,8 @@
             // ColumnTotal
             // 
             this.ColumnTotal.DataPropertyName = "Total";
-            dataGridViewCellStyle12.Format = "0,000.0";
-            this.ColumnTotal.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle20.Format = "0,000.0";
+            this.ColumnTotal.DefaultCellStyle = dataGridViewCellStyle20;
             this.ColumnTotal.HeaderText = "Total";
             this.ColumnTotal.Name = "ColumnTotal";
             this.ColumnTotal.ReadOnly = true;
@@ -475,6 +506,32 @@
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             // 
+            // buttonAddProduct
+            // 
+            this.buttonAddProduct.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddProduct.Image")));
+            this.buttonAddProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddProduct.Location = new System.Drawing.Point(18, 15);
+            this.buttonAddProduct.Name = "buttonAddProduct";
+            this.buttonAddProduct.Size = new System.Drawing.Size(75, 25);
+            this.buttonAddProduct.TabIndex = 9;
+            this.buttonAddProduct.Text = "Thêm   ";
+            this.buttonAddProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAddProduct.UseVisualStyleBackColor = true;
+            this.buttonAddProduct.Click += new System.EventHandler(this.AddNewProduct);
+            // 
+            // buttonDeleteProduct
+            // 
+            this.buttonDeleteProduct.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteProduct.Image")));
+            this.buttonDeleteProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDeleteProduct.Location = new System.Drawing.Point(99, 15);
+            this.buttonDeleteProduct.Name = "buttonDeleteProduct";
+            this.buttonDeleteProduct.Size = new System.Drawing.Size(75, 25);
+            this.buttonDeleteProduct.TabIndex = 10;
+            this.buttonDeleteProduct.Text = "Xóa     ";
+            this.buttonDeleteProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonDeleteProduct.UseVisualStyleBackColor = true;
+            this.buttonDeleteProduct.Click += new System.EventHandler(this.DeleteProduct);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.groupBox1);
@@ -483,8 +540,34 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(890, 260);
+            this.panel1.Size = new System.Drawing.Size(890, 287);
             this.panel1.TabIndex = 6;
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
+            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSave.Location = new System.Drawing.Point(803, 13);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(84, 25);
+            this.buttonSave.TabIndex = 20;
+            this.buttonSave.Text = "Cập nhật";
+            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.SaveItem);
+            // 
+            // button2
+            // 
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(803, 44);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(84, 25);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "Thoát   ";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.CancelItem);
             // 
             // panel2
             // 
@@ -492,9 +575,9 @@
             this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.splitContainer1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 260);
+            this.panel2.Location = new System.Drawing.Point(0, 287);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(890, 481);
+            this.panel2.Size = new System.Drawing.Size(890, 454);
             this.panel2.TabIndex = 7;
             // 
             // splitContainer1
@@ -510,7 +593,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox5);
-            this.splitContainer1.Size = new System.Drawing.Size(890, 481);
+            this.splitContainer1.Size = new System.Drawing.Size(890, 454);
             this.splitContainer1.SplitterDistance = 439;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -521,7 +604,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(447, 481);
+            this.groupBox5.Size = new System.Drawing.Size(447, 454);
             this.groupBox5.TabIndex = 28;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Mã hàng LD";
@@ -533,7 +616,7 @@
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(3, 67);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(441, 411);
+            this.groupBox6.Size = new System.Drawing.Size(441, 384);
             this.groupBox6.TabIndex = 27;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh sách sản phẩm";
@@ -557,7 +640,7 @@
             this.dataGridViewLD.MultiSelect = false;
             this.dataGridViewLD.Name = "dataGridViewLD";
             this.dataGridViewLD.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dataGridViewLD.Size = new System.Drawing.Size(435, 390);
+            this.dataGridViewLD.Size = new System.Drawing.Size(435, 363);
             this.dataGridViewLD.TabIndex = 0;
             this.dataGridViewLD.DataSourceChanged += new System.EventHandler(this.ChangeSourceLD);
             this.dataGridViewLD.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPaintingLD);
@@ -581,21 +664,21 @@
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "QuantityValue";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle13.Format = "N0";
-            dataGridViewCellStyle13.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle21.Format = "N0";
+            dataGridViewCellStyle21.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridViewTextBoxColumn3.HeaderText = "Số lượng (m)";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "ActualPrice";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle14.Format = "0,000.0";
-            dataGridViewCellStyle14.NullValue = null;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle22.Format = "0,000.0";
+            dataGridViewCellStyle22.NullValue = null;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewTextBoxColumn4.HeaderText = "Đơn giá";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -603,10 +686,10 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "TotalValue";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle15.Format = "0,000.0";
-            dataGridViewCellStyle15.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle23.Format = "0,000.0";
+            dataGridViewCellStyle23.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewTextBoxColumn5.HeaderText = "Tổng";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -622,8 +705,8 @@
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "Total";
-            dataGridViewCellStyle16.Format = "0,000.0";
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle24.Format = "0,000.0";
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewTextBoxColumn7.HeaderText = "Total";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -657,8 +740,9 @@
             this.txtDiscountLD.Location = new System.Drawing.Point(276, 18);
             this.txtDiscountLD.Name = "txtDiscountLD";
             this.txtDiscountLD.Size = new System.Drawing.Size(63, 22);
-            this.txtDiscountLD.TabIndex = 35;
+            this.txtDiscountLD.TabIndex = 14;
             this.txtDiscountLD.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DiscountLDKeyPress);
+            this.txtDiscountLD.Leave += new System.EventHandler(this.DiscountLDLeave);
             // 
             // label13
             // 
@@ -669,40 +753,6 @@
             this.label13.TabIndex = 35;
             this.label13.Text = "Chiết khấu:";
             // 
-            // textCustomer
-            // 
-            this.textCustomer.Location = new System.Drawing.Point(562, 57);
-            this.textCustomer.Name = "textCustomer";
-            this.textCustomer.Size = new System.Drawing.Size(221, 22);
-            this.textCustomer.TabIndex = 2;
-            this.textCustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CustomerKeyUp);
-            // 
-            // buttonAddProduct
-            // 
-            this.buttonAddProduct.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddProduct.Image")));
-            this.buttonAddProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddProduct.Location = new System.Drawing.Point(18, 15);
-            this.buttonAddProduct.Name = "buttonAddProduct";
-            this.buttonAddProduct.Size = new System.Drawing.Size(75, 25);
-            this.buttonAddProduct.TabIndex = 9;
-            this.buttonAddProduct.Text = "Thêm   ";
-            this.buttonAddProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAddProduct.UseVisualStyleBackColor = true;
-            this.buttonAddProduct.Click += new System.EventHandler(this.AddNewProduct);
-            // 
-            // buttonDeleteProduct
-            // 
-            this.buttonDeleteProduct.Image = ((System.Drawing.Image)(resources.GetObject("buttonDeleteProduct.Image")));
-            this.buttonDeleteProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDeleteProduct.Location = new System.Drawing.Point(99, 15);
-            this.buttonDeleteProduct.Name = "buttonDeleteProduct";
-            this.buttonDeleteProduct.Size = new System.Drawing.Size(75, 25);
-            this.buttonDeleteProduct.TabIndex = 10;
-            this.buttonDeleteProduct.Text = "Xóa     ";
-            this.buttonDeleteProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonDeleteProduct.UseVisualStyleBackColor = true;
-            this.buttonDeleteProduct.Click += new System.EventHandler(this.DeleteProduct);
-            // 
             // buttonAddProductLD
             // 
             this.buttonAddProductLD.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddProductLD.Image")));
@@ -710,7 +760,7 @@
             this.buttonAddProductLD.Location = new System.Drawing.Point(18, 15);
             this.buttonAddProductLD.Name = "buttonAddProductLD";
             this.buttonAddProductLD.Size = new System.Drawing.Size(75, 25);
-            this.buttonAddProductLD.TabIndex = 9;
+            this.buttonAddProductLD.TabIndex = 12;
             this.buttonAddProductLD.Text = "Thêm   ";
             this.buttonAddProductLD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAddProductLD.UseVisualStyleBackColor = true;
@@ -723,37 +773,11 @@
             this.buttonDeleteProductLD.Location = new System.Drawing.Point(99, 15);
             this.buttonDeleteProductLD.Name = "buttonDeleteProductLD";
             this.buttonDeleteProductLD.Size = new System.Drawing.Size(75, 25);
-            this.buttonDeleteProductLD.TabIndex = 10;
+            this.buttonDeleteProductLD.TabIndex = 13;
             this.buttonDeleteProductLD.Text = "Xóa     ";
             this.buttonDeleteProductLD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDeleteProductLD.UseVisualStyleBackColor = true;
             this.buttonDeleteProductLD.Click += new System.EventHandler(this.DeleteProductLD);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.Image = ((System.Drawing.Image)(resources.GetObject("buttonSave.Image")));
-            this.buttonSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSave.Location = new System.Drawing.Point(803, 13);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(84, 25);
-            this.buttonSave.TabIndex = 11;
-            this.buttonSave.Text = "Cập nhật";
-            this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.SaveItem);
-            // 
-            // button2
-            // 
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(803, 44);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 25);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Thoát   ";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.CancelItem);
             // 
             // OrderForm
             // 
@@ -858,5 +882,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textCustomer;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label label15;
     }
 }

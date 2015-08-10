@@ -27,6 +27,9 @@ namespace ElectronicStore.Main
         private bool HasFooter;
         private bool HasFooterLD;
 
+        private decimal currentTotal;
+        private decimal currentTotalLd;
+
         private void InitForm(User user)
         {
             buttonSave.DialogResult = DialogResult.OK;
@@ -273,8 +276,7 @@ namespace ElectronicStore.Main
                     int discount = 0;
                     int.TryParse(txtDiscount.Text, out discount);
                     
-                    decimal x = 1.1M;
-                    var rootPrice = Decimal.Round(product.Price.Value / x, 1);
+                    var rootPrice = product.Price.Value;
                     product.ActualPrice = rootPrice - (rootPrice * discount) / 100;
                 }
 
@@ -286,14 +288,12 @@ namespace ElectronicStore.Main
                 if (!HasFooter)
                 {
                     listProduct.Add(product);
-                    listProduct.Add(new SearchProduct());
-                    listProduct.Add(new SearchProduct());
-                    listProduct.Add(new SearchProduct());
+                    listProduct.Add(new SearchProduct());                    
                     HasFooter = true;
                 }
                 else
                 {
-                    listProduct.Insert(listProduct.Count - 3, product);
+                    listProduct.Insert(listProduct.Count - 1, product);
                 }
 
                 dataGridView.DataSource = null;
@@ -412,7 +412,7 @@ namespace ElectronicStore.Main
                     searchProduct.Total = detail.Total;
                     searchProduct.ActualPrice = detail.ProductActualPrice;
                     searchProduct.TotalValue = detail.Total.ToString(Constants.CurrencyFormat);
-                    searchProduct.Id = detail.Id;
+                    searchProduct.Id = detail.ProductId.Value;
                     searchProduct.Name = detail.Product.Name;
                     searchProduct.Code = detail.Product.Code;
 
@@ -426,7 +426,7 @@ namespace ElectronicStore.Main
                     searchProduct.Total = detail.Total;
                     searchProduct.ActualPrice = detail.ProductActualPrice;
                     searchProduct.TotalValue = detail.Total.ToString(Constants.CurrencyFormat);
-                    searchProduct.Id = detail.Id;
+                    searchProduct.Id = detail.ProductLdId.Value;
                     searchProduct.Name = detail.ProductLD.Name;
                     searchProduct.Code = detail.ProductLD.Code;
 
@@ -436,8 +436,6 @@ namespace ElectronicStore.Main
             }
             if (listProduct.Count > 0)
             {
-                listProduct.Add(new SearchProduct());
-                listProduct.Add(new SearchProduct());
                 listProduct.Add(new SearchProduct());
                 HasFooter = true;
 
@@ -463,7 +461,7 @@ namespace ElectronicStore.Main
             {
                 int index = dataGridView.SelectedRows[0].Index;
 
-                if (index >= dataGridView.RowCount - 3) return;
+                if (index >= dataGridView.RowCount - 1) return;
 
                 var content = Convert.ToString(dataGridView.SelectedRows[0].Cells[5].Value);
                 if (!string.IsNullOrEmpty(content))
@@ -472,7 +470,7 @@ namespace ElectronicStore.Main
                 }
 
                 listProduct.RemoveAt(index);
-                if (listProduct.Count == 3)
+                if (listProduct.Count == 1)
                 {
                     listProduct.Clear();
                     HasFooter = false;
@@ -516,7 +514,7 @@ namespace ElectronicStore.Main
             var biz = new OrderDetailBiz();
             biz.RemoveItemsByOrderId(order.Id);
 
-            for (int i = 0; i < dataGridView.RowCount - 3; i++)
+            for (int i = 0; i < dataGridView.RowCount - 1; i++)
             {
                 var entity = dataGridView.Rows[i].DataBoundItem as SearchProduct;
                 if (entity != null && entity.Total > 0)
@@ -561,10 +559,10 @@ namespace ElectronicStore.Main
 
         private void UpdateTotal()
         {
-            if (dataGridView.RowCount > 3)
+            if (dataGridView.RowCount > 1)
             {
                 decimal total = 0;
-                for (int i = 0; i <= dataGridView.RowCount - 4; i++)
+                for (int i = 0; i <= dataGridView.RowCount - 2; i++)
                 {
                     var item = dataGridView.Rows[i].DataBoundItem as SearchProduct;
                     if (item != null && !string.IsNullOrEmpty(item.TotalValue))
@@ -573,25 +571,13 @@ namespace ElectronicStore.Main
                         total += itemTotal;
                     }
                 }
-
-                var footer = dataGridView.Rows[dataGridView.RowCount - 3];
-                footer.Cells[4].Value = "Tổng: " + total.ToString(Constants.CurrencyFormat);
-
-                var vat = dataGridView.Rows[dataGridView.RowCount - 2];                
-                decimal vatValue = (total * 10) / 100;
-
-                if (!cboVat.Checked)
-                {
-                    vat.Cells[4].Value = "VAT(0%)";
-                    vatValue = 0;
-                }
-                else
-                {
-                    vat.Cells[4].Value = "VAT(10%): " + vatValue.ToString(Constants.CurrencyFormat);
-                }                
                 
                 var final = dataGridView.Rows[dataGridView.RowCount - 1];
-                final.Cells[4].Value = "Tổng: " + (total + vatValue).ToString(Constants.CurrencyFormat);
+                final.Cells[4].Value = "Tổng: " + (total).ToString(Constants.CurrencyFormat);
+
+                currentTotal = total;
+
+                UpdateTotalValue();
             }
         }
 
@@ -612,9 +598,21 @@ namespace ElectronicStore.Main
 
                 var footer = dataGridViewLD.Rows[dataGridViewLD.RowCount - 1];
                 footer.Cells[4].Value = "Tổng: " + total.ToString(Constants.CurrencyFormat);
+
+                currentTotalLd = total;
+
+                UpdateTotalValue();
             }
         }
 
+        private void UpdateTotalValue()
+        {
+            var temp = currentTotal + currentTotalLd;
+            if (temp > 0)
+            {
+                labelTotal.Text = temp.ToString(Constants.CurrencyFormat);
+            }
+        }
         private bool CheckSecurity(int id)
         {
             if (id == 0) return false;
@@ -642,7 +640,9 @@ namespace ElectronicStore.Main
         {
             if (e.KeyCode == Keys.Enter)
             {
-                decimal rate = Convert.ToDecimal(txtDiscount.Text);
+                decimal rate = 0;
+
+                if (!decimal.TryParse(txtDiscount.Text, out rate)) return;
 
                 var list = dataGridView.DataSource as List<SearchProduct>;
 
@@ -652,9 +652,8 @@ namespace ElectronicStore.Main
                     {
                         var product = list[i];
                         if (!string.IsNullOrEmpty(product.Code))
-                        {
-                            decimal x = 1.1M;
-                            var rootPrice = Math.Round(product.Price.Value / x);
+                        {                            
+                            var rootPrice = product.Price.Value;
                             product.ActualPrice = rootPrice - (rootPrice * rate) / 100;
                             if (product.Quantity.HasValue)
                             {
@@ -676,7 +675,9 @@ namespace ElectronicStore.Main
         {
             if (e.KeyCode == Keys.Enter)
             {
-                decimal rate = Convert.ToDecimal(txtDiscountLD.Text);
+                decimal rate = 0;
+
+                if (!decimal.TryParse(txtDiscountLD.Text, out rate)) return;
 
                 var list = dataGridViewLD.DataSource as List<SearchProductLD>;
 
@@ -751,7 +752,7 @@ namespace ElectronicStore.Main
         {
             if (dataGridView.Rows.Count > 0 && e.RowIndex > -1)
             {
-                if (e.RowIndex >= dataGridView.Rows.Count - 3 && e.ColumnIndex == 2)
+                if (e.RowIndex >= dataGridView.Rows.Count - 1 && e.ColumnIndex == 2)
                 {
                     dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
                 }
@@ -797,6 +798,70 @@ namespace ElectronicStore.Main
                     textCustomer.Text = string.Empty;
                     textDeliverrAddress.Text = string.Empty;
                 }
+            }
+        }
+
+        private void DiscountLeave(object sender, EventArgs e)
+        {
+            decimal rate = 0;
+
+            if (!decimal.TryParse(txtDiscount.Text, out rate)) return;
+
+            var list = dataGridView.DataSource as List<SearchProduct>;
+
+            if (list != null && list.Count > 0)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    var product = list[i];
+                    if (!string.IsNullOrEmpty(product.Code))
+                    {                        
+                        var rootPrice = product.Price.Value;
+                        product.ActualPrice = rootPrice - (rootPrice * rate) / 100;
+                        if (product.Quantity.HasValue)
+                        {
+                            product.TotalValue = (product.ActualPrice * product.Quantity).Value.ToString(Constants.CurrencyFormat);
+                        }
+                    }
+                }
+
+                listProduct = list;
+
+                dataGridView.DataSource = null;
+                dataGridView.DataSource = listProduct;
+                dataGridView.Refresh();
+            }
+        }
+
+        private void DiscountLDLeave(object sender, EventArgs e)
+        {
+            decimal rate = 0;
+
+            if (!decimal.TryParse(txtDiscountLD.Text, out rate)) return;
+
+            var list = dataGridViewLD.DataSource as List<SearchProductLD>;
+
+            if (list != null && list.Count > 0)
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    var product = list[i];
+                    if (!string.IsNullOrEmpty(product.Code))
+                    {
+                        var rootPrice = product.Price.Value;
+                        product.ActualPrice = rootPrice - (rootPrice * rate) / 100;
+                        if (product.Quantity.HasValue)
+                        {
+                            product.TotalValue = (product.ActualPrice * product.Quantity).Value.ToString(Constants.CurrencyFormat);
+                        }
+                    }
+                }
+
+                listProductLD = list;
+
+                dataGridViewLD.DataSource = null;
+                dataGridViewLD.DataSource = listProductLD;
+                dataGridViewLD.Refresh();
             }
         }
 

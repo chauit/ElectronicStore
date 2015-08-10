@@ -97,6 +97,7 @@
             // 
             // radGridView
             // 
+            this.radGridView.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.radGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radGridView.Location = new System.Drawing.Point(3, 18);
             // 
@@ -173,6 +174,12 @@
             gridViewRelation1.RelationName = "DeliveryOrder";
             this.radGridView.Relations.AddRange(new Telerik.WinControls.UI.GridViewRelation[] {
             gridViewRelation1});
+            // 
+            // 
+            // 
+            this.radGridView.RootElement.AccessibleDescription = null;
+            this.radGridView.RootElement.AccessibleName = null;
+            this.radGridView.RootElement.ControlBounds = new System.Drawing.Rectangle(0, 0, 240, 150);
             this.radGridView.Size = new System.Drawing.Size(804, 321);
             this.radGridView.TabIndex = 0;
             this.radGridView.Text = "radGridView1";
@@ -180,6 +187,7 @@
             this.radGridView.CellPaint += new Telerik.WinControls.UI.GridViewCellPaintEventHandler(this.CellPaint);
             this.radGridView.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.CellFormat);
             this.radGridView.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.CellClick);
+            this.radGridView.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.CellDoubleClick);
             this.radGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClicked);
             // 
             // buttonNew
