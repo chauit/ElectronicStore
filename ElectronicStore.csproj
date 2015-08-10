@@ -106,6 +106,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\RoleView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\RoleView.Designer.cs">
+      <DependentUpon>RoleView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\RoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\RoleForm.Designer.cs">
+      <DependentUpon>RoleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\CityForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +339,12 @@
     </Compile>
     <Compile Include="Views\CustomerItem.cs" />
     <Compile Include="Views\DashBoardModel.cs" />
+    <EmbeddedResource Include="Administration\RoleView.resx">
+      <DependentUpon>RoleView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\RoleForm.resx">
+      <DependentUpon>RoleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\CityForm.resx">
       <DependentUpon>CityForm.cs</DependentUpon>
     </EmbeddedResource>
