@@ -118,10 +118,6 @@
             // 
             this.drlType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.drlType.FormattingEnabled = true;
-            this.drlType.Items.AddRange(new object[] {
-            "Admin",
-            "Thủ kho",
-            "Vận chuyển"});
             this.drlType.Location = new System.Drawing.Point(368, 54);
             this.drlType.Name = "drlType";
             this.drlType.Size = new System.Drawing.Size(187, 21);
