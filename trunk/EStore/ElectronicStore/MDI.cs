@@ -52,6 +52,7 @@ namespace ElectronicStore
                 CurrentUser = login.Result;
 
                 LoadCustomer();
+                ShowMenu();
             }
         }
 
@@ -108,7 +109,7 @@ namespace ElectronicStore
                 changePasswordMenuItem.Visible = false;
                 toolStripSeparator3.Visible = false;
                 textSearchCustomer.Visible = false;
-                splitContainer1.Panel2.Controls.Clear();
+                splitContainer1.Panel2.Controls.Clear();                
             }
         }
 
@@ -170,7 +171,11 @@ namespace ElectronicStore
                 case "Quản lý tên thành phố":
                     var cityView = new CityView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(cityView);
-                    break;                    
+                    break;
+                case "Quản lý quyền truy cập":
+                    var roleView = new RoleView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                    OpenForm(roleView);
+                    break;                     
                 default:
                     break;
             }
@@ -186,5 +191,79 @@ namespace ElectronicStore
             }
         }
 
+        private void ShowMenu()
+        {            
+            var biz = new RoleBiz();
+            var role = biz.LoadItem(CurrentUser.Type);
+
+            UpdateTreeView(treeView.Nodes[0], role.Functions);
+        }
+
+        private void UpdateTreeView(TreeNode node, string functions)
+        {
+            if(node.Parent == null)
+            {
+                if(node.NextNode != null)
+                {
+                    UpdateTreeView(node.NextNode, functions);
+                }
+                UpdateTreeView(node.FirstNode, functions);
+                if(node.Nodes.Count == 0)
+                {
+                    node.Remove();
+                }
+            }
+            else
+            {
+                if(node.NextNode != null)
+                {
+                    UpdateTreeView(node.NextNode, functions);
+                }
+
+                if (functions.IndexOf(node.Text) == -1)
+                {
+                    node.Remove();
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+
+        private void CreateMenu()
+        {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Quản lý nhân viên");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Quản lý cấu hình hệ thống");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Quản lý quyền truy cập");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Quản lý nội dung tin nhắn");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Quản lý nội dung email");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Quản lý tên thành phố");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Quản trị hệ thống", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Quản lý khách hàng");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Quản lý loại sản phẩm");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Quản lý sản phẩm");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Quản lý sản phẩm LD");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Quản lý thiết bị vận chuyển");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Quản trị nội dung", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Quản lý đơn hàng");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Quản lý thông tin vận chuyển");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Bảng thông tin đơn hàng");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Quản lý đơn hàng & vận chuyển", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode15,
+            treeNode16});
+        }
     }
 }

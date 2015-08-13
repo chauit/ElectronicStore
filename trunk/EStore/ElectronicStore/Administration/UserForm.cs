@@ -10,13 +10,13 @@ namespace ElectronicStore.Administration
     {
         private int itemId = 0;
         private string password;
-
-
+        
         private void InitForm()
         {
             buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 
+            LoadType();
         }
 
         public UserForm()
@@ -34,6 +34,7 @@ namespace ElectronicStore.Administration
         public UserForm(int id)
         {
             InitializeComponent();
+            InitForm();
 
             textFirstName.Focus();
             itemId = id;
@@ -49,7 +50,7 @@ namespace ElectronicStore.Administration
             textOtherInformation.Text = item.AdditionalInformation;
             password = item.Password;
 
-            InitForm();
+            
 
             this.Text = "Sửa nhân viên";
         }
@@ -154,5 +155,18 @@ namespace ElectronicStore.Administration
 
             return hasError;
         }
+
+        private void LoadType()
+        {
+            drlType.Items.Clear();
+
+            var biz = new RoleBiz();
+            var items = biz.LoadItems();
+            foreach(var item in items)
+            {
+                drlType.Items.Add(item.Name);
+            }
+        }
+
     }
 }
