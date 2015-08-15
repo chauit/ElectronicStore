@@ -115,7 +115,7 @@ namespace ElectronicStore.Main
                 template.Columns["Id"].IsVisible = false;
                 template.Columns["ParentId"].IsVisible = false;
                 template.Columns["Recipient"].IsVisible = false;
-                template.Columns["CustomerId"].IsVisible = false;               
+                template.Columns["CustomerId"].IsVisible = false;                               
                             
                 template.AutoSizeColumnsMode = GridViewAutoSizeColumnsMode.Fill;
 
@@ -124,7 +124,114 @@ namespace ElectronicStore.Main
                 relation.ParentColumnNames.Add("Id");
                 relation.ChildColumnNames.Add("ParentId");
                 this.radGridView.Relations.Add(relation);
+
+                FormatCell();
             }
+        }
+
+        private void FormatCell()
+        {
+            // Delivery
+            ConditionalFormattingObject objDeliveryNo = new ConditionalFormattingObject("DeliveryNoCondition", ConditionTypes.NotEqual, "", "", false);
+            objDeliveryNo.CellForeColor = Color.Blue;            
+
+            this.radGridView.MasterTemplate.Columns["DeliveryNo"].ConditionalFormattingObjectList.Add(objDeliveryNo);
+
+            ConditionalFormattingObject objDeliveryStatus1 = new ConditionalFormattingObject("DeliveryStatusCondition1", ConditionTypes.Equal,
+                ECommon.Constants.DeliveryStatusDraft, string.Empty, false);
+            objDeliveryStatus1.CellBackColor = Color.Orange;
+            objDeliveryStatus1.CellForeColor = Color.White;
+
+            ConditionalFormattingObject objDeliveryStatus2 = new ConditionalFormattingObject("DeliveryStatusCondition2", ConditionTypes.Equal,
+                ECommon.Constants.DeliveryStatusDelivered, string.Empty, false);
+            objDeliveryStatus2.CellBackColor = Color.Green;
+            objDeliveryStatus2.CellForeColor = Color.White;
+
+            this.radGridView.MasterTemplate.Columns["Status"].ConditionalFormattingObjectList.Add(objDeliveryStatus1);
+            this.radGridView.MasterTemplate.Columns["Status"].ConditionalFormattingObjectList.Add(objDeliveryStatus2);
+
+            // Order
+            var template = this.radGridView.Templates[0];
+
+            ConditionalFormattingObject objOrderNo = new ConditionalFormattingObject("OrderNoCondition", ConditionTypes.NotEqual, "", "", false);
+            objOrderNo.CellForeColor = Color.Blue;
+            template.Columns["OrderNo"].ConditionalFormattingObjectList.Add(objOrderNo);
+
+            // Order Status
+            ConditionalFormattingObject objOrderStatus1 = new ConditionalFormattingObject("objOrderStatus1", ConditionTypes.Equal,
+                ECommon.Constants.OrderStatusDraft, string.Empty, false);
+            objOrderStatus1.CellBackColor = Color.Red;
+            objOrderStatus1.CellForeColor = Color.White;
+
+            ConditionalFormattingObject objOrderStatus2 = new ConditionalFormattingObject("objOrderStatus2", ConditionTypes.Equal,
+                ECommon.Constants.OrderStatusDelivered, string.Empty, false);
+            objOrderStatus2.CellBackColor = Color.Green;
+            objOrderStatus2.CellForeColor = Color.White;
+            template.Columns["Status"].ConditionalFormattingObjectList.Add(objOrderStatus1);
+            template.Columns["Status"].ConditionalFormattingObjectList.Add(objOrderStatus2);
+
+            // Order SMS
+            ConditionalFormattingObject objOrderSms1 = new ConditionalFormattingObject("objOrderSms1", ConditionTypes.Equal,
+                ECommon.Constants.OrderSms1, string.Empty, false);
+            objOrderSms1.CellBackColor = Color.Orange;
+            objOrderSms1.CellForeColor = Color.White;
+
+            ConditionalFormattingObject objOrderSms2 = new ConditionalFormattingObject("objOrderSms2", ConditionTypes.Equal,
+                ECommon.Constants.OrderSms2, string.Empty, false);
+            objOrderSms2.CellBackColor = Color.Green;
+            objOrderSms2.CellForeColor = Color.White;
+
+            ConditionalFormattingObject objOrderSms3 = new ConditionalFormattingObject("objOrderSms3", ConditionTypes.Equal,
+                ECommon.Constants.OrderSms3, string.Empty, false);
+            objOrderSms3.CellBackColor = Color.Red;
+            objOrderSms3.CellForeColor = Color.White;
+
+
+            template.Columns["SendMessage"].ConditionalFormattingObjectList.Add(objOrderSms1);
+            template.Columns["SendMessage"].ConditionalFormattingObjectList.Add(objOrderSms2);
+            template.Columns["SendMessage"].ConditionalFormattingObjectList.Add(objOrderSms3);
+
+            // Order Email
+            ConditionalFormattingObject objOrderEmail1 = new ConditionalFormattingObject("objOrderEmail1", ConditionTypes.Equal,
+                ECommon.Constants.OrderEmail1, string.Empty, false);
+            objOrderEmail1.CellBackColor = Color.Orange;
+            objOrderEmail1.CellForeColor = Color.White;
+
+            ConditionalFormattingObject objOrderEmail2 = new ConditionalFormattingObject("objOrderEmail2", ConditionTypes.Equal,
+                ECommon.Constants.OrderEmail2, string.Empty, false);
+            objOrderEmail2.CellBackColor = Color.Green;
+            objOrderEmail2.CellForeColor = Color.White;
+
+            ConditionalFormattingObject objOrderEmail3 = new ConditionalFormattingObject("objOrderEmail3", ConditionTypes.Equal,
+                ECommon.Constants.OrderEmail3, string.Empty, false);
+            objOrderEmail3.CellBackColor = Color.Red;
+            objOrderEmail3.CellForeColor = Color.White;
+
+
+            template.Columns["SendEmail"].ConditionalFormattingObjectList.Add(objOrderEmail1);
+            template.Columns["SendEmail"].ConditionalFormattingObjectList.Add(objOrderEmail2);
+            template.Columns["SendEmail"].ConditionalFormattingObjectList.Add(objOrderEmail3);
+
+            // Order Report
+            ConditionalFormattingObject objOrderReport1 = new ConditionalFormattingObject("objOrderReport1", ConditionTypes.Equal,
+                ECommon.Constants.OrderReport1, string.Empty, false);
+            objOrderReport1.CellBackColor = Color.Orange;
+            objOrderReport1.CellForeColor = Color.White;
+
+            ConditionalFormattingObject objOrderReport2 = new ConditionalFormattingObject("objOrderReport2", ConditionTypes.Equal,
+                ECommon.Constants.OrderReport2, string.Empty, false);
+            objOrderReport2.CellBackColor = Color.Green;
+            objOrderReport2.CellForeColor = Color.White;
+
+            ConditionalFormattingObject objOrderReport3 = new ConditionalFormattingObject("objOrderReport3", ConditionTypes.Equal,
+                ECommon.Constants.OrderReport3, string.Empty, false);
+            objOrderReport3.CellBackColor = Color.Red;
+            objOrderReport3.CellForeColor = Color.White;
+
+
+            template.Columns["SendReport"].ConditionalFormattingObjectList.Add(objOrderReport1);
+            template.Columns["SendReport"].ConditionalFormattingObjectList.Add(objOrderReport2);
+            template.Columns["SendReport"].ConditionalFormattingObjectList.Add(objOrderReport3);
         }
 
         private void CellClick(object sender, GridViewCellEventArgs e)
@@ -585,6 +692,8 @@ namespace ElectronicStore.Main
 
         private void CellPaint(object sender, GridViewCellPaintEventArgs e)
         {
+            return;
+
             if(e.Cell.RowIndex >= 0)
             {
                 var column = e.Cell.ColumnInfo;
@@ -599,10 +708,12 @@ namespace ElectronicStore.Main
                         switch (value)
                         {
                             case ECommon.Constants.DeliveryStatusDraft:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                e.Cell.BackColor = Color.Orange;
                                 break;
                             case ECommon.Constants.DeliveryStatusDelivered:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                e.Cell.BackColor = Color.Green;
                                 break;
                             default:
                                 break;
@@ -616,10 +727,12 @@ namespace ElectronicStore.Main
                         switch (value)
                         {
                             case ECommon.Constants.OrderStatusDraft:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                e.Cell.BackColor = Color.Red;
                                 break;
                             case ECommon.Constants.OrderStatusDelivered:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                e.Cell.BackColor = Color.Green;
                                 break;
                             default:
                                 break;
@@ -630,13 +743,16 @@ namespace ElectronicStore.Main
                         switch (value)
                         {
                             case ECommon.Constants.OrderEmail1:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                e.Cell.BackColor = Color.Orange;
                                 break;
                             case ECommon.Constants.OrderEmail2:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                e.Cell.BackColor = Color.Green;
                                 break;
                             case ECommon.Constants.OrderEmail3:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                e.Cell.BackColor = Color.Red;
                                 break;
                             default:
                                 break;
@@ -647,13 +763,16 @@ namespace ElectronicStore.Main
                         switch (value)
                         {
                             case ECommon.Constants.OrderSms1:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                e.Cell.BackColor = Color.Orange;
                                 break;
                             case ECommon.Constants.OrderSms2:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                e.Cell.BackColor = Color.Green;
                                 break;
                             case ECommon.Constants.OrderSms3:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                e.Cell.BackColor = Color.Red;
                                 break;
                             default:
                                 break;
@@ -664,13 +783,16 @@ namespace ElectronicStore.Main
                         switch (value)
                         {
                             case ECommon.Constants.OrderReport1:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                e.Cell.BackColor = Color.Orange;
                                 break;
                             case ECommon.Constants.OrderReport2:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                e.Cell.BackColor = Color.Green;
                                 break;
                             case ECommon.Constants.OrderReport3:
-                                radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                //radGridView.Rows[e.Cell.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                e.Cell.BackColor = Color.Red;
                                 break;
                             default:
                                 break;
@@ -682,6 +804,8 @@ namespace ElectronicStore.Main
 
         private void CellFormat(object sender, CellFormattingEventArgs e)
         {
+            return;
+
             if(e.RowIndex >= 0)
             {
                 var column = e.Column;
@@ -690,16 +814,18 @@ namespace ElectronicStore.Main
                 string value = Convert.ToString(e.CellElement.Value);
 
                 if (template is MasterGridViewTemplate)
-                {
+                {                    
                     if (column.Index == 5)
                     {
                         switch (value)
                         {
                             case ECommon.Constants.DeliveryStatusDraft:
-                                radGridView.MasterTemplate.Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                //radGridView.MasterTemplate.Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                e.CellElement.BackColor = Color.Orange;
                                 break;
                             case ECommon.Constants.DeliveryStatusDelivered:
-                                radGridView.MasterTemplate.Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                //radGridView.MasterTemplate.Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                e.CellElement.BackColor = Color.Orange;
                                 break;
                             default:
                                 break;
@@ -713,10 +839,12 @@ namespace ElectronicStore.Main
                         switch (value)
                         {
                             case ECommon.Constants.OrderStatusDraft:
-                                radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                //radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                e.CellElement.BackColor = Color.Orange;
                                 break;
                             case ECommon.Constants.OrderStatusDelivered:
-                                radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                //radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                e.CellElement.BackColor = Color.Orange;
                                 break;
                             default:
                                 break;
@@ -727,13 +855,16 @@ namespace ElectronicStore.Main
                         switch (value)
                         {
                             case ECommon.Constants.OrderEmail1:
-                                radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                //radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                e.CellElement.BackColor = Color.Orange;
                                 break;
                             case ECommon.Constants.OrderEmail2:
-                                radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                //radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                e.CellElement.BackColor = Color.Orange;
                                 break;
                             case ECommon.Constants.OrderEmail3:
-                                radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                //radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                e.CellElement.BackColor = Color.Orange;
                                 break;
                             default:
                                 break;
@@ -744,13 +875,16 @@ namespace ElectronicStore.Main
                         switch (value)
                         {
                             case ECommon.Constants.OrderSms1:
-                                radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                //radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                //e.CellElement.BackColor = Color.Orange;
                                 break;
                             case ECommon.Constants.OrderSms2:
-                                radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                //radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                //e.CellElement.BackColor = Color.Orange;
                                 break;
                             case ECommon.Constants.OrderSms3:
-                                radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                //radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                //e.CellElement.BackColor = Color.Orange;
                                 break;
                             default:
                                 break;
@@ -761,13 +895,16 @@ namespace ElectronicStore.Main
                         switch (value)
                         {
                             case ECommon.Constants.OrderReport1:
-                                radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                //radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Orange;
+                                //e.CellElement.BackColor = Color.Orange;
                                 break;
                             case ECommon.Constants.OrderReport2:
-                                radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                //radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Green;
+                                //e.CellElement.BackColor = Color.Orange;
                                 break;
                             case ECommon.Constants.OrderReport3:
-                                radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                //radGridView.Templates[0].Rows[e.RowIndex].Cells[column.Index].Style.BackColor = Color.Red;
+                                //e.CellElement.BackColor = Color.Orange;
                                 break;
                             default:
                                 break;

@@ -99,6 +99,10 @@
             this.label13 = new System.Windows.Forms.Label();
             this.buttonAddProductLD = new System.Windows.Forms.Button();
             this.buttonDeleteProductLD = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textDuNo = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cboSendWithEmail = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -128,6 +132,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cboSendWithEmail);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.textDuNo);
+            this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.labelTotal);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.textCustomer);
@@ -151,7 +159,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(800, 287);
+            this.groupBox1.Size = new System.Drawing.Size(800, 339);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin đơn hàng";
@@ -330,7 +338,7 @@
             this.txtDiscount.Location = new System.Drawing.Point(276, 18);
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(63, 22);
-            this.txtDiscount.TabIndex = 11;
+            this.txtDiscount.TabIndex = 12;
             this.txtDiscount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DiscountKeyPress);
             this.txtDiscount.Leave += new System.EventHandler(this.DiscountLeave);
             // 
@@ -383,7 +391,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(439, 454);
+            this.groupBox2.Size = new System.Drawing.Size(439, 394);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Mã hàng";
@@ -394,7 +402,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 67);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(433, 384);
+            this.groupBox4.Size = new System.Drawing.Size(433, 324);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Danh sách sản phẩm";
@@ -418,7 +426,7 @@
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dataGridView.Size = new System.Drawing.Size(427, 363);
+            this.dataGridView.Size = new System.Drawing.Size(427, 303);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.DataSourceChanged += new System.EventHandler(this.ChangeSource);
             this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPainting);
@@ -513,7 +521,7 @@
             this.buttonAddProduct.Location = new System.Drawing.Point(18, 15);
             this.buttonAddProduct.Name = "buttonAddProduct";
             this.buttonAddProduct.Size = new System.Drawing.Size(75, 25);
-            this.buttonAddProduct.TabIndex = 9;
+            this.buttonAddProduct.TabIndex = 10;
             this.buttonAddProduct.Text = "Thêm   ";
             this.buttonAddProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAddProduct.UseVisualStyleBackColor = true;
@@ -526,7 +534,7 @@
             this.buttonDeleteProduct.Location = new System.Drawing.Point(99, 15);
             this.buttonDeleteProduct.Name = "buttonDeleteProduct";
             this.buttonDeleteProduct.Size = new System.Drawing.Size(75, 25);
-            this.buttonDeleteProduct.TabIndex = 10;
+            this.buttonDeleteProduct.TabIndex = 11;
             this.buttonDeleteProduct.Text = "Xóa     ";
             this.buttonDeleteProduct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDeleteProduct.UseVisualStyleBackColor = true;
@@ -540,7 +548,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(890, 287);
+            this.panel1.Size = new System.Drawing.Size(890, 339);
             this.panel1.TabIndex = 6;
             // 
             // buttonSave
@@ -575,9 +583,9 @@
             this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.splitContainer1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 287);
+            this.panel2.Location = new System.Drawing.Point(0, 339);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(890, 454);
+            this.panel2.Size = new System.Drawing.Size(890, 394);
             this.panel2.TabIndex = 7;
             // 
             // splitContainer1
@@ -593,7 +601,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox5);
-            this.splitContainer1.Size = new System.Drawing.Size(890, 454);
+            this.splitContainer1.Size = new System.Drawing.Size(890, 394);
             this.splitContainer1.SplitterDistance = 439;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -604,7 +612,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(447, 454);
+            this.groupBox5.Size = new System.Drawing.Size(447, 394);
             this.groupBox5.TabIndex = 28;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Mã hàng LD";
@@ -616,7 +624,7 @@
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(3, 67);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(441, 384);
+            this.groupBox6.Size = new System.Drawing.Size(441, 324);
             this.groupBox6.TabIndex = 27;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Danh sách sản phẩm";
@@ -640,7 +648,7 @@
             this.dataGridViewLD.MultiSelect = false;
             this.dataGridViewLD.Name = "dataGridViewLD";
             this.dataGridViewLD.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dataGridViewLD.Size = new System.Drawing.Size(435, 363);
+            this.dataGridViewLD.Size = new System.Drawing.Size(435, 303);
             this.dataGridViewLD.TabIndex = 0;
             this.dataGridViewLD.DataSourceChanged += new System.EventHandler(this.ChangeSourceLD);
             this.dataGridViewLD.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPaintingLD);
@@ -740,7 +748,7 @@
             this.txtDiscountLD.Location = new System.Drawing.Point(276, 18);
             this.txtDiscountLD.Name = "txtDiscountLD";
             this.txtDiscountLD.Size = new System.Drawing.Size(63, 22);
-            this.txtDiscountLD.TabIndex = 14;
+            this.txtDiscountLD.TabIndex = 15;
             this.txtDiscountLD.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DiscountLDKeyPress);
             this.txtDiscountLD.Leave += new System.EventHandler(this.DiscountLDLeave);
             // 
@@ -760,7 +768,7 @@
             this.buttonAddProductLD.Location = new System.Drawing.Point(18, 15);
             this.buttonAddProductLD.Name = "buttonAddProductLD";
             this.buttonAddProductLD.Size = new System.Drawing.Size(75, 25);
-            this.buttonAddProductLD.TabIndex = 12;
+            this.buttonAddProductLD.TabIndex = 13;
             this.buttonAddProductLD.Text = "Thêm   ";
             this.buttonAddProductLD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAddProductLD.UseVisualStyleBackColor = true;
@@ -773,11 +781,49 @@
             this.buttonDeleteProductLD.Location = new System.Drawing.Point(99, 15);
             this.buttonDeleteProductLD.Name = "buttonDeleteProductLD";
             this.buttonDeleteProductLD.Size = new System.Drawing.Size(75, 25);
-            this.buttonDeleteProductLD.TabIndex = 13;
+            this.buttonDeleteProductLD.TabIndex = 14;
             this.buttonDeleteProductLD.Text = "Xóa     ";
             this.buttonDeleteProductLD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDeleteProductLD.UseVisualStyleBackColor = true;
             this.buttonDeleteProductLD.Click += new System.EventHandler(this.DeleteProductLD);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(25, 290);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(42, 13);
+            this.label16.TabIndex = 33;
+            this.label16.Text = "Dư nợ:";
+            // 
+            // textDuNo
+            // 
+            this.textDuNo.Location = new System.Drawing.Point(136, 287);
+            this.textDuNo.Name = "textDuNo";
+            this.textDuNo.Size = new System.Drawing.Size(206, 22);
+            this.textDuNo.TabIndex = 8;
+            this.textDuNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textDuNo.Leave += new System.EventHandler(this.FormatDuNo);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(424, 290);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(109, 13);
+            this.label17.TabIndex = 34;
+            this.label17.Text = "Gửi theo đơn hàng:";
+            // 
+            // cboSendWithEmail
+            // 
+            this.cboSendWithEmail.AutoSize = true;
+            this.cboSendWithEmail.Checked = true;
+            this.cboSendWithEmail.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cboSendWithEmail.Location = new System.Drawing.Point(562, 290);
+            this.cboSendWithEmail.Name = "cboSendWithEmail";
+            this.cboSendWithEmail.Size = new System.Drawing.Size(15, 14);
+            this.cboSendWithEmail.TabIndex = 9;
+            this.cboSendWithEmail.UseVisualStyleBackColor = true;
             // 
             // OrderForm
             // 
@@ -785,7 +831,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(890, 741);
+            this.ClientSize = new System.Drawing.Size(890, 733);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
@@ -884,5 +930,9 @@
         private System.Windows.Forms.TextBox textCustomer;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textDuNo;
+        private System.Windows.Forms.CheckBox cboSendWithEmail;
+        private System.Windows.Forms.Label label17;
     }
 }
