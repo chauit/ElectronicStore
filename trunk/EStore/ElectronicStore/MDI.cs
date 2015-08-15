@@ -50,7 +50,7 @@ namespace ElectronicStore
                 changePasswordMenuItem.Visible = true;
                 textSearchCustomer.Visible = true;
                 CurrentUser = login.Result;
-
+                CreateMenu();
                 LoadCustomer();
                 ShowMenu();
             }
@@ -233,37 +233,34 @@ namespace ElectronicStore
 
         private void CreateMenu()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Quản lý nhân viên");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Quản lý cấu hình hệ thống");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Quản lý quyền truy cập");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Quản lý nội dung tin nhắn");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Quản lý nội dung email");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Quản lý tên thành phố");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Quản trị hệ thống", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3,
-            treeNode4,
-            treeNode5,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Quản lý khách hàng");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Quản lý loại sản phẩm");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Quản lý sản phẩm");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Quản lý sản phẩm LD");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Quản lý thiết bị vận chuyển");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Quản trị nội dung", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Quản lý đơn hàng");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Quản lý thông tin vận chuyển");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Bảng thông tin đơn hàng");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Quản lý đơn hàng & vận chuyển", new System.Windows.Forms.TreeNode[] {
-            treeNode14,
-            treeNode15,
-            treeNode16});
+            TreeNode treeNode1 = new TreeNode("Quản lý nhân viên");
+            TreeNode treeNode2 = new TreeNode("Quản lý cấu hình hệ thống");
+            TreeNode treeNode3 = new TreeNode("Quản lý quyền truy cập");
+            TreeNode treeNode4 = new TreeNode("Quản lý nội dung tin nhắn");
+            TreeNode treeNode5 = new TreeNode("Quản lý nội dung email");
+            TreeNode treeNode6 = new TreeNode("Quản lý tên thành phố");
+            TreeNode treeNode7 = new TreeNode("Quản trị hệ thống", new TreeNode[] {
+            treeNode1,            treeNode2,            treeNode3,            treeNode4,            treeNode5,            treeNode6});
+
+            TreeNode treeNode8 = new TreeNode("Quản lý khách hàng");
+            TreeNode treeNode9 = new TreeNode("Quản lý loại sản phẩm");
+            TreeNode treeNode10 = new TreeNode("Quản lý sản phẩm");
+            TreeNode treeNode11 = new TreeNode("Quản lý sản phẩm LD");
+            TreeNode treeNode12 = new TreeNode("Quản lý thiết bị vận chuyển");
+            TreeNode treeNode13 = new TreeNode("Quản trị nội dung", new TreeNode[] {
+            treeNode8,            treeNode9,            treeNode10,            treeNode11,            treeNode12});
+
+            TreeNode treeNode14 = new TreeNode("Quản lý đơn hàng");
+            TreeNode treeNode15 = new TreeNode("Quản lý thông tin vận chuyển");
+            TreeNode treeNode16 = new TreeNode("Bảng thông tin đơn hàng");
+            TreeNode treeNode17 = new TreeNode("Quản lý đơn hàng & vận chuyển", new TreeNode[] {
+            treeNode14,            treeNode15,            treeNode16});
+
+            treeView.Nodes.Clear();
+            treeView.Nodes.Add(treeNode7);
+            treeView.Nodes.Add(treeNode13);
+            treeView.Nodes.Add(treeNode17);
+            treeView.ExpandAll();
         }
     }
 }

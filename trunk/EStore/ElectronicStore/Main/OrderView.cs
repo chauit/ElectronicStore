@@ -171,6 +171,29 @@ namespace ElectronicStore.Main
                 var menu = AddMenu(isDelivered, isDeliverToOther);
                 menu.Show(Cursor.Position.X, Cursor.Position.Y);
             }
+
+            if(e.Button == MouseButtons.Left && e.ColumnIndex == 4 && e.RowIndex != -1)
+            {
+                var order = dataGridView.Rows[e.RowIndex].DataBoundItem as Order;
+
+                if (order.DeliveryDetails != null && order.DeliveryDetails.Count > 0)
+                {
+                    int deliveryId = 0;
+                    foreach(var detail in order.DeliveryDetails)
+                    {
+                        deliveryId = detail.DeliveryId.Value;
+                    }
+
+                    var parent = this.Parent as SplitterPanel;
+                    parent.Controls.Clear();
+
+                    var newDelivery = new DeliveryForm(deliveryId, currentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                    parent.Controls.Add(newDelivery);
+                    newDelivery.Show();
+
+                    this.Close();
+                }
+            }
         }
 
         private void CellPainting(object sender, DataGridViewCellPaintingEventArgs e)

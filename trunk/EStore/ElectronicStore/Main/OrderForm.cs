@@ -84,10 +84,16 @@ namespace ElectronicStore.Main
             textDeliverrAddress.Text = item.DeliveryAddress;
             txtDiscount.Text = item.Discount.ToString();
             txtDiscountLD.Text = item.DiscountLD.ToString();
+            if (item.Liability.HasValue)
+            {
+                textDuNo.Text = item.Liability.Value.ToString(Constants.CurrencyFormat);
+            }
             txtRecipient.Text = item.Recipient;
             txtRecipientPhone.Text = item.RecipientPhone;
             cboDeliveryInternal.Checked = item.DeliveryInternal;
             cboVat.Checked = item.Vat;
+            cboSendWithEmail.Checked = item.SendWithEmail;
+
             if (item.CustomerId.HasValue)
             {
                 textCustomer.Text = item.CustomerName;
@@ -145,6 +151,12 @@ namespace ElectronicStore.Main
                     if (!string.IsNullOrEmpty(item.Recipient) && string.IsNullOrEmpty(item.IsSendNotification))
                     {
                         item.IsSendNotification = Constants.OrderReport1;
+                    }
+                    item.SendWithEmail = cboSendWithEmail.Checked;
+
+                    if(!string.IsNullOrEmpty(textDuNo.Text))
+                    {
+                        item.Liability = decimal.Parse(textDuNo.Text);
                     }
 
                     if (itemId > 0)
@@ -234,6 +246,18 @@ namespace ElectronicStore.Main
 
                         txtRecipient.Focus();
                     }
+                }
+            }
+
+            if(!string.IsNullOrEmpty(textDuNo.Text))
+            {
+                decimal value = 0;
+                if(!decimal.TryParse(textDuNo.Text, out value))
+                {
+                    errorProvider.SetError(textDuNo, Constants.Messages.InvalidType);
+                    hasError = false;
+
+                    textDuNo.Focus();
                 }
             }
 
@@ -862,6 +886,18 @@ namespace ElectronicStore.Main
                 dataGridViewLD.DataSource = null;
                 dataGridViewLD.DataSource = listProductLD;
                 dataGridViewLD.Refresh();
+            }
+        }
+
+        private void FormatDuNo(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(textDuNo.Text))
+            {
+                decimal value = 0;
+                if (decimal.TryParse(textDuNo.Text, out value))
+                {
+                    textDuNo.Text = value.ToString(Constants.CurrencyFormat);
+                }
             }
         }
 
