@@ -29,15 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerView));
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.buttonNew = new System.Windows.Forms.Button();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSegment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mobile1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.City = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
@@ -47,11 +45,13 @@
             this.btnImport = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.radGridView = new Telerik.WinControls.UI.RadGridView();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView.MasterTemplate)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonNew
@@ -66,89 +66,6 @@
             this.buttonNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.NewItem);
-            // 
-            // dataGridView
-            // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cbo,
-            this.FullName,
-            this.ColumnSegment,
-            this.RoleId,
-            this.Mobile1,
-            this.Type,
-            this.City});
-            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView.MultiSelect = false;
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(804, 330);
-            this.dataGridView.TabIndex = 1;
-            // 
-            // cbo
-            // 
-            this.cbo.FalseValue = "0";
-            this.cbo.FillWeight = 20.30457F;
-            this.cbo.HeaderText = "";
-            this.cbo.IndeterminateValue = "";
-            this.cbo.MinimumWidth = 20;
-            this.cbo.Name = "cbo";
-            this.cbo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cbo.TrueValue = "1";
-            // 
-            // FullName
-            // 
-            this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FullName.DataPropertyName = "FullName";
-            this.FullName.FillWeight = 179.6954F;
-            this.FullName.HeaderText = "Họ tên";
-            this.FullName.Name = "FullName";
-            // 
-            // ColumnSegment
-            // 
-            this.ColumnSegment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColumnSegment.DataPropertyName = "Segment";
-            this.ColumnSegment.HeaderText = "Phân khúc";
-            this.ColumnSegment.Name = "ColumnSegment";
-            this.ColumnSegment.ReadOnly = true;
-            this.ColumnSegment.Width = 130;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
-            // 
-            // Mobile1
-            // 
-            this.Mobile1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Mobile1.DataPropertyName = "Mobile1";
-            this.Mobile1.HeaderText = "Di động";
-            this.Mobile1.Name = "Mobile1";
-            this.Mobile1.ReadOnly = true;
-            this.Mobile1.Width = 130;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Email1";
-            this.Type.HeaderText = "Email";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            // 
-            // City
-            // 
-            this.City.DataPropertyName = "City";
-            this.City.HeaderText = "Thành phố";
-            this.City.Name = "City";
-            this.City.ReadOnly = true;
             // 
             // buttonUpdate
             // 
@@ -221,7 +138,7 @@
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(75, 23);
             this.btnExport.TabIndex = 6;
-            this.btnExport.Text = "Export";
+            this.btnExport.Text = "Chọn ";
             this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Visible = false;
@@ -251,7 +168,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView);
+            this.groupBox1.Controls.Add(this.radGridView);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -259,6 +176,80 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Danh sách khách hàng";
+            // 
+            // radGridView
+            // 
+            this.radGridView.AutoScroll = true;
+            this.radGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radGridView.Location = new System.Drawing.Point(3, 18);
+            // 
+            // radGridView
+            // 
+            this.radGridView.MasterTemplate.AllowAddNewRow = false;
+            this.radGridView.MasterTemplate.AllowCellContextMenu = false;
+            this.radGridView.MasterTemplate.AllowColumnChooser = false;
+            this.radGridView.MasterTemplate.AllowColumnHeaderContextMenu = false;
+            this.radGridView.MasterTemplate.AllowDeleteRow = false;
+            this.radGridView.MasterTemplate.AllowDragToGroup = false;
+            this.radGridView.MasterTemplate.AutoGenerateColumns = false;
+            this.radGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridViewCheckBoxColumn1.AllowFiltering = false;
+            gridViewCheckBoxColumn1.AllowGroup = false;
+            gridViewCheckBoxColumn1.AllowHide = false;
+            gridViewCheckBoxColumn1.AllowResize = false;
+            gridViewCheckBoxColumn1.AllowSort = false;
+            gridViewCheckBoxColumn1.FormatString = "";
+            gridViewCheckBoxColumn1.HeaderText = "";
+            gridViewCheckBoxColumn1.Name = "columnSelect";
+            gridViewCheckBoxColumn1.VisibleInColumnChooser = false;
+            gridViewTextBoxColumn1.AllowGroup = false;
+            gridViewTextBoxColumn1.FieldName = "FullName";
+            gridViewTextBoxColumn1.FormatString = "";
+            gridViewTextBoxColumn1.HeaderText = "Họ tên";
+            gridViewTextBoxColumn1.Name = "columnName";
+            gridViewTextBoxColumn1.ReadOnly = true;
+            gridViewTextBoxColumn1.Width = 148;
+            gridViewTextBoxColumn2.AllowGroup = false;
+            gridViewTextBoxColumn2.FieldName = "Segment";
+            gridViewTextBoxColumn2.FormatString = "";
+            gridViewTextBoxColumn2.HeaderText = "Phân khúc";
+            gridViewTextBoxColumn2.Name = "columnSegment";
+            gridViewTextBoxColumn2.ReadOnly = true;
+            gridViewTextBoxColumn2.Width = 148;
+            gridViewTextBoxColumn3.AllowGroup = false;
+            gridViewTextBoxColumn3.FieldName = "Mobile1";
+            gridViewTextBoxColumn3.FormatString = "";
+            gridViewTextBoxColumn3.HeaderText = "Di động";
+            gridViewTextBoxColumn3.Name = "columnMobile1";
+            gridViewTextBoxColumn3.ReadOnly = true;
+            gridViewTextBoxColumn3.Width = 148;
+            gridViewTextBoxColumn4.AllowGroup = false;
+            gridViewTextBoxColumn4.FieldName = "Email1";
+            gridViewTextBoxColumn4.FormatString = "";
+            gridViewTextBoxColumn4.HeaderText = "Email";
+            gridViewTextBoxColumn4.Name = "columnEmail";
+            gridViewTextBoxColumn4.ReadOnly = true;
+            gridViewTextBoxColumn4.Width = 148;
+            gridViewTextBoxColumn5.AllowGroup = false;
+            gridViewTextBoxColumn5.FieldName = "City";
+            gridViewTextBoxColumn5.FormatString = "";
+            gridViewTextBoxColumn5.HeaderText = "Thành phố";
+            gridViewTextBoxColumn5.Name = "columnCity";
+            gridViewTextBoxColumn5.ReadOnly = true;
+            gridViewTextBoxColumn5.Width = 147;
+            this.radGridView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewCheckBoxColumn1,
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4,
+            gridViewTextBoxColumn5});
+            this.radGridView.MasterTemplate.EnableFiltering = true;
+            this.radGridView.MasterTemplate.EnableGrouping = false;
+            this.radGridView.Name = "radGridView";
+            this.radGridView.Size = new System.Drawing.Size(804, 330);
+            this.radGridView.TabIndex = 0;
+            this.radGridView.Text = "radGridView1";
             // 
             // CustomerView
             // 
@@ -271,11 +262,12 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CustomerView";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -283,7 +275,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonNew;
-        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonRefresh;
@@ -293,12 +284,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnExport;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn cbo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSegment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mobile1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn City;
+        private Telerik.WinControls.UI.RadGridView radGridView;
     }
 }

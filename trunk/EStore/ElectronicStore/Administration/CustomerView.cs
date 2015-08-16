@@ -18,12 +18,10 @@ namespace ElectronicStore.Administration
         public CustomerView(User user)
         {
             InitializeComponent();
-
-            dataGridView.AutoGenerateColumns = false;
-
+            
             var biz = new CustomerBiz();
-            dataGridView.DataSource = biz.LoadItems();
-            dataGridView.Refresh();
+            radGridView.DataSource = biz.LoadItems();
+            radGridView.Refresh();
 
             _currentUser = user;
         }
@@ -40,7 +38,7 @@ namespace ElectronicStore.Administration
 
         private void UpdateItem(object sender, EventArgs e)
         {
-            var user = dataGridView.SelectedRows[0].DataBoundItem as Customer;
+            var user = radGridView.SelectedRows[0].DataBoundItem as Customer;
 
             var newCustomer = new CustomerForm(user.Id, _currentUser);
             var result = newCustomer.ShowDialog();
@@ -54,9 +52,9 @@ namespace ElectronicStore.Administration
         {
             var items = new List<Customer>();
 
-            foreach (DataGridViewRow row in dataGridView.Rows)
+            foreach (var row in radGridView.Rows)
             {
-                if (row.Cells[0].Value != null && row.Cells[0].Value == "1")
+                if (row.Cells[0].Value != null && Convert.ToBoolean(row.Cells[0].Value))                
                 {
                     items.Add(row.DataBoundItem as Customer);
                 }
@@ -71,15 +69,15 @@ namespace ElectronicStore.Administration
         private void RefreshItems(object sender, EventArgs e)
         {
             var biz = new CustomerBiz();
-            dataGridView.DataSource = biz.LoadItems();
-            dataGridView.Refresh();
+            radGridView.DataSource = biz.LoadItems();
+            radGridView.Refresh();
         }
 
         private void RefreshItems()
         {
             var biz = new CustomerBiz();
-            dataGridView.DataSource = biz.LoadItems();
-            dataGridView.Refresh();
+            radGridView.DataSource = biz.LoadItems();
+            radGridView.Refresh();
         }
 
         private void btnImport_Click(object sender, EventArgs e)

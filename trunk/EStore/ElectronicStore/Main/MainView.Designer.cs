@@ -184,8 +184,6 @@
             this.radGridView.TabIndex = 0;
             this.radGridView.Text = "radGridView1";
             this.radGridView.UseScrollbarsInHierarchy = true;
-            this.radGridView.CellPaint += new Telerik.WinControls.UI.GridViewCellPaintEventHandler(this.CellPaint);
-            this.radGridView.CellFormatting += new Telerik.WinControls.UI.CellFormattingEventHandler(this.CellFormat);
             this.radGridView.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.CellClick);
             this.radGridView.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.CellDoubleClick);
             this.radGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClicked);
