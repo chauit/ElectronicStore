@@ -33,15 +33,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textSendTo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textSendFrom = new System.Windows.Forms.TextBox();
             this.textSendOn = new System.Windows.Forms.TextBox();
-            this.textContent = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textSendTo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -63,32 +63,50 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(565, 399);
+            this.groupBox1.Size = new System.Drawing.Size(900, 536);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.webBrowser);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.textSendTo);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.textSendFrom);
             this.groupBox2.Controls.Add(this.textSendOn);
-            this.groupBox2.Controls.Add(this.textContent);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(3, 18);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(559, 338);
+            this.groupBox2.Size = new System.Drawing.Size(894, 475);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin chung";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Nội dung:";
+            // 
+            // textSendTo
+            // 
+            this.textSendTo.Location = new System.Drawing.Point(565, 55);
+            this.textSendTo.Name = "textSendTo";
+            this.textSendTo.ReadOnly = true;
+            this.textSendTo.Size = new System.Drawing.Size(304, 22);
+            this.textSendTo.TabIndex = 15;
+            this.textSendTo.TabStop = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 95);
+            this.label2.Location = new System.Drawing.Point(473, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 14;
@@ -99,7 +117,7 @@
             this.textSendFrom.Location = new System.Drawing.Point(103, 55);
             this.textSendFrom.Name = "textSendFrom";
             this.textSendFrom.ReadOnly = true;
-            this.textSendFrom.Size = new System.Drawing.Size(405, 22);
+            this.textSendFrom.Size = new System.Drawing.Size(304, 22);
             this.textSendFrom.TabIndex = 2;
             this.textSendFrom.TabStop = false;
             // 
@@ -111,16 +129,6 @@
             this.textSendOn.Size = new System.Drawing.Size(164, 22);
             this.textSendOn.TabIndex = 1;
             this.textSendOn.TabStop = false;
-            // 
-            // textContent
-            // 
-            this.textContent.Location = new System.Drawing.Point(103, 132);
-            this.textContent.Multiline = true;
-            this.textContent.Name = "textContent";
-            this.textContent.ReadOnly = true;
-            this.textContent.Size = new System.Drawing.Size(405, 200);
-            this.textContent.TabIndex = 3;
-            this.textContent.TabStop = false;
             // 
             // label6
             // 
@@ -135,7 +143,7 @@
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(478, 362);
+            this.button2.Location = new System.Drawing.Point(797, 499);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 25);
             this.button2.TabIndex = 5;
@@ -148,30 +156,24 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // textSendTo
+            // webBrowser
             // 
-            this.textSendTo.Location = new System.Drawing.Point(103, 92);
-            this.textSendTo.Name = "textSendTo";
-            this.textSendTo.ReadOnly = true;
-            this.textSendTo.Size = new System.Drawing.Size(405, 22);
-            this.textSendTo.TabIndex = 15;
-            this.textSendTo.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 135);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Nội dung:";
+            this.webBrowser.AllowNavigation = false;
+            this.webBrowser.AllowWebBrowserDrop = false;
+            this.webBrowser.Location = new System.Drawing.Point(103, 99);
+            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser.Name = "webBrowser";
+            this.webBrowser.Size = new System.Drawing.Size(766, 370);
+            this.webBrowser.TabIndex = 17;
+            this.webBrowser.TabStop = false;
+            this.webBrowser.WebBrowserShortcutsEnabled = false;
             // 
             // EmailDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(565, 399);
+            this.ClientSize = new System.Drawing.Size(900, 536);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -196,12 +198,12 @@
         private System.Windows.Forms.TextBox textSendOn;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.TextBox textContent;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textSendFrom;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textSendTo;
+        private System.Windows.Forms.WebBrowser webBrowser;
     }
 }

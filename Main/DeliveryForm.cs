@@ -18,6 +18,9 @@ namespace ElectronicStore.Main
 
         private int itemId;
 
+        private bool isLocked;
+        private string lockedUserName;
+
         private List<SearchOrder> listOrder;
 
         private void InitForm(User user)
@@ -64,6 +67,28 @@ namespace ElectronicStore.Main
             InitializeComponent();
 
             InitForm(user);
+
+            var lockBiz = new LockingBiz();
+            var lockItem = lockBiz.LoadItem(Constants.TableNameDelivery, user.Id, id);
+            if (lockItem == null)
+            {
+                lockBiz.LockItem(Constants.TableNameDelivery, id, user.Id);
+            }
+            else
+            {
+                groupBox1.Enabled = false;
+                groupBox3.Enabled = false;
+                groupBox4.Enabled = false;
+
+                buttonSave.Enabled = false;
+                buttonSendEmail.Enabled = false;
+                buttonSendSms.Enabled = false;
+
+                var userBiz = new UserBiz();
+                var lockedUser = userBiz.LoadItem(lockItem.CurrentUserId);
+                lockedUserName = lockedUser.FullName;
+                isLocked = true;
+            }
 
             drlVehicle.Focus();
             itemId = id;
@@ -478,6 +503,24 @@ namespace ElectronicStore.Main
             }
 
             return false;
+        }
+
+        private void FormClosedEvent(object sender, FormClosedEventArgs e)
+        {
+            if (!isLocked)
+            {
+                var lockBiz = new LockingBiz();
+                lockBiz.UnlockItem(Constants.TableNameDelivery, itemId, currentUser.Id);
+            }
+        }
+
+        private void FormShowEvent(object sender, EventArgs e)
+        {
+            if (isLocked)
+            {
+                string message = string.Format("Nếu bạn muốn cập nhật thông tin, bạn cần thông báo với [{0}] đóng bản ghi này.", lockedUserName);
+                MessageBox.Show(message, "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
