@@ -28,6 +28,8 @@ namespace ElectronicStore.Reference
             dataGridView.Refresh();
 
             currentUser = user;
+
+            buttonSelectItems.Text = "Chọn";
         }
 
         private void NewItem(object sender, EventArgs e)
@@ -191,6 +193,25 @@ namespace ElectronicStore.Reference
                 }
 
                 MessageBox.Show("Cập nhật thành công.");
+            }
+        }
+
+        private void SelectItems(object sender, EventArgs e)
+        {
+            bool isSelected = buttonSelectItems.Text == "Chọn";
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                row.Cells[0].Value = isSelected;
+            }
+
+            if (isSelected)
+            {
+                buttonSelectItems.Text = "Không chọn";
+            }
+            else
+            {
+                buttonSelectItems.Text = "Chọn";
             }
         }
     }
