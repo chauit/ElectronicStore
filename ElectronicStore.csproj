@@ -106,6 +106,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\SmsDataView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\SmsDataView.Designer.cs">
+      <DependentUpon>SmsDataView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\SmsDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\SmsDataForm.Designer.cs">
+      <DependentUpon>SmsDataForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\EmailDataView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +369,12 @@
     </Compile>
     <Compile Include="Views\CustomerItem.cs" />
     <Compile Include="Views\DashBoardModel.cs" />
+    <EmbeddedResource Include="Administration\SmsDataView.resx">
+      <DependentUpon>SmsDataView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\SmsDataForm.resx">
+      <DependentUpon>SmsDataForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\EmailDataView.resx">
       <DependentUpon>EmailDataView.cs</DependentUpon>
     </EmbeddedResource>
