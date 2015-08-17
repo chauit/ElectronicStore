@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
@@ -60,6 +61,6 @@ namespace ElectronicStore.Common
             cities.Add("Nhà Thầu");
             cities.Add("Chủ Đầu Tư");
             return cities;
-        }
+        }        
     }
 }

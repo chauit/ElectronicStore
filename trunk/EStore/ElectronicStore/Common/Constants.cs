@@ -62,6 +62,9 @@ namespace ElectronicStore.Common
         public const string SmsParameter3 = "<TIME>";
         public const string SmsParameter4 = "<RECIPIENT>";
 
-        public const string CityInternal = "Hà Nội";       
+        public const string CityInternal = "Hà Nội";
+
+        public const string TableNameOrder = "Order";
+        public const string TableNameDelivery = "Delivery";
     }
 }
