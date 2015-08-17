@@ -200,6 +200,10 @@ namespace ElectronicStore
                 case "Quản lý thông tin email":
                     var emailDataView = new EmailDataView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(emailDataView);
+                    break;
+                case "Quản lý thông tin tin nhắn":
+                    var smsDataView = new SmsDataView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                    OpenForm(smsDataView);
                     break;   
                 default:
                     break;

@@ -6,10 +6,10 @@ using System.Windows.Forms;
 
 namespace ElectronicStore.Administration
 {
-    public partial class EmailDataView : Form
+    public partial class SmsDataView : Form
     {
         private User currentUser;
-        public EmailDataView(User user)
+        public SmsDataView(User user)
         {
             InitializeComponent();
 
@@ -17,25 +17,25 @@ namespace ElectronicStore.Administration
 
             currentUser = user;
 
-            var biz = new EmailDataBiz();
+            var biz = new SmsDataBiz();
             dataGridView.DataSource = biz.LoadItems();
             dataGridView.Refresh();
         }
         
         private void RefreshItems(object sender, EventArgs e)
         {
-            var biz = new EmailDataBiz();
+            var biz = new SmsDataBiz();
             dataGridView.DataSource = biz.LoadItems();
             dataGridView.Refresh();
         }
 
         private void ViewContent(object sender, EventArgs e)
         {
-            var emailData = dataGridView.SelectedRows[0].DataBoundItem as EmailData;
-            if (emailData != null)
+            var smsData = dataGridView.SelectedRows[0].DataBoundItem as SmsData;
+            if (smsData != null)
             {
-                var newEmailData = new EmailDataForm(emailData.Id, currentUser);
-                var result = newEmailData.ShowDialog();                
+                var newSmsData = new SmsDataForm(smsData.Id, currentUser);
+                var result = newSmsData.ShowDialog();                
             }
         }
  
