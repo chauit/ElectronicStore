@@ -8,6 +8,7 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using ElectronicStore.Views;
 using Model;
+using Telerik.WinControls.UI;
 
 namespace ElectronicStore.Administration
 {
@@ -24,6 +25,8 @@ namespace ElectronicStore.Administration
             radGridView.Refresh();
 
             _currentUser = user;
+
+            buttonSelectItems.Text = "Chọn";
         }
 
         private void NewItem(object sender, EventArgs e)
@@ -147,9 +150,23 @@ namespace ElectronicStore.Administration
             }
         }
 
-        private void btnExport_Click(object sender, EventArgs e)
+        private void SelectAllItem(object sender, EventArgs e)
         {
+            bool isSelected = buttonSelectItems.Text == "Chọn";
+            
+            foreach(var row in radGridView.Rows)
+            {
+                row.Cells[0].Value = isSelected;
+            }
 
+            if(isSelected)
+            {
+                buttonSelectItems.Text = "Không chọn";
+            }
+            else
+            {
+                buttonSelectItems.Text = "Chọn";
+            }
         }
     }
 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonNew = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.cbo = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -43,9 +43,10 @@
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnImport = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnImport = new System.Windows.Forms.Button();
+            this.buttonSelectItems = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -134,10 +135,10 @@
             // ProductPrice
             // 
             this.ProductPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            dataGridViewCellStyle5.Format = "0,000";
-            dataGridViewCellStyle5.NullValue = null;
-            this.ProductPrice.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            dataGridViewCellStyle2.Format = "0,000";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ProductPrice.DefaultCellStyle = dataGridViewCellStyle2;
             this.ProductPrice.HeaderText = "Giá";
             this.ProductPrice.Name = "ProductPrice";
             this.ProductPrice.ReadOnly = true;
@@ -192,6 +193,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonSelectItems);
             this.groupBox1.Controls.Add(this.btnImport);
             this.groupBox1.Controls.Add(this.buttonNew);
             this.groupBox1.Controls.Add(this.buttonRefresh);
@@ -203,6 +205,19 @@
             this.groupBox1.Size = new System.Drawing.Size(964, 55);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // btnImport
+            // 
+            this.btnImport.Image = global::ElectronicStore.Properties.Resources.import;
+            this.btnImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImport.Location = new System.Drawing.Point(316, 19);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(75, 25);
+            this.btnImport.TabIndex = 5;
+            this.btnImport.Text = "Import";
+            this.btnImport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // panel2
             // 
@@ -224,18 +239,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách sản phẩm";
             // 
-            // btnImport
+            // buttonSelectItems
             // 
-            this.btnImport.Image = global::ElectronicStore.Properties.Resources.import;
-            this.btnImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImport.Location = new System.Drawing.Point(316, 19);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(75, 25);
-            this.btnImport.TabIndex = 5;
-            this.btnImport.Text = "Import";
-            this.btnImport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnImport.UseVisualStyleBackColor = true;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            this.buttonSelectItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSelectItems.Location = new System.Drawing.Point(397, 19);
+            this.buttonSelectItems.Name = "buttonSelectItems";
+            this.buttonSelectItems.Size = new System.Drawing.Size(103, 23);
+            this.buttonSelectItems.TabIndex = 8;
+            this.buttonSelectItems.Text = "chọn ";
+            this.buttonSelectItems.UseVisualStyleBackColor = true;
+            this.buttonSelectItems.Click += new System.EventHandler(this.SelectItems);
             // 
             // ProductView
             // 
@@ -275,5 +288,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnImport;
+        private System.Windows.Forms.Button buttonSelectItems;
     }
 }

@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerView));
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn3 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn13 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn14 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn15 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.buttonNew = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnExport = new System.Windows.Forms.Button();
+            this.buttonSelectItems = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -117,7 +117,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnExport);
+            this.groupBox2.Controls.Add(this.buttonSelectItems);
             this.groupBox2.Controls.Add(this.btnImport);
             this.groupBox2.Controls.Add(this.buttonNew);
             this.groupBox2.Controls.Add(this.buttonUpdate);
@@ -130,19 +130,16 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             // 
-            // btnExport
+            // buttonSelectItems
             // 
-            this.btnExport.Image = ((System.Drawing.Image)(resources.GetObject("btnExport.Image")));
-            this.btnExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExport.Location = new System.Drawing.Point(411, 14);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 23);
-            this.btnExport.TabIndex = 6;
-            this.btnExport.Text = "Chọn ";
-            this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Visible = false;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            this.buttonSelectItems.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSelectItems.Location = new System.Drawing.Point(411, 14);
+            this.buttonSelectItems.Name = "buttonSelectItems";
+            this.buttonSelectItems.Size = new System.Drawing.Size(103, 23);
+            this.buttonSelectItems.TabIndex = 6;
+            this.buttonSelectItems.Text = "chọn ";
+            this.buttonSelectItems.UseVisualStyleBackColor = true;
+            this.buttonSelectItems.Click += new System.EventHandler(this.SelectAllItem);
             // 
             // btnImport
             // 
@@ -193,57 +190,57 @@
             this.radGridView.MasterTemplate.AllowDragToGroup = false;
             this.radGridView.MasterTemplate.AutoGenerateColumns = false;
             this.radGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewCheckBoxColumn1.AllowFiltering = false;
-            gridViewCheckBoxColumn1.AllowGroup = false;
-            gridViewCheckBoxColumn1.AllowHide = false;
-            gridViewCheckBoxColumn1.AllowResize = false;
-            gridViewCheckBoxColumn1.AllowSort = false;
-            gridViewCheckBoxColumn1.FormatString = "";
-            gridViewCheckBoxColumn1.HeaderText = "";
-            gridViewCheckBoxColumn1.Name = "columnSelect";
-            gridViewCheckBoxColumn1.VisibleInColumnChooser = false;
-            gridViewTextBoxColumn1.AllowGroup = false;
-            gridViewTextBoxColumn1.FieldName = "FullName";
-            gridViewTextBoxColumn1.FormatString = "";
-            gridViewTextBoxColumn1.HeaderText = "Họ tên";
-            gridViewTextBoxColumn1.Name = "columnName";
-            gridViewTextBoxColumn1.ReadOnly = true;
-            gridViewTextBoxColumn1.Width = 148;
-            gridViewTextBoxColumn2.AllowGroup = false;
-            gridViewTextBoxColumn2.FieldName = "Segment";
-            gridViewTextBoxColumn2.FormatString = "";
-            gridViewTextBoxColumn2.HeaderText = "Phân khúc";
-            gridViewTextBoxColumn2.Name = "columnSegment";
-            gridViewTextBoxColumn2.ReadOnly = true;
-            gridViewTextBoxColumn2.Width = 148;
-            gridViewTextBoxColumn3.AllowGroup = false;
-            gridViewTextBoxColumn3.FieldName = "Mobile1";
-            gridViewTextBoxColumn3.FormatString = "";
-            gridViewTextBoxColumn3.HeaderText = "Di động";
-            gridViewTextBoxColumn3.Name = "columnMobile1";
-            gridViewTextBoxColumn3.ReadOnly = true;
-            gridViewTextBoxColumn3.Width = 148;
-            gridViewTextBoxColumn4.AllowGroup = false;
-            gridViewTextBoxColumn4.FieldName = "Email1";
-            gridViewTextBoxColumn4.FormatString = "";
-            gridViewTextBoxColumn4.HeaderText = "Email";
-            gridViewTextBoxColumn4.Name = "columnEmail";
-            gridViewTextBoxColumn4.ReadOnly = true;
-            gridViewTextBoxColumn4.Width = 148;
-            gridViewTextBoxColumn5.AllowGroup = false;
-            gridViewTextBoxColumn5.FieldName = "City";
-            gridViewTextBoxColumn5.FormatString = "";
-            gridViewTextBoxColumn5.HeaderText = "Thành phố";
-            gridViewTextBoxColumn5.Name = "columnCity";
-            gridViewTextBoxColumn5.ReadOnly = true;
-            gridViewTextBoxColumn5.Width = 147;
+            gridViewCheckBoxColumn3.AllowFiltering = false;
+            gridViewCheckBoxColumn3.AllowGroup = false;
+            gridViewCheckBoxColumn3.AllowHide = false;
+            gridViewCheckBoxColumn3.AllowResize = false;
+            gridViewCheckBoxColumn3.AllowSort = false;
+            gridViewCheckBoxColumn3.FormatString = "";
+            gridViewCheckBoxColumn3.HeaderText = "";
+            gridViewCheckBoxColumn3.Name = "columnSelect";
+            gridViewCheckBoxColumn3.VisibleInColumnChooser = false;
+            gridViewTextBoxColumn11.AllowGroup = false;
+            gridViewTextBoxColumn11.FieldName = "FullName";
+            gridViewTextBoxColumn11.FormatString = "";
+            gridViewTextBoxColumn11.HeaderText = "Họ tên";
+            gridViewTextBoxColumn11.Name = "columnName";
+            gridViewTextBoxColumn11.ReadOnly = true;
+            gridViewTextBoxColumn11.Width = 148;
+            gridViewTextBoxColumn12.AllowGroup = false;
+            gridViewTextBoxColumn12.FieldName = "Segment";
+            gridViewTextBoxColumn12.FormatString = "";
+            gridViewTextBoxColumn12.HeaderText = "Phân khúc";
+            gridViewTextBoxColumn12.Name = "columnSegment";
+            gridViewTextBoxColumn12.ReadOnly = true;
+            gridViewTextBoxColumn12.Width = 148;
+            gridViewTextBoxColumn13.AllowGroup = false;
+            gridViewTextBoxColumn13.FieldName = "Mobile1";
+            gridViewTextBoxColumn13.FormatString = "";
+            gridViewTextBoxColumn13.HeaderText = "Di động";
+            gridViewTextBoxColumn13.Name = "columnMobile1";
+            gridViewTextBoxColumn13.ReadOnly = true;
+            gridViewTextBoxColumn13.Width = 148;
+            gridViewTextBoxColumn14.AllowGroup = false;
+            gridViewTextBoxColumn14.FieldName = "Email1";
+            gridViewTextBoxColumn14.FormatString = "";
+            gridViewTextBoxColumn14.HeaderText = "Email";
+            gridViewTextBoxColumn14.Name = "columnEmail";
+            gridViewTextBoxColumn14.ReadOnly = true;
+            gridViewTextBoxColumn14.Width = 148;
+            gridViewTextBoxColumn15.AllowGroup = false;
+            gridViewTextBoxColumn15.FieldName = "City";
+            gridViewTextBoxColumn15.FormatString = "";
+            gridViewTextBoxColumn15.HeaderText = "Thành phố";
+            gridViewTextBoxColumn15.Name = "columnCity";
+            gridViewTextBoxColumn15.ReadOnly = true;
+            gridViewTextBoxColumn15.Width = 147;
             this.radGridView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewCheckBoxColumn1,
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2,
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4,
-            gridViewTextBoxColumn5});
+            gridViewCheckBoxColumn3,
+            gridViewTextBoxColumn11,
+            gridViewTextBoxColumn12,
+            gridViewTextBoxColumn13,
+            gridViewTextBoxColumn14,
+            gridViewTextBoxColumn15});
             this.radGridView.MasterTemplate.EnableFiltering = true;
             this.radGridView.MasterTemplate.EnableGrouping = false;
             this.radGridView.Name = "radGridView";
@@ -283,7 +280,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnImport;
-        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button buttonSelectItems;
         private Telerik.WinControls.UI.RadGridView radGridView;
     }
 }
