@@ -37,6 +37,8 @@
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Quản lý tên thành phố");
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Quản lý quyền truy cập");
             System.Windows.Forms.TreeNode treeNodeLock = new System.Windows.Forms.TreeNode("Quản lý cập nhật dữ liệu");
+            System.Windows.Forms.TreeNode treeNodeEmailData = new System.Windows.Forms.TreeNode ("Quản lý thông tin email");
+            System.Windows.Forms.TreeNode treeNodeSmsData = new System.Windows.Forms.TreeNode ("Quản lý thông tin tin nhắn");
             System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Quản trị hệ thống", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
@@ -44,6 +46,8 @@
             treeNode4,
             treeNode5,
             treeNode6,
+            treeNodeEmailData,
+            treeNodeSmsData,
             treeNodeLock});
             System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Quản lý khách hàng");
             System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Quản lý loại sản phẩm");

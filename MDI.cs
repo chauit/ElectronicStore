@@ -196,7 +196,11 @@ namespace ElectronicStore
                 case "Quản lý cập nhật dữ liệu":
                     var lockingView = new LockingView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(lockingView);
-                    break;                    
+                    break;
+                case "Quản lý thông tin email":
+                    var emailDataView = new EmailDataView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                    OpenForm(emailDataView);
+                    break;   
                 default:
                     break;
             }
@@ -260,9 +264,11 @@ namespace ElectronicStore
             TreeNode treeNode4 = new TreeNode("Quản lý nội dung tin nhắn");
             TreeNode treeNode5 = new TreeNode("Quản lý nội dung email");
             TreeNode treeNode6 = new TreeNode("Quản lý tên thành phố");
+            TreeNode treeNodeEmailData = new TreeNode("Quản lý thông tin email");
+            TreeNode treeNodeSmsData = new TreeNode("Quản lý thông tin tin nhắn");
             TreeNode treeNodeLock = new TreeNode("Quản lý cập nhật dữ liệu");
             TreeNode treeNode7 = new TreeNode("Quản trị hệ thống", new TreeNode[] {
-            treeNode1,            treeNode2,            treeNode3,            treeNode4,            treeNode5,            treeNode6,    treeNodeLock});
+            treeNode1,            treeNode2,            treeNode3,            treeNode4,            treeNode5,            treeNode6,    treeNodeEmailData,treeNodeSmsData,  treeNodeLock});
 
             TreeNode treeNode8 = new TreeNode("Quản lý khách hàng");
             TreeNode treeNode9 = new TreeNode("Quản lý loại sản phẩm");

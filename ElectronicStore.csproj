@@ -106,6 +106,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\EmailDataView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\EmailDataView.Designer.cs">
+      <DependentUpon>EmailDataView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\EmailDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\EmailDataForm.Designer.cs">
+      <DependentUpon>EmailDataForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\LockingView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -345,6 +357,12 @@
     </Compile>
     <Compile Include="Views\CustomerItem.cs" />
     <Compile Include="Views\DashBoardModel.cs" />
+    <EmbeddedResource Include="Administration\EmailDataView.resx">
+      <DependentUpon>EmailDataView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administration\EmailDataForm.resx">
+      <DependentUpon>EmailDataForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\LockingView.resx">
       <DependentUpon>LockingView.cs</DependentUpon>
     </EmbeddedResource>
