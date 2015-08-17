@@ -29,11 +29,13 @@ namespace ElectronicStore.Main
 
         private decimal currentTotal;
         private decimal currentTotalLd;
+        private bool isLocked;
+        private string lockedUserName;
 
         private void InitForm(User user)
         {
             buttonSave.DialogResult = DialogResult.OK;
-            button2.DialogResult = DialogResult.Cancel;
+            buttonCancel.DialogResult = DialogResult.Cancel;
 
             currentUser = user;
            
@@ -66,6 +68,25 @@ namespace ElectronicStore.Main
             InitializeComponent();
 
             InitForm(user);
+
+            var lockBiz = new LockingBiz();
+            var lockItem = lockBiz.LoadItem(Constants.TableNameOrder, user.Id, id);
+            if (lockItem == null)
+            {
+                lockBiz.LockItem(Constants.TableNameOrder, id, user.Id);
+            }
+            else
+            {                
+                groupBox1.Enabled = false;
+                groupBox2.Enabled = false;
+                groupBox5.Enabled = false;
+                buttonSave.Enabled = false;
+
+                var userBiz = new UserBiz();
+                var lockedUser = userBiz.LoadItem(lockItem.CurrentUserId);
+                lockedUserName = lockedUser.FullName;
+                isLocked = true;                
+            }
 
             itemId = id;
 
@@ -901,5 +922,22 @@ namespace ElectronicStore.Main
             }
         }
 
+        private void FormShow(object sender, EventArgs e)
+        {
+            if (isLocked)
+            {
+                string message = string.Format("Nếu bạn muốn cập nhật thông tin, bạn cần thông báo với [{0}] đóng bản ghi này.", lockedUserName);
+                MessageBox.Show(message, "Cảnh báo!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void FormClosedEvent(object sender, FormClosedEventArgs e)
+        {
+            if (!isLocked)
+            {
+                var lockBiz = new LockingBiz();
+                lockBiz.UnlockItem(Constants.TableNameOrder, itemId, currentUser.Id);
+            }
+        }
     }
 }

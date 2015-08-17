@@ -106,6 +106,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\LockingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\LockingView.Designer.cs">
+      <DependentUpon>LockingView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\RoleView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +345,9 @@
     </Compile>
     <Compile Include="Views\CustomerItem.cs" />
     <Compile Include="Views\DashBoardModel.cs" />
+    <EmbeddedResource Include="Administration\LockingView.resx">
+      <DependentUpon>LockingView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\RoleView.resx">
       <DependentUpon>RoleView.cs</DependentUpon>
     </EmbeddedResource>

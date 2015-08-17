@@ -36,13 +36,15 @@
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Quản lý nội dung email");
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Quản lý tên thành phố");
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Quản lý quyền truy cập");
+            System.Windows.Forms.TreeNode treeNodeLock = new System.Windows.Forms.TreeNode("Quản lý cập nhật dữ liệu");
             System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Quản trị hệ thống", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2,
             treeNode3,
             treeNode4,
             treeNode5,
-            treeNode6});
+            treeNode6,
+            treeNodeLock});
             System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Quản lý khách hàng");
             System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Quản lý loại sản phẩm");
             System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Quản lý sản phẩm");

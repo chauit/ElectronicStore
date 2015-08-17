@@ -68,6 +68,15 @@ namespace ElectronicStore
 
         private void OpenForm(Form form)
         {
+            if(splitContainer1.Panel2.Controls.Count > 0)
+            {
+                var childForm = splitContainer1.Panel2.Controls[0] as Form;
+                if (childForm != null)
+                {
+                    childForm.Close();
+                }
+            }
+
             splitContainer1.Panel2.Controls.Clear();
             splitContainer1.Panel2.Controls.Add(form);
 
@@ -76,6 +85,14 @@ namespace ElectronicStore
 
         private void ExitForm(object sender, EventArgs e)
         {
+            if (splitContainer1.Panel2.Controls.Count > 0)
+            {
+                var childForm = splitContainer1.Panel2.Controls[0] as Form;
+                if (childForm != null)
+                {
+                    childForm.Close();
+                }
+            }
             Application.Exit();
         }
 
@@ -175,7 +192,11 @@ namespace ElectronicStore
                 case "Quản lý quyền truy cập":
                     var roleView = new RoleView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
                     OpenForm(roleView);
-                    break;                     
+                    break;
+                case "Quản lý cập nhật dữ liệu":
+                    var lockingView = new LockingView(CurrentUser) { Dock = DockStyle.Fill, TopLevel = false };
+                    OpenForm(lockingView);
+                    break;                    
                 default:
                     break;
             }
@@ -239,8 +260,9 @@ namespace ElectronicStore
             TreeNode treeNode4 = new TreeNode("Quản lý nội dung tin nhắn");
             TreeNode treeNode5 = new TreeNode("Quản lý nội dung email");
             TreeNode treeNode6 = new TreeNode("Quản lý tên thành phố");
+            TreeNode treeNodeLock = new TreeNode("Quản lý cập nhật dữ liệu");
             TreeNode treeNode7 = new TreeNode("Quản trị hệ thống", new TreeNode[] {
-            treeNode1,            treeNode2,            treeNode3,            treeNode4,            treeNode5,            treeNode6});
+            treeNode1,            treeNode2,            treeNode3,            treeNode4,            treeNode5,            treeNode6,    treeNodeLock});
 
             TreeNode treeNode8 = new TreeNode("Quản lý khách hàng");
             TreeNode treeNode9 = new TreeNode("Quản lý loại sản phẩm");
@@ -261,6 +283,18 @@ namespace ElectronicStore
             treeView.Nodes.Add(treeNode13);
             treeView.Nodes.Add(treeNode17);
             treeView.ExpandAll();
+        }
+
+        private void FormClosedEvent(object sender, FormClosedEventArgs e)
+        {
+            if (splitContainer1.Panel2.Controls.Count > 0)
+            {
+                var childForm = splitContainer1.Panel2.Controls[0] as Form;
+                if (childForm != null)
+                {
+                    childForm.Close();
+                }
+            }
         }
     }
 }
