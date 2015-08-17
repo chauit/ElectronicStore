@@ -35,7 +35,7 @@ namespace ElectronicStore.Administration
             var item = biz.LoadItem(id);
 
             textSendOn.Text = item.SendOn.ToString(Constants.DefaultDateTimeFormat);
-            textContent.Text = item.Content;
+            webBrowser.DocumentText = item.Content;
             textSendFrom.Text = item.SendFrom;
             textSendTo.Text = item.SendTo;            
 

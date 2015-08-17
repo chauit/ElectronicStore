@@ -79,7 +79,9 @@ namespace ElectronicStore.Main
             {                
                 groupBox1.Enabled = false;
                 groupBox2.Enabled = false;
+                groupBox3.Enabled = false;
                 groupBox5.Enabled = false;
+                groupBox7.Enabled = false;
                 buttonSave.Enabled = false;
 
                 var userBiz = new UserBiz();

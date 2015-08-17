@@ -62,7 +62,7 @@ namespace ElectronicStore.Main
         void SendMail(int id)
         {
             var biz = new DeliveryBiz();
-            var status = biz.SendEmail(id);
+            var status = biz.SendEmail(id, currentUser.FullName);
             if(!string.IsNullOrEmpty(status.Error))
             {
                 MessageBox.Show(status.Error);
@@ -73,7 +73,7 @@ namespace ElectronicStore.Main
         void SendSms(int id)
         {
             var biz = new DeliveryBiz();
-            var status = biz.SendSms(id);
+            var status = biz.SendSms(id, currentUser.FullName);
             if (!string.IsNullOrEmpty(status.Error))
             {
                 MessageBox.Show(status.Error);

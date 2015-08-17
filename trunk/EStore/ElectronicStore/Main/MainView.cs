@@ -497,7 +497,7 @@ namespace ElectronicStore.Main
             if (flagSendMailOrder)
             {
                 var biz = new OrderBiz();
-                var status = biz.SendEmail(Convert.ToInt32(e.Argument));
+                var status = biz.SendEmail(Convert.ToInt32(e.Argument), currentUser.FullName);
                 if (!string.IsNullOrEmpty(status.Error))
                 {
                     MessageBox.Show(status.Error);
@@ -513,7 +513,7 @@ namespace ElectronicStore.Main
                 var result = MessageBox.Show(content, string.Empty, MessageBoxButtons.OKCancel);
                 if(result == System.Windows.Forms.DialogResult.OK)
                 {
-                    var status = biz.SendSms(Convert.ToInt32(e.Argument));
+                    var status = biz.SendSms(Convert.ToInt32(e.Argument), currentUser.FullName);
                     if (!string.IsNullOrEmpty(status.Error))
                     {
                         MessageBox.Show(status.Error);
@@ -543,7 +543,7 @@ namespace ElectronicStore.Main
             if (flagSendMail)
             {
                 var biz = new DeliveryBiz();
-                var status = biz.SendEmail(Convert.ToInt32(e.Argument));
+                var status = biz.SendEmail(Convert.ToInt32(e.Argument), currentUser.FullName);
                 if (!string.IsNullOrEmpty(status.Error))
                 {
                     MessageBox.Show(status.Error);
@@ -553,7 +553,7 @@ namespace ElectronicStore.Main
             if (flagSendSms)
             {
                 var biz = new DeliveryBiz();
-                var status = biz.SendSms(Convert.ToInt32(e.Argument));
+                var status = biz.SendSms(Convert.ToInt32(e.Argument), currentUser.FullName);
                 if (!string.IsNullOrEmpty(status.Error))
                 {
                     MessageBox.Show(status.Error);
