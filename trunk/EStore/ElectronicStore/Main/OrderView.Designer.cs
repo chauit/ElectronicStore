@@ -29,30 +29,29 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderView));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewDateTimeColumn gridViewDateTimeColumn1 = new Telerik.WinControls.UI.GridViewDateTimeColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.buttonNew = new System.Windows.Forms.Button();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeliveryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnSms = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSendNotification = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDeliver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.radGridView = new Telerik.WinControls.UI.RadGridView();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView.MasterTemplate)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonNew
@@ -68,36 +67,6 @@
             this.buttonNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.NewItem);
-            // 
-            // dataGridView
-            // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToDeleteRows = false;
-            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.OrderId,
-            this.Customer,
-            this.OrderDate,
-            this.Status,
-            this.DeliveryDate,
-            this.columnEmail,
-            this.columnSms,
-            this.ColumnSendNotification,
-            this.ColumnDeliver,
-            this.RoleId});
-            this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView.Location = new System.Drawing.Point(3, 18);
-            this.dataGridView.MultiSelect = false;
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView.Size = new System.Drawing.Size(804, 319);
-            this.dataGridView.TabIndex = 1;
-            this.dataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CellClicked);
-            this.dataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.CellPainting);
             // 
             // buttonRefresh
             // 
@@ -143,7 +112,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dataGridView);
+            this.groupBox2.Controls.Add(this.radGridView);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
@@ -152,90 +121,119 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh sách hóa đơn";
             // 
-            // OrderId
+            // radGridView
             // 
-            this.OrderId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.OrderId.DataPropertyName = "OrderNo";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.OrderId.DefaultCellStyle = dataGridViewCellStyle1;
-            this.OrderId.HeaderText = "Mã đơn hàng";
-            this.OrderId.Name = "OrderId";
-            this.OrderId.ReadOnly = true;
-            this.OrderId.Width = 120;
+            this.radGridView.AutoScroll = true;
+            this.radGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radGridView.Location = new System.Drawing.Point(3, 18);
             // 
-            // Customer
+            // radGridView
             // 
-            this.Customer.DataPropertyName = "CustomerName";
-            this.Customer.HeaderText = "Khách hàng";
-            this.Customer.Name = "Customer";
-            this.Customer.ReadOnly = true;
-            // 
-            // OrderDate
-            // 
-            this.OrderDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.OrderDate.DataPropertyName = "OrderDate";
-            this.OrderDate.HeaderText = "Ngày tạo";
-            this.OrderDate.Name = "OrderDate";
-            this.OrderDate.ReadOnly = true;
-            this.OrderDate.Width = 120;
-            // 
-            // Status
-            // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Tình trạng";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 170;
-            // 
-            // DeliveryDate
-            // 
-            this.DeliveryDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DeliveryDate.DataPropertyName = "DeliveryName";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeliveryDate.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DeliveryDate.HeaderText = "Vận chuyển";
-            this.DeliveryDate.Name = "DeliveryDate";
-            this.DeliveryDate.ReadOnly = true;
-            this.DeliveryDate.Width = 120;
-            // 
-            // columnEmail
-            // 
-            this.columnEmail.DataPropertyName = "SendEmail";
-            this.columnEmail.HeaderText = "Email";
-            this.columnEmail.Name = "columnEmail";
-            this.columnEmail.ReadOnly = true;
-            // 
-            // columnSms
-            // 
-            this.columnSms.DataPropertyName = "SendMessage";
-            this.columnSms.HeaderText = "Tin nhắn";
-            this.columnSms.Name = "columnSms";
-            this.columnSms.ReadOnly = true;
-            // 
-            // ColumnSendNotification
-            // 
-            this.ColumnSendNotification.DataPropertyName = "IsSendNotification";
-            this.ColumnSendNotification.HeaderText = "Thông báo";
-            this.ColumnSendNotification.Name = "ColumnSendNotification";
-            this.ColumnSendNotification.ReadOnly = true;
-            // 
-            // ColumnDeliver
-            // 
-            this.ColumnDeliver.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColumnDeliver.DataPropertyName = "DeliveryType";
-            this.ColumnDeliver.HeaderText = "Vận chuyển";
-            this.ColumnDeliver.Name = "ColumnDeliver";
-            this.ColumnDeliver.ReadOnly = true;
-            this.ColumnDeliver.Width = 110;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "Id";
-            this.RoleId.HeaderText = "Id";
-            this.RoleId.Name = "RoleId";
-            this.RoleId.Visible = false;
+            this.radGridView.MasterTemplate.AllowAddNewRow = false;
+            this.radGridView.MasterTemplate.AllowCellContextMenu = false;
+            this.radGridView.MasterTemplate.AllowColumnChooser = false;
+            this.radGridView.MasterTemplate.AllowColumnHeaderContextMenu = false;
+            this.radGridView.MasterTemplate.AllowDeleteRow = false;
+            this.radGridView.MasterTemplate.AllowDragToGroup = false;
+            this.radGridView.MasterTemplate.AllowEditRow = false;
+            this.radGridView.MasterTemplate.AllowRowReorder = true;
+            this.radGridView.MasterTemplate.AllowRowResize = false;
+            this.radGridView.MasterTemplate.AutoGenerateColumns = false;
+            this.radGridView.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridViewTextBoxColumn1.AllowGroup = false;
+            gridViewTextBoxColumn1.FieldName = "OrderNo";
+            gridViewTextBoxColumn1.FormatString = "";
+            gridViewTextBoxColumn1.HeaderText = "Mã đơn hàng";
+            gridViewTextBoxColumn1.Name = "columnOrderNo";
+            gridViewTextBoxColumn1.ReadOnly = true;
+            gridViewTextBoxColumn1.Width = 66;
+            gridViewTextBoxColumn2.AllowGroup = false;
+            gridViewTextBoxColumn2.FieldName = "CustomerName";
+            gridViewTextBoxColumn2.FormatString = "";
+            gridViewTextBoxColumn2.HeaderText = "Khách hàng";
+            gridViewTextBoxColumn2.Name = "columnCustomerName";
+            gridViewTextBoxColumn2.ReadOnly = true;
+            gridViewTextBoxColumn2.Width = 66;
+            gridViewDateTimeColumn1.AllowGroup = false;
+            gridViewDateTimeColumn1.CustomFormat = "d/M/yyyy h:m tt";
+            gridViewDateTimeColumn1.FieldName = "OrderDate";
+            gridViewDateTimeColumn1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            gridViewDateTimeColumn1.FormatString = "";
+            gridViewDateTimeColumn1.HeaderText = "Ngày tạo";
+            gridViewDateTimeColumn1.Name = "columnOrderDate";
+            gridViewDateTimeColumn1.ReadOnly = true;
+            gridViewDateTimeColumn1.Width = 66;
+            gridViewTextBoxColumn3.AllowGroup = false;
+            gridViewTextBoxColumn3.FieldName = "Status";
+            gridViewTextBoxColumn3.FormatString = "";
+            gridViewTextBoxColumn3.HeaderText = "Tình trạng";
+            gridViewTextBoxColumn3.Name = "columnStatus";
+            gridViewTextBoxColumn3.ReadOnly = true;
+            gridViewTextBoxColumn3.Width = 160;
+            gridViewTextBoxColumn4.AllowGroup = false;
+            gridViewTextBoxColumn4.FieldName = "DeliveryName";
+            gridViewTextBoxColumn4.FormatString = "";
+            gridViewTextBoxColumn4.HeaderText = "Vận chuyển";
+            gridViewTextBoxColumn4.Name = "columnDelivery";
+            gridViewTextBoxColumn4.ReadOnly = true;
+            gridViewTextBoxColumn4.Width = 66;
+            gridViewTextBoxColumn5.AllowGroup = false;
+            gridViewTextBoxColumn5.FieldName = "SendEmail";
+            gridViewTextBoxColumn5.FormatString = "";
+            gridViewTextBoxColumn5.HeaderText = "Email";
+            gridViewTextBoxColumn5.Name = "columnSendEmail";
+            gridViewTextBoxColumn5.ReadOnly = true;
+            gridViewTextBoxColumn5.Width = 66;
+            gridViewTextBoxColumn6.AllowGroup = false;
+            gridViewTextBoxColumn6.FieldName = "SendMessage";
+            gridViewTextBoxColumn6.FormatString = "";
+            gridViewTextBoxColumn6.HeaderText = "Tin nhắn";
+            gridViewTextBoxColumn6.Name = "columnSendMessage";
+            gridViewTextBoxColumn6.ReadOnly = true;
+            gridViewTextBoxColumn6.Width = 66;
+            gridViewTextBoxColumn7.AllowGroup = false;
+            gridViewTextBoxColumn7.FieldName = "IsSendNotification";
+            gridViewTextBoxColumn7.FormatString = "";
+            gridViewTextBoxColumn7.HeaderText = "Thông báo";
+            gridViewTextBoxColumn7.Name = "columnIsSendNotification";
+            gridViewTextBoxColumn7.ReadOnly = true;
+            gridViewTextBoxColumn7.Width = 66;
+            gridViewTextBoxColumn8.AllowGroup = false;
+            gridViewTextBoxColumn8.FieldName = "DeliveryType";
+            gridViewTextBoxColumn8.FormatString = "";
+            gridViewTextBoxColumn8.HeaderText = "Vận chuyển";
+            gridViewTextBoxColumn8.Name = "columnDeliveryName";
+            gridViewTextBoxColumn8.ReadOnly = true;
+            gridViewTextBoxColumn8.Width = 66;
+            gridViewTextBoxColumn9.AllowGroup = false;
+            gridViewTextBoxColumn9.FieldName = "CreatedBy";
+            gridViewTextBoxColumn9.FormatString = "";
+            gridViewTextBoxColumn9.HeaderText = "Người tạo";
+            gridViewTextBoxColumn9.Name = "columnCreatedBy";
+            gridViewTextBoxColumn9.ReadOnly = true;
+            gridViewTextBoxColumn9.Width = 105;
+            this.radGridView.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewDateTimeColumn1,
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4,
+            gridViewTextBoxColumn5,
+            gridViewTextBoxColumn6,
+            gridViewTextBoxColumn7,
+            gridViewTextBoxColumn8,
+            gridViewTextBoxColumn9});
+            this.radGridView.MasterTemplate.EnableFiltering = true;
+            this.radGridView.MasterTemplate.EnableGrouping = false;
+            this.radGridView.MasterTemplate.EnableSorting = false;
+            this.radGridView.MasterTemplate.SelectionMode = Telerik.WinControls.UI.GridViewSelectionMode.CellSelect;
+            this.radGridView.Name = "radGridView";
+            this.radGridView.ShowGroupPanel = false;
+            this.radGridView.Size = new System.Drawing.Size(804, 319);
+            this.radGridView.TabIndex = 0;
+            this.radGridView.Text = "radGridView1";
+            this.radGridView.UseScrollbarsInHierarchy = true;
+            this.radGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick);
             // 
             // OrderView
             // 
@@ -248,11 +246,12 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OrderView";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView.MasterTemplate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,21 +259,11 @@
         #endregion
 
         private System.Windows.Forms.Button buttonNew;
-        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DeliveryDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnSms;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSendNotification;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDeliver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoleId;
+        private Telerik.WinControls.UI.RadGridView radGridView;
     }
 }
